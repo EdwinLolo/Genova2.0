@@ -1,4 +1,7 @@
-export default function Home() {
-    const heading = "Laravel Vite with React JS";
-    return <div className="bg-blue-500"> {heading}</div>;
+import React from "react";
+
+function Home() {
+    return <div>Home</div>;
 }
+
+export default Home;
