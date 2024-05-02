@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Navbar() {
+    const [isOpen, setIsOpen] = useState(false); // State to manage dropdown visibility
+
     return (
         <div>
             <nav className="bg-white border-gray-200 dark:bg-gray-900">
@@ -23,8 +25,9 @@ function Navbar() {
                             type="button"
                             data-collapse-toggle="navbar-search"
                             aria-controls="navbar-search"
-                            aria-expanded="false"
+                            aria-expanded={isOpen}
                             className="md:hidden text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 me-1"
+                            onClick={() => setIsOpen(!isOpen)} // Toggle the state on click
                         >
                             <svg
                                 className="w-5 h-5"
@@ -74,7 +77,8 @@ function Navbar() {
                             type="button"
                             className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
                             aria-controls="navbar-search"
-                            aria-expanded="false"
+                            aria-expanded={isOpen}
+                            onClick={() => setIsOpen(!isOpen)} // Toggle the state on click
                         >
                             <span className="sr-only">Open main menu</span>
                             <svg
@@ -95,7 +99,9 @@ function Navbar() {
                         </button>
                     </div>
                     <div
-                        className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
+                        className={`items-center justify-between w-full md:flex md:w-auto md:order-1 ${
+                            isOpen ? "block" : "hidden"
+                        }`} // Conditional rendering based on state
                         id="navbar-search"
                     >
                         <div className="relative mt-3 md:hidden">
