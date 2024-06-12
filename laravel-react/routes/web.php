@@ -15,4 +15,8 @@ Route::get('/test', function () {
     return Inertia::render('Test');
 });
 
+Route::get('/rangkaian/eulympic', function () {
+    return Inertia::render('PageEulympic');
+});
+
 
