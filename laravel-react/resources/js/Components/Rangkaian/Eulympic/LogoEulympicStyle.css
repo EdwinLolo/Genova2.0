@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+}
+
+.LogoEulympicPNG {
+    position: relative;
+    z-index: 1;
+}
+
+.info {
+    width: 100%;
+    position: absolute;
+    color: black;
+    text-align: center;
+    top: 20px;
+    font-size: 13px;
+    padding: 0 3rem 0 3rem;
+    /* z-index: -2; */
+}
+
+.info h1 {
+    font-size: 20px;
+    text-decoration: underline;
+}
+
+@media (min-width: 375px) {
+    .info {
+        font-size: 16px;
+        top: 20px;
+        padding: 0 3rem 0 3rem;
+    }
+
+    .info h1 {
+        font-size: 25px;
+        text-decoration: underline;
+    }
+}
+
+@media (min-width: 425px) {
+    .info {
+        font-size: 18px;
+        top: 0vh;
+        padding: 0 3rem 0 3rem;
+    }
+
+    .info h1 {
+        font-size: 30px;
+        text-decoration: underline;
+    }
+}
+
+@media (min-width: 470px) {
+    .info {
+        font-size: 20px;
+        top: 0vh;
+        padding: 0 3rem 0 3rem;
+    }
+
+    .info h1 {
+        font-size: 30px;
+        text-decoration: underline;
+    }
+}
+
+@media (min-width: 520px) {
+    .info {
+        font-size: 22px;
+        top: 0vh;
+        padding: 0 3.2rem 0 3.2rem;
+    }
+
+    .info h1 {
+        font-size: 35px;
+        text-decoration: underline;
+    }
+}
+
+@media (min-width: 560px) {
+    .info {
+        font-size: 25px;
+        top: 0vh;
+        padding: 0 3.2rem 0 3.2rem;
+    }
+
+    .info h1 {
+        font-size: 35px;
+        text-decoration: underline;
+    }
+}
+
+@media (min-width: 768px) {
+    .info {
+        font-size: 35px;
+        top: 0vh;
+        padding: 0 4.3rem 0 4.3rem;
+    }
+
+    .info h1 {
+        font-size: 45px;
+        text-decoration: underline;
+    }
+}
+
+@media (min-width: 900px) {
+    .info {
+        font-size: 33px;
+        top: 0vh;
+        padding: 0 6rem 0 6rem;
+    }
+
+    .info h1 {
+        font-size: 45px;
+        text-decoration: underline;
+    }
+}
+
+@media (min-width: 1024px) {
+    .info {
+        font-size: 35px;
+        top: 0vh;
+        padding: 0 7rem 0 7rem;
+    }
+
+    .info h1 {
+        font-size: 45px;
+        text-decoration: underline;
+        margin-bottom: 30px;
+    }
+}

@@ -22,6 +22,10 @@ Route::get('/login', [AdminController::class, 'log']);
 Route::post('/login', [AdminController::class, 'login']);
 Route::get('/logout', [AdminController::class, 'logout']);
 
+Route::get('/rangkaian/eulympic', function () {
+    return Inertia::render('PageEulympic');
+});
+
 Route::prefix('/admin')->middleware([AuthenticateAdmin::class])->group(function () {
     Route::get('/', [AdminController::class, 'index']);
     Route::get('/input', [AdminController::class, 'input']);
