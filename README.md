@@ -6,7 +6,7 @@
 2.  run `composer install`,`bun install`
 3.  Setup the database first (.env)
 4.  generate laravel key ( run `php artisan key:generate` )
-5.  run `php artisan migrate` ( run seeder if needed `php artisan seeder:db` )
+5.  run `php artisan migrate` ( run seeder if needed `php artisan db:seed LombaSeeder` )
 6.  run `php artisan storage:link` for storage link laravel
 7.  run the web:
 
