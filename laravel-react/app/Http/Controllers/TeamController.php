@@ -76,7 +76,6 @@ class TeamController extends Controller
             'members.*.idLine' => 'nullable|string|max:50',
             'members.*.ktm' => 'required|file|mimes:jpg,jpeg,png|max:2048',
         ]);
-
         try {
             // Start transaction
             DB::beginTransaction();
@@ -117,7 +116,7 @@ class TeamController extends Controller
                 // Create connection between Mahasiswa and Team
                 MengikutiTeam::create([
                     'nim' => $mahasiswa->nim,
-                    'id_team' => $team->id,
+                    'id_team' => $team->id_team,
                     'tglDaftar' => now(),
                     'buktiTF' => $buktiTFPath,
                 ]);
@@ -139,7 +138,6 @@ class TeamController extends Controller
             if ($errorCode === 1062) { // MySQL error code for duplicate entry
                 return back()->withErrors(['error' => 'Duplicate entry error.', 'message' => $errorMessageConcat]);
             }
-
             // Log the exception or handle it appropriately
             return back()->withErrors(['error' => 'Database error occurred.']);
         } catch (\Exception $e) {
@@ -150,6 +148,7 @@ class TeamController extends Controller
             return back()->withErrors(['error' => 'Failed to process team input data.']);
         }
     }
+
     public function info($id_team)
     {
         $team = Team::where('id_team', $id_team)->first();

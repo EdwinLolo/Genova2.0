@@ -3,11 +3,11 @@ import NavbarAdmin from "../../Components/Navbar/NavbarAdmin";
 
 function TeamDetails({ team, lomba, mahasiswas }) {
     return (
-        <div className="bg-gray-300 m-0 w-full">
+        <div className="bg-gray-300 min-h-screen">
             <NavbarAdmin />
-            <div className="flex flex-row">
-                <div className="p-10">
-                    <table className="table-auto">
+            <div className="flex flex-col md:flex-row ">
+                <div className="p-10 w-full md:w-1/2">
+                    <table className="table-auto w-full">
                         <tbody>
                             <tr>
                                 <td className="font-bold">Nama Team:</td>
@@ -24,9 +24,9 @@ function TeamDetails({ team, lomba, mahasiswas }) {
                         </tbody>
                     </table>
                 </div>
-                <div className="flex flex-auto justify-center m-10">
-                    <div className="flex flex-col">
-                        <table className="table-auto">
+                <div className="flex flex-auto justify-center items-center w-full md:w-1/2 m-10">
+                    <div>
+                        <table className="table-auto w-full">
                             <tbody>
                                 <tr>
                                     <td className="font-bold">
@@ -35,8 +35,8 @@ function TeamDetails({ team, lomba, mahasiswas }) {
                                     <td className="pl-4">
                                         <img
                                             src={`/storage/${team.buktiTF}`}
-                                            alt="KTM"
-                                            className="h-64 w-64 object-cover"
+                                            alt="Bukti Transfer"
+                                            className="h-32 w-32 md:h-64 md:w-64 object-cover"
                                         />
                                     </td>
                                 </tr>
@@ -45,9 +45,9 @@ function TeamDetails({ team, lomba, mahasiswas }) {
                     </div>
                 </div>
             </div>
-            <h1 className="m-5 w-1/3 text-center font-bold">Anggota</h1>
-            <div className="flex">
-                <table className="table-auto">
+            <h1 className="m-5 text-center font-bold">Anggota</h1>
+            <div className="flex justify-center">
+                <table className="table-auto w-full md:w-2/3">
                     <thead>
                         <tr>
                             <th className="pl-4">Nama</th>
@@ -58,7 +58,7 @@ function TeamDetails({ team, lomba, mahasiswas }) {
                     </thead>
                     <tbody>
                         {mahasiswas.map((member, index) => (
-                            <tr>
+                            <tr key={index}>
                                 <td className="pl-4">{member.namaLengkap}</td>
                                 <td className="pl-4">{member.nim}</td>
                                 <td className="pl-4">{member.idLine}</td>
@@ -66,7 +66,7 @@ function TeamDetails({ team, lomba, mahasiswas }) {
                                     <img
                                         src={`/storage/${member.ktm}`}
                                         alt="KTM"
-                                        className="h-64 w-64 object-cover"
+                                        className="h-16 w-16 object-cover"
                                     />
                                 </td>
                             </tr>

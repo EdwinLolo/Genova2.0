@@ -57,7 +57,7 @@ function Teams({ data }) {
     return (
         <div className="bg-gray-300 m-0 w-full">
             <NavbarAdmin />
-            <div className="relative overflow-x-auto shadow-md p-0 flex">
+            <div className="relative overflow-x-auto shadow-md p-0 flex flex-col md:flex-row">
                 <div className="leftSide">
                     <SidebarAdmin />
                 </div>
@@ -109,9 +109,7 @@ function Teams({ data }) {
                                 <th scope="col" className="px-6 py-3">
                                     Bukti TF
                                 </th>
-                                <th scope="col" className="px-6 py-3">
-                                    Tanggal Daftar
-                                </th>
+
                                 <th scope="col" className="px-6 py-3">
                                     Action
                                 </th>
@@ -145,13 +143,13 @@ function Teams({ data }) {
                                                 className="h-16 w-16 object-cover"
                                             />
                                         </td>
-                                        <td className="px-6 py-4">
-                                            {item.team.tglDaftar}
-                                        </td>
+
                                         <td className="px-6 py-4">
                                             <button
                                                 onClick={() =>
-                                                    handleInfo(item.id_team)
+                                                    handleInfo(
+                                                        item.team.id_team
+                                                    )
                                                 }
                                                 className="text-green-600 font-bold hover:text-green-900"
                                                 type="button"
@@ -160,7 +158,9 @@ function Teams({ data }) {
                                             </button>
                                             <button
                                                 onClick={() =>
-                                                    handleEdit(item.id_team)
+                                                    handleEdit(
+                                                        item.team.id_team
+                                                    )
                                                 }
                                                 className="ml-4 text-blue-600 font-bold hover:text-blue-900"
                                                 type="button"
@@ -169,7 +169,9 @@ function Teams({ data }) {
                                             </button>
                                             <button
                                                 onClick={() =>
-                                                    handleDelete(item.id_team)
+                                                    handleDelete(
+                                                        item.team.id_team
+                                                    )
                                                 }
                                                 className="ml-4 text-red-600 font-bold hover:text-red-900"
                                                 type="button"

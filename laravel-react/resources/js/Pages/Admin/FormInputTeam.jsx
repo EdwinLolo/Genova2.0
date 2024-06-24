@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import NavbarAdmin from "../../Components/Navbar/NavbarAdmin";
 import SidebarAdmin from "../../Components/Admin/SidebarAdmin";
 import { useForm } from "@inertiajs/inertia-react";
 import { toast } from "react-toastify";
 
 function FormInputTeam({ lombas }) {
-    const { data, setData, post, errors, processing } = useForm({
+    const { data, setData, post } = useForm({
         lombaId: null,
         namaTeam: "",
-        buktiTf: null, // Corrected field name to buktiTf
+        buktiTf: null,
         members: [],
     });
 
@@ -17,15 +17,14 @@ function FormInputTeam({ lombas }) {
     const handleButton = (lomba) => {
         setSelectedLomba(lomba);
         setData({
-            ...data,
             lombaId: lomba.id_lomba,
             namaTeam: "",
-            buktiTf: null, // Corrected field name to buktiTf
+            buktiTf: null,
             members: Array.from({ length: lomba.besarTeam }, () => ({
                 namaLengkap: "",
                 nim: "",
                 idLine: "",
-                ktm: null, // Initialize ktm as null for each member
+                ktm: null,
             })),
         });
     };
@@ -46,7 +45,7 @@ function FormInputTeam({ lombas }) {
         const updatedMembers = [...data.members];
         updatedMembers[index] = {
             ...updatedMembers[index],
-            ktm: file, // Update ktm field with the selected file
+            ktm: file,
         };
         setData({
             ...data,
@@ -73,7 +72,6 @@ function FormInputTeam({ lombas }) {
                 onError: (error) => {
                     console.log(error);
                     const error_message = "Error: " + error.message;
-                    // Handle general errors
                     toast.error(error_message);
                 },
             });
@@ -86,13 +84,13 @@ function FormInputTeam({ lombas }) {
     return (
         <div>
             <NavbarAdmin />
-            <div className="flex bg-gray-300">
-                <div className="flex flex-col">
+            <div className="flex bg-gray-300 min-h-screen flex-col md:flex-row">
+                <div className="flex flex-col md:flex-row ">
                     <SidebarAdmin />
                 </div>
-                <div className="flex flex-row flex-auto justify-center">
-                    <div className="flex flex-col items-center">
-                        <div>
+                <div className="flex flex-col md:flex-row flex-1">
+                    <div className="m-4">
+                        <div className="flex flex-wrap justify-center">
                             {lombas.map((lomba, index) => (
                                 <button
                                     key={index}
@@ -108,20 +106,21 @@ function FormInputTeam({ lombas }) {
                                 </button>
                             ))}
                         </div>
-                        <div className="mt-4">
-                            {selectedLomba && (
-                                <div className="flex justify-center mb-4">
-                                    Lomba: {selectedLomba.namaLomba}
-                                </div>
-                            )}
-                            {selectedLomba && (
-                                <form
-                                    onSubmit={handleFormSubmit}
-                                    encType="multipart/form-data"
-                                >
-                                    <table className="table-auto">
+                        {selectedLomba && (
+                            <div className="flex justify-center my-4">
+                                Lomba: {selectedLomba.namaLomba}
+                            </div>
+                        )}
+                        {selectedLomba && (
+                            <form
+                                onSubmit={handleFormSubmit}
+                                encType="multipart/form-data"
+                                className="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md"
+                            >
+                                <div className="overflow-x-auto">
+                                    <table className="table-auto w-full">
                                         <thead>
-                                            <tr>
+                                            <tr className="bg-gray-200">
                                                 <th className="px-4 py-2">
                                                     Anggota
                                                 </th>
@@ -142,9 +141,14 @@ function FormInputTeam({ lombas }) {
                                         <tbody>
                                             {data.members.map(
                                                 (member, index) => (
-                                                    <tr key={index}>
-                                                        <td>{index + 1}</td>
-                                                        <td>
+                                                    <tr
+                                                        key={index}
+                                                        className="border-b border-gray-200"
+                                                    >
+                                                        <td className="px-4 py-2">
+                                                            {index + 1}
+                                                        </td>
+                                                        <td className="px-4 py-2">
                                                             <input
                                                                 type="text"
                                                                 name={`namaLengkap[${index}]`}
@@ -160,9 +164,10 @@ function FormInputTeam({ lombas }) {
                                                                     )
                                                                 }
                                                                 required
+                                                                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                                                             />
                                                         </td>
-                                                        <td>
+                                                        <td className="px-4 py-2">
                                                             <input
                                                                 type="text"
                                                                 name={`nim[${index}]`}
@@ -178,9 +183,10 @@ function FormInputTeam({ lombas }) {
                                                                     )
                                                                 }
                                                                 required
+                                                                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                                                             />
                                                         </td>
-                                                        <td>
+                                                        <td className="px-4 py-2">
                                                             <input
                                                                 type="text"
                                                                 name={`idLine[${index}]`}
@@ -195,9 +201,10 @@ function FormInputTeam({ lombas }) {
                                                                             .value
                                                                     )
                                                                 }
+                                                                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                                                             />
                                                         </td>
-                                                        <td>
+                                                        <td className="px-4 py-2">
                                                             <input
                                                                 type="file"
                                                                 name={`ktm[${index}]`}
@@ -217,52 +224,59 @@ function FormInputTeam({ lombas }) {
                                             )}
                                         </tbody>
                                     </table>
-                                    <div className="mt-4">
-                                        <label htmlFor="namaTeam">
-                                            Nama Team:
-                                        </label>
-                                        <input
-                                            type="text"
-                                            id="namaTeam"
-                                            name="namaTeam"
-                                            value={data.namaTeam}
-                                            onChange={(e) =>
-                                                setData({
-                                                    ...data,
-                                                    namaTeam: e.target.value,
-                                                })
-                                            }
-                                            required
-                                        />
-                                    </div>
-                                    <div className="mt-4">
-                                        <label htmlFor="buktiTf">
-                                            Bukti Transfer:
-                                        </label>
-                                        <input
-                                            type="file"
-                                            id="buktiTf"
-                                            name="buktiTf"
-                                            onChange={(e) =>
-                                                setData({
-                                                    ...data,
-                                                    buktiTf: e.target.files[0],
-                                                })
-                                            }
-                                            required
-                                        />
-                                    </div>
-                                    <div className="mt-4">
-                                        <button
-                                            type="submit"
-                                            className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
-                                        >
-                                            Submit
-                                        </button>
-                                    </div>
-                                </form>
-                            )}
-                        </div>
+                                </div>
+                                <div className="mt-4">
+                                    <label
+                                        htmlFor="namaTeam"
+                                        className="block font-medium text-sm text-gray-700"
+                                    >
+                                        Nama Team:
+                                    </label>
+                                    <input
+                                        type="text"
+                                        id="namaTeam"
+                                        name="namaTeam"
+                                        value={data.namaTeam}
+                                        onChange={(e) =>
+                                            setData({
+                                                ...data,
+                                                namaTeam: e.target.value,
+                                            })
+                                        }
+                                        required
+                                        className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                    />
+                                </div>
+                                <div className="mt-4">
+                                    <label
+                                        htmlFor="buktiTf"
+                                        className="block font-medium text-sm text-gray-700"
+                                    >
+                                        Bukti Transfer:
+                                    </label>
+                                    <input
+                                        type="file"
+                                        id="buktiTf"
+                                        name="buktiTf"
+                                        onChange={(e) =>
+                                            setData({
+                                                ...data,
+                                                buktiTf: e.target.files[0],
+                                            })
+                                        }
+                                        required
+                                    />
+                                </div>
+                                <div className="mt-4">
+                                    <button
+                                        type="submit"
+                                        className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+                                    >
+                                        Submit
+                                    </button>
+                                </div>
+                            </form>
+                        )}
                     </div>
                 </div>
             </div>

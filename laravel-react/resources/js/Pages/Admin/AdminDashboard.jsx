@@ -50,7 +50,7 @@ function AdminDashboard({ data }) {
     return (
         <div className="bg-gray-300 m-0 w-full">
             <NavbarAdmin />
-            <div className="relative overflow-x-auto shadow-md p-0 flex">
+            <div className="relative overflow-x-auto shadow-md p-0 flex flex-col md:flex-row">
                 <div className="leftSide">
                     <SidebarAdmin />
                 </div>

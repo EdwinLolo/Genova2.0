@@ -16,4 +16,5 @@ class Team extends Model
         "buktiTF"
     ];
     protected $primaryKey = 'id_team';
+    public $incrementing = true;
 }
