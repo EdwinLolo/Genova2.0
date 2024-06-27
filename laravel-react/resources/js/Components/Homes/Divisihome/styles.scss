@@ -1,0 +1,334 @@
+.pembungkusrangkaianhome {
+    height: 100dvh;
+    width: 100vw;
+}
+
+.App {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel {
+    position: relative;
+    width: 380px;
+    height: 380px;
+    border: 4px solid rgb(147, 86, 86);
+    border-radius: 50%;
+    transition: 0.5s;
+    transform: rotate(15deg);
+    transform-origin: center center;
+}
+// .test {
+//   position: absolute;
+//   left: 600px;
+//   width: 20px;
+//   height: 364px;
+//   background: #000;
+
+//   &:before {
+//     content: '';
+//     position: absolute;
+//     width: 20px;
+//     height: 20px;
+//     background: red;
+//     z-index: 1111;
+//     top: 50%;
+//     transform: translateY(-50%);
+//   }
+// }
+.carousel::before {
+    /* content: ""; */
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background: #000;
+    border-radius: 50% 0 0 50%;
+}
+
+.carousel .active-item {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    // background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: white;
+    transition: 0.5s;
+}
+
+.active-item .gambar1 {
+    width: 60%;
+    height: 60%;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+// с = 2 Pr
+.item-carousel {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid black;
+    background: #000000;
+    width: 65px;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    margin: 2px;
+    bottom: 0;
+    transition: 0.5s;
+
+    &.next {
+        // background: blue;
+        border: 2px solid blue;
+        color: white;
+    }
+    &.prev {
+        // background: green;
+        border: 2px solid green;
+        color: white;
+    }
+
+    &.active {
+        background: #000;
+        border: 2px solid red;
+        color: white;
+    }
+
+    &:nth-child(1) {
+        right: -30px;
+        top: 110px;
+    }
+
+    &:nth-child(2) {
+        right: -28px;
+        top: 205px;
+    }
+
+    &:nth-child(3) {
+        right: 15px;
+        top: 280px;
+    }
+
+    &:nth-child(4) {
+        right: 85px;
+        top: 330px;
+    }
+
+    &:nth-child(5) {
+        right: 170px;
+        top: 340px;
+    }
+
+    &:nth-child(6) {
+        right: 250px;
+        top: 315px;
+    }
+
+    &:nth-child(7) {
+        right: 305px;
+        top: 255px;
+    }
+
+    &:nth-child(8) {
+        right: 340px;
+        top: 170px;
+    }
+
+    &:nth-child(9) {
+        right: 325px;
+        top: 75px;
+    }
+
+    &:nth-child(10) {
+        right: 265px;
+        top: 3px;
+    }
+
+    &:nth-child(11) {
+        right: 175px; /* Adjust as needed */
+        top: -30px; /* Adjust as needed */
+    }
+
+    &:nth-child(12) {
+        right: 80px; /* Adjust as needed */
+        top: -20px; /* Adjust as needed */
+    }
+
+    &:nth-child(13) {
+        right: 10px; /* Adjust as needed */
+        top: 30px; /* Adjust as needed */
+    }
+}
+
+.item-carousel .gambar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+// media quary for min-width 1024px
+@media only screen and (min-width: 1024px) {
+    .carousel {
+        width: 500px;
+        height: 500px;
+        border: 5px solid rgb(147, 86, 86);
+    }
+
+    .item-carousel {
+        width: 90px;
+        height: 90px;
+
+        &:nth-child(1) {
+            right: -45px;
+            top: 135px;
+        }
+
+        &:nth-child(2) {
+            right: -40px;
+            top: 245px;
+        }
+
+        &:nth-child(3) {
+            right: 5px;
+            top: 350px;
+        }
+
+        &:nth-child(4) {
+            right: 98px;
+            top: 420px;
+        }
+
+        &:nth-child(5) {
+            right: 215px;
+            top: 445px;
+        }
+
+        &:nth-child(6) {
+            right: 335px;
+            top: 405px;
+        }
+
+        &:nth-child(7) {
+            right: 420px;
+            top: 315px;
+        }
+
+        &:nth-child(8) {
+            right: 445px;
+            top: 200px;
+        }
+
+        &:nth-child(9) {
+            right: 415px;
+            top: 80px;
+        }
+
+        &:nth-child(10) {
+            right: 335px;
+            top: -5px;
+        }
+
+        &:nth-child(11) {
+            right: 220px; /* Adjust as needed */
+            top: -40px; /* Adjust as needed */
+        }
+
+        &:nth-child(12) {
+            right: 95px; /* Adjust as needed */
+            top: -30px; /* Adjust as needed */
+        }
+
+        &:nth-child(13) {
+            right: 9px; /* Adjust as needed */
+            top: 35px; /* Adjust as needed */
+        }
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    .carousel {
+        width: 300px;
+        height: 300px;
+        border: 3px solid rgb(147, 86, 86);
+    }
+
+    .item-carousel {
+        width: 50px;
+        height: 50px;
+
+        &:nth-child(1) {
+            right: -30px;
+            top: 110px;
+        }
+
+        &:nth-child(2) {
+            right: -20px;
+            top: 175px;
+        }
+
+        &:nth-child(3) {
+            right: 20px;
+            top: 230px;
+        }
+
+        &:nth-child(4) {
+            right: 85px;
+            top: 265px;
+        }
+
+        &:nth-child(5) {
+            right: 155px;
+            top: 265px;
+        }
+
+        &:nth-child(6) {
+            right: 215px;
+            top: 235px;
+        }
+
+        &:nth-child(7) {
+            right: 260px;
+            top: 180px;
+        }
+
+        &:nth-child(8) {
+            right: 270px;
+            top: 105px;
+        }
+
+        &:nth-child(9) {
+            right: 245px;
+            top: 40px;
+        }
+
+        &:nth-child(10) {
+            right: 190px;
+            top: -9px;
+        }
+
+        &:nth-child(11) {
+            right: 115px; /* Adjust as needed */
+            top: -25px; /* Adjust as needed */
+        }
+
+        &:nth-child(12) {
+            right: 45px; /* Adjust as needed */
+            top: -5px; /* Adjust as needed */
+        }
+
+        &:nth-child(13) {
+            right: -5px; /* Adjust as needed */
+            top: 40px; /* Adjust as needed */
+        }
+    }
+}

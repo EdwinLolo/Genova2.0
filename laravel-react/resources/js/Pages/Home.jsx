@@ -1,12 +1,14 @@
 import React from "react";
-import Hero from "../Components/Homes/Hero";
+import Divisi from "../Components/Homes/Divisihome/Divisi";
 import Navbar from "../Components/Navbar/Navbar";
+// import Tujuan from "../Components/Homes/Hero/Tujuan";
 
 function Home() {
     return (
-        <div>
+        <div className="overflow-hidden">
             <Navbar />
-            <Hero />
+            {/* <Tujuan /> */}
+            <Divisi />
         </div>
     );
 }
