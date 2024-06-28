@@ -95,8 +95,8 @@ const App = () => {
     };
 
     return (
-        <div className="pembungkusrangkaian home">
-            <div className="my-[100px] App">
+        <div className="pembungkusrangkaianhome">
+            <div className="lg:mt-[100px] xl:mt-[200px] mt-36 App">
                 {/* <button onClick={next}>Next</button>
                 <button onClick={prev}>Prev</button> */}
                 <div className="test" />

@@ -1,6 +1,9 @@
 .pembungkusrangkaianhome {
-    height: 100dvh;
+    height: 80dvh;
     width: 100vw;
+    background-image: url(../../../Assets/HomeAssets/weblangit.webp);
+    background-size: 100vw 100vh;
+    overflow: hidden;
 }
 
 .App {
@@ -9,6 +12,7 @@
     justify-content: center;
     width: 100%;
     height: 100%;
+    // margin-top: 175px;
 }
 
 .carousel {
@@ -178,6 +182,10 @@
 
 // media quary for min-width 1024px
 @media only screen and (min-width: 1024px) {
+    .pembungkusrangkaianhome {
+        height: 100dvh;
+    }
+
     .carousel {
         width: 500px;
         height: 500px;
@@ -324,6 +332,88 @@
         &:nth-child(12) {
             right: 45px; /* Adjust as needed */
             top: -5px; /* Adjust as needed */
+        }
+
+        &:nth-child(13) {
+            right: -5px; /* Adjust as needed */
+            top: 40px; /* Adjust as needed */
+        }
+    }
+}
+
+@media only screen and (max-width: 355px) {
+    .App {
+        margin-top: 75px;
+    }
+
+    .carousel {
+        width: 270px;
+        height: 270px;
+        border: 3px solid rgb(147, 86, 86);
+    }
+
+    .item-carousel {
+        width: 45px;
+        height: 45px;
+
+        &:nth-child(1) {
+            right: -30px;
+            top: 100px;
+        }
+
+        &:nth-child(2) {
+            right: -17px;
+            top: 160px;
+        }
+
+        &:nth-child(3) {
+            right: 20px;
+            top: 210px;
+        }
+
+        &:nth-child(4) {
+            right: 73px;
+            top: 235px;
+        }
+
+        &:nth-child(5) {
+            right: 132px;
+            top: 240px;
+        }
+
+        &:nth-child(6) {
+            right: 185px;
+            top: 212px;
+        }
+
+        &:nth-child(7) {
+            right: 228px;
+            top: 168px;
+        }
+
+        &:nth-child(8) {
+            right: 240px;
+            top: 108px;
+        }
+
+        &:nth-child(9) {
+            right: 223px;
+            top: 42px;
+        }
+
+        &:nth-child(10) {
+            right: 170px;
+            top: -8px;
+        }
+
+        &:nth-child(11) {
+            right: 103px; /* Adjust as needed */
+            top: -25px; /* Adjust as needed */
+        }
+
+        &:nth-child(12) {
+            right: 37px; /* Adjust as needed */
+            top: -6px; /* Adjust as needed */
         }
 
         &:nth-child(13) {
