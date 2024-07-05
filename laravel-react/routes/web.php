@@ -11,7 +11,7 @@ Route::get('/', function () {
 });
 
 Route::get('/division', function () {
-    return Inertia::render('Divisi');
+    return Inertia::render('Divisi/Divisi');
 });
 
 Route::get('/test', function () {
