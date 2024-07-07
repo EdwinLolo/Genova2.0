@@ -199,4 +199,12 @@ class AdminController extends Controller
             return back()->with('info', 'No changes were made');
         }
     }
+
+    public function unify()
+    {
+        // $data = Mahasiswa::all();
+
+        // return Inertia::render('Admin/UnifyDashboard', ['data' => $data]);
+        return "Sementara belom ada model dan migration";
+    }
 }

@@ -31,6 +31,7 @@ Route::prefix('/admin')->middleware([AuthenticateAdmin::class])->group(function 
     Route::get('/input', [AdminController::class, 'input']);
     Route::post('/input/data', [AdminController::class, 'regist']);
     Route::delete('/delete/{id}', [AdminController::class, 'delete']);
+    Route::get('/unify', [AdminController::class, 'unify']);
 
     Route::prefix('/team')->group(function () {
         Route::get('/', [TeamController::class, 'index']);
