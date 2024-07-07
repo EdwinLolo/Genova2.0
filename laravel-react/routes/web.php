@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\TeamController;
+use App\Http\Controllers\UnifyController;
 use App\Http\Middleware\AuthenticateAdmin;
 use Illuminate\Support\Facades\Route;
 use Inertia\inertia;
@@ -31,8 +32,14 @@ Route::prefix('/admin')->middleware([AuthenticateAdmin::class])->group(function 
     Route::get('/input', [AdminController::class, 'input']);
     Route::post('/input/data', [AdminController::class, 'regist']);
     Route::delete('/delete/{id}', [AdminController::class, 'delete']);
-    Route::get('/unify', [AdminController::class, 'unify']);
-
+    Route::prefix('/unify')->group(function () {
+        Route::post('/', [UnifyController::class, 'register']);
+        Route::get('/', [UnifyController::class, 'index']);
+        Route::get('/external', [UnifyController::class, 'external']);
+        Route::get('/external/{id}', [UnifyController::class, 'externalDetails']);
+        Route::get('/internal', [UnifyController::class, 'internal']);
+        Route::get('/internal/{id}', [UnifyController::class, 'internalDetails']);
+    });
     Route::prefix('/team')->group(function () {
         Route::get('/', [TeamController::class, 'index']);
         Route::get('/input', [TeamController::class, 'input']);

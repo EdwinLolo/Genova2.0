@@ -2,180 +2,291 @@ import React, { useState } from "react";
 import NavbarAdmin from "../../Components/Navbar/NavbarAdmin";
 import SidebarAdmin from "../../Components/Admin/SidebarAdmin";
 import axios from "axios";
-import { Inertia } from "@inertiajs/inertia";
 import { toast } from "react-toastify";
 
-function UnifyDashboard({ data }) {
-    const [searchQuery, setSearchQuery] = useState("");
+function UnifyDashboard() {
+    const [selectedForm, setSelectedForm] = useState(null);
+    const [data, setData] = useState({
+        nama: "",
+        jurusan: "",
+        angkatan: "",
+        noHp: "",
+        email: "",
+        jumlahTiket: 0,
+        buktiTf: null,
+    });
+    const [errors, setErrors] = useState({});
+    const [processing, setProcessing] = useState(false);
 
-    const filteredData = data.filter(
-        (item) =>
-            item.namaLengkap
-                .toLowerCase()
-                .includes(searchQuery.toLowerCase()) ||
-            item.nim.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            item.idLine.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-
-    const handleInfo = (nim) => {
-        Inertia.visit(`/admin/${nim}`);
-    };
-
-    const handleDelete = (id) => {
-        if (window.confirm("Are you sure you want to delete this item?")) {
-            axios
-                .delete(`/admin/delete/${id}`)
-                .then((response) => {
-                    console.log(response.data);
-                    toast.success("Item deleted successfully", {
-                        position: "bottom-right",
-                    });
-                    // Refresh or update data after successful deletion
-                    Inertia.reload(); // Or use another method to update state
-                })
-                .catch((error) => {
-                    console.error(
-                        "There was an error deleting the item!",
-                        error
-                    );
-                    toast.error("Failed to delete item", {
-                        position: "bottom-right", // Position the toast at bottom right
-                    });
-                });
+    const handleButton = (x) => {
+        setSelectedForm(x);
+        if (x === "internal") {
+            setData({
+                nama: "",
+                jurusan: "",
+                angkatan: "",
+                noHp: "",
+                email: "",
+                jumlahTiket: 0,
+                buktiTf: null,
+            });
+        } else if (x === "external") {
+            setData({
+                nama: "",
+                noHp: "",
+                email: "",
+                jumlahTiket: 0,
+                buktiTf: null,
+            });
         }
     };
-    const handleEdit = (nim) => {
-        Inertia.visit(`/admin/edit/${nim}`);
+
+    const handleChange = (e) => {
+        const { name, value, type, files } = e.target;
+        if (type === "file") {
+            setData((prevData) => ({
+                ...prevData,
+                [name]: files[0],
+            }));
+        } else {
+            setData((prevData) => ({
+                ...prevData,
+                [name]: value,
+            }));
+        }
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setProcessing(true);
+
+        try {
+            const formData = new FormData();
+            formData.append("formType", selectedForm);
+            for (const key in data) {
+                formData.append(key, data[key]);
+            }
+
+            await axios.post("/admin/unify", formData, {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                },
+            });
+
+            toast.success("Form submitted successfully!");
+            setSelectedForm(null);
+            setData({
+                nama: "",
+                jurusan: "",
+                angkatan: "",
+                noHp: "",
+                email: "",
+                jumlahTiket: 0,
+                buktiTf: null,
+            });
+        } catch (error) {
+            console.error("Error submitting form:", error);
+            toast.error("Error submitting form. Please try again later.");
+        } finally {
+            setProcessing(false);
+        }
     };
 
     return (
-        <div className="bg-gray-300 m-0 w-full">
+        <div className="bg-gray-300 m-0 w-full min-h-screen md:min-h-full">
             <NavbarAdmin />
-            <div className="relative overflow-x-auto shadow-md p-0 flex flex-col md:flex-row">
+            <div className="relative overflow-x-auto shadow-md p-0 flex flex-col md:flex-row min-h-screen md:min-h-full">
                 <div className="leftSide">
                     <SidebarAdmin />
                 </div>
                 <div className="rightSide p-5 flex-auto">
-                    <div className="p-4 rounded-t-lg bg-white dark:bg-gray-900">
-                        <label htmlFor="table-search" className="sr-only">
-                            Search
-                        </label>
-                        <div className="relative mt-1">
-                            <div className="absolute inset-y-0 rtl:inset-r-0 start-0 flex items-center ps-3 pointer-events-none">
-                                <svg
-                                    className="w-4 h-4 text-gray-500 dark:text-gray-400"
-                                    aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="none"
-                                    viewBox="0 0 20 20"
-                                >
-                                    <path
-                                        stroke="currentColor"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth="2"
-                                        d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+                    <button className="m-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        <a href="unify/external">External</a>
+                    </button>
+                    <button className="m-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        <a href="unify/internal">Internal</a>
+                    </button>
+                    <button
+                        className="m-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                        onClick={() => handleButton("external")}
+                    >
+                        Input External
+                    </button>
+                    <button
+                        className="m-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                        onClick={() => handleButton("internal")}
+                    >
+                        Input Internal
+                    </button>
+                    {selectedForm && (
+                        <div className="flex flex-auto flex-col items-center p-5 md:p-10 w-full md:w-3/4">
+                            <form
+                                method="post"
+                                onSubmit={handleSubmit}
+                                className="w-full max-w-lg mx-auto bg-white p-6 rounded-lg shadow-md"
+                            >
+                                <div className="mb-5">
+                                    <label
+                                        htmlFor="nama"
+                                        className="block text-sm font-medium text-gray-700"
+                                    >
+                                        Nama Lengkap
+                                    </label>
+                                    <input
+                                        type="text"
+                                        name="nama"
+                                        value={data.nama}
+                                        onChange={handleChange}
+                                        className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                        required
                                     />
-                                </svg>
-                            </div>
-                            <input
-                                type="text"
-                                id="table-search"
-                                className="block py-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="Search for mahasiswa"
-                                onChange={(e) => setSearchQuery(e.target.value)}
-                            />
-                        </div>
-                    </div>
-                    <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                            <tr>
-                                <th scope="col" className="px-6 py-3">
-                                    Nama Mahasiswa
-                                </th>
-                                <th scope="col" className="px-6 py-3">
-                                    NIM
-                                </th>
-                                <th scope="col" className="px-6 py-3">
-                                    ID Line
-                                </th>
-                                <th scope="col" className="px-6 py-3">
-                                    KTM
-                                </th>
-                                <th scope="col" className="px-6 py-3">
-                                    Action
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {filteredData.length > 0 ? (
-                                filteredData.map((item, index) => (
-                                    <tr
-                                        key={index}
-                                        className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700"
-                                    >
-                                        <th
-                                            scope="row"
-                                            className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                                        >
-                                            {item.namaLengkap}
-                                        </th>
-                                        <td className="px-6 py-4">
-                                            {item.nim}
-                                        </td>
-                                        <td className="px-6 py-4">
-                                            {item.idLine}
-                                        </td>
-                                        <td className="px-6 py-4">
-                                            <img
-                                                src={`/storage/${item.ktm}`}
-                                                alt="KTM"
-                                                className="h-16 w-16 object-cover"
+                                    {errors.nama && (
+                                        <div className="text-red-500 text-sm mt-1">
+                                            {errors.nama}
+                                        </div>
+                                    )}
+                                </div>
+                                {selectedForm === "internal" && (
+                                    <>
+                                        <div className="mb-5">
+                                            <label
+                                                htmlFor="jurusan"
+                                                className="block text-sm font-medium text-gray-700"
+                                            >
+                                                Jurusan
+                                            </label>
+                                            <input
+                                                type="text"
+                                                name="jurusan"
+                                                value={data.jurusan}
+                                                onChange={handleChange}
+                                                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                                required
                                             />
-                                        </td>
-                                        <td className="px-6 py-4">
-                                            <button
-                                                onClick={() =>
-                                                    handleInfo(item.nim)
-                                                }
-                                                className="text-green-600 font-bold hover:text-green-900"
-                                                type="button" // Change type to "button" to prevent form submission
+                                            {errors.jurusan && (
+                                                <div className="text-red-500 text-sm mt-1">
+                                                    {errors.jurusan}
+                                                </div>
+                                            )}
+                                        </div>
+                                        <div className="mb-5">
+                                            <label
+                                                htmlFor="angkatan"
+                                                className="block text-sm font-medium text-gray-700"
                                             >
-                                                More
-                                            </button>
-                                            <button
-                                                onClick={() =>
-                                                    handleEdit(item.nim)
-                                                }
-                                                className="ml-4 text-blue-600 font-bold hover:text-blue-900"
-                                                type="button"
-                                            >
-                                                Edit
-                                            </button>
-                                            <button
-                                                onClick={() =>
-                                                    handleDelete(item.nim)
-                                                }
-                                                className="ml-4 text-red-600 font-bold hover:text-red-900"
-                                                type="submit"
-                                            >
-                                                Delete
-                                            </button>
-                                        </td>
-                                    </tr>
-                                ))
-                            ) : (
-                                <tr>
-                                    <td
-                                        colSpan="5"
-                                        className="px-6 py-4 text-center text-black"
+                                                Angkatan
+                                            </label>
+                                            <input
+                                                type="text"
+                                                name="angkatan"
+                                                value={data.angkatan}
+                                                onChange={handleChange}
+                                                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                                required
+                                            />
+                                            {errors.angkatan && (
+                                                <div className="text-red-500 text-sm mt-1">
+                                                    {errors.angkatan}
+                                                </div>
+                                            )}
+                                        </div>
+                                    </>
+                                )}
+                                <div className="mb-5">
+                                    <label
+                                        htmlFor="noHp"
+                                        className="block text-sm font-medium text-gray-700"
                                     >
-                                        No matching data found
-                                    </td>
-                                </tr>
-                            )}
-                        </tbody>
-                    </table>
+                                        No HP
+                                    </label>
+                                    <input
+                                        type="text"
+                                        name="noHp"
+                                        value={data.noHp}
+                                        onChange={handleChange}
+                                        className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                        required
+                                    />
+                                    {errors.noHp && (
+                                        <div className="text-red-500 text-sm mt-1">
+                                            {errors.noHp}
+                                        </div>
+                                    )}
+                                </div>
+                                <div className="mb-5">
+                                    <label
+                                        htmlFor="email"
+                                        className="block text-sm font-medium text-gray-700"
+                                    >
+                                        Email
+                                    </label>
+                                    <input
+                                        type="email"
+                                        name="email"
+                                        value={data.email}
+                                        onChange={handleChange}
+                                        className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                        required
+                                    />
+                                    {errors.email && (
+                                        <div className="text-red-500 text-sm mt-1">
+                                            {errors.email}
+                                        </div>
+                                    )}
+                                </div>
+                                <div className="mb-5">
+                                    <label
+                                        htmlFor="jumlahTiket"
+                                        className="block text-sm font-medium text-gray-700"
+                                    >
+                                        Jumlah Tiket
+                                    </label>
+                                    <input
+                                        type="number"
+                                        name="jumlahTiket"
+                                        value={data.jumlahTiket}
+                                        onChange={handleChange}
+                                        className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                        required
+                                    />
+                                    {errors.jumlahTiket && (
+                                        <div className="text-red-500 text-sm mt-1">
+                                            {errors.jumlahTiket}
+                                        </div>
+                                    )}
+                                </div>
+                                <div className="mb-5">
+                                    <label
+                                        htmlFor="buktiTf"
+                                        className="block text-sm font-medium text-gray-700"
+                                    >
+                                        Bukti Transfer
+                                    </label>
+                                    <input
+                                        type="file"
+                                        name="buktiTf"
+                                        onChange={handleChange}
+                                        className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                        required
+                                    />
+                                    {errors.buktiTf && (
+                                        <div className="text-red-500 text-sm mt-1">
+                                            {errors.buktiTf}
+                                        </div>
+                                    )}
+                                </div>
+                                <div className="flex justify-center">
+                                    <button
+                                        type="submit"
+                                        className="mx-auto text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                                        disabled={processing}
+                                    >
+                                        Register New Data
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    )}
                 </div>
             </div>
         </div>
