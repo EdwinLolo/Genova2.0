@@ -1,0 +1,140 @@
+.relative {
+    position: relative;
+    width: 100%;
+}
+
+.UcareMobile {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.info {
+    position: absolute;
+    top: 57%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    width: 100%;
+    max-width: 80%; 
+    color: rgb(60, 59, 96);
+    text-align: justify;
+    padding: 0 3rem; 
+}
+
+.Judul {
+    text-align: center;
+    border-bottom: 1px solid rgb(60, 59, 96);
+    margin: 0 auto;
+    margin-bottom: 3rem;
+}
+
+.Text{
+    border-bottom: 1px solid rgb(60, 59, 96);
+    padding-bottom: 1.5rem;
+}
+
+.LogoPC {
+    width: 43vw;
+    height: auto;
+    display: block;
+}
+
+.IsiPC {
+    width: 57vw;
+    height: auto;
+    display: block;
+}
+
+.infoPC {
+    position: absolute;
+    top: 42%; 
+    left: 72%; 
+    transform: translate(-50%, -50%); 
+    width: 100%;
+    max-width: 45%; 
+    color: rgb(60, 59, 96);
+    text-align: justify;
+    padding: 0 3rem; 
+    font-size: 1.6rem;
+}
+
+.JudulPC {
+    text-align: center;
+    border-bottom: 1px solid rgb(60, 59, 96);;
+    margin: 0 auto;
+    margin-bottom: 4rem;
+    font-size: 7rem;
+    width: 28rem;
+}
+
+
+@media (min-width: 360px) {
+    .info {
+        top: 66%;
+        font-size: 16px;
+        padding: 0 1.5rem; 
+    }
+    .Judul {
+        font-size: 3.5rem;
+        width: 13rem;
+    }
+}
+
+@media (min-width: 410px) {
+    .info {
+        font-size: 18px;
+    }
+    .Judul {
+        font-size: 4rem;
+        width: 15rem;
+    }
+}
+
+@media (min-width: 520px) {
+    .info {
+        top: 63%;
+        font-size: 22px;
+    }
+    .Judul {
+        font-size: 5rem;
+        width: 20rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .info {
+        font-size: 33px;
+        top: 63%;
+        max-width: 85%; 
+        padding: 0 4.3rem; 
+    }
+    .Judul {
+        font-size: 7rem;
+        width: 27rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .info {
+        font-size: 40px;
+        top: 65%;
+        max-width: 75%; 
+        padding: 0 4.3rem; 
+    }
+    .Judul {
+        font-size: 8rem;
+        width: 30rem;
+    }
+}
+
+@media (max-width: 1600px) {
+    .infoPC {
+        font-size: 1.1rem;
+        top: 45%;
+        max-width: 45%; 
+    }
+    .JudulPC {
+        font-size: 4.2rem;
+        width: 16rem;
+    }
+}

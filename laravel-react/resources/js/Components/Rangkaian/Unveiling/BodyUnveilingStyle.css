@@ -1,0 +1,143 @@
+.relative {
+    position: relative;
+    width: 100%;
+}
+
+.UnveilingMobile {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.infoUnveiling {
+    position: absolute;
+    top: 57%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    width: 100%;
+    max-width: 87%; 
+    color: #f7a24c;
+    text-align: justify;
+    padding: 0 3rem; 
+}
+
+.JudulUnveiling {
+    text-align: center;
+    border-bottom: 1px solid #f7a24c;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+}
+
+.TextUnveiling{
+    border-bottom: 1px solid #f7a24c;
+    padding-bottom: 1.5rem;
+}
+
+.LogoPCUnveiling {
+    width: 43vw;
+    height: auto;
+    display: block;
+}
+
+.IsiPCUnveiling {
+    width: 58vw;
+    height: auto;
+    display: block;
+    position: absolute;
+    right: 0rem;
+}
+
+.infoPCUnveiling {
+    position: absolute;
+    top: 42%; 
+    left: 71.5%; 
+    transform: translate(-50%, -50%); 
+    width: 100%;
+    max-width: 45%; 
+    color: #f7a24c;
+    text-align: justify;
+    padding: 0 3rem; 
+    font-size: 1.6rem;
+}
+
+.JudulPCUnveiling {
+    text-align: center;
+    border-bottom: 1px solid #f7a24c;
+    margin: 0 auto;
+    margin-bottom: 4rem;
+    font-size: 5.3rem;
+    width: 28rem;
+}
+
+
+@media (min-width: 360px) {
+    .infoUnveiling {
+        top: 64%;
+        font-size: 16px;
+        padding: 0 1.5rem; 
+    }
+    .JudulUnveiling {
+        font-size: 2.5rem;
+        width: 13rem;
+    }
+}
+
+@media (min-width: 410px) {
+    .infoUnveiling {
+        font-size: 18px;
+    }
+    .JudulUnveiling {
+        font-size: 2.8rem;
+        width: 15rem;
+    }
+}
+
+@media (min-width: 520px) {
+    .infoUnveiling {
+        top: 63%;
+        font-size: 22px;
+        max-width: 80%;
+    }
+    .JudulUnveiling {
+        font-size: 3.7rem;
+        width: 20rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .infoUnveiling {
+        font-size: 33px;
+        top: 63%;
+        max-width: 92%; 
+        padding: 0 4.3rem; 
+    }
+    .JudulUnveiling {
+        font-size: 5rem;
+        width: 27rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .infoUnveiling {
+        font-size: 40px;
+        top: 65%;
+        max-width: 80%; 
+        padding: 0 4.3rem; 
+    }
+    .JudulUnveiling {
+        font-size: 5.7rem;
+        width: 30rem;
+    }
+}
+
+@media (max-width: 1600px) {
+    .infoPCUnveiling {
+        font-size: 1.1rem;
+        top: 45%;
+        max-width: 45%; 
+    }
+    .JudulPCUnveiling {
+        font-size: 3rem;
+        width: 16rem;
+    }
+}

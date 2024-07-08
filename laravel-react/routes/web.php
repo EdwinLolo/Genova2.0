@@ -27,6 +27,15 @@ Route::get('/rangkaian/eulympic', function () {
     return Inertia::render('PageEulympic');
 });
 
+Route::get('/rangkaian/ucare', function () {
+    return Inertia::render('PageUcare');
+});
+
+Route::get('/rangkaian/unveiling', function () {
+    return Inertia::render('PageUnveiling');
+});
+
+
 Route::prefix('/admin')->middleware([AuthenticateAdmin::class])->group(function () {
     Route::get('/', [AdminController::class, 'index']);
     Route::get('/input', [AdminController::class, 'input']);
