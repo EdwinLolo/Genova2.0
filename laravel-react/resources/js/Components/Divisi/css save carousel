@@ -1,0 +1,124 @@
+:root {
+  --animation-timing: 0.5s;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 400;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+}
+
+.wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.carousel__item {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  padding: 0 12px;
+  filter: drop-shadow(0 2px 2px #555);
+  will-change: transform, opacity, scale;
+  transition: transform var(--animation-timing), opacity var(--animation-timing), scale var(--animation-timing);
+  cursor: pointer;
+  opacity: 0;
+}
+
+.carousel__item.hidden {
+  display: none;
+}
+
+.carousel__item.active {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+  z-index: 1;
+}
+
+.carousel__item.above {
+  transform: translateY(-65%) scale(1);
+  opacity: 1;
+  z-index: 0;
+}
+
+.carousel__item.below {
+  transform: translateY(65%) scale(1);
+  opacity: 1;
+  z-index: 0;
+}
+
+.carousel__item-head {
+  border-radius: 50%;
+  background-color: #d7f7fc;
+  width: 90px;
+  height: 90px;
+  padding: 14px;
+  position: relative;
+  margin-right: -45px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+}
+
+.carousel__item-head img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 50%;
+}
+
+.carousel__item-body {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 16px 20px 16px 70px;
+}
+
+.title {
+  text-transform: uppercase;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.images {
+  width: 400px;
+  height: 335px;
+  object-fit: cover;
+  transition: transform var(--animation-timing), opacity var(--animation-timing);
+}
+
+.above .images, .below .images{
+  transform: scale(0.6);
+}
+
+
+@media(max-width:768px){
+  
+
+
+
+}

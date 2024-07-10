@@ -1,26 +1,26 @@
-import AcaraFrame from "../../Assets/DivisionAssets/Acara/AcaraFrame.png";
+import AcaraFrame from "../../Assets/DivisionAssets/Acara/Acara_Cutted_Frame.png";
 import AcaraBigLogo from "../../Assets/DivisionAssets/Acara/AcaraBigLogo.png";
-import AcaraWebsiteBG from "../../Assets/DivisionAssets/Acara/AcaraWebsiteBG.png";
+import AcaraWebsiteBG from "../../Assets/DivisionAssets/Acara/Acara_Website_BG.png";
 
-import BPHFrame from "../../Assets/DivisionAssets/BPH/BPHFrame.png";
+import BPHFrame from "../../Assets/DivisionAssets/BPH/BPH_Cutted_Frame.png";
 import BPHBigLogo from "../../Assets/DivisionAssets/BPH/BPHBigLogo.png";
-import BPHWebsiteBG from "../../Assets/DivisionAssets/BPH/BPHWebsiteBG.png";
+import BPHWebsiteBG from "../../Assets/DivisionAssets/BPH/BPH_Website_BG.png";
 
-import DekorFrame from "../../Assets/DivisionAssets/Dekorasi/DekorFrame.png";
+import DekorFrame from "../../Assets/DivisionAssets/Dekorasi/Dekor_Cutted_Frame.png";
 import DekorBigLogo from "../../Assets/DivisionAssets/Dekorasi/DekorBigLogo.png";
-import DekorWebsiteBG from "../../Assets/DivisionAssets/Dekorasi/DekorWebsiteBG.png";
+import DekorWebsiteBG from "../../Assets/DivisionAssets/Dekorasi/Dekor_Website_BG.png";
 
-import DokumFrame from "../../Assets/DivisionAssets/Dokumentasi/DokumFrame.png";
+import DokumFrame from "../../Assets/DivisionAssets/Dokumentasi/Dokum_Cutted_Frame.png";
 import DokumBigLogo from "../../Assets/DivisionAssets/Dokumentasi/DokumBigLogo.png";
-import DokumWebsiteBG from "../../Assets/DivisionAssets/Dokumentasi/DokunWebsiteBG.png";
+import DokumWebsiteBG from "../../Assets/DivisionAssets/Dokumentasi/Dokum_Website_BG.png";
 
-import FreshMoneyFrame from "../../Assets/DivisionAssets/FreshMoney/FreshMoneyFrame.png";
+import FreshMoneyFrame from "../../Assets/DivisionAssets/FreshMoney/FreshMoney_Cutted_Frame.png";
 import FreshMoneyBigLogo from "../../Assets/DivisionAssets/FreshMoney/FreshMoneyBigLogo.png";
-import FreshMoneyWebsiteBG from "../../Assets/DivisionAssets/FreshMoney/FreshMoneyWebsiteBG.png";
+import FreshMoneyWebsiteBG from "../../Assets/DivisionAssets/FreshMoney/FreshMoney_Website_BG.png";
 
-import VisualFrame from "../../Assets/DivisionAssets/Pisa/VisualFrame.png";
+import VisualFrame from "../../Assets/DivisionAssets/Pisa/Visual_Cutted_Frame.png";
 import VisualBigLogo from "../../Assets/DivisionAssets/Pisa/VisualBigLogo.png";
-import VisualWebsiteBG from "../../Assets/DivisionAssets/Pisa/VisualWebsiteBG.png";
+import VisualWebsiteBG from "../../Assets/DivisionAssets/Pisa/Visual_Website_BG.png";
 
 const divisions = [
     {

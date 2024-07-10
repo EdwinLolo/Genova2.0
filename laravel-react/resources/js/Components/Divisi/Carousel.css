@@ -116,3 +116,35 @@ body {
 }
 
 
+@media(max-width:1041px){
+
+  .images {
+    width: 300px;
+    height: 335px;
+    object-fit: cover;
+    object-position: center;
+    transition: transform var(--animation-timing), opacity var(--animation-timing);
+  }
+
+
+
+  .carousel__item.active {
+    transform: translateY(-100%) translateX(45%) scale(1.35);
+    opacity: 1;
+    z-index: -1;
+  }
+
+  .carousel__item.above {
+    transform: translateY(-100%) translateX(80%) scale(1.35);
+    opacity: 1;
+    z-index: 2;
+  }
+
+  .carousel__item.below {
+    transform: translateY(-100%) translateX(10%) scale(1.35);
+    opacity: 1;
+    z-index: 0;
+  }
+
+
+}
