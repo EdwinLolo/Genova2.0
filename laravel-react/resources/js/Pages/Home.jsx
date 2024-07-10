@@ -4,6 +4,7 @@ import Navbar from "../Components/Navbar/Navbar";
 import Tujuan from "../Components/Homes/Hero/Tujuan";
 import Rangkaian from "../Components/Homes/Rangkaian/Rangkaian";
 import Preloader from "./Preload/Preloading";
+import Footer from "../Components/Footer/Footer";
 
 function Home() {
     const [loading, setLoading] = useState(true);
@@ -43,6 +44,7 @@ function Home() {
                     <Tujuan />
                     <Divisi />
                     <Rangkaian />
+                    <Footer />
                 </>
             )}
         </div>
