@@ -63,10 +63,23 @@
     border-bottom: 1px solid rgb(60, 59, 96);;
     margin: 0 auto;
     margin-bottom: 4rem;
-    font-size: 7rem;
+    font-size: 5.5rem;
     width: 28rem;
 }
 
+@media (min-width: 300px) {
+    .info {
+        top: 66%;
+        font-size: 14px;
+        max-width: 85%;
+        padding: 0 1.5rem; 
+    }
+    .Judul {
+        font-size: 2.3rem;
+        width: 11rem;
+        margin-bottom: 1.5rem;
+    }
+}
 
 @media (min-width: 360px) {
     .info {
@@ -75,8 +88,9 @@
         padding: 0 1.5rem; 
     }
     .Judul {
-        font-size: 3.5rem;
+        font-size: 2.5rem;
         width: 13rem;
+        margin-bottom: 1.5rem;
     }
 }
 
@@ -85,7 +99,7 @@
         font-size: 18px;
     }
     .Judul {
-        font-size: 4rem;
+        font-size: 3.2rem;
         width: 15rem;
     }
 }
@@ -96,7 +110,7 @@
         font-size: 22px;
     }
     .Judul {
-        font-size: 5rem;
+        font-size: 4rem;
         width: 20rem;
     }
 }
@@ -109,7 +123,7 @@
         padding: 0 4.3rem; 
     }
     .Judul {
-        font-size: 7rem;
+        font-size: 5.7rem;
         width: 27rem;
     }
 }
@@ -122,19 +136,20 @@
         padding: 0 4.3rem; 
     }
     .Judul {
-        font-size: 8rem;
+        font-size: 6rem;
         width: 30rem;
     }
 }
 
 @media (max-width: 1600px) {
     .infoPC {
-        font-size: 1.1rem;
+        font-size: 1rem;
         top: 45%;
         max-width: 45%; 
     }
     .JudulPC {
-        font-size: 4.2rem;
-        width: 16rem;
+        font-size: 3rem;
+        width: 15rem;
+        margin-bottom: 2rem;
     }
 }

@@ -24,13 +24,13 @@ function BodyUnveiling() {
                 <img className="UnveilingMobile" src={MobileUnveiling} alt="Mobile Unveiling" />
                 <div className="infoUnveiling">
                     <div className="JudulUnveiling">
-                        <h1>𝐔𝐍𝐕𝐄𝐈𝐋𝐈𝐍𝐆</h1>
+                        <h1 style={{ fontFamily: "Akbaal, sans-serif" }}>Unveiling</h1>
                     </div>
                     <div className="TextUnveiling">
-                        <p>
+                        <p style={{ fontFamily: "SanFran-Regular, sans-serif" }}> 
                             𝐔𝐍𝐕𝐄𝐈𝐋𝐈𝐍𝐆 merupakan rangkaian awal yang membuka UMN Festival 2024!
                             Didesain untuk memperkenalkan seluruh agenda festival kepada
-                            masyarakat Universita Multimedia Nusantara!
+                            masyarakat Universitas Multimedia Nusantara!
                         <br />
                         <br />
                             𝐔𝐍𝐕𝐄𝐈𝐋𝐈𝐍𝐆 menciptakan keinginan para #Legions untuk mengenal lebih
@@ -49,12 +49,12 @@ function BodyUnveiling() {
                 <img className="IsiPCUnveiling" src={IsiUnveiling} alt="Isi Unveiling" />
                 <div className="infoPCUnveiling">
                     <div className="JudulPCUnveiling">
-                        <h1>𝐔𝐍𝐕𝐄𝐈𝐋𝐈𝐍𝐆</h1>
+                        <h1 style={{ fontFamily: "Akbaal, sans-serif" }}>Unveiling</h1>
                     </div>
-                    <p>
+                    <p style={{ fontFamily: "SanFran-Regular, sans-serif" }}>
                         𝐔𝐍𝐕𝐄𝐈𝐋𝐈𝐍𝐆 merupakan rangkaian awal yang membuka UMN Festival 2024!
                         Didesain untuk memperkenalkan seluruh agenda festival kepada
-                        masyarakat Universita Multimedia Nusantara!
+                        masyarakat Universitas Multimedia Nusantara!
                     <br />
                     <br />
                         𝐔𝐍𝐕𝐄𝐈𝐋𝐈𝐍𝐆 menciptakan keinginan para #Legions untuk mengenal lebih

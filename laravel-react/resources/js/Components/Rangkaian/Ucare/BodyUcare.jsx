@@ -24,10 +24,10 @@ function BodyUcare() {
                 <img className="UcareMobile" src={MobileUcare} alt="Mobile Eulympic" />
                 <div className="info">
                     <div className="Judul">
-                        <h1>𝐔-𝐂𝐀𝐑𝐄</h1>
+                        <h1 style={{ fontFamily: "Akbaal, sans-serif" }}>U-Care</h1>
                     </div>
                     <div className="Text">
-                        <p>
+                        <p style={{ fontFamily: "SanFran-Regular, sans-serif" }}>
                             𝐔-𝐂𝐀𝐑𝐄 merupakan kegiatan yang akan mempersatukan #Legions untuk
                             berkolaborasi serta menginspirasi satu sama lain.
                         <br />
@@ -53,9 +53,9 @@ function BodyUcare() {
                 <img className="IsiPC" src={IsiUcare} alt="Isi Ucare" />
                 <div className="infoPC">
                     <div className="JudulPC">
-                        <h1>𝐔-𝐂𝐀𝐑𝐄</h1>
+                        <h1 style={{ fontFamily: "Akbaal, sans-serif" }}>U-Care</h1>
                     </div>
-                    <p>
+                    <p style={{ fontFamily: "SanFran-Regular, sans-serif" }}>
                         𝐔-𝐂𝐀𝐑𝐄 merupakan kegiatan yang akan mempersatukan #Legions untuk
                         berkolaborasi serta menginspirasi satu sama lain.
                     <br />
