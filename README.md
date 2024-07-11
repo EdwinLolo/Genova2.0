@@ -30,3 +30,7 @@ php artisan view:clear
 php artisan config:cache
 php artisan optimize:clear
 ```
+
+## [Midtrans Payment Gateway Development Tutorial.](https://youtu.be/069oMpRX9zA?si=ijmS7t7qEpChq2u9)
+
+### Untuk api keys bisa di chat ke koor
