@@ -10,29 +10,33 @@ import image3 from "../../../Assets/HomeAssets/Rangkaian/UCARE.webp";
 import image4 from "../../../Assets/HomeAssets/Rangkaian/ULYMPIC.webp";
 import image5 from "../../../Assets/HomeAssets/Rangkaian/UNIFY.webp";
 
-import logo1 from "../../../Assets/HomeAssets/Rangkaian/Unveiling copy.webp";
-import logo2 from "../../../Assets/HomeAssets/Rangkaian/E-Ulympic copy.webp";
-import logo3 from "../../../Assets/HomeAssets/Rangkaian/Ucare copy.webp";
-import logo4 from "../../../Assets/HomeAssets/Rangkaian/Ulympic copy.webp";
-import logo5 from "../../../Assets/HomeAssets/Rangkaian/Unify copy.webp";
+import logo1 from "../../../Assets/HomeAssets/Rangkaian/Unveilingcopy.webp";
+import logo2 from "../../../Assets/HomeAssets/Rangkaian/E-Ulympiccopy.webp";
+import logo3 from "../../../Assets/HomeAssets/Rangkaian/Ucarecopy.webp";
+import logo4 from "../../../Assets/HomeAssets/Rangkaian/Ulympiccopy.webp";
+import logo5 from "../../../Assets/HomeAssets/Rangkaian/Unifycopy.webp";
 
 import bg1 from "../../../Assets/HomeAssets/Rangkaian/UNVEILING_1.webp";
-import bg2 from "../../../Assets/HomeAssets/Rangkaian/E-ULYMPIC_1 copy.webp";
+import bg2 from "../../../Assets/HomeAssets/Rangkaian/E-ULYMPIC_1copy.webp";
 import bg3 from "../../../Assets/HomeAssets/Rangkaian/UCARE_1.webp";
 import bg4 from "../../../Assets/HomeAssets/Rangkaian/ULYMPIC_1.webp";
 import bg5 from "../../../Assets/HomeAssets/Rangkaian/UNIFY_1.webp";
 
-import gambar1 from "../../../Assets/HomeAssets/Rangkaian/Unveiling_1 copy.webp";
+import gambar1 from "../../../Assets/HomeAssets/Rangkaian/Unveiling_1copy.webp";
 import gambar2 from "../../../Assets/HomeAssets/Rangkaian/E-Ulympic_1.webp";
-import gambar3 from "../../../Assets/HomeAssets/Rangkaian/Ucare_1 copy.webp";
-import gambar4 from "../../../Assets/HomeAssets/Rangkaian/Ulympic_1 copy.webp";
-import gambar5 from "../../../Assets/HomeAssets/Rangkaian/Unify_1 copy.webp";
+import gambar3 from "../../../Assets/HomeAssets/Rangkaian/Ucare_1copy.webp";
+import gambar4 from "../../../Assets/HomeAssets/Rangkaian/Ulympic_1copy.webp";
+import gambar5 from "../../../Assets/HomeAssets/Rangkaian/Unify_1copy.webp";
 
 import judul1 from "../../../Assets/HomeAssets/Rangkaian/Judul_Unveiling.webp";
 import judul2 from "../../../Assets/HomeAssets/Rangkaian/Judul_E-Ulympic.webp";
 import judul3 from "../../../Assets/HomeAssets/Rangkaian/Judul_Ucare.webp";
 import judul4 from "../../../Assets/HomeAssets/Rangkaian/Judul_Ulympic.webp";
 import judul5 from "../../../Assets/HomeAssets/Rangkaian/Judul_Unify.webp";
+
+// logo sponsor
+import vicmic from "../../../Assets/HomeAssets/Sponsor/Vicmic.webp";
+import lenovo from "../../../Assets/HomeAssets/Sponsor/lenovo.webp";
 
 function Rangkaian() {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -96,6 +100,13 @@ function Rangkaian() {
                         </div>
                     </div>
                 ))}
+                <div className="sponsor">
+                    <h1>Sponsor by:</h1>
+                    <div className="logosponsor">
+                        <img src={vicmic} alt="vicmic" />
+                        <img src={lenovo} alt="lenovo" />
+                    </div>
+                </div>
             </div>
         );
     } else {
@@ -103,99 +114,108 @@ function Rangkaian() {
             <div className="rangkaianwrapper">
                 <div className="overlaycolor"></div>
 
-                <div className="content">
-                    <div
-                        className="card"
-                        // onClick={() => navigate("/unveiling")}
-                    >
-                        <div className="wrapper">
+                <div className="bungkusann">
+                    <div className="content">
+                        <div
+                            className="card"
+                            // onClick={() => navigate("/unveiling")}
+                        >
+                            <div className="wrapper">
+                                <img
+                                    src={bg1}
+                                    className="cover-image"
+                                    alt="coverimage"
+                                />
+                            </div>
+                            <img src={judul1} className="title" alt="title" />
                             <img
-                                src={bg1}
-                                className="cover-image"
-                                alt="coverimage"
+                                src={gambar1}
+                                className="character"
+                                alt="character"
                             />
                         </div>
-                        <img src={judul1} className="title" alt="title" />
-                        <img
-                            src={gambar1}
-                            className="character"
-                            alt="character"
-                        />
-                    </div>
 
-                    <div
-                        className="card"
-                        // onClick={() => navigate("/eulympic")}
-                    >
-                        <div className="wrapper">
+                        <div
+                            className="card"
+                            // onClick={() => navigate("/eulympic")}
+                        >
+                            <div className="wrapper">
+                                <img
+                                    src={bg2}
+                                    className="cover-image"
+                                    alt="coverimage"
+                                />
+                            </div>
+                            <img src={judul2} className="title" alt="title" />
                             <img
-                                src={bg2}
-                                className="cover-image"
-                                alt="coverimage"
+                                src={gambar2}
+                                className="character"
+                                alt="charcter"
                             />
                         </div>
-                        <img src={judul2} className="title" alt="title" />
-                        <img
-                            src={gambar2}
-                            className="character"
-                            alt="charcter"
-                        />
-                    </div>
-                    <div
-                        className="card"
-                        // onClick={() => navigate("/ucare")}
-                    >
-                        <div className="wrapper">
+                        <div
+                            className="card"
+                            // onClick={() => navigate("/ucare")}
+                        >
+                            <div className="wrapper">
+                                <img
+                                    src={bg3}
+                                    className="cover-image"
+                                    alt="coverimage"
+                                />
+                            </div>
+                            <img src={judul3} className="title" alt="title" />
                             <img
-                                src={bg3}
-                                className="cover-image"
-                                alt="coverimage"
+                                src={gambar3}
+                                className="character"
+                                alt="character"
                             />
                         </div>
-                        <img src={judul3} className="title" alt="title" />
-                        <img
-                            src={gambar3}
-                            className="character"
-                            alt="character"
-                        />
-                    </div>
 
-                    <div
-                        className="card"
-                        // onClick={() => navigate("/ulympic")}
-                    >
-                        <div className="wrapper">
+                        <div
+                            className="card"
+                            // onClick={() => navigate("/ulympic")}
+                        >
+                            <div className="wrapper">
+                                <img
+                                    src={bg4}
+                                    className="cover-image"
+                                    alt="coverimage"
+                                />
+                            </div>
+                            <img src={judul4} className="title" alt="title" />
                             <img
-                                src={bg4}
-                                className="cover-image"
-                                alt="coverimage"
+                                src={gambar4}
+                                className="character4"
+                                alt="character"
                             />
                         </div>
-                        <img src={judul4} className="title" alt="title" />
-                        <img
-                            src={gambar4}
-                            className="character4"
-                            alt="character"
-                        />
-                    </div>
 
-                    <div
-                        className="card"
-                        // onClick={() => navigate("/unify")}
-                    >
-                        <div className="wrapper">
+                        <div
+                            className="card"
+                            // onClick={() => navigate("/unify")}
+                        >
+                            <div className="wrapper">
+                                <img
+                                    src={bg5}
+                                    className="cover-image"
+                                    alt="coverimage"
+                                />
+                            </div>
+                            <img src={judul5} className="title" alt="title" />
                             <img
-                                src={bg5}
-                                className="cover-image"
-                                alt="coverimage"
+                                src={gambar5}
+                                className="character5"
+                                alt="character"
                             />
                         </div>
-                        <img src={judul5} className="title" alt="title" />
-                        <img
-                            src={gambar5}
-                            className="character5"
-                            alt="character"
-                        />
+                    </div>
+                    <div className="sponsor">
+                        <h1>Sponsor by:</h1>
+                        <div className="logosponsor">
+                            <img src={vicmic} alt="vicmic" />
+                            <img src={lenovo} alt="lenovo" />
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,36 +1,51 @@
 import React from "react";
+import "./Styleinvoice.css";
 
 function Invoice({ data }) {
+    const hargatiket = data.jumlahTiket * 1000;
+    const tax = hargatiket * 0.02;
+
     if (!data) {
         return <div>Loading...</div>;
     }
+
+    const statusClass =
+        data.status === "paid" ? "status-paid" : "status-unpaid";
+
     return (
-        <div>
-            <h1>Invoice</h1>
-            <table border="1">
+        <div class="invoice">
+            <h1>Invoice Tiket Unify</h1>
+
+            <div class="invoice-details">
+                <div>Nama: {data.nama}</div>
+                <div>No HP: {data.noHp}</div>
+                <div>Email: {data.email}</div>
+                <div className={statusClass} style={{ fontWeight: 600 }}>
+                    Status: {data.status}
+                </div>
+            </div>
+
+            <table class="invoice-table">
                 <tr>
-                    <th>Nama</th>
-                    <th>Jurusan</th>
-                    <th>Angkatan</th>
-                    <th>No Hp</th>
-                    <th>Jumlah Tiket</th>
-                    <th>Email</th>
-                    <th>Total</th>
-                    <th>Status</th>
-                    <th>Internal?</th>
+                    <td>
+                        <span>{data.jumlahTiket}x </span>Tiket Unify
+                    </td>
+                    <td>Rp. {hargatiket}</td>
                 </tr>
                 <tr>
-                    <td>{data.nama}</td>
-                    <td>{data.jurusan}</td>
-                    <td>{data.angkatan}</td>
-                    <td>{data.noHp}</td>
-                    <td>{data.jumlahTiket}</td>
-                    <td>{data.email}</td>
-                    <td>{data.total_price}</td>
-                    <td>{data.status}</td>
-                    <td>{data.isInternal}</td>
+                    <td>Fee</td>
+                    <td>Rp. {tax}</td>
+                </tr>
+                <tr class="total-row">
+                    <td>Total</td>
+                    <td>Rp. {data.total_price}</td>
                 </tr>
             </table>
+
+            <div class="footer">
+                <a href="/">UMN Festival</a>
+                <div>&copy; Genova UMN Festival 2024</div>
+            </div>
         </div>
     );
 }

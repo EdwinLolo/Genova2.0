@@ -9,8 +9,7 @@
     width: 100vw;
     height: 100vh;
     margin: 0;
-    display: flex;
-    justify-content: center;
+    padding: 0;
     align-items: center;
     background-image: linear-gradient(
             180deg,
@@ -32,6 +31,11 @@
     position: absolute;
     z-index: -1;
 } */
+
+.bungkusann {
+    position: relative;
+    top: 20%;
+}
 
 .content {
     display: flex;
@@ -168,4 +172,39 @@
 
 .swiper {
     overflow: visible;
+}
+
+/* sponsor */
+.sponsor {
+    /* margin-top: 100px; */
+    text-align: center;
+    padding: 20px;
+    /* background-color: #f4f4f4; Warna latar belakang */
+}
+
+.sponsor h1 {
+    font-size: 1.5em; /* Ukuran font untuk h1 */
+    margin-bottom: 20px; /* Jarak bawah untuk h1 */
+}
+
+.logosponsor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logosponsor img {
+    max-width: 150px; /* Lebar maksimum gambar */
+    margin: 10px; /* Jarak di sekitar gambar */
+}
+
+@media (max-width: 600px) {
+    .sponsor img {
+        max-width: 80px; /* Lebar maksimum gambar untuk layar kecil */
+    }
+
+    .sponsor {
+        padding: 10px; /* Padding untuk layar kecil */
+    }
 }
