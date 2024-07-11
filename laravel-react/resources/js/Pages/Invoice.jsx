@@ -1,10 +1,13 @@
 import React from "react";
 
 function Invoice({ data }) {
+    if (!data) {
+        return <div>Loading...</div>;
+    }
     return (
         <div>
             <h1>Invoice</h1>
-            <table>
+            <table border="1">
                 <tr>
                     <th>Nama</th>
                     <th>Jurusan</th>

@@ -3,7 +3,7 @@ import NavbarAdmin from "../../Components/Navbar/NavbarAdmin";
 import SidebarAdmin from "../../Components/Admin/SidebarAdmin";
 import { Inertia } from "@inertiajs/inertia";
 
-function UnifyExternal({ data }) {
+function UnifyExternal({ data, totalTiket }) {
     const [searchQuery, setSearchQuery] = useState("");
 
     const filteredData = data.filter(
@@ -25,7 +25,8 @@ function UnifyExternal({ data }) {
                     <SidebarAdmin />
                 </div>
                 <div className="rightSide p-5 flex-auto">
-                    Unify External
+                    Unify External <br />
+                    Total Tiket Paid: {totalTiket}
                     <div className="p-4 rounded-t-lg bg-white dark:bg-gray-900">
                         <label htmlFor="table-search" className="sr-only">
                             Search

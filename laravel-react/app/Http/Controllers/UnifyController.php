@@ -17,15 +17,25 @@ class UnifyController extends Controller
     public function external()
     {
         $data = Unify::where('isInternal', 'false')->get();
+        $totalTiket = 0;
+        $paidData = Unify::where('isInternal', 'false')->where('status', 'paid')->get();
 
-        return Inertia::render('Admin/UnifyExternal', ['data' => $data]);
+        foreach ($paidData as $d) {
+            $totalTiket += $d->jumlahTiket;
+        }
+        return Inertia::render('Admin/UnifyExternal', ['data' => $data, 'totalTiket' => $totalTiket]);
     }
 
     public function internal()
     {
         $data = Unify::where('isInternal', 'true')->get();
+        $totalTiket = 0;
+        $paidData = Unify::where('isInternal', 'true')->where('status', 'paid')->get();
 
-        return Inertia::render('Admin/UnifyInternal', ['data' => $data]);
+        foreach ($paidData as $d) {
+            $totalTiket += $d->jumlahTiket;
+        }
+        return Inertia::render('Admin/UnifyInternal', ['data' => $data, 'totalTiket' => $totalTiket]);
     }
 
     public function details($id)
@@ -44,7 +54,8 @@ class UnifyController extends Controller
 
     public function register(Request $request)
     {
-        $request->request->add(['total_price' => $request->jumlahTiket * 10000, 'status' => 'unpaid', 'isInternal' => 'true']);
+        $hargaTiket = 1000;
+        $request->request->add(['total_price' => $request->jumlahTiket * $hargaTiket + (0.02 * $request->jumlahTiket * $hargaTiket), 'status' => 'unpaid', 'isInternal' => 'true']);
         // Determine if the form type is "external" or "internal"
         $formType = $request->input('formType');
 
@@ -78,11 +89,10 @@ class UnifyController extends Controller
         }
 
         $order = Unify::create($validatedData);
-
         \Midtrans\Config::$serverKey = env('MIDTRANS_SERVER_KEY');
 
         // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
-        \Midtrans\Config::$isProduction = false;
+        \Midtrans\Config::$isProduction = true;
         // Set sanitization on (default)
         \Midtrans\Config::$isSanitized = true;
         // Set 3DS transaction for credit card to true
@@ -91,19 +101,33 @@ class UnifyController extends Controller
         $params = array(
             'transaction_details' => array(
                 'order_id' => $order->id,
-                'gross_amount' => $order->total_price,
+                'gross_amount' => $request->jumlahTiket * $hargaTiket + (0.02 * $request->jumlahTiket * $hargaTiket),
             ),
             'customer_details' => array(
-                'nama' =>  $order->nama,
+                "first_name" =>  $order->nama,
                 'email' => $order->email,
                 'phone' => $order->noHp,
+            ), 'item_details' => array(
+                array(
+                    'name' => 'Tiket Unify',
+                    'id' => 'TU1',
+                    'price' => $hargaTiket * $request->jumlahTiket,
+                    'quantity' => $request->jumlahTiket,
+                ),
+                array(
+                    'name' => 'Fee',
+                    'id' => 'F01',
+                    'price' => 0.02 * $request->jumlahTiket * $hargaTiket,
+                    'quantity' => 1,
+                ),
+
             ),
         );
 
         try {
             // Get Snap token
             $snapToken = \Midtrans\Snap::getSnapToken($params);
-
+            Session::put('orderId', $order->id);
             // Return response with Snap token
             return response()->json(['snap_token' => $snapToken], 200);
         } catch (\Exception $e) {
@@ -111,17 +135,27 @@ class UnifyController extends Controller
             return response()->json(['error' => 'Failed to create Snap token'], 500);
         }
     }
+
     public function callback(Request $request)
     {
-        // dd($request->all());
         $serverKey = env('MIDTRANS_SERVER_KEY');
         $hashed = hash("sha512", $request->order_id . $request->status_code . $request->gross_amount . $serverKey);
         if ($hashed == $request->signature_key) {
-            if ($request->transaction_status == "capture") {
+            if ($request->transaction_status == "settlement" || $request->transaction_status == "capture") {
                 $order = Unify::find($request->order_id);
                 $order->update(['status' => 'paid']);
             }
         }
+    }
+
+    public function invoice($id)
+    {
+        if (!Session::has('orderId')) {
+            Session::put('orderId', $id);
+        }
+
+        // Redirect to the getInvoice route
+        return redirect()->route('unify.getInvoice');
     }
 
     public function getInvoice(Request $request)
@@ -139,15 +173,5 @@ class UnifyController extends Controller
 
         // Render the Invoice view with the order data
         return Inertia::render('Invoice', ['data' => $order]);
-    }
-
-    public function invoice($id)
-    {
-        if (!Session::has('orderId')) {
-            Session::put('orderId', $id);
-        }
-
-        // Redirect to the getInvoice route
-        return redirect()->route('unify.getInvoice');
     }
 }
