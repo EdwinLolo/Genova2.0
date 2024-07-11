@@ -24,7 +24,7 @@ function FormInputAdmin() {
 
     function handleSubmit(e) {
         e.preventDefault();
-        post("/admin/input/data", {
+        post("/input/data", {
             forceFormData: true,
             onSuccess: () => {
                 setData({

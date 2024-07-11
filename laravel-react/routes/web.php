@@ -40,7 +40,6 @@ Route::get('/rangkaian/unveiling', function () {
 Route::prefix('/admin')->middleware([AuthenticateAdmin::class])->group(function () {
     Route::get('/', [AdminController::class, 'index']);
     Route::get('/input', [AdminController::class, 'input']);
-    Route::post('/input/data', [AdminController::class, 'regist']);
     Route::delete('/delete/{id}', [AdminController::class, 'delete']);
     Route::prefix('/unify')->group(function () {
         Route::get('/', [UnifyController::class, 'index']);
@@ -51,7 +50,6 @@ Route::prefix('/admin')->middleware([AuthenticateAdmin::class])->group(function 
     Route::prefix('/team')->group(function () {
         Route::get('/', [TeamController::class, 'index']);
         Route::get('/input', [TeamController::class, 'input']);
-        Route::post('/input/data', [TeamController::class, 'regist']);
         Route::post('/delete/{id_team}', [TeamController::class, 'delete']);
         Route::get('/{id_team}', [TeamController::class, 'info']);
         Route::get('/edit/{id_team}', [TeamController::class, 'edit']);
@@ -68,6 +66,8 @@ Route::prefix('/admin')->middleware([AuthenticateAdmin::class])->group(function 
 });
 
 Route::middleware(['web'])->group(function () {
+    Route::post('/team/input/data', [TeamController::class, 'regist']);
+    Route::post('/input/data', [AdminController::class, 'regist']);
     Route::post('/ucare', [UcareController::class, 'register']);
     Route::post('/unify', [UnifyController::class, 'register']);
     Route::get('/unify/invoice', [UnifyController::class, 'getInvoice'])->name('unify.getInvoice');

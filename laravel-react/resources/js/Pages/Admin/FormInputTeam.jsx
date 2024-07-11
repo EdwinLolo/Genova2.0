@@ -57,7 +57,7 @@ function FormInputTeam({ lombas }) {
         e.preventDefault();
 
         try {
-            const response = await post("/admin/team/input/data", {
+            const response = await post("/team/input/data", {
                 data,
                 onSuccess: () => {
                     toast.success("Form submitted successfully!");
