@@ -42,12 +42,10 @@ Route::prefix('/admin')->middleware([AuthenticateAdmin::class])->group(function 
     Route::post('/input/data', [AdminController::class, 'regist']);
     Route::delete('/delete/{id}', [AdminController::class, 'delete']);
     Route::prefix('/unify')->group(function () {
-        Route::post('/', [UnifyController::class, 'register']);
         Route::get('/', [UnifyController::class, 'index']);
         Route::get('/external', [UnifyController::class, 'external']);
-        Route::get('/external/{id}', [UnifyController::class, 'externalDetails']);
         Route::get('/internal', [UnifyController::class, 'internal']);
-        Route::get('/internal/{id}', [UnifyController::class, 'internalDetails']);
+        Route::get('/detail/{id}', [UnifyController::class, 'details']);
     });
     Route::prefix('/team')->group(function () {
         Route::get('/', [TeamController::class, 'index']);
@@ -62,4 +60,10 @@ Route::prefix('/admin')->middleware([AuthenticateAdmin::class])->group(function 
     Route::get('/{nim}', [AdminController::class, 'info']);
     Route::get('/edit/{nim}', [AdminController::class, 'edit']);
     Route::post('/edit/{nim}', [AdminController::class, 'update']);
+});
+
+Route::middleware(['web'])->group(function () {
+    Route::post('/unify', [UnifyController::class, 'register']);
+    Route::get('/unify/invoice', [UnifyController::class, 'getInvoice'])->name('unify.getInvoice');
+    Route::get('/unify/{id}', [UnifyController::class, 'invoice']);
 });

@@ -11,13 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('unify_externals', function (Blueprint $table) {
+        Schema::create('unifies', function (Blueprint $table) {
             $table->id();
             $table->string("nama");
+            $table->string("jurusan")->nullable();
+            $table->string("angkatan")->nullable();
             $table->string("noHp", 12);
-            $table->string("buktiTf");
             $table->string("email");
             $table->integer("jumlahTiket");
+            $table->bigInteger("total_price");
+            $table->enum("status", ["unpaid", "paid"]);
+            $table->enum("isInternal", ["false", "true"]);
             $table->timestamps();
         });
     }
@@ -27,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('unify_externals');
+        Schema::dropIfExists('unifies');
     }
 };

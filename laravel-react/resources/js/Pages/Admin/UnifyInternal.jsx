@@ -9,11 +9,12 @@ function UnifyInternal({ data }) {
     const filteredData = data.filter(
         (item) =>
             item.nama.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            item.status.toLowerCase().includes(searchQuery.toLowerCase()) ||
             item.email.toLowerCase().includes(searchQuery.toLowerCase())
     );
 
     const handleInfo = (id) => {
-        Inertia.visit(`/admin/unify/internal/${id}`);
+        Inertia.visit(`/admin/unify/detail/${id}`);
     };
 
     return (
@@ -69,7 +70,7 @@ function UnifyInternal({ data }) {
                                     Jumlah
                                 </th>
                                 <th scope="col" className="px-6 py-3">
-                                    Bukti Transfer
+                                    Status
                                 </th>
                                 <th scope="col" className="px-6 py-3">
                                     Action
@@ -96,11 +97,7 @@ function UnifyInternal({ data }) {
                                             {item.jumlahTiket}
                                         </td>
                                         <td className="px-6 py-4">
-                                            <img
-                                                src={`/storage/${item.buktiTf}`}
-                                                alt="Bukti Transfer"
-                                                className="h-16 w-16 object-cover"
-                                            />
+                                            {item.status}
                                         </td>
                                         <td className="px-6 py-4">
                                             <button

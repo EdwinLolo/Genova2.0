@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\UnifyExternal;
-use App\Models\UnifyInternal;
+use App\Models\Unify;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
-
+use Illuminate\Support\Facades\Session;
 
 class UnifyController extends Controller
 {
@@ -17,34 +16,35 @@ class UnifyController extends Controller
 
     public function external()
     {
-        $data = UnifyExternal::all();
+        $data = Unify::where('isInternal', 'false')->get();
 
         return Inertia::render('Admin/UnifyExternal', ['data' => $data]);
-    }
-    public function externalDetails($id)
-    {
-        $data = UnifyExternal::where('id', $id)->first();
-
-        return Inertia::render('Admin/UnifyExternalDetails', ['data' => $data]);
     }
 
     public function internal()
     {
-        $data = UnifyInternal::all();
+        $data = Unify::where('isInternal', 'true')->get();
 
         return Inertia::render('Admin/UnifyInternal', ['data' => $data]);
     }
 
-    public function internalDetails($id)
+    public function details($id)
     {
-        $data = UnifyInternal::where('id', $id)->first();
+        $data = Unify::where('id', $id)->first();
+        if (!$data) {
+            abort(404, 'Data not found');
+        }
 
-        return Inertia::render('Admin/UnifyInternalDetails', ['data' => $data]);
+        if ($data->isInternal === 'true') {
+            return Inertia::render('Admin/UnifyInternalDetails', ['data' => $data]);
+        } else {
+            return Inertia::render('Admin/UnifyExternalDetails', ['data' => $data]);
+        }
     }
-
 
     public function register(Request $request)
     {
+        $request->request->add(['total_price' => $request->jumlahTiket * 10000, 'status' => 'unpaid', 'isInternal' => 'true']);
         // Determine if the form type is "external" or "internal"
         $formType = $request->input('formType');
 
@@ -54,7 +54,9 @@ class UnifyController extends Controller
             'noHp' => 'required|string|max:12',
             'email' => 'required|email|max:255',
             'jumlahTiket' => 'required|integer|min:1',
-            'buktiTf' => 'required|file|mimes:jpg,png,jpeg|max:2048',
+            'status' => 'string',
+            'total_price' => 'integer',
+            'isInternal' => 'string',
         ];
 
         if ($formType === 'internal') {
@@ -65,22 +67,87 @@ class UnifyController extends Controller
         // Validate the request
         $validatedData = $request->validate($rules);
 
-        // Handle file upload
-        if ($request->hasFile('buktiTf')) {
-            $file = $request->file('buktiTf');
-            $filePath = $file->store('UnifyBuktiTf', 'public'); // Save file in 'storage/app/public/UnifyBuktiTf'
-            $validatedData['buktiTf'] = $filePath;
-        }
-
         // Store data in the appropriate model
+        $order = null;
         if ($formType === 'internal') {
-            UnifyInternal::create($validatedData);
+            $validatedData['isInternal'] = 'true';
         } else if ($formType === 'external') {
-            UnifyExternal::create($validatedData);
+            $validatedData['isInternal'] = 'false';
         } else {
             return response()->json(['error' => 'Invalid form type'], 400);
         }
 
-        return response()->json(['message' => 'Form submitted successfully'], 200);
+        $order = Unify::create($validatedData);
+
+        \Midtrans\Config::$serverKey = env('MIDTRANS_SERVER_KEY');
+
+        // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
+        \Midtrans\Config::$isProduction = false;
+        // Set sanitization on (default)
+        \Midtrans\Config::$isSanitized = true;
+        // Set 3DS transaction for credit card to true
+        \Midtrans\Config::$is3ds = true;
+
+        $params = array(
+            'transaction_details' => array(
+                'order_id' => $order->id,
+                'gross_amount' => $order->total_price,
+            ),
+            'customer_details' => array(
+                'nama' =>  $order->nama,
+                'email' => $order->email,
+                'phone' => $order->noHp,
+            ),
+        );
+
+        try {
+            // Get Snap token
+            $snapToken = \Midtrans\Snap::getSnapToken($params);
+
+            // Return response with Snap token
+            return response()->json(['snap_token' => $snapToken], 200);
+        } catch (\Exception $e) {
+            // Handle error
+            return response()->json(['error' => 'Failed to create Snap token'], 500);
+        }
+    }
+    public function callback(Request $request)
+    {
+        // dd($request->all());
+        $serverKey = env('MIDTRANS_SERVER_KEY');
+        $hashed = hash("sha512", $request->order_id . $request->status_code . $request->gross_amount . $serverKey);
+        if ($hashed == $request->signature_key) {
+            if ($request->transaction_status == "capture") {
+                $order = Unify::find($request->order_id);
+                $order->update(['status' => 'paid']);
+            }
+        }
+    }
+
+    public function getInvoice(Request $request)
+    {
+        // Start session manually
+        $request->session()->start();
+
+        // Retrieve order ID from session
+        $orderId = $request->session()->get('orderId');
+        if ($orderId) {
+            $order = Unify::find($orderId);
+        }
+        // Fetch the order details from the database
+        $order = Unify::find($orderId);
+
+        // Render the Invoice view with the order data
+        return Inertia::render('Invoice', ['data' => $order]);
+    }
+
+    public function invoice($id)
+    {
+        if (!Session::has('orderId')) {
+            Session::put('orderId', $id);
+        }
+
+        // Redirect to the getInvoice route
+        return redirect()->route('unify.getInvoice');
     }
 }

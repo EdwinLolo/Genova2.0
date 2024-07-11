@@ -5,14 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class UnifyExternal extends Model
+class Unify extends Model
 {
     use HasFactory;
     protected $fillable = [
         "nama",
+        "jurusan",
+        "angkatan",
         "noHp",
         "jumlahTiket",
         "email",
-        "buktiTf"
+        "total_price",
+        "status",
+        "isInternal",
     ];
 }

@@ -13,10 +13,10 @@ function UnifyDashboard() {
         noHp: "",
         email: "",
         jumlahTiket: 0,
-        buktiTf: null,
     });
     const [errors, setErrors] = useState({});
     const [processing, setProcessing] = useState(false);
+    const [snapToken, setSnapToken] = useState(null);
 
     const handleButton = (x) => {
         setSelectedForm(x);
@@ -28,7 +28,6 @@ function UnifyDashboard() {
                 noHp: "",
                 email: "",
                 jumlahTiket: 0,
-                buktiTf: null,
             });
         } else if (x === "external") {
             setData({
@@ -36,7 +35,6 @@ function UnifyDashboard() {
                 noHp: "",
                 email: "",
                 jumlahTiket: 0,
-                buktiTf: null,
             });
         }
     };
@@ -67,12 +65,15 @@ function UnifyDashboard() {
                 formData.append(key, data[key]);
             }
 
-            await axios.post("/admin/unify", formData, {
+            const response = await axios.post("/unify", formData, {
                 headers: {
                     "Content-Type": "multipart/form-data",
                 },
             });
+            const { snap_token: snapToken, order_id: orderId } = response.data; // Assuming response includes order_id
+            setSnapToken(snapToken);
 
+            // Clear form data and selection after successful submission
             toast.success("Form submitted successfully!");
             setSelectedForm(null);
             setData({
@@ -82,7 +83,25 @@ function UnifyDashboard() {
                 noHp: "",
                 email: "",
                 jumlahTiket: 0,
-                buktiTf: null,
+            });
+
+            // Redirect to Snap Checkout page with success callback
+            window.snap.pay(snapToken, {
+                onSuccess: function (result) {
+                    window.location.href = `/unify/${orderId}`;
+                },
+                onPending: function (result) {
+                    console.log("Transaction is pending: ", result);
+                },
+                onError: function (result) {
+                    console.error("Transaction failed: ", result);
+                    toast.error("Transaction failed. Please try again later.");
+                },
+                onClose: function () {
+                    console.log(
+                        "Payment popup closed without finishing the payment"
+                    );
+                },
             });
         } catch (error) {
             console.error("Error submitting form:", error);
@@ -99,6 +118,7 @@ function UnifyDashboard() {
                 <div className="leftSide">
                     <SidebarAdmin />
                 </div>
+
                 <div className="rightSide p-5 flex-auto">
                     <button className="m-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                         <a href="unify/external">External</a>
@@ -121,7 +141,6 @@ function UnifyDashboard() {
                     {selectedForm && (
                         <div className="flex flex-auto flex-col items-center p-5 md:p-10 w-full md:w-3/4">
                             <form
-                                method="post"
                                 onSubmit={handleSubmit}
                                 className="w-full max-w-lg mx-auto bg-white p-6 rounded-lg shadow-md"
                             >
@@ -255,33 +274,16 @@ function UnifyDashboard() {
                                         </div>
                                     )}
                                 </div>
-                                <div className="mb-5">
-                                    <label
-                                        htmlFor="buktiTf"
-                                        className="block text-sm font-medium text-gray-700"
-                                    >
-                                        Bukti Transfer
-                                    </label>
-                                    <input
-                                        type="file"
-                                        name="buktiTf"
-                                        onChange={handleChange}
-                                        className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                                        required
-                                    />
-                                    {errors.buktiTf && (
-                                        <div className="text-red-500 text-sm mt-1">
-                                            {errors.buktiTf}
-                                        </div>
-                                    )}
-                                </div>
+
                                 <div className="flex justify-center">
                                     <button
                                         type="submit"
                                         className="mx-auto text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
                                         disabled={processing}
                                     >
-                                        Register New Data
+                                        {processing
+                                            ? "Submitting..."
+                                            : "Register New Data"}
                                     </button>
                                 </div>
                             </form>
