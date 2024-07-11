@@ -4,6 +4,7 @@ import Trailer from "../../../Assets/HomeAssets/Trailer.mov";
 // import Carousel from "./Carousel"; // Import your Carousel component here
 // import { Fade } from "react-reveal";
 import "./Styletujuan.css";
+import "../../Font.css";
 
 function ImageOne() {
     const [paddingTop, setPaddingTop] = useState(0);

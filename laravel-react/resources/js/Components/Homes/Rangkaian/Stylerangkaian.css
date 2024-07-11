@@ -43,6 +43,7 @@
     align-items: center;
     z-index: 1;
     padding-bottom: 30px;
+    margin-bottom: 70px;
 }
 
 .card {
@@ -185,6 +186,7 @@
 .sponsor h1 {
     font-size: 1.5em; /* Ukuran font untuk h1 */
     margin-bottom: 20px; /* Jarak bawah untuk h1 */
+    font-family: "FestivalBudaya";
 }
 
 .logosponsor {

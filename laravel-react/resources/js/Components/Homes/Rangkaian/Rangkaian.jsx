@@ -101,7 +101,7 @@ function Rangkaian() {
                     </div>
                 ))}
                 <div className="sponsor">
-                    <h1>Sponsor by:</h1>
+                    <h1>Sponsored by:</h1>
                     <div className="logosponsor">
                         <img src={vicmic} alt="vicmic" />
                         <img src={lenovo} alt="lenovo" />
@@ -211,7 +211,7 @@ function Rangkaian() {
                         </div>
                     </div>
                     <div className="sponsor">
-                        <h1>Sponsor by:</h1>
+                        <h1>Sponsored by:</h1>
                         <div className="logosponsor">
                             <img src={vicmic} alt="vicmic" />
                             <img src={lenovo} alt="lenovo" />
