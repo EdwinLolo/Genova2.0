@@ -58,54 +58,38 @@ function UnifyDashboard() {
         e.preventDefault();
         setProcessing(true);
 
-        try {
-            const formData = new FormData();
-            formData.append("formType", selectedForm);
-            for (const key in data) {
-                formData.append(key, data[key]);
-            }
+        const formData = new FormData();
+        for (const key in data) {
+            formData.append(key, data[key]);
+        }
 
-            const response = await axios.post("/unify", formData, {
+        try {
+            const response = await axios.post("/ucare", formData, {
                 headers: {
                     "Content-Type": "multipart/form-data",
                 },
             });
-            const { snap_token: snapToken, order_id: orderId } = response.data; // Assuming response includes order_id
-            setSnapToken(snapToken);
-
-            // Clear form data and selection after successful submission
-            toast.success("Form submitted successfully!");
-            setSelectedForm(null);
+            // Handle success response
+            console.log(response.data);
+            alert("Form submitted successfully!");
+            // Reset the form
             setData({
-                nama: "",
+                namaLengkap: "",
+                umur: "",
+                tempatTinggal: "",
+                idLine: "",
+                instagram: "",
+                noTelp: "",
+                nim: "",
                 jurusan: "",
                 angkatan: "",
-                noHp: "",
                 email: "",
-                jumlahTiket: 0,
-            });
-
-            // Redirect to Snap Checkout page with success callback
-            window.snap.pay(snapToken, {
-                onSuccess: function (result) {
-                    window.location.href = `/unify/${orderId}`;
-                },
-                onPending: function (result) {
-                    console.log("Transaction is pending: ", result);
-                },
-                onError: function (result) {
-                    console.error("Transaction failed: ", result);
-                    toast.error("Transaction failed. Please try again later.");
-                },
-                onClose: function () {
-                    console.log(
-                        "Payment popup closed without finishing the payment"
-                    );
-                },
+                isInternal: data.isInternal,
             });
         } catch (error) {
-            console.error("Error submitting form:", error);
-            toast.error("Error submitting form. Please try again later.");
+            // Handle error response
+            console.error(error);
+            alert("There was an error submitting the form.");
         } finally {
             setProcessing(false);
         }

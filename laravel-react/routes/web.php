@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\TeamController;
+use App\Http\Controllers\UcareController;
 use App\Http\Controllers\UnifyController;
 use App\Http\Middleware\AuthenticateAdmin;
 use Illuminate\Support\Facades\Route;
@@ -57,12 +58,17 @@ Route::prefix('/admin')->middleware([AuthenticateAdmin::class])->group(function 
         Route::post('/edit/{id_team}', [TeamController::class, 'update']);
     });
 
+    Route::get('/ucare', [UcareController::class, 'index']);
+    Route::get('/ucare/list', [UcareController::class, 'list']);
+    Route::get('/ucare/detail/{id}', [UcareController::class, 'details']);
+
     Route::get('/{nim}', [AdminController::class, 'info']);
     Route::get('/edit/{nim}', [AdminController::class, 'edit']);
     Route::post('/edit/{nim}', [AdminController::class, 'update']);
 });
 
 Route::middleware(['web'])->group(function () {
+    Route::post('/ucare', [UcareController::class, 'register']);
     Route::post('/unify', [UnifyController::class, 'register']);
     Route::get('/unify/invoice', [UnifyController::class, 'getInvoice'])->name('unify.getInvoice');
     Route::get('/unify/{id}', [UnifyController::class, 'invoice']);
