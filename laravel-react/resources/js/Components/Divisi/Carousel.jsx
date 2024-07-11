@@ -16,7 +16,8 @@ const logos = [
     VisualLogoWithBg,
 ];
 
-const Carousel = ({ onChangeIndex, isWideScreen }) => {
+
+const Carousel = ({ onChangeIndex }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const handleItemClick = (index) => {
@@ -25,14 +26,14 @@ const Carousel = ({ onChangeIndex, isWideScreen }) => {
     };
 
     const handleKeyDown = (event) => {
-        if (event.key === "ArrowDown" || event.key === "ArrowRight") {
+        if (event.key === "ArrowDown") {
             setCurrentIndex((prevIndex) => {
                 const newIndex =
                     prevIndex === logos.length - 1 ? 0 : prevIndex + 1;
                 onChangeIndex(newIndex);
                 return newIndex;
             });
-        } else if (event.key === "ArrowUp" || event.key === "ArrowLeft") {
+        } else if (event.key === "ArrowUp") {
             setCurrentIndex((prevIndex) => {
                 const newIndex =
                     prevIndex === 0 ? logos.length - 1 : prevIndex - 1;
@@ -51,10 +52,8 @@ const Carousel = ({ onChangeIndex, isWideScreen }) => {
     }, []);
 
     return (
-        <div className={`wrapper ${isWideScreen ? "" : "mobile-wrapper"}`}>
-            <div
-                className={`carousel ${isWideScreen ? "" : "mobile-carousel"}`}
-            >
+        <div className="wrapper">
+            <div className="carousel">
                 {logos.map((logo, index) => {
                     let className = "carousel__item";
                     if (index === currentIndex) {

@@ -22,9 +22,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 
 .carousel {
+  
   position: relative;
   width: 100%;
   max-width: 100%;
@@ -32,20 +34,22 @@ body {
   justify-content: center;
   flex-direction: column;
   height: 100%;
-  overflow: hidden;
+   overflow: hidden; 
+  
 }
 
 .carousel__item {
   display: flex;
   align-items: center;
   position: absolute;
-  width: 100%;
+  max-width: 100%;
   padding: 0 12px;
   filter: drop-shadow(0 2px 2px #555);
   will-change: transform, opacity, scale;
   transition: transform var(--animation-timing), opacity var(--animation-timing), scale var(--animation-timing);
   cursor: pointer;
   opacity: 0;
+
 }
 
 .carousel__item.hidden {
@@ -105,8 +109,8 @@ body {
 }
 
 .images {
-  width: 400px;
-  height: 335px;
+  width: 30vw;
+  height: 345px;
   object-fit: cover;
   transition: transform var(--animation-timing), opacity var(--animation-timing);
 }
@@ -116,32 +120,37 @@ body {
 }
 
 
-@media(max-width:1041px){
+@media(max-width:1040px){
+  .carousel{
+   
+    position: absolute;
 
-  .images {
-    width: 300px;
-    height: 335px;
-    object-fit: cover;
-    object-position: center;
-    transition: transform var(--animation-timing), opacity var(--animation-timing);
+  
   }
 
 
-
+  .images {
+    width: 50vw;
+    height: 60vw;
+    object-fit: cover;
+    transition: transform var(--animation-timing), opacity var(--animation-timing);
+  }
+  
+  
   .carousel__item.active {
-    transform: translateY(-100%) translateX(45%) scale(1.35);
+    transform: translateY(130%) translateX(41%) scale(1);
     opacity: 1;
     z-index: -1;
   }
-
+  
   .carousel__item.above {
-    transform: translateY(-100%) translateX(80%) scale(1.35);
+    transform: translateY(130%) translateX(102%) scale(1);
     opacity: 1;
     z-index: 2;
   }
-
+  
   .carousel__item.below {
-    transform: translateY(-100%) translateX(10%) scale(1.35);
+    transform: translateY(130%) translateX(-20%) scale(1);
     opacity: 1;
     z-index: 0;
   }

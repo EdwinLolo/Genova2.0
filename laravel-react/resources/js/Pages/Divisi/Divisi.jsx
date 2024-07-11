@@ -33,16 +33,16 @@ function Divisi() {
                             <h1>{mobiledivisions[currentIndex].name}</h1>
                             <p>{mobiledivisions[currentIndex].desc}</p>
                         </div>
-                        <div className="logo">
+                        {/* <div className="logo">
                             <img
                                 src={mobiledivisions[currentIndex].logo}
                                 alt="Logo"
                             />
+                        </div> */}
+                        <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center z-30">
+                            <Carousel onChangeIndex={setCurrentIndex} />
                         </div>
                     </div>
-                </div>
-                <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center z-30">
-                    <Carousel onChangeIndex={setCurrentIndex} />
                 </div>
             </>
         );
@@ -56,7 +56,7 @@ function Divisi() {
                     }}
                 >
                     <div className="w-full h-full flex justify-center items-center">
-                        <div className="flex justify-center items-center relative ml-[20vw] mt-[6vw] max-w-[60vw]">
+                        <div className="flex justify-center items-center relative ml-[30vw] mt-[2vw] max-w-[90vw] overflow-hidden">
                             <img
                                 src={divisions[currentIndex].frame}
                                 alt=""
@@ -66,11 +66,11 @@ function Divisi() {
                                 <h1>{divisions[currentIndex].name}</h1>
                                 <p>{divisions[currentIndex].desc}</p>
                             </div>
-                            <div className="logo absolute w-[80vw]">
+                            <div className="logo absolute w-[90vw]">
                                 <img
                                     src={divisions[currentIndex].bigLogo}
                                     alt=""
-                                    className="left-1/3 transform -translate-x-[7%] -translate-y-[8%]"
+                                    className="left-1/3 transform -translate-x-[7%] -translate-y-[4%]"
                                 />
                             </div>
                         </div>
