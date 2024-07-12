@@ -1,12 +1,34 @@
 /* Navbar.css */
+.bodynavbar {
+    /* width: 90%; */
+    height: 10rem;
+    /* margin: 0; */
+    background-image: url(../../Assets/Navbar/bg_1.png);
+    background-size: 100% 10rem;
+}
 
-@font-face {
-    font-family: "SanFranBlack";
-    src: local("SanFransiscoBlack"),
-      url("../../Assets/Font/SanFransisco/SF-UI-Display-Black.otf")
-        format("truetype");
-    font-weight: bold;
-    font-style: normal;
+@media screen and (max-width: 600px) {
+    .bodynavbar {
+        height: 7rem;
+        background-image: url(../../Assets/Navbar/bg_hp.png);
+        background-size: 100% 7rem;
+        background-repeat: no-repeat;
+    }
+}
+
+@media screen and (min-width: 601px) and (max-width: 768px) {
+    .bodynavbar {
+        background-image: url(../../Assets/Navbar/bg_1.png);
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1025px) {
+    .bodynavbar {
+        height: 8rem;
+        background-image: url(../../Assets/Navbar/bg_1.png);
+        background-size: 100% 8rem;
+        padding-top: 1rem;
+    }
 }
 
 .font-nav {

@@ -7,23 +7,23 @@ import Sosmed from "./Sosmed";
 function Footer() {
     return (
         <div>
-            <div className="gradient py-14 hidden lg:block"></div>
+            <div className="pembatas"></div>
             <footer
                 id="footer"
-                className="flex footer px-10 text-neutral-content justify-between pt-5"
+                className="flex justify-between px-10 pt-5 footer text-neutral-content"
             >
-                <div className="flex w-full flex-col justify-evenly items-center py-10 lg:pt-5 lg:pb-10 lg:mb-10">
-                    <div className="flex items-center center mb-5 lg:mb-0 justify-evenly w-full">
-                        <div className="w-36 flex justify-center">
+                <div className="flex flex-col items-center w-full py-10 justify-evenly lg:pt-5 lg:pb-10 lg:mb-10">
+                    <div className="flex items-center w-full mb-5 center lg:mb-0 justify-evenly">
+                        <div className="flex justify-center w-36">
                             <img
                                 className="h-28 lg:h-32 footer-img "
                                 src={Logo}
                                 alt="logo"
                             />
                         </div>
-                        <div className="hidden lg:flex flex-col justify-center lg:ml-2 items-center">
+                        <div className="flex-col items-center justify-center hidden lg:flex lg:ml-2">
                             <div className="hidden lg:block">
-                                <div className="flex flex-col justify-center items-center my-5 lg:my-8">
+                                <div className="flex flex-col items-center justify-center my-5 lg:my-8">
                                     <Sosmed />
                                 </div>
                             </div>
@@ -39,7 +39,7 @@ function Footer() {
                                 Tangerang, Banten 15811, Indonesia
                             </p>
                         </div>
-                        <div className="w-36 flex justify-center">
+                        <div className="flex justify-center w-36">
                             <img
                                 className="h-28 lg:h-32 footer-img "
                                 src={Bem}
@@ -47,10 +47,10 @@ function Footer() {
                             />
                         </div>
                     </div>
-                    <div className="flex flex-col ml-1 items-center justify-center ">
+                    <div className="flex flex-col items-center justify-center ml-1 ">
                         <p
                             style={{ color: "White" }}
-                            className="text-center text-base lg:hidden"
+                            className="text-base text-center lg:hidden"
                         >
                             Universitas Multimedia Nusantara
                             <br />
@@ -59,14 +59,14 @@ function Footer() {
                             Tangerang, Banten 15811, Indonesia
                         </p>
 
-                        <div className="flex flex-col justify-center items-center my-10 lg:hidden">
+                        <div className="flex flex-col items-center justify-center my-10 lg:hidden">
                             <Sosmed />
                         </div>
                     </div>
                 </div>
 
-                <div className="Footer-Foot flex justify-center self-center">
-                    <p className="text-center footer-text tracking-wide mb-4 lg:mb-2">
+                <div className="flex self-center justify-center Footer-Foot">
+                    <p className="mb-4 tracking-wide text-center footer-text lg:mb-2">
                         © UMN FESTIVAL 2024 By <strong> Genova </strong>
                     </p>
                 </div>
