@@ -1,0 +1,340 @@
+/* General styles for the container and logos */
+.map-containerMap {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+}
+
+.map-imageMap {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+}
+
+.logoMap {
+  position: absolute;
+}
+
+.unifyMap {
+  top: -1vh;  
+  left: 29vw; 
+  width: 12vw;
+  height: 12vh;
+}
+
+.ucareMap {
+  top: 4vh;  
+  left: 50vw; 
+  width: 12vw;
+  height: 12vh;
+}
+
+.unveilingMap {
+  top: 29vh;  
+  left: 21vw; 
+  width: 12vw;
+  height: 12vh;
+}
+
+.ulympicMap {
+  top: 33vh;  
+  left: 61vw; 
+  width: 12vw;
+  height: 12vh;
+}
+
+.eulympicMap {
+  top: 58vh;  
+  left: 19vw; 
+  width: 25vw;
+  height: 25vh;
+}
+
+@media (max-width: 2560px) {
+  .unifyMap {
+    top: 6vh;  
+    left: 30vw; 
+  }
+  
+  .ucareMap {
+    top: 10vh;  
+    left: 50vw; 
+  }
+  
+  .unveilingMap {
+    top: 32vh;  
+    left: 20vw; 
+  }
+  
+  .ulympicMap {
+    top: 35vh;  
+    left: 62vw; 
+  }
+  
+  .eulympicMap {
+    top: 58vh;  
+    left: 19vw; 
+  }
+}
+
+@media (max-width: 1440px) {
+  .unifyMap {
+    top: 2vh;  
+    left: 29vw; 
+    width: 14vw;
+    height: 14vh;
+  }
+
+  .ucareMap {
+    top: 5vh;  
+    left: 50vw; 
+    width: 14vw;
+    height: 14vh;
+  }
+
+  .unveilingMap {
+    top: 27vh;  
+    left: 19vw; 
+    width: 15vw;
+    height: 15vh;
+  }
+
+  .ulympicMap {
+    top: 35vh;  
+    left: 61vw; 
+    width: 15vw;
+    height: 15vh;
+  }
+
+  .eulympicMap {
+    top: 60vh;  
+    left: 20vw; 
+    width: 22vw;
+    height: 22vh;
+  }
+}
+
+@media (min-width:1025px) and (max-width: 1300px) {
+  .unifyMap {
+    top: 8vh;  
+    left: 29vw; 
+    width: 15vw;
+    height: 15vh;
+  }
+
+  .ucareMap {
+    top: 12vh;  
+    left: 50vw; 
+    width: 15vw;
+    height: 15vh;
+  }
+
+  .unveilingMap {
+    top: 35vh;  
+    left: 19vw; 
+    width: 15vw;
+    height: 15vh;
+  }
+
+  .ulympicMap {
+    top: 34vh;  
+    left: 61vw; 
+    width: 15vw;
+    height: 15vh;
+  }
+
+  .eulympicMap {
+    top: 57vh;  
+    left: 20vw; 
+    width: 30vw;
+    height: 30vh;
+  }
+}
+
+@media (max-width: 1024px) {
+  .unifyMap {
+    top: 11vh;  
+    left: 29vw; 
+    width: 12vw;
+    height: 12vh;
+  }
+
+  .ucareMap {
+    top: 14vh;  
+    left: 51vw; 
+    width: 12vw;
+    height: 12vh;
+  }
+
+  .unveilingMap {
+    top: 34vh;  
+    left: 19vw; 
+    width: 12vw;
+    height: 12vh;
+  }
+
+  .ulympicMap {
+    top: 34vh;  
+    left: 61vw; 
+    width: 16vw;
+    height: 16vh;
+  }
+
+  .eulympicMap {
+    top: 57vh;  
+    left: 20vw; 
+    width: 24vw;
+    height: 24vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .unifyMap {
+    top: 18vh;  
+    left: 27vw; 
+    width: 12vw;
+    height: 12vh;
+  }
+
+  .ucareMap {
+    top: 21vh;  
+    left: 52vw; 
+    width: 12vw;
+    height: 12vh;
+  }
+
+  .unveilingMap {
+    top: 40vh;  
+    left: 16vw; 
+    width: 12vw;
+    height: 12vh;
+  }
+
+  .ulympicMap {
+    top: 43vh;  
+    left: 66vw; 
+    width: 12vw;
+    height: 12vh;
+  }
+
+  .eulympicMap {
+    top: 60vh;  
+    left: 17vw; 
+    width: 21vw;
+    height: 21vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .unifyMap {
+    top: 17vh;  
+    left: 32vw; 
+    width: 15vw;
+    height: 15vh;
+  }
+
+  .ucareMap {
+    top: 33vh;  
+    left: 70vw; 
+    width: 15vw;
+    height: 15vh;
+  }
+
+  .unveilingMap {
+    top: 41vh;  
+    left: 29vw; 
+    width: 15vw;
+    height: 15vh;
+  }
+
+  .ulympicMap {
+    top: 72vh;  
+    left: 69vw; 
+    width: 15vw;
+    height: 15vh;
+  }
+
+  .eulympicMap {
+    top: 63vh;  
+    left: 22vw; 
+    width: 25vw;
+    height: 25vh;
+  }
+}
+
+@media (max-width: 376px) {
+  .unifyMap {
+    top: 21vh;  
+    left: 32vw; 
+    width: 15vw;
+    height: 15vh;
+  }
+
+  .ucareMap {
+    top: 36vh;  
+    left: 70vw; 
+    width: 15vw;
+    height: 15vh;
+  }
+
+  .unveilingMap {
+    top: 42vh;  
+    left: 29vw; 
+    width: 15vw;
+    height: 15vh;
+  }
+
+  .ulympicMap {
+    top: 69vh;  
+    left: 69vw; 
+    width: 15vw;
+    height: 15vh;
+  }
+
+  .eulympicMap {
+    top: 63vh;  
+    left: 22vw; 
+    width: 25vw;
+    height: 25vh;
+  }
+}
+
+@media (max-width: 321px) {
+  .unifyMap {
+    top: 23vh;  
+    left: 32vw; 
+    width: 15vw;
+    height: 15vh;
+  }
+
+  .ucareMap {
+    top: 37vh;  
+    left: 73vw; 
+    width: 15vw;
+    height: 15vh;
+  }
+
+  .unveilingMap {
+    top: 42vh;  
+    left: 30vw; 
+    width: 15vw;
+    height: 15vh;
+  }
+
+  .ulympicMap {
+    top: 68vh;  
+    left: 72vw; 
+    width: 15vw;
+    height: 15vh;
+  }
+
+  .eulympicMap {
+    top: 63vh;  
+    left: 22vw; 
+    width: 25vw;
+    height: 25vh;
+  }
+}
