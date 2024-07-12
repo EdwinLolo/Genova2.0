@@ -100,13 +100,6 @@ function Rangkaian() {
                         </div>
                     </div>
                 ))}
-                <div className="sponsor">
-                    <h1>Sponsored by:</h1>
-                    <div className="logosponsor">
-                        <img src={vicmic} alt="vicmic" />
-                        <img src={lenovo} alt="lenovo" />
-                    </div>
-                </div>
             </div>
         );
     } else {
@@ -114,108 +107,99 @@ function Rangkaian() {
             <div className="rangkaianwrapper">
                 <div className="overlaycolor"></div>
 
-                <div className="bungkusann">
-                    <div className="content">
-                        <div
-                            className="card"
-                            // onClick={() => navigate("/unveiling")}
-                        >
-                            <div className="wrapper">
-                                <img
-                                    src={bg1}
-                                    className="cover-image"
-                                    alt="coverimage"
-                                />
-                            </div>
-                            <img src={judul1} className="title" alt="title" />
+                <div className="content">
+                    <div
+                        className="card"
+                        // onClick={() => navigate("/unveiling")}
+                    >
+                        <div className="wrapper">
                             <img
-                                src={gambar1}
-                                className="character"
-                                alt="character"
+                                src={bg1}
+                                className="cover-image"
+                                alt="coverimage"
                             />
                         </div>
-
-                        <div
-                            className="card"
-                            // onClick={() => navigate("/eulympic")}
-                        >
-                            <div className="wrapper">
-                                <img
-                                    src={bg2}
-                                    className="cover-image"
-                                    alt="coverimage"
-                                />
-                            </div>
-                            <img src={judul2} className="title" alt="title" />
-                            <img
-                                src={gambar2}
-                                className="character"
-                                alt="charcter"
-                            />
-                        </div>
-                        <div
-                            className="card"
-                            // onClick={() => navigate("/ucare")}
-                        >
-                            <div className="wrapper">
-                                <img
-                                    src={bg3}
-                                    className="cover-image"
-                                    alt="coverimage"
-                                />
-                            </div>
-                            <img src={judul3} className="title" alt="title" />
-                            <img
-                                src={gambar3}
-                                className="character"
-                                alt="character"
-                            />
-                        </div>
-
-                        <div
-                            className="card"
-                            // onClick={() => navigate("/ulympic")}
-                        >
-                            <div className="wrapper">
-                                <img
-                                    src={bg4}
-                                    className="cover-image"
-                                    alt="coverimage"
-                                />
-                            </div>
-                            <img src={judul4} className="title" alt="title" />
-                            <img
-                                src={gambar4}
-                                className="character4"
-                                alt="character"
-                            />
-                        </div>
-
-                        <div
-                            className="card"
-                            // onClick={() => navigate("/unify")}
-                        >
-                            <div className="wrapper">
-                                <img
-                                    src={bg5}
-                                    className="cover-image"
-                                    alt="coverimage"
-                                />
-                            </div>
-                            <img src={judul5} className="title" alt="title" />
-                            <img
-                                src={gambar5}
-                                className="character5"
-                                alt="character"
-                            />
-                        </div>
+                        <img src={judul1} className="title" alt="title" />
+                        <img
+                            src={gambar1}
+                            className="character"
+                            alt="character"
+                        />
                     </div>
-                    <div className="sponsor">
-                        <h1>Sponsored by:</h1>
-                        <div className="logosponsor">
-                            <img src={vicmic} alt="vicmic" />
-                            <img src={lenovo} alt="lenovo" />
+
+                    <div
+                        className="card"
+                        // onClick={() => navigate("/eulympic")}
+                    >
+                        <div className="wrapper">
+                            <img
+                                src={bg2}
+                                className="cover-image"
+                                alt="coverimage"
+                            />
                         </div>
+                        <img src={judul2} className="title" alt="title" />
+                        <img
+                            src={gambar2}
+                            className="character"
+                            alt="charcter"
+                        />
+                    </div>
+                    <div
+                        className="card"
+                        // onClick={() => navigate("/ucare")}
+                    >
+                        <div className="wrapper">
+                            <img
+                                src={bg3}
+                                className="cover-image"
+                                alt="coverimage"
+                            />
+                        </div>
+                        <img src={judul3} className="title" alt="title" />
+                        <img
+                            src={gambar3}
+                            className="character"
+                            alt="character"
+                        />
+                    </div>
+
+                    <div
+                        className="card"
+                        // onClick={() => navigate("/ulympic")}
+                    >
+                        <div className="wrapper">
+                            <img
+                                src={bg4}
+                                className="cover-image"
+                                alt="coverimage"
+                            />
+                        </div>
+                        <img src={judul4} className="title" alt="title" />
+                        <img
+                            src={gambar4}
+                            className="character4"
+                            alt="character"
+                        />
+                    </div>
+
+                    <div
+                        className="card"
+                        // onClick={() => navigate("/unify")}
+                    >
+                        <div className="wrapper">
+                            <img
+                                src={bg5}
+                                className="cover-image"
+                                alt="coverimage"
+                            />
+                        </div>
+                        <img src={judul5} className="title" alt="title" />
+                        <img
+                            src={gambar5}
+                            className="character5"
+                            alt="character"
+                        />
                     </div>
                 </div>
             </div>

@@ -11,6 +11,8 @@
     margin: 0;
     padding: 0;
     align-items: center;
+    justify-content: center;
+    display: flex;
     background-image: linear-gradient(
             180deg,
             rgba(255, 255, 255, 0) 40%,

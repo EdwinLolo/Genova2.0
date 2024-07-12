@@ -1,7 +1,6 @@
 import IonIcon from "@reacticons/ionicons";
 import React, { useState, useEffect } from "react";
 import Logo from "../../Assets/Logo/UfestLogo.webp";
-import BG from "../../Assets/Navbar/bg_1.png";
 import "./Navbar.css";
 
 function Navbar() {
@@ -10,16 +9,24 @@ function Navbar() {
 
     useEffect(() => {
         const handleScroll = () => {
-            if (window.scrollY > 550) {
+            if (window.scrollY >= 100) {
                 setScrolled(true);
             } else {
                 setScrolled(false);
             }
         };
 
+        // Add scroll event listener
         window.addEventListener("scroll", handleScroll);
 
+        // Set timeout to setScrolled(true) after 2 seconds
+        const timer = setTimeout(() => {
+            setScrolled(true);
+        }, 2000);
+
+        // Cleanup
         return () => {
+            clearTimeout(timer);
             window.removeEventListener("scroll", handleScroll);
         };
     }, []);
