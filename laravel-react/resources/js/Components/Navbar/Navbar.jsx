@@ -1,164 +1,113 @@
-import React, { useState } from "react";
+import IonIcon from "@reacticons/ionicons";
+import React, { useState, useEffect } from "react";
+import Logo from "../../Assets/Logo/UfestLogo.webp";
+import BG from "../../Assets/Navbar/bg_1.png";
+import "./Navbar.css";
 
 function Navbar() {
-    const [isOpen, setIsOpen] = useState(false); // State to manage dropdown visibility
+    let [open, setOpen] = useState(false);
+    let [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 550) {
+                setScrolled(true);
+            } else {
+                setScrolled(false);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
 
     return (
-        <div>
-            <nav className="bg-white border-gray-200 dark:bg-gray-900">
-                <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <div
+            className={`fixed z-10 w-[100vw] top-0 py-5 transition-all duration-300 flex items-center justify-center ${
+                scrolled ? "bg-opacity-100" : "bg-opacity-0"
+            }`}
+        >
+            <div
+                className={`lg:flex md:flex items-center justify-between lg:bg-opacity-0 md:bg-opacity-0 pt-5 md:pt-0 sm:rounded-t-[20px] md:rounded-b-[100px] px-5 pb-14 md:px-6 lg:px-16 w-[90%] sm:w-[90%]  bodynavbar ${
+                    scrolled ? "navbar-visible" : "navbar-hidden"
+                }`}
+                // style={{
+                //     backgroundImage: scrolled ? `url(${BG})` : "none",
+                //     backgroundSize: "auto",
+                //     backgroundRepeat: "no-repeat",
+                //     backgroundPosition: "center",
+                // }}
+            >
+                <div className="font-bold text-2xl cursor-pointer flex items-center text-gray-600 lg:font-[Poppins text-gray-800] md:font-[Poppins text-gray-800]">
                     <a
-                        href="https://flowbite.com/"
-                        className="flex items-center space-x-3 rtl:space-x-reverse"
+                        href="/"
+                        className="w-[40px] lg:mb-2 mr-5 pt-auto visible"
                     >
-                        <img
-                            src="https://flowbite.com/docs/images/logo.svg"
-                            className="h-8"
-                            alt="Flowbite Logo"
-                        />
-                        <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-                            UMN Festival
-                        </span>
+                        <img src={Logo} alt="ufest logo" />
                     </a>
-                    <div className="flex md:order-2">
+                    {scrolled && (
+                        <span className="font-umn xl:text-[20px] lg:text-[18px] lg:mb-2 sm:text-[20px] mb-0 pt-1 hidden md:block">
+                            UMN FESTIVAL
+                        </span>
+                    )}
+                </div>
+                {scrolled && (
+                    <>
                         <button
-                            type="button"
-                            data-collapse-toggle="navbar-search"
-                            aria-controls="navbar-search"
-                            aria-expanded={isOpen}
-                            className="md:hidden text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 me-1"
-                            onClick={() => setIsOpen(!isOpen)} // Toggle the state on click
+                            role="button"
+                            onClick={() => setOpen(!open)}
+                            className="text-4xl absolute right-8 top-[38px] cursor-pointer lg:hidden md:hidden p-2"
                         >
-                            <svg
-                                className="w-5 h-5"
-                                aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 20 20"
-                            >
-                                <path
-                                    stroke="currentColor"
-                                    // stroke-linecap="round"
-                                    // stroke-linejoin="round"
-                                    // stroke-width="2"
-                                    d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-                                />
-                            </svg>
-                            <span className="sr-only">Search</span>
+                            <IonIcon name={open ? "close" : "menu"}></IonIcon>
                         </button>
-                        <div className="relative hidden md:block">
-                            <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                                <svg
-                                    className="w-4 h-4 text-gray-500 dark:text-gray-400"
-                                    aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="none"
-                                    viewBox="0 0 20 20"
-                                >
-                                    <path
-                                        stroke="currentColor"
-                                        // stroke-linecap="round"
-                                        // stroke-linejoin="round"
-                                        // stroke-width="2"
-                                        d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-                                    />
-                                </svg>
-                                <span className="sr-only">Search icon</span>
-                            </div>
-                            <input
-                                type="text"
-                                id="search-navbar"
-                                className="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="Search..."
-                            />
-                        </div>
-                        <button
-                            data-collapse-toggle="navbar-search"
-                            type="button"
-                            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-                            aria-controls="navbar-search"
-                            aria-expanded={isOpen}
-                            onClick={() => setIsOpen(!isOpen)} // Toggle the state on click
+                        <ul
+                            className={`rounded-3xl lg:flex md:flex lg:items-center lg:mb-2 md:items-center lg:pb-0 md:pb-0 pb-5 absolute lg:static md:static bg-slate-100 lg:bg-opacity-0 md:bg-opacity-0 left-0 w-full z-10 lg:w-auto md:w-auto lg:px-0 md:px-0 px-[50px] transition-all duration-500 ease-in ${
+                                open
+                                    ? "top-[110px] opacity-100"
+                                    : "top-[-400px]"
+                            }`}
                         >
-                            <span className="sr-only">Open main menu</span>
-                            <svg
-                                className="w-5 h-5"
-                                aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 17 14"
-                            >
-                                <path
-                                    stroke="currentColor"
-                                    // stroke-linecap="round"
-                                    // stroke-linejoin="round"
-                                    // stroke-width="2"
-                                    d="M1 1h15M1 7h15M1 13h15"
-                                />
-                            </svg>
-                        </button>
-                    </div>
-                    <div
-                        className={`items-center justify-between w-full md:flex md:w-auto md:order-1 ${
-                            isOpen ? "block" : "hidden"
-                        }`} // Conditional rendering based on state
-                        id="navbar-search"
-                    >
-                        <div className="relative mt-3 md:hidden">
-                            <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                                <svg
-                                    className="w-4 h-4 text-gray-500 dark:text-gray-400"
-                                    aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="none"
-                                    viewBox="0 0 20 20"
-                                >
-                                    <path
-                                        stroke="currentColor"
-                                        // stroke-linecap="round"
-                                        // stroke-linejoin="round"
-                                        // stroke-width="2"
-                                        d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-                                    />
-                                </svg>
-                            </div>
-                            <input
-                                type="text"
-                                id="search-navbar"
-                                className="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="Search..."
-                            />
-                        </div>
-                        <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-                            <li>
+                            <li className="text-xl text-center md:ml-3 lg:ml-5 xl:ml-8 lg:my-0 md:my-0 my-7">
                                 <a
-                                    href="#"
-                                    className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
-                                    aria-current="page"
+                                    href="/"
+                                    className="font-nav tracking-wider cursor-pointer  text-gray-600 hover:text-gray-800 lg:hover:text-gray-400 md:hover:text-gray-400 duration-500 font-extrabold  lg:text-[15px] xl:text-[20px]"
                                 >
-                                    Home
+                                    HOME
                                 </a>
                             </li>
-                            <li>
+                            <li className="text-xl text-center md:ml-3 lg:ml-5 xl:ml-8 lg:my-0 md:my-0 my-7">
                                 <a
-                                    href="#"
-                                    className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                                    href="/division"
+                                    className="font-nav tracking-wider cursor-pointer  text-gray-600 hover:text-gray-800 lg:hover:text-gray-400 md:hover:text-gray-400 duration-500 font-extrabold  lg:text-[15px] xl:text-[20px]"
                                 >
-                                    About
+                                    DIVISION
                                 </a>
                             </li>
-                            <li>
+                            {/* <li className="text-xl text-center md:ml-3 lg:ml-5 xl:ml-8 lg:my-0 md:my-0 my-7">
                                 <a
-                                    href="#"
-                                    className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                                    href="/map"
+                                    className="font-nav tracking-wider cursor-pointer text-gray-600 hover:text-gray-800 lg:hover:text-gray-400 md:hover:text-gray-400 duration-500 font-extrabold  lg:text-[15px] xl:text-[20px]"
                                 >
-                                    Services
+                                    MAP
+                                </a>
+                            </li> */}
+                            <li className="text-xl text-center md:ml-3 lg:my-0 md:my-0 my-7">
+                                <a
+                                    href="/rangkaian/ucare"
+                                    className="px-5 py-3 text-center text-white duration-500 bg-gray-600 rounded cursor-pointer md:py-2 sm:px-6 lg:px-5 md:px-6 xl:ml-8 hover:bg-indigo-400 font-custom"
+                                >
+                                    <span className="xl:text-xl lg:text-lg text-[20px] tracking-wider font-nav">
+                                        Register
+                                    </span>
                                 </a>
                             </li>
                         </ul>
-                    </div>
-                </div>
-            </nav>
+                    </>
+                )}
+            </div>
         </div>
     );
 }
