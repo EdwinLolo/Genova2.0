@@ -36,7 +36,6 @@ Route::get('/rangkaian/unveiling', function () {
     return Inertia::render('PageUnveiling');
 });
 
-
 Route::prefix('/admin')->middleware([AuthenticateAdmin::class])->group(function () {
     Route::get('/', [AdminController::class, 'index']);
     Route::get('/input', [AdminController::class, 'input']);
@@ -65,11 +64,11 @@ Route::prefix('/admin')->middleware([AuthenticateAdmin::class])->group(function 
     Route::post('/edit/{nim}', [AdminController::class, 'update']);
 });
 
-Route::middleware(['web'])->group(function () {
-    Route::post('/team/input/data', [TeamController::class, 'regist']);
-    Route::post('/input/data', [AdminController::class, 'regist']);
-    Route::post('/ucare', [UcareController::class, 'register']);
-    Route::post('/unify', [UnifyController::class, 'register']);
-    Route::get('/unify/invoice', [UnifyController::class, 'getInvoice'])->name('unify.getInvoice');
-    Route::get('/unify/{id}', [UnifyController::class, 'invoice']);
+
+Route::get('/rangkaian/unify', function () {
+    return Inertia::render('PageUnify');
+});
+
+Route::get('/rangkaian/ulympic', function () {
+    return Inertia::render('PageUlympic');
 });
