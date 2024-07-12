@@ -1,0 +1,82 @@
+.BracketPCEulympic{
+    height: 150vh;
+    width: 100vw;
+}
+
+.IsiBracketPC{
+    position: absolute;
+    top: 6rem;
+    left: 8rem;
+    width: 90rem;
+    height: 51rem;
+    background-color: rgba(255, 255, 255, 0.7) ;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 3rem;
+}
+
+.bracket{
+    width: 65vw;
+    height: 65vh;
+}
+
+.JudulBracketPC {
+    color: rgb(60, 59, 96);
+    text-align: center;
+    font-size: 4rem;
+    text-decoration: underline;
+    margin-bottom: 1.5rem;
+}
+
+.sponsor {
+    position: absolute;
+    top: 60rem;
+    left: 40rem;
+    /* margin-top: 100px; */
+    text-align: center;
+    padding: 20px;
+    /* background-color: #f4f4f4; Warna latar belakang */
+}
+
+.sponsor h1 {
+    font-size: 1.5em; /* Ukuran font untuk h1 */
+    margin-bottom: 20px; /* Jarak bawah untuk h1 */
+    font-family: "FestivalBudaya";
+}
+
+.logosponsor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logosponsor img {
+    max-width: 150px; /* Lebar maksimum gambar */
+    margin: 10px; /* Jarak di sekitar gambar */
+}
+
+@media (max-width: 1600px) {
+    .IsiBracketPC{
+        position: absolute;
+        top: 6rem;
+        left: 8rem;
+        width: 49rem;
+        height: 51rem;
+        background-color: rgba(255, 255, 255, 0.7) ;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 3rem;
+    }
+
+    .sponsor {
+        position: absolute;
+        top: 60rem;
+        left: 22rem;
+    }
+}
+

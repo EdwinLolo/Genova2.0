@@ -23,6 +23,41 @@
     text-decoration: underline;
 }
 
+.LogoPCEulympic {
+    width: 43vw;
+    height: auto;
+    display: block;
+}
+
+.IsiPCEulympic {
+    width: 57vw;
+    height: auto;
+    display: block;
+}
+
+.infoPCEulympic {
+    position: absolute;
+    top: 42%; 
+    left: 72%; 
+    transform: translate(-50%, -50%); 
+    width: 100%;
+    max-width: 45%; 
+    color: #6c241a;
+    text-align: justify;
+    padding: 0 3rem; 
+    font-size: 1.6rem;
+}
+
+.JudulPCEulympic {
+    text-align: center;
+    border-bottom: 1px solid #6c241a;
+    margin: 0 auto;
+    margin-bottom: 4rem;
+    font-size: 3.9rem;
+    width: 28rem;
+    height: 6.5rem;
+}
+
 @media (min-width: 375px) {
     .info {
         font-size: 16px;
@@ -125,5 +160,19 @@
         font-size: 45px;
         text-decoration: underline;
         margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 1600px) {
+    .infoPCEulympic {
+        font-size: 1rem;
+        top: 45%;
+        max-width: 45%; 
+    }
+    .JudulPCEulympic {
+        font-size: 2.1rem;
+        width: 15rem;
+        margin-bottom: 2rem;
+        height: 4rem;
     }
 }
