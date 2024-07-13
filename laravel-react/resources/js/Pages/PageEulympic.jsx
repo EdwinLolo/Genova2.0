@@ -8,7 +8,7 @@ function PageEulympic() {
         <>
             <LogoEulympic />
             <EulympicPhoto />
-            <BrackerEulympic />
+            {/* <BrackerEulympic /> */}
         </>
     );
 }

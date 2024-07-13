@@ -4,6 +4,8 @@ import LombaEulympic from "../../../Assets/Rangkaian/Eulympic/Eulimpic_Asset_3_P
 import Valorant from "../../../Assets/Rangkaian/Eulympic/valorant.webp";
 import MoleBaru from "../../../Assets/Rangkaian/Eulympic/molelogo.webp";
 import IU from "../../../Assets/Rangkaian/Eulympic/iu.webp";
+import vicmic from "../../../Assets/HomeAssets/Sponsor/Vicmic.webp";
+import lenovo from "../../../Assets/HomeAssets/Sponsor/lenovo.webp";
 
 // css
 import "../../Font.css";
@@ -294,6 +296,13 @@ function EulympicPhoto() {
                         >
                         <span className="btn-txt1">FULL</span>
                         </button>
+                    </div>
+                </div>
+                <div className="sponsor">
+                    <h1>Sponsored by:</h1>
+                    <div className="logosponsor">
+                        <img src={vicmic} alt="vicmic" />
+                        <img src={lenovo} alt="lenovo" />
                     </div>
                 </div>
             </div>
