@@ -106,7 +106,7 @@ class TeamController extends Controller
             
             for ($i = 0; $i < count($members); $i++) {
                 // Handle each member and their respective file ('ktm')
-                if(!isset($members[$i]['namaLengkap']) || !isset($members[$i]['nim']) || !isset($members[$i]['idLine']) || !isset($members[$i]['asalKampus'])) {
+                if(!isset($members[$i]['namaLengkap']) || !isset($members[$i]['nim']) || !isset($members[$i]['idLine'])) {
                     break;
                 }
                 $namaLengkap = $members[$i]['namaLengkap'];
