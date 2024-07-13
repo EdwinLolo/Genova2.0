@@ -68,6 +68,7 @@ class TeamController extends Controller
         // Validate incoming request data
         $request->validate([
             'lombaId' => 'required|exists:lombas,id_lomba',
+            'isInternal' => 'string',
             'namaTeam' => 'required|string|max:255',
             'buktiTf' => 'required|file|mimes:png,jpeg,jpg|max:2048',
             'members' => 'required|array',
@@ -75,7 +76,11 @@ class TeamController extends Controller
             'members.*.nim' => 'required|string|max:11|min:11',
             'members.*.idLine' => 'nullable|string|max:50',
             'members.*.ktm' => 'required|file|mimes:jpg,jpeg,png|max:2048',
+            'members.*.asalKampus' => 'string',
         ]);
+
+
+
         try {
             // Start transaction
             DB::beginTransaction();
@@ -85,8 +90,9 @@ class TeamController extends Controller
             $namaTeam = $request->input('namaTeam');
             $buktiTF = $request->file('buktiTf');
             $members = $request->input('members');
-            // Store buktiTF (bukti transfer) file
+            $isInternal = $request->input('isInternal');
             $buktiTFPath = $buktiTF->store('buktiTf', 'public');
+
             // Create a new team record in the database
             $team = Team::create([
                 'id_lomba' => $lombaId,
@@ -99,6 +105,12 @@ class TeamController extends Controller
                 $namaLengkap = $members[$i]['namaLengkap'];
                 $nim = $members[$i]['nim'];
                 $idLine = $members[$i]['idLine'];
+                $asalKampus = $members[$i]['asalKampus'];
+
+                // If lomba is internal use UMN as default value
+                if ($isInternal === "true" || $asalKampus === "") {
+                    $asalKampus = "UMN";
+                }
 
                 // Handle file upload ('ktm')
                 $file = $request->file('members')[$i]['ktm'];
@@ -110,6 +122,7 @@ class TeamController extends Controller
                     'nim' => $nim,
                     'idLine' => $idLine,
                     'idUser' => "",
+                    'asalKampus' => $asalKampus,
                     'ktm' => $ktmPath, // Save the path to the file in database
                 ]);
 
@@ -136,7 +149,7 @@ class TeamController extends Controller
             $errorMessageExplode = explode("'", $errorMessage);
             $errorMessageConcat = $errorMessageExplode[0] .  $errorMessageExplode[1];
             if ($errorCode === 1062) { // MySQL error code for duplicate entry
-                return back()->withErrors(['error' => 'Duplicate entry error.', 'message' => $errorMessageConcat]);
+                return back()->withErrors(['error' => 'Duplicate entry.', 'message' => $errorMessageConcat]);
             }
             // Log the exception or handle it appropriately
             return back()->withErrors(['error' => 'Database error occurred.']);

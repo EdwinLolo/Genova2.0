@@ -13,11 +13,14 @@ function FormInputTeam({ lombas }) {
     });
 
     const [selectedLomba, setSelectedLomba] = useState(null);
+    const [isInternal, setIsInternal] = useState(null);
 
     const handleButton = (lomba) => {
         setSelectedLomba(lomba);
+        setIsInternal(lomba.isInternal);
         setData({
             lombaId: lomba.id_lomba,
+            isInternal: lomba.isInternal,
             namaTeam: "",
             buktiTf: null,
             members: Array.from({ length: lomba.besarTeam }, () => ({
@@ -25,6 +28,7 @@ function FormInputTeam({ lombas }) {
                 nim: "",
                 idLine: "",
                 ktm: null,
+                asalKampus: "",
             })),
         });
     };
@@ -64,6 +68,7 @@ function FormInputTeam({ lombas }) {
                     setSelectedLomba(null);
                     setData({
                         lombaId: null,
+                        isInternal: "",
                         namaTeam: "",
                         buktiTf: null,
                         members: [],
@@ -136,6 +141,11 @@ function FormInputTeam({ lombas }) {
                                                 <th className="px-4 py-2">
                                                     KTM
                                                 </th>
+                                                {isInternal === "false" && (
+                                                    <th className="px-4 py-2">
+                                                        Asal Kampus
+                                                    </th>
+                                                )}
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -219,6 +229,30 @@ function FormInputTeam({ lombas }) {
                                                                 required
                                                             />
                                                         </td>
+                                                        {isInternal ===
+                                                            "false" && (
+                                                            <td className="px-4 py-2">
+                                                                <input
+                                                                    type="text"
+                                                                    name={`asalKampus[${index}]`}
+                                                                    value={
+                                                                        member.asalKampus
+                                                                    }
+                                                                    onChange={(
+                                                                        e
+                                                                    ) =>
+                                                                        handleInputChange(
+                                                                            index,
+                                                                            "asalKampus",
+                                                                            e
+                                                                                .target
+                                                                                .value
+                                                                        )
+                                                                    }
+                                                                    className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                                                />
+                                                            </td>
+                                                        )}
                                                     </tr>
                                                 )
                                             )}
