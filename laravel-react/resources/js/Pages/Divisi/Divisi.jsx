@@ -3,6 +3,7 @@ import Carousel from "../../Components/Divisi/Carousel";
 import divisions from "../Divisi/division";
 import mobiledivisions from "../Divisi/mobiledivision";
 import "./Divisi.css";
+import "../../Components/Font.css";
 
 function Divisi() {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -18,6 +19,13 @@ function Divisi() {
     }, []);
 
     const [currentIndex, setCurrentIndex] = useState(0);
+    const currentDivision = divisions[currentIndex];
+    const color = currentDivision.color;
+
+    useEffect(() => {
+        // Set the CSS variable for the gradient color
+        document.documentElement.style.setProperty("--h1-color", color);
+    }, [color]);
 
     if (isWideScreen) {
         return (
@@ -30,15 +38,11 @@ function Divisi() {
                             className="w-full"
                         />
                         <div className="info">
-                            <h1>{mobiledivisions[currentIndex].name}</h1>
+                            <h1 className="gradient-text">
+                                {mobiledivisions[currentIndex].name}
+                            </h1>
                             <p>{mobiledivisions[currentIndex].desc}</p>
                         </div>
-                        {/* <div className="logo">
-                            <img
-                                src={mobiledivisions[currentIndex].logo}
-                                alt="Logo"
-                            />
-                        </div> */}
                         <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center z-30">
                             <Carousel onChangeIndex={setCurrentIndex} />
                         </div>
@@ -62,8 +66,10 @@ function Divisi() {
                                 alt=""
                                 className="w-full h-auto"
                             />
-                            <div className="absolute top-1/2 left-1/3 transform -translate-x-1/2 -translate-y-1/2 max-w-[90%] w-1/2 p-[1vw] box-border text-center text-[1.3vw]">
-                                <h1>{divisions[currentIndex].name}</h1>
+                            <div className="absolute top-1/2 left-1/3 transform -translate-x-1/2 -translate-y-1/2 max-w-[45%] w-1/2 p-[1vw] box-border text-center text-[1.3vw]">
+                                <h1 className="mb-3 gradient-text">
+                                    {divisions[currentIndex].name}
+                                </h1>
                                 <p>{divisions[currentIndex].desc}</p>
                             </div>
                             <div className="logo absolute w-[90vw]">

@@ -24,46 +24,52 @@ import VisualWebsiteBG from "../../Assets/DivisionAssets/Pisa/Visual_Website_BG.
 
 const divisions = [
     {
-        name: "Acara",
-        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc nec ultricies.",
+        name: "Tuscany",
+        desc: "Kota Tuscany dikenal sebagai kota pusat inovasi di masa Renaissance. Divisi acara menjadi pusat inovasi dalam acara ini.",
         frame: AcaraFrame,
         bigLogo: AcaraBigLogo,
-        background: AcaraWebsiteBG
+        background: AcaraWebsiteBG,
+        color: "#f56565",
     },
     {
-        name: "BPH",
-        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc nec ultricies.",
+        name: "Rome",
+        desc: "Pusat ibu kota di Italia. menjadi destinasi utama para turis saat berkunjung. Divisi BPH menjadi pusat utama informasi acara dan divisi lainnya.",
         frame: BPHFrame,
         bigLogo: BPHBigLogo,
-        background: BPHWebsiteBG
+        background: BPHWebsiteBG,
+        color: "#4299e1",
     },
     {
-        name: "Dekorasi",
-        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc nec ultricies.",
+        name: "Florence",
+        desc: "Kota Florence dikenal sebagai kota terindah di Italia karena warisan budaya, arsitektur, dan seni yang sangat menakjubkan. Seperti Florence yang dipenuhi dengan keindahan, divisi Dekorasi akan membantu memperindah venue-venue yang akan digunakan oleh UMN Festival 2024.",
         frame: DekorFrame,
         bigLogo: DekorBigLogo,
-        background: DekorWebsiteBG
+        background: DekorWebsiteBG,
+        color: "#48bb78",
     },
     {
-        name: "Dokumentasi",
-        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc nec ultricies.",
+        name: "Napoli",
+        desc: "Kota Napoli dikenal dengan perpaduan nuansa kuno dan modern. Napoli menjadi kota dengan seni, arsitektur, dan peninggalan arkeologi yang menarik banyak turis untuk berfoto. Divisi dokumentasi memiliki tugas dalam mengabdikan banyak momen acara.",
         frame: DokumFrame,
         bigLogo: DokumBigLogo,
-        background: DokumWebsiteBG
+        background: DokumWebsiteBG,
+        color: "#ecc94b",
     },
     {
-        name: "FreshMoney",
-        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc nec ultricies.",
+        name: "Venezia",
+        desc: "Kota Venezia merupakan kota yang terkenal karena aspek perdagangan dan pariwisata. Maka dari itu, Venezia memiliki pemasukan ekonomi yang besar bagi Italia. Seperti Venezia, divisi Fresh Money akan mendukung UMN Festival 2024 dengan berbagai kegiatan wirausaha.",
         frame: FreshMoneyFrame,
         bigLogo: FreshMoneyBigLogo,
-        background: FreshMoneyWebsiteBG
+        background: FreshMoneyWebsiteBG,
+        color: "#9f7aea",
     },
     {
-        name: "Visual",
-        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc nec ultricies.",
+        name: "Pisa",
+        desc: "Kota Pisa dikenal sebagai kota yang memiliki banyak destinasi wisata yang berhubungan desain seperti desain arsitektur dan museum lukisan. Seperti kota Pisa yang dipenuhi dengan kreativitas, divisi Visual akan memenuhi kebutuhan kreatif dari acara ini.",
         frame: VisualFrame,
         bigLogo: VisualBigLogo,
-        background: VisualWebsiteBG
+        background: VisualWebsiteBG,
+        color: "#ed8936",
     }
 ];
 
