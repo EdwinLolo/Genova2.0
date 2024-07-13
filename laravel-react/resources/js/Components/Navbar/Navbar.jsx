@@ -93,14 +93,14 @@ function Navbar() {
                                     DIVISION
                                 </a>
                             </li>
-                            {/* <li className="text-xl text-center md:ml-3 lg:ml-5 xl:ml-8 lg:my-0 md:my-0 my-7">
+                            <li className="text-xl text-center md:ml-3 lg:ml-5 xl:ml-8 lg:my-0 md:my-0 my-7">
                                 <a
-                                    href="/map"
+                                    href="/maps"
                                     className="font-nav tracking-wider cursor-pointer text-gray-600 hover:text-gray-800 lg:hover:text-gray-400 md:hover:text-gray-400 duration-500 font-extrabold  lg:text-[15px] xl:text-[20px]"
                                 >
                                     MAP
                                 </a>
-                            </li> */}
+                            </li>
                             <li className="text-xl text-center md:ml-3 lg:my-0 md:my-0 my-7">
                                 <a
                                     href="/rangkaian/ucare"

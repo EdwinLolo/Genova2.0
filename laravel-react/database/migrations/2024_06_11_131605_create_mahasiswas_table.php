@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('mahasiswas', function (Blueprint $table) {
             $table->string("nim", 11)->unique()->nullable(false);
-            $table->string("namaLengkap");
+            $table->string("namaLengkap")->nullable(true);
             $table->string("idUser")->nullable(true);
-            $table->string("idLine");
-            $table->string("ktm");
-            $table->string("asalKampus");
+            $table->string("idLine")->nullabe(true);
+            $table->string("ktm")->nullable(true);
+            $table->string("asalKampus")->nullable(true);
             $table->timestamps();
 
             $table->primary(['nim']);

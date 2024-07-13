@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import Carousel from "../../Components/Divisi/Carousel";
 import divisions from "../Divisi/division";
 import mobiledivisions from "../Divisi/mobiledivision";
+import Navbar from "../../Components/Navbar/Navbar";
 import "./Divisi.css";
 import "../../Components/Font.css";
-
 
 function Divisi() {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -31,8 +31,9 @@ function Divisi() {
     if (isWideScreen) {
         return (
             <>
-                <div className="flex flex-col justify-center items-center">
-                    <div className="relative flex flex-col justify-center items-center">
+                <Navbar />
+                <div className="flex flex-col items-center justify-center">
+                    <div className="relative flex flex-col items-center justify-center">
                         <img
                             src={mobiledivisions[currentIndex].frame}
                             alt=""
@@ -42,11 +43,11 @@ function Divisi() {
                             <h1 className="gradient-text">
                                 {mobiledivisions[currentIndex].name}
                             </h1>
-                           
+
                             <br></br>
                             <p>{mobiledivisions[currentIndex].desc}</p>
                         </div>
-                        <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center z-30">
+                        <div className="absolute top-0 left-0 z-30 flex items-center justify-center w-full h-full">
                             <Carousel onChangeIndex={setCurrentIndex} />
                         </div>
                     </div>
@@ -56,13 +57,14 @@ function Divisi() {
     } else {
         return (
             <>
+                <Navbar />
                 <div
-                    className="bg-cover bg-no-repeat h-screen flex justify-center items-center"
+                    className="flex items-center justify-center h-screen bg-no-repeat bg-cover"
                     style={{
                         backgroundImage: `url(${divisions[currentIndex].background})`,
                     }}
                 >
-                    <div className="w-full h-full flex justify-center items-center">
+                    <div className="flex items-center justify-center w-full h-full">
                         <div className="flex justify-center items-center relative ml-[30vw] mt-[2vw] max-w-[90vw] overflow-hidden">
                             <img
                                 src={divisions[currentIndex].frame}
@@ -86,7 +88,7 @@ function Divisi() {
                     </div>
                 </div>
 
-                <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center z-30">
+                <div className="absolute top-0 left-0 z-30 flex items-center justify-center w-full h-full">
                     <Carousel onChangeIndex={setCurrentIndex} />
                 </div>
             </>

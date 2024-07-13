@@ -66,17 +66,19 @@ class TeamController extends Controller
     public function regist(Request $request)
     {
         // Validate incoming request data
+        // dd($request->all());
+
         $request->validate([
             'lombaId' => 'required|exists:lombas,id_lomba',
             'isInternal' => 'string',
             'namaTeam' => 'required|string|max:255',
             'buktiTf' => 'required|file|mimes:png,jpeg,jpg|max:2048',
             'members' => 'required|array',
-            'members.*.namaLengkap' => 'required|string|max:255',
-            'members.*.nim' => 'required|string|max:11|min:11',
-            'members.*.idLine' => 'nullable|string|max:50',
-            'members.*.ktm' => 'required|file|mimes:jpg,jpeg,png|max:2048',
-            'members.*.asalKampus' => 'string',
+            'members.*.namaLengkap' => 'string|max:255|nullable',
+            'members.*.nim' => 'string|max:11|min:11|nullable',
+            'members.*.idLine' => 'nullable|string|max:50|nullable',
+            'members.*.ktm' => 'file|mimes:jpg,jpeg,png|max:2048|nullable',
+            'members.*.asalKampus' => 'string|max:255|nullable',
         ]);
 
 
@@ -100,8 +102,13 @@ class TeamController extends Controller
                 'tglDaftar' => now(),
                 'buktiTF' => $buktiTFPath,
             ]);
+
+            
             for ($i = 0; $i < count($members); $i++) {
                 // Handle each member and their respective file ('ktm')
+                if(!isset($members[$i]['namaLengkap']) || !isset($members[$i]['nim']) || !isset($members[$i]['idLine']) || !isset($members[$i]['asalKampus'])) {
+                    break;
+                }
                 $namaLengkap = $members[$i]['namaLengkap'];
                 $nim = $members[$i]['nim'];
                 $idLine = $members[$i]['idLine'];
@@ -142,6 +149,7 @@ class TeamController extends Controller
             return back()->with('success', 'Team input data processed successfully');
         } catch (QueryException $e) {
             // Rollback transaction on error
+            dd($e);
             DB::rollback();
             // Handle specific SQL errors (e.g., unique constraint violation)
             $errorCode = $e->errorInfo[1];
