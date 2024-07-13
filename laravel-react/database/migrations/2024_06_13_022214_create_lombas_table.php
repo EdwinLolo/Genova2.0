@@ -19,6 +19,7 @@ return new class extends Migration
             $table->date("endDate");
             $table->integer("besarTeam")->default(5);
             $table->integer("jumlahTeam")->default(10);
+            $table->enum("isInternal", ["false", "true"]);
             $table->timestamps();
         });
     }

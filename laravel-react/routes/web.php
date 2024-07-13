@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\UcareController;
+use App\Http\Controllers\UlympicController;
 use App\Http\Controllers\UnifyController;
 use App\Http\Middleware\AuthenticateAdmin;
 use Illuminate\Support\Facades\Route;
@@ -64,27 +65,33 @@ Route::prefix('/admin')->middleware([AuthenticateAdmin::class])->group(function 
     Route::post('/edit/{nim}', [AdminController::class, 'update']);
 });
 
+Route::post('/team/input/data', [TeamController::class, 'regist']);
 
 Route::get('/rangkaian/unify', function () {
     return Inertia::render('PageUnify');
 });
 
-Route::get('/rangkaian/ulympic', function () {
-    return Inertia::render('PageUlympic');
+Route::prefix('/rangkaian/ulympic')->group(function () {
+    Route::get('/', [UlympicController::class, 'index']);
+    Route::get('/badminton', [UlympicController::class, 'badminton']);
+    Route::get('/basket', [UlympicController::class, 'basket']);
+    Route::get('/voli', [UlympicController::class, 'voli']);
+    Route::get('/futsal', [UlympicController::class, 'futsal']);
 });
 
-Route::get('/rangkaian/ulympic/basket', function () {
-    return Inertia::render('Form_eulympic/BasketFormEulympic');
-});
 
-Route::get('/rangkaian/ulympic/voli', function () {
-    return Inertia::render('Form_eulympic/VoliFormEulympic');
-});
+// Route::get('/rangkaian/ulympic/basket', function () {
+//     return Inertia::render('Form_eulympic/BasketFormEulympic');
+// });
 
-Route::get('/rangkaian/ulympic/badminton', function () {
-    return Inertia::render('Form_eulympic/BadmintonFormEulympic');
-});
+// Route::get('/rangkaian/ulympic/voli', function () {
+//     return Inertia::render('Form_eulympic/VoliFormEulympic');
+// });
 
-Route::get('/rangkaian/ulympic/futsal', function () {
-    return Inertia::render('Form_eulympic/FutsalFormEulympic');
-});
+// Route::get('/rangkaian/ulympic/badminton', function () {
+//     return Inertia::render('Form_eulympic/BadmintonFormEulympic');
+// });
+
+// Route::get('/rangkaian/ulympic/futsal', function () {
+//     return Inertia::render('Form_eulympic/FutsalFormEulympic');
+// });

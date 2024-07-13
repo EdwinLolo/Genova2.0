@@ -22,6 +22,7 @@ class LombaSeeder extends Seeder
                 'endDate' => '2024-06-20',
                 'besarTeam' => 2,
                 'jumlahTeam' => 12,
+                'isInternal' => 'false',
             ], [
                 'id_lomba' => 2,
                 'namaLomba' => 'Badminton Ganda Putra',
@@ -30,6 +31,7 @@ class LombaSeeder extends Seeder
                 'endDate' => '2024-06-20',
                 'besarTeam' => 2,
                 'jumlahTeam' => 12,
+                'isInternal' => 'true',
             ],
             [
                 'id_lomba' => 3,
@@ -39,6 +41,7 @@ class LombaSeeder extends Seeder
                 'endDate' => '2024-07-05',
                 'besarTeam' => 1,
                 'jumlahTeam' => 12,
+                'isInternal' => 'true',
             ], [
                 'id_lomba' => 4,
                 'namaLomba' => 'Voli',
@@ -47,6 +50,7 @@ class LombaSeeder extends Seeder
                 'endDate' => '2024-07-05',
                 'besarTeam' => 10,
                 'jumlahTeam' => 12,
+                'isInternal' => 'true',
             ], [
                 'id_lomba' => 5,
                 'namaLomba' => 'Basket',
@@ -55,6 +59,7 @@ class LombaSeeder extends Seeder
                 'endDate' => '2024-07-05',
                 'besarTeam' => 7,
                 'jumlahTeam' => 12,
+                'isInternal' => 'true',
             ], [
                 'id_lomba' => 6,
                 'namaLomba' => 'Futsal',
@@ -63,6 +68,7 @@ class LombaSeeder extends Seeder
                 'endDate' => '2024-07-05',
                 'besarTeam' => 12,
                 'jumlahTeam' => 12,
+                'isInternal' => 'true',
             ],
 
         ];

@@ -14,7 +14,8 @@ class Mahasiswa extends Model
         "namaLengkap",
         "idUser",
         "idLine",
-        "ktm"
+        "ktm",
+        "asalKampus"
     ];
     protected $primaryKey = 'nim';
     public $incrementing = false;

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string("idUser")->nullable(true);
             $table->string("idLine");
             $table->string("ktm");
+            $table->string("asalKampus");
             $table->timestamps();
 
             $table->primary(['nim']);

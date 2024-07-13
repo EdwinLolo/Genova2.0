@@ -17,5 +17,6 @@ class Lomba extends Model
         "endDate",
         "besarTeam",
         "jumlahTeam",
+        "isInternal",
     ];
 }
