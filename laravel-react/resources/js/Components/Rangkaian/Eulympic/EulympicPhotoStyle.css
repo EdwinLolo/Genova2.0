@@ -43,7 +43,7 @@
     align-items: center;
     justify-content: center;
     position: absolute;
-    top: 100vh;
+    top: 59rem;
     left: 8rem;
     width: 90rem;
 }
@@ -149,6 +149,34 @@
 
 .time small{
     color: rgb(60, 59, 96, 0.7);
+}
+
+.sponsor {
+    position: absolute;
+    top: 94rem;
+    left: 40rem;
+    /* margin-top: 100px; */
+    text-align: center;
+    padding: 20px;
+    /* background-color: #f4f4f4; Warna latar belakang */
+}
+
+.sponsor h1 {
+    font-size: 1.5em; /* Ukuran font untuk h1 */
+    margin-bottom: 20px; /* Jarak bawah untuk h1 */
+    font-family: "FestivalBudaya";
+}
+
+.logosponsor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logosponsor img {
+    max-width: 150px; /* Lebar maksimum gambar */
+    margin: 10px; /* Jarak di sekitar gambar */
 }
 
 
