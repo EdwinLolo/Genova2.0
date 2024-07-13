@@ -132,6 +132,9 @@ function UnifyDashboard() {
                     <button className="m-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                         <a href="unify/internal">Internal</a>
                     </button>
+                    <button className="m-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        <a href="unify/all">Internal & External</a>
+                    </button>
                     <button
                         className="m-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                         onClick={() => handleButton("external")}

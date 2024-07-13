@@ -45,6 +45,7 @@ Route::prefix('/admin')->middleware([AuthenticateAdmin::class])->group(function 
         Route::get('/', [UnifyController::class, 'index']);
         Route::get('/external', [UnifyController::class, 'external']);
         Route::get('/internal', [UnifyController::class, 'internal']);
+        Route::get('/all', [UnifyController::class, 'all']);
         Route::get('/detail/{id}', [UnifyController::class, 'details']);
     });
     Route::prefix('/team')->group(function () {

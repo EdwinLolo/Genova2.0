@@ -38,6 +38,18 @@ class UnifyController extends Controller
         return Inertia::render('Admin/UnifyInternal', ['data' => $data, 'totalTiket' => $totalTiket]);
     }
 
+    public function all()
+    {
+        $data = Unify::all();
+        $totalTiket = 0;
+        $paidData = Unify::where('status', 'paid')->get();
+
+        foreach ($paidData as $d) {
+            $totalTiket += $d->jumlahTiket;
+        }
+        return Inertia::render('Admin/UnifyAll', ['data' => $data, 'totalTiket' => $totalTiket]);
+    }
+
     public function details($id)
     {
         $data = Unify::where('id', $id)->first();
