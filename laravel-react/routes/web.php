@@ -16,8 +16,8 @@ Route::get('/division', function () {
     return Inertia::render('Divisi/Divisi');
 });
 
-Route::get('/test', function () {
-    return Inertia::render('Test');
+Route::get('/maps', function () {
+    return Inertia::render('Map');
 });
 
 Route::get('/login', [AdminController::class, 'log']);
@@ -71,4 +71,20 @@ Route::get('/rangkaian/unify', function () {
 
 Route::get('/rangkaian/ulympic', function () {
     return Inertia::render('PageUlympic');
+});
+
+Route::get('/rangkaian/ulympic/basket', function () {
+    return Inertia::render('Form_eulympic/BasketFormEulympic');
+});
+
+Route::get('/rangkaian/ulympic/voli', function () {
+    return Inertia::render('Form_eulympic/VoliFormEulympic');
+});
+
+Route::get('/rangkaian/ulympic/badminton', function () {
+    return Inertia::render('Form_eulympic/BadmintonFormEulympic');
+});
+
+Route::get('/rangkaian/ulympic/futsal', function () {
+    return Inertia::render('Form_eulympic/FutsalFormEulympic');
 });

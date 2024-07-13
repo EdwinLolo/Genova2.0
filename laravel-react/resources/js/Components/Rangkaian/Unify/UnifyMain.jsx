@@ -9,7 +9,7 @@ import "./UnifyMain.css";
 
 function UnifyMain() {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-    const isWideScreen = windowWidth <= 1024;
+    const isWideScreen = windowWidth <= 1023;
 
     useEffect(() => {
         const handleResize = () => {
@@ -33,13 +33,21 @@ function UnifyMain() {
                     <div className="info">
                         <h1>𝐔𝐍𝐈𝐅𝐘</h1>
                         <p>
-                            𝐔𝐍𝐈𝐅𝐘 merupakan kegiatan yang akan mempersatukan #Legions untuk berkolaborasi serta menginspirasi satu sama lain.
+                            𝐔𝐍𝐈𝐅𝐘 merupakan kegiatan yang akan mempersatukan
+                            #Legions untuk berkolaborasi serta menginspirasi
+                            satu sama lain.
                             <br />
                             <br />
-                            Dalam tahap ini, 𝐔𝐍𝐈𝐅𝐘 mengajak #Legions untuk mau berkorban dan memberikan bantuan kepada orang lain serta dengan niat baik dalam mencapai kebahagiaan bersama, dengan cara aktif terlibat dalam kegiatan sosial.
+                            Dalam tahap ini, 𝐔𝐍𝐈𝐅𝐘 mengajak #Legions untuk mau
+                            berkorban dan memberikan bantuan kepada orang lain
+                            serta dengan niat baik dalam mencapai kebahagiaan
+                            bersama, dengan cara aktif terlibat dalam kegiatan
+                            sosial.
                             <br />
                             <br />
-                            "Embark with us on this extraordinary journey, where we join forces to make a positive impact and spread goodwill!"
+                            "Embark with us on this extraordinary journey, where
+                            we join forces to make a positive impact and spread
+                            goodwill!"
                         </p>
                     </div>
                 </div>
@@ -48,19 +56,29 @@ function UnifyMain() {
     } else {
         return (
             <div className="cont">
-                <div className="PCLogo"><img src={PCLogoUnifyPNG} alt="Logo Unify" /></div>
+                <div className="PCLogo">
+                    <img src={PCLogoUnifyPNG} alt="Logo Unify" />
+                </div>
                 <div className="PCMain">
                     <img src={PCMainUnifyPNG} alt="Main Unify" />
                     <div className="infoPC">
                         <h1>𝐔𝐍𝐈𝐅𝐘</h1>
                         <p>
-                            𝐔𝐍𝐈𝐅𝐘 merupakan kegiatan yang akan mempersatukan #Legions untuk berkolaborasi serta menginspirasi satu sama lain.
+                            𝐔𝐍𝐈𝐅𝐘 merupakan kegiatan yang akan mempersatukan
+                            #Legions untuk berkolaborasi serta menginspirasi
+                            satu sama lain.
                             <br />
                             <br />
-                            Dalam tahap ini, 𝐔𝐍𝐈𝐅𝐘 mengajak #Legions untuk mau berkorban dan memberikan bantuan kepada orang lain serta dengan niat baik dalam mencapai kebahagiaan bersama, dengan cara aktif terlibat dalam kegiatan sosial.
+                            Dalam tahap ini, 𝐔𝐍𝐈𝐅𝐘 mengajak #Legions untuk mau
+                            berkorban dan memberikan bantuan kepada orang lain
+                            serta dengan niat baik dalam mencapai kebahagiaan
+                            bersama, dengan cara aktif terlibat dalam kegiatan
+                            sosial.
                             <br />
                             <br />
-                            "Embark with us on this extraordinary journey, where we join forces to make a positive impact and spread goodwill!"
+                            "Embark with us on this extraordinary journey, where
+                            we join forces to make a positive impact and spread
+                            goodwill!"
                         </p>
                     </div>
                 </div>

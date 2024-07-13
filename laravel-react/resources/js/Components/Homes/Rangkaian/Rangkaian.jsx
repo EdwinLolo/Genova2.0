@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-// import { useNavigate } from "react-router-dom";
+
 // css
 import "./Stylerangkaian.css";
 
@@ -68,7 +68,7 @@ function Rangkaian() {
                     <div
                         key={index}
                         className="relative w-full h-[200px]"
-                        // onClick={() => navigate(`/${Tujuan[index]}`)}
+                        // onClick={() => navigate(`/rangkaian/${Tujuan[index]}`)}
                     >
                         <div className="flex items-center justify-center h-full hover:scale-110">
                             <img
@@ -81,7 +81,7 @@ function Rangkaian() {
                             className="absolute inset-0 flex items-center justify-center text-xl font-extrabold text-white transition-opacity duration-300 bg-black bg-opacity-50 opacity-100 hover:opacity-0"
                             onMouseEnter={() => setIsHovered(false)}
                             onMouseLeave={() => setIsHovered(true)}
-                            // href={`/${Tujuan[index]}`}
+                            // href={`/rangkaian/${Tujuan[index]}`}
                             target="_blank"
                             rel="noopener noreferrer"
                         >
@@ -108,10 +108,7 @@ function Rangkaian() {
                 <div className="overlaycolor"></div>
 
                 <div className="content">
-                    <div
-                        className="card"
-                        // onClick={() => navigate("/unveiling")}
-                    >
+                    <a className="card" href="/rangkaian/unveiling">
                         <div className="wrapper">
                             <img
                                 src={bg1}
@@ -125,12 +122,9 @@ function Rangkaian() {
                             className="character"
                             alt="character"
                         />
-                    </div>
+                    </a>
 
-                    <div
-                        className="card"
-                        // onClick={() => navigate("/eulympic")}
-                    >
+                    <a className="card" href="/rangkaian/eulympic">
                         <div className="wrapper">
                             <img
                                 src={bg2}
@@ -144,11 +138,8 @@ function Rangkaian() {
                             className="character"
                             alt="charcter"
                         />
-                    </div>
-                    <div
-                        className="card"
-                        // onClick={() => navigate("/ucare")}
-                    >
+                    </a>
+                    <a className="card" href="/rangkaian/ucare">
                         <div className="wrapper">
                             <img
                                 src={bg3}
@@ -162,12 +153,9 @@ function Rangkaian() {
                             className="character"
                             alt="character"
                         />
-                    </div>
+                    </a>
 
-                    <div
-                        className="card"
-                        // onClick={() => navigate("/ulympic")}
-                    >
+                    <a className="card" href="/rangkaian/ulympic">
                         <div className="wrapper">
                             <img
                                 src={bg4}
@@ -181,12 +169,9 @@ function Rangkaian() {
                             className="character4"
                             alt="character"
                         />
-                    </div>
+                    </a>
 
-                    <div
-                        className="card"
-                        // onClick={() => navigate("/unify")}
-                    >
+                    <a className="card" href="/rangkaian/unify">
                         <div className="wrapper">
                             <img
                                 src={bg5}
@@ -200,7 +185,7 @@ function Rangkaian() {
                             className="character5"
                             alt="character"
                         />
-                    </div>
+                    </a>
                 </div>
             </div>
         );

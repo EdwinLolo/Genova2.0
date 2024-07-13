@@ -33,7 +33,7 @@ function Navbar() {
 
     return (
         <div
-            className={`fixed z-10 w-[100vw] top-0 py-5 transition-all duration-300 flex items-center justify-center ${
+            className={`fixed z-[9999] w-[100vw] top-0 py-5 transition-all duration-300 flex items-center justify-center ${
                 scrolled ? "bg-opacity-100" : "bg-opacity-0"
             }`}
         >
