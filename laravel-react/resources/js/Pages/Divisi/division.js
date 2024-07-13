@@ -22,6 +22,42 @@ import VisualFrame from "../../Assets/DivisionAssets/Pisa/Visual_Cutted_Frame.pn
 import VisualBigLogo from "../../Assets/DivisionAssets/Pisa/VisualBigLogo.png";
 import VisualWebsiteBG from "../../Assets/DivisionAssets/Pisa/Visual_Website_BG.png";
 
+import KeamananFrame from "../../Assets/DivisionAssets/Keamanan/Keamanan_Cutted_Frame.png";
+import KeamananBigLogo from "../../Assets/DivisionAssets/Keamanan/Keamanan_Big_Logo.png";
+import KeamananWebsiteBG from "../../Assets/DivisionAssets/Keamanan/Keamanan_Website_BG.png";
+
+import KonsumsiFrame from "../../Assets/DivisionAssets/Konsumsi/KonsumCuttedFrame.png";
+import KonsumBigLogo from "../../Assets/DivisionAssets/Konsumsi/KonsumBigLogo.png";
+import KonsumWebsiteBG from "../../Assets/DivisionAssets/Konsumsi/KonsumWebsiteBG.png";
+
+import LombaFrame from "../../Assets/DivisionAssets/Lomba/LombaCuttedFrame.png";
+import LombaBigLogo from "../../Assets/DivisionAssets/Lomba/LombaBigLogo.png";
+import LombaWebsiteBG from "../../Assets/DivisionAssets/Lomba/LombaWebsiteBG.png";
+
+import MedparFrame from "../../Assets/DivisionAssets/Medpar/MedparCuttedFrame.png";
+import MedparBigLogo from "../../Assets/DivisionAssets/Medpar/MedparBigLogo.png";
+import MedparWebsiteBG from "../../Assets/DivisionAssets/Medpar/MedparWebsiteBG.png";
+
+import PerkabFrame from "../../Assets/DivisionAssets/Perkab/PerkapCuttedFrame.png";
+import PerkabigLogo from "../../Assets/DivisionAssets/Perkab/PerkapBigLogo.png";
+import PerkabWebsiteBG from "../../Assets/DivisionAssets/Perkab/PerkapWebsiteBG.png";
+
+import PubliFrame from "../../Assets/DivisionAssets/Publi/PubliCuttedFrame.png";
+import PubliBigLogo from "../../Assets/DivisionAssets/Publi/PubliBigLogo.png";
+import PubliWebsiteBG from "../../Assets/DivisionAssets/Publi/PubliWebsiteBG.png";
+
+import SponsorFrame from "../../Assets/DivisionAssets/Sponsor/SponsorCuttedFrame.png";
+import SponsorBigLogo from "../../Assets/DivisionAssets/Sponsor/SponsorBigLogo.png";
+import SponsorWebsiteBG from "../../Assets/DivisionAssets/Sponsor/SponsorWebsiteBG.png";
+
+import TiketFrame from "../../Assets/DivisionAssets/Ticketing/TicketingCuttedFrame.png";
+import TiketBigLogo from "../../Assets/DivisionAssets/Ticketing/TicketingBigLogo.png";
+import TiketWebsiteBG from "../../Assets/DivisionAssets/Ticketing/TicketingWebsiteBG.png";
+
+import GenovaFrame from "../../Assets/DivisionAssets/Website/KeamananCuttedFrame.png";
+import GenovaBigLogo from "../../Assets/DivisionAssets/Website/WebsiteBigLogo.png";
+import GenovaWebsiteBG from "../../Assets/DivisionAssets/Website/GenovaWebsiteBG.png";
+
 const divisions = [
     {
         name: "Tuscany",
@@ -70,7 +106,80 @@ const divisions = [
         bigLogo: VisualBigLogo,
         background: VisualWebsiteBG,
         color: "#ed8936",
-    }
-];
+    },
+    { //
+        name: "Verona",
+        desc: "Kota Verona merupakan salah satu kota yang aman dengan tingkat kejahatan yang rendah. Divisi Keamanan berfungsi untuk menjaga keamanan selama acara berlangsung.",
+        frame: KeamananFrame,
+        bigLogo: KeamananBigLogo,
+        background: KeamananWebsiteBG,
+        color: "#ed8936",
+    },
+    {
+        name: "Lazio",
+        desc: "Kota Lazio dikenal sebagai kota yang menemukan banyak macam pasta yang kita kenal hingga saat ini. Seperti Lazio yang menyediakan makanan bagi para penduduknya, divisi Konsumsi juga akan menyediakan makanan bagi seluruh panitia.",
+        frame: KonsumsiFrame,
+        bigLogo: KonsumBigLogo,
+        background: KonsumWebsiteBG,
+        color: "#ed8936",
+    },
+    {
+        name: "Milan",
+        desc: "Kota Milan yang terkenal dengan pusat sepak bola di Italia yaitu AC Milan. Terdapat banyak kompetisi yang berlangsung di kota tersebut khususnya sepak bola.",
+        frame: LombaFrame,
+        bigLogo: LombaBigLogo,
+        background: LombaWebsiteBG,
+        color: "#ed8936",
+    },
+    {  //
+        name: "Lecce",
+        desc: "Kota ini adalah ibu kota dan pusat budaya terbesar dari semenanjung Salento, adalah rumah dari Keuskupan Agung dan Universitas Salento. kota yang terkenal dengan banyak universitas dan rumah dari Keuskupan Agung sehingga banyak potensi kemitraan yang dapat terjalin. ",
+        frame: MedparFrame,
+        bigLogo: MedparBigLogo,
+        background: MedparWebsiteBG,
+        color: "#ed8936",
+    },
+    {
+        name: "Ardea",
+        desc: "Kota Ardea terkenal dengan tempat wisata yang beragam seperti pantai, hotel, destinasi, dan makanannya. Divisi perlengkapan siap menyediakan kebutuhan yang diperlukan, sama halnya dengan kota Ardea yang lengkap akan destinasi wisata.",
+        frame: PerkabFrame,
+        bigLogo: PerkabigLogo,
+        background: PerkabWebsiteBG,
+        color: "#ed8936",
+    },
+    {
+        name: "Catania",
+        desc: "Catania merupakan kota terbesar kedua di Sisilia, Italia. menjadikannya sebagai kota terpadat kedua di pulau tersebut. Divisi publikasi yang menarik banyak partisipan.",
+        frame: PubliFrame,
+        bigLogo: PubliBigLogo,
+        background: PubliWebsiteBG,
+        color: "#ed8936",
+    },
+    {
+        name: "Turin",
+        desc: "Kota Turin dikenal sebagai salah satu kota dengan pemasukan ekonomi terbesar di Italia karena merupakan pusat dari industri otomotif. Seperti Turin, divisi Sponsorship juga merupakan divisi yang bertugas untuk mencari pemasukan dana.",
+        frame: SponsorFrame,
+        bigLogo: SponsorBigLogo,
+        background: SponsorWebsiteBG,
+        color: "#ed8936",
+    },
+    {
+        name: "Alba",
+        desc: "Kota Alba dikenal sebagai kota administrasi di Italia. Divisi ticketing yang bertanggung jawab atas administrasi tiket ufest.",
+        frame: TiketFrame,
+        bigLogo: TiketBigLogo,
+        background: TiketWebsiteBG,
+        color: "#ed8936",
+    },
+    {
+        name: "Genova",
+        desc: "Kota Genova dikenal sebagai pusat ekonomi industri, contohnya seperti baja. Genova, Italia menjadi kota perkembangan yang lebih berteknologi maju dan ramah lingkungan.",
+        frame: GenovaFrame,
+        bigLogo: GenovaBigLogo,
+        background: GenovaWebsiteBG,
+        color: "#ed8936",
+    },
+    
+]
 
 export default divisions;

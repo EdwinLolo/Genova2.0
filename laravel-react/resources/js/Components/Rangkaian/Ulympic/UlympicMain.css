@@ -723,3 +723,140 @@
         width: 20rem;
     }
 }
+
+@media screen and (max-width: 540px) {
+    .card {
+        height: 13rem;
+        width: 10rem;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+
+    /* Adjust font sizes */
+    .card-front__heading,
+    .inside-page__heading,
+    .inside-page__heading--city,
+    
+    .inside-page__heading--ski,
+    .inside-page__heading--beach,
+    .inside-page__heading--camping,
+    .card-front__text-price,
+    .card-front__icon,
+    .inside-page__btn {
+        font-size: 0.8rem;
+        /* Adjust as needed */
+        padding-bottom: 0rem;
+    }
+
+    .card-front__text-view{
+        font-size: 0.6rem;
+        margin-top: 0;
+    }
+
+    .card-front__heading {
+        margin-top: 0.05rem;
+    }
+
+    .card-front__tp {
+        clip-path: polygon(0% 0%, 100% 0%, 100% 95%, 56% 95%, 50% 100%, 43% 95%, 0 95%);
+    }
+
+    .inside-page__text {
+        font-size: 6px;
+    }
+
+    .card-front__icon {
+        font-size: 0.5vw;
+        /* Adjust as needed */
+        height: 2.5rem;
+        /* Adjust as needed */
+        width: 2.5rem;
+        /* Adjust as needed */
+    }
+
+    .inside-page__btn {
+        font-size: 0.6rem;
+        /* Adjust as needed */
+        padding: .25rem .3rem;
+        /* Adjust as needed */
+        width: 80%;
+        /* Adjust as needed */
+    }
+
+    /* Adjust card and container sizes */
+    .card {
+        height: 5rem;
+        /* Adjust as needed */
+        width: 5rem;
+        /* Adjust as needed */
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .flip-card,
+    .flip-card__container,
+    .card-front,
+    .card-back {
+        height: 5rem;
+        /* Adjust as needed */
+        width: 5rem;
+        /* Adjust as needed */
+    }
+
+    .inside-page {
+        width: 5rem;
+        /* Adjust as needed */
+        height: 5rem;
+
+        padding: 0.1rem;
+    }
+
+    /* Adjust container layout */
+    .card-area {
+        flex-wrap: wrap;
+        /* Allow wrapping for smaller screens */
+        padding: 0.5rem;
+        /* Adjust padding as needed */
+    }
+
+    .card-section {
+        flex-direction: column;
+        /* Stack cards vertically */
+        height: auto;
+        /* Adjust height as needed */
+        width: auto;
+        /* Adjust width as needed */
+    }
+
+    /* Adjust main layout */
+    .main {
+        height: auto;
+        /* Adjust height as needed */
+    }
+
+    /* Adjust padding and margins */
+    .inside-page__container {
+        padding: 0rem;
+        /* Adjust padding as needed */
+        justify-content: space-around;
+    }
+
+    .card-front__tp {
+        padding: 0rem;
+        /* Adjust padding as needed */
+        height: 4rem;
+    }
+
+    .inside-page__btn {
+        margin-top: 0rem;
+        /* Adjust margin as needed */
+    }
+
+    .card:hover {
+        box-shadow: -.1rem 1.7rem 6.6rem -3.2rem rgba(0, 0, 0, 0.75);
+        width: 10rem;
+    }
+}

@@ -109,8 +109,8 @@ body {
 }
 
 .images {
-  width: 30vw;
-  height: 345px;
+  width: 25vw;
+  height: 22vw;
   object-fit: cover;
   transition: transform var(--animation-timing), opacity var(--animation-timing);
 }
@@ -122,7 +122,7 @@ body {
 
 @media(max-width:1040px){
   .carousel{
-   
+  
     position: absolute;
 
   
@@ -130,29 +130,29 @@ body {
 
 
   .images {
-    width: 50vw;
-    height: 60vw;
+    width: 51vw;
+    height: 55vw;
     object-fit: cover;
     transition: transform var(--animation-timing), opacity var(--animation-timing);
   }
   
   
   .carousel__item.active {
-    transform: translateY(130%) translateX(41%) scale(1);
+    transform: translateY(130%) translateX(35%) scale(1);
     opacity: 1;
-    z-index: -1;
+    z-index: 1;
   }
   
   .carousel__item.above {
-    transform: translateY(130%) translateX(102%) scale(1);
+    transform: translateY(130%) translateX(94%) scale(1);
     opacity: 1;
-    z-index: 2;
+    z-index: 0;
   }
   
   .carousel__item.below {
-    transform: translateY(130%) translateX(-20%) scale(1);
+    transform: translateY(130%) translateX(-22%) scale(1);
     opacity: 1;
-    z-index: 0;
+    z-index: 2;
   }
 
 

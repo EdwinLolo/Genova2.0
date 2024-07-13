@@ -1,11 +1,20 @@
 import React, { useState, useEffect } from "react";
 import "./Carousel.css";
-import AcaraLogoWithBg from "../../Assets/DivisionAssets/Acara/2.png";
-import BPHLogoWithBg from "../../Assets/DivisionAssets/BPH/1.png";
-import DekorLogoWithBg from "../../Assets/DivisionAssets/Dekorasi/3.png";
-import DokumLogoWithBg from "../../Assets/DivisionAssets/Dokumentasi/4.png";
-import FreshMoneyLogoWithBg from "../../Assets/DivisionAssets/FreshMoney/5.png";
-import VisualLogoWithBg from "../../Assets/DivisionAssets/Pisa/6.png";
+import AcaraLogoWithBg from "../../Assets/DivisionAssets/Acara/AcaraLogo.png";
+import BPHLogoWithBg from "../../Assets/DivisionAssets/BPH/BPHLogo.png";
+import DekorLogoWithBg from "../../Assets/DivisionAssets/Dekorasi/DekorLogo.png";
+import DokumLogoWithBg from "../../Assets/DivisionAssets/Dokumentasi/DokumLogo.png";
+import FreshMoneyLogoWithBg from "../../Assets/DivisionAssets/FreshMoney/FreshMoneyLogo.png";
+import VisualLogoWithBg from "../../Assets/DivisionAssets/Pisa/VisualLogo.png";
+import KeamananLogoWithBg from "../../Assets/DivisionAssets/Keamanan/KeamananLogo.png";
+import KonsumLogoWithBg from "../../Assets/DivisionAssets/Konsumsi/KonsumLogo.png";
+import LombaLogoWithBg from "../../Assets/DivisionAssets/Lomba/LombaLogo.png";
+import MedparLogoWithBg from "../../Assets/DivisionAssets/Medpar/MedparLogo.png";
+import PerkapLogoWithBg from "../../Assets/DivisionAssets/Perkab/PerkapLogo.png";
+import PubliLogoWithBg from "../../Assets/DivisionAssets/Publi/PubliLogo.png";
+import SponsorLogoWithBg from "../../Assets/DivisionAssets/Sponsor/SponsorLogo.png";
+import TicketLogoWithBg from "../../Assets/DivisionAssets/Ticketing/TicketingLogo.png";
+import WebsiteLogoWithBg from "../../Assets/DivisionAssets/Website/WebsiteLogo.png";
 
 const logos = [
     AcaraLogoWithBg,
@@ -14,6 +23,17 @@ const logos = [
     DokumLogoWithBg,
     FreshMoneyLogoWithBg,
     VisualLogoWithBg,
+    KeamananLogoWithBg,
+    KonsumLogoWithBg,
+    LombaLogoWithBg,
+    MedparLogoWithBg,
+    PerkapLogoWithBg,
+    PubliLogoWithBg,
+    SponsorLogoWithBg,
+    TicketLogoWithBg,
+    WebsiteLogoWithBg,
+    
+
 ];
 
 

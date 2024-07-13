@@ -5,6 +5,7 @@ import mobiledivisions from "../Divisi/mobiledivision";
 import "./Divisi.css";
 import "../../Components/Font.css";
 
+
 function Divisi() {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const isWideScreen = windowWidth <= 1040;
@@ -41,6 +42,8 @@ function Divisi() {
                             <h1 className="gradient-text">
                                 {mobiledivisions[currentIndex].name}
                             </h1>
+                           
+                            <br></br>
                             <p>{mobiledivisions[currentIndex].desc}</p>
                         </div>
                         <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center z-30">

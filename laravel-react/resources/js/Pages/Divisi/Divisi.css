@@ -16,6 +16,15 @@
     box-sizing: border-box;
 }
 
+.info p{
+    font-size: 4vw;
+    font-family: "SanFran-Regular";
+}
+
+.info h1{
+    font-size:8vw;
+    margin-top: 4vh;
+}
 .logo{
     position: absolute;
     top: 40%;
@@ -31,6 +40,8 @@
 
 
 }
+
+
 
 }
 
