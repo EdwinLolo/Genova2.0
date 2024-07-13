@@ -86,9 +86,9 @@ function BasketFormEulympic({ lombas }) {
 
     return (
         <div>
-            <div className="flex bg-gray-300 min-h-screen flex-col md:flex-row  ">
-                <div className="flex flex-col md:flex-row flex-1 justify-center">
-                    <div className="m-4 justify-center">
+            <div className="flex flex-col min-h-screen bg-gray-300 md:flex-row ">
+                <div className="flex flex-col justify-center flex-1 md:flex-row">
+                    <div className="justify-center m-4">
                         <div className="flex flex-wrap justify-center">
                             {lombas.map((lomba, index) => (
                                 <button
@@ -114,10 +114,10 @@ function BasketFormEulympic({ lombas }) {
                             <form
                                 onSubmit={handleFormSubmit}
                                 encType="multipart/form-data"
-                                className="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md"
+                                className="max-w-4xl p-6 mx-auto bg-white rounded-lg shadow-md"
                             >
                                 <div className="overflow-x-auto">
-                                    <table className="table-auto w-full">
+                                    <table className="w-full table-auto">
                                         <thead>
                                             <tr className="bg-gray-200">
                                                 <th className="px-4 py-2">
@@ -167,8 +167,10 @@ function BasketFormEulympic({ lombas }) {
                                                                             .value
                                                                     )
                                                                 }
-                                                                required
-                                                                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                                                required={
+                                                                    index < 5
+                                                                }
+                                                                className="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                                                             />
                                                         </td>
                                                         <td className="px-4 py-2">
@@ -186,8 +188,10 @@ function BasketFormEulympic({ lombas }) {
                                                                             .value
                                                                     )
                                                                 }
-                                                                required
-                                                                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                                                required={
+                                                                    index < 5
+                                                                }
+                                                                className="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                                                             />
                                                         </td>
                                                         <td className="px-4 py-2">
@@ -205,7 +209,7 @@ function BasketFormEulympic({ lombas }) {
                                                                             .value
                                                                     )
                                                                 }
-                                                                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                                                className="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                                                             />
                                                         </td>
                                                         <td className="px-4 py-2">
@@ -220,7 +224,9 @@ function BasketFormEulympic({ lombas }) {
                                                                             .files[0]
                                                                     )
                                                                 }
-                                                                required
+                                                                required={
+                                                                    index < 5
+                                                                }
                                                             />
                                                         </td>
                                                         {isInternal ===
@@ -243,7 +249,7 @@ function BasketFormEulympic({ lombas }) {
                                                                                 .value
                                                                         )
                                                                     }
-                                                                    className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                                                    className="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                                                                 />
                                                             </td>
                                                         )}
@@ -256,7 +262,7 @@ function BasketFormEulympic({ lombas }) {
                                 <div className="mt-4">
                                     <label
                                         htmlFor="namaTeam"
-                                        className="block font-medium text-sm text-gray-700"
+                                        className="block text-sm font-medium text-gray-700"
                                     >
                                         Nama Team:
                                     </label>
@@ -272,13 +278,13 @@ function BasketFormEulympic({ lombas }) {
                                             })
                                         }
                                         required
-                                        className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                        className="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                                     />
                                 </div>
                                 <div className="mt-4">
                                     <label
                                         htmlFor="buktiTf"
-                                        className="block font-medium text-sm text-gray-700"
+                                        className="block text-sm font-medium text-gray-700"
                                     >
                                         Bukti Transfer:
                                     </label>
@@ -298,7 +304,7 @@ function BasketFormEulympic({ lombas }) {
                                 <div className="mt-4">
                                     <button
                                         type="submit"
-                                        className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+                                        className="px-4 py-2 font-bold text-white bg-green-500 rounded hover:bg-green-700"
                                     >
                                         Submit
                                     </button>

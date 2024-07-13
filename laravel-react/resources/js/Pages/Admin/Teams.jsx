@@ -55,19 +55,19 @@ function Teams({ data }) {
     };
 
     return (
-        <div className="bg-gray-300 m-0 w-full">
+        <div className="w-full m-0 bg-gray-300">
             <NavbarAdmin />
-            <div className="relative overflow-x-auto shadow-md p-0 flex flex-col md:flex-row">
+            <div className="relative flex flex-col p-0 overflow-x-auto shadow-md md:flex-row">
                 <div className="leftSide">
                     <SidebarAdmin />
                 </div>
-                <div className="rightSide p-5 flex-auto">
-                    <div className="p-4 rounded-t-lg bg-white dark:bg-gray-900">
+                <div className="flex-auto p-5 rightSide">
+                    <div className="p-4 bg-white rounded-t-lg dark:bg-gray-900">
                         <label htmlFor="table-search" className="sr-only">
                             Search
                         </label>
                         <div className="relative mt-1">
-                            <div className="absolute inset-y-0 rtl:inset-r-0 start-0 flex items-center ps-3 pointer-events-none">
+                            <div className="absolute inset-y-0 flex items-center pointer-events-none rtl:inset-r-0 start-0 ps-3">
                                 <svg
                                     className="w-4 h-4 text-gray-500 dark:text-gray-400"
                                     aria-hidden="true"
@@ -87,14 +87,14 @@ function Teams({ data }) {
                             <input
                                 type="text"
                                 id="table-search"
-                                className="block py-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                className="block py-2 text-sm text-gray-900 border border-gray-300 rounded-lg ps-10 w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 placeholder="Search for a team"
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
                             />
                         </div>
                     </div>
-                    <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                    <table className="w-full text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400">
                         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
                                 <th scope="col" className="px-6 py-3">
@@ -120,7 +120,7 @@ function Teams({ data }) {
                                 filteredData.map((item, index) => (
                                     <tr
                                         key={index}
-                                        className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700"
+                                        className="border-b odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 dark:border-gray-700"
                                     >
                                         <td
                                             scope="row"
@@ -140,7 +140,7 @@ function Teams({ data }) {
                                             <img
                                                 src={`/storage/${item.team.buktiTF}`}
                                                 alt="Bukti TF"
-                                                className="h-16 w-16 object-cover"
+                                                className="object-cover w-16 h-16"
                                             />
                                         </td>
 
@@ -151,7 +151,7 @@ function Teams({ data }) {
                                                         item.team.id_team
                                                     )
                                                 }
-                                                className="text-green-600 font-bold hover:text-green-900"
+                                                className="font-bold text-green-600 hover:text-green-900"
                                                 type="button"
                                             >
                                                 More
@@ -162,7 +162,7 @@ function Teams({ data }) {
                                                         item.team.id_team
                                                     )
                                                 }
-                                                className="ml-4 text-blue-600 font-bold hover:text-blue-900"
+                                                className="ml-4 font-bold text-blue-600 hover:text-blue-900"
                                                 type="button"
                                             >
                                                 Edit
@@ -173,7 +173,7 @@ function Teams({ data }) {
                                                         item.team.id_team
                                                     )
                                                 }
-                                                className="ml-4 text-red-600 font-bold hover:text-red-900"
+                                                className="ml-4 font-bold text-red-600 hover:text-red-900"
                                                 type="button"
                                             >
                                                 Delete
