@@ -38,7 +38,9 @@ function UlympicMain() {
                         alt="Main Ulympic"
                     />
                     <div className="info">
-                        <h1>𝐔𝐋𝐘𝐌𝐏𝐈𝐂</h1>
+                        <h1 style={{ fontFamily: "Akbaal, sans-serif" }}>
+                            𝐔𝐋𝐘𝐌𝐏𝐈𝐂
+                        </h1>
                         <p>
                             𝐔𝐋𝐘𝐌𝐏𝐈𝐂 adalah rangkaian perlombaan kedua sekaligus
                             penutup perlombaan pada rangkaian kegiatan UMN

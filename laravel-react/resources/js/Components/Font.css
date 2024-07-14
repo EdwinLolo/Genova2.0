@@ -26,9 +26,17 @@
 
 @font-face {
     font-family: "FestivalBudaya";
-    src: local("SanFransiscoBold"),
+    src: local("FestivalBudaya"),
         url("../Assets/Font/festival_budaya_xxxi/FestivalBudayaXXXI.otf")
             format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Forum";
+    src: local("Forum"),
+        url("../Assets/Font/Forum/Forum-Regular.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
 }

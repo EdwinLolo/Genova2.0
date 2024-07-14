@@ -9,7 +9,7 @@
         data-client-key="{{ env('MIDTRANS_CLIENT_KEY') }}"></script>
     {{-- <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js"
         data-client-key="{{ env('MIDTRANS_CLIENT_KEY') }}"></script> --}}
-    <title>Laravel</title>
+    <title>UMN FESTIVAL</title>
     @viteReactRefresh
     @vite(['resources/css/app.css', 'resources/js/app.jsx'])
     @inertiaHead

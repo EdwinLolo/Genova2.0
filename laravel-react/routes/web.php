@@ -81,18 +81,7 @@ Route::prefix('/rangkaian/ulympic')->group(function () {
 });
 
 
-// Route::get('/rangkaian/ulympic/basket', function () {
-//     return Inertia::render('Form_eulympic/BasketFormEulympic');
-// });
+Route::get('/rangkaian/unify/buyticket', function () {
+    return Inertia::render('Form_Unify/Form_ticketunify');
+});
 
-// Route::get('/rangkaian/ulympic/voli', function () {
-//     return Inertia::render('Form_eulympic/VoliFormEulympic');
-// });
-
-// Route::get('/rangkaian/ulympic/badminton', function () {
-//     return Inertia::render('Form_eulympic/BadmintonFormEulympic');
-// });
-
-// Route::get('/rangkaian/ulympic/futsal', function () {
-//     return Inertia::render('Form_eulympic/FutsalFormEulympic');
-// });

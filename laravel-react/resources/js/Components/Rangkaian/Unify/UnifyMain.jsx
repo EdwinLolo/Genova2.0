@@ -26,12 +26,14 @@ function UnifyMain() {
                 <img src={LogoUnifyPNG} alt="Logo Unify" />
                 <div className="relative w-full text-center">
                     <img
-                        className="w-full MainUnifyPNG"
+                        className="z-10 w-full MainUnifyPNG"
                         src={MainUnifyPNG}
                         alt="Main Unify"
                     />
-                    <div className="info">
-                        <h1>𝐔𝐍𝐈𝐅𝐘</h1>
+                    <div className="z-50 info">
+                        <h1 style={{ fontFamily: "Akbaal, sans-serif" }}>
+                            𝐔𝐍𝐈𝐅𝐘
+                        </h1>
                         <p>
                             𝐔𝐍𝐈𝐅𝐘 merupakan kegiatan yang akan mempersatukan
                             #Legions untuk berkolaborasi serta menginspirasi
@@ -49,7 +51,15 @@ function UnifyMain() {
                             we join forces to make a positive impact and spread
                             goodwill!"
                         </p>
-                        <button>BELI GBLK</button>
+                        <a
+                            href="/rangkaian/unify/buyticket"
+                            target="_blank"
+                            className="z-[99]"
+                        >
+                            <button type="button" className="btn1 z-[99]">
+                                See More
+                            </button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -63,7 +73,9 @@ function UnifyMain() {
                 <div className="PCMain">
                     <img src={PCMainUnifyPNG} alt="Main Unify" />
                     <div className="infoPC">
-                        <h1>𝐔𝐍𝐈𝐅𝐘</h1>
+                        <h1 style={{ fontFamily: "Akbaal, sans-serif" }}>
+                            𝐔𝐍𝐈𝐅𝐘
+                        </h1>
                         <p>
                             𝐔𝐍𝐈𝐅𝐘 merupakan kegiatan yang akan mempersatukan
                             #Legions untuk berkolaborasi serta menginspirasi
@@ -81,7 +93,15 @@ function UnifyMain() {
                             we join forces to make a positive impact and spread
                             goodwill!"
                         </p>
-                        <button>BELI GBLK</button>
+                        <a
+                            href="/rangkaian/unify/buyticket"
+                            target="_blank"
+                            className="z-50"
+                        >
+                            <button type="button" className="btn1">
+                                See More
+                            </button>
+                        </a>
                     </div>
                 </div>
             </div>
