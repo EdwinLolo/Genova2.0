@@ -10,12 +10,16 @@
 .info {
     width: 100%;
     position: absolute;
-    color: black;
+    color: #6c241a;
     text-align: center;
     top: 20px;
     font-size: 13px;
     padding: 0 3rem 0 3rem;
     /* z-index: -2; */
+}
+
+.textEulympic{
+    text-align: justify;
 }
 
 .info h1 {
@@ -58,22 +62,37 @@
     height: 6.5rem;
 }
 
-@media (min-width: 375px) {
+@media (min-width: 320px) {
     .info {
-        font-size: 16px;
-        top: 20px;
+        font-size: 0.85rem;
+        top: -1rem;
         padding: 0 3rem 0 3rem;
     }
 
     .info h1 {
         font-size: 25px;
+        margin-bottom: 1rem;
         text-decoration: underline;
     }
 }
 
-@media (min-width: 425px) {
+@media (min-width: 360px) {
     .info {
-        font-size: 18px;
+        font-size: 16px;
+        top: -1rem;
+        padding: 0 3rem 0 3rem;
+    }
+
+    .info h1 {
+        font-size: 25px;
+        margin-bottom: 1rem;
+        text-decoration: underline;
+    }
+}
+
+@media (min-width: 410px) {
+    .info {
+        font-size: 1.1rem;
         top: 0vh;
         padding: 0 3rem 0 3rem;
     }
