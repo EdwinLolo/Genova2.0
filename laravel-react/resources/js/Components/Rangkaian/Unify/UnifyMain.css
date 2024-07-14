@@ -2,14 +2,6 @@
     margin: 0;
 }
 
-@font-face {
-    font-family: "Akbaal";
-    src: local("Akbaal"),
-        url("../../../Assets/Font/akbaal/akbaal.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
-}
-
 .infoPC {
     text-align: center;
     position: absolute;
