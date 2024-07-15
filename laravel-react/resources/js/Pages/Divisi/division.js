@@ -1,62 +1,62 @@
-import AcaraFrame from "../../Assets/DivisionAssets/Acara/Acara_Cutted_Frame.png";
-import AcaraBigLogo from "../../Assets/DivisionAssets/Acara/AcaraBigLogo.png";
-import AcaraWebsiteBG from "../../Assets/DivisionAssets/Acara/Acara_Website_BG.png";
+import AcaraFrame from "../../Assets/DivisionAssets/Acara/Acara_Cutted_Frame.webp";
+import AcaraBigLogo from "../../Assets/DivisionAssets/Acara/AcaraBigLogo.webp";
+import AcaraWebsiteBG from "../../Assets/DivisionAssets/Acara/Acara_Website_BG.webp";
 
-import BPHFrame from "../../Assets/DivisionAssets/BPH/BPH_Cutted_Frame.png";
-import BPHBigLogo from "../../Assets/DivisionAssets/BPH/BPHBigLogo.png";
-import BPHWebsiteBG from "../../Assets/DivisionAssets/BPH/BPH_Website_BG.png";
+import BPHFrame from "../../Assets/DivisionAssets/BPH/BPH_Cutted_Frame.webp";
+import BPHBigLogo from "../../Assets/DivisionAssets/BPH/BPHBigLogo.webp";
+import BPHWebsiteBG from "../../Assets/DivisionAssets/BPH/BPH_Website_BG.webp";
 
-import DekorFrame from "../../Assets/DivisionAssets/Dekorasi/Dekor_Cutted_Frame.png";
-import DekorBigLogo from "../../Assets/DivisionAssets/Dekorasi/DekorBigLogo.png";
-import DekorWebsiteBG from "../../Assets/DivisionAssets/Dekorasi/Dekor_Website_BG.png";
+import DekorFrame from "../../Assets/DivisionAssets/Dekorasi/Dekor_Cutted_Frame.webp";
+import DekorBigLogo from "../../Assets/DivisionAssets/Dekorasi/DekorBigLogo.webp";
+import DekorWebsiteBG from "../../Assets/DivisionAssets/Dekorasi/Dekor_Website_BG.webp";
 
-import DokumFrame from "../../Assets/DivisionAssets/Dokumentasi/Dokum_Cutted_Frame.png";
-import DokumBigLogo from "../../Assets/DivisionAssets/Dokumentasi/DokumBigLogo.png";
-import DokumWebsiteBG from "../../Assets/DivisionAssets/Dokumentasi/Dokum_Website_BG.png";
+import DokumFrame from "../../Assets/DivisionAssets/Dokumentasi/Dokum_Cutted_Frame.webp";
+import DokumBigLogo from "../../Assets/DivisionAssets/Dokumentasi/DokumBigLogo.webp";
+import DokumWebsiteBG from "../../Assets/DivisionAssets/Dokumentasi/Dokum_Website_BG.webp";
 
-import FreshMoneyFrame from "../../Assets/DivisionAssets/FreshMoney/FreshMoney_Cutted_Frame.png";
-import FreshMoneyBigLogo from "../../Assets/DivisionAssets/FreshMoney/FreshMoneyBigLogo.png";
-import FreshMoneyWebsiteBG from "../../Assets/DivisionAssets/FreshMoney/FreshMoney_Website_BG.png";
+import FreshMoneyFrame from "../../Assets/DivisionAssets/FreshMoney/FreshMoney_Cutted_Frame.webp";
+import FreshMoneyBigLogo from "../../Assets/DivisionAssets/FreshMoney/FreshMoneyBigLogo.webp";
+import FreshMoneyWebsiteBG from "../../Assets/DivisionAssets/FreshMoney/FreshMoney_Website_BG.webp";
 
-import VisualFrame from "../../Assets/DivisionAssets/Pisa/Visual_Cutted_Frame.png";
-import VisualBigLogo from "../../Assets/DivisionAssets/Pisa/VisualBigLogo.png";
-import VisualWebsiteBG from "../../Assets/DivisionAssets/Pisa/Visual_Website_BG.png";
+import VisualFrame from "../../Assets/DivisionAssets/Pisa/Visual_Cutted_Frame.webp";
+import VisualBigLogo from "../../Assets/DivisionAssets/Pisa/VisualBigLogo.webp";
+import VisualWebsiteBG from "../../Assets/DivisionAssets/Pisa/Visual_Website_BG.webp";
 
-import KeamananFrame from "../../Assets/DivisionAssets/Keamanan/Keamanan_Cutted_Frame.png";
-import KeamananBigLogo from "../../Assets/DivisionAssets/Keamanan/Keamanan_Big_Logo.png";
-import KeamananWebsiteBG from "../../Assets/DivisionAssets/Keamanan/Keamanan_Website_BG.png";
+import KeamananFrame from "../../Assets/DivisionAssets/Keamanan/Keamanan_Cutted_Frame.webp";
+import KeamananBigLogo from "../../Assets/DivisionAssets/Keamanan/Keamanan_Big_Logo.webp";
+import KeamananWebsiteBG from "../../Assets/DivisionAssets/Keamanan/Keamanan_Website_BG.webp";
 
-import KonsumsiFrame from "../../Assets/DivisionAssets/Konsumsi/KonsumCuttedFrame.png";
-import KonsumBigLogo from "../../Assets/DivisionAssets/Konsumsi/KonsumBigLogo.png";
-import KonsumWebsiteBG from "../../Assets/DivisionAssets/Konsumsi/KonsumWebsiteBG.png";
+import KonsumsiFrame from "../../Assets/DivisionAssets/Konsumsi/KonsumCuttedFrame.webp";
+import KonsumBigLogo from "../../Assets/DivisionAssets/Konsumsi/KonsumBigLogo.webp";
+import KonsumWebsiteBG from "../../Assets/DivisionAssets/Konsumsi/KonsumWebsiteBG.webp";
 
-import LombaFrame from "../../Assets/DivisionAssets/Lomba/LombaCuttedFrame.png";
-import LombaBigLogo from "../../Assets/DivisionAssets/Lomba/LombaBigLogo.png";
-import LombaWebsiteBG from "../../Assets/DivisionAssets/Lomba/LombaWebsiteBG.png";
+import LombaFrame from "../../Assets/DivisionAssets/Lomba/LombaCuttedFrame.webp";
+import LombaBigLogo from "../../Assets/DivisionAssets/Lomba/LombaBigLogo.webp";
+import LombaWebsiteBG from "../../Assets/DivisionAssets/Lomba/LombaWebsiteBG.webp";
 
-import MedparFrame from "../../Assets/DivisionAssets/Medpar/MedparCuttedFrame.png";
-import MedparBigLogo from "../../Assets/DivisionAssets/Medpar/MedparBigLogo.png";
-import MedparWebsiteBG from "../../Assets/DivisionAssets/Medpar/MedparWebsiteBG.png";
+import MedparFrame from "../../Assets/DivisionAssets/Medpar/MedparCuttedFrame.webp";
+import MedparBigLogo from "../../Assets/DivisionAssets/Medpar/MedparBigLogo.webp";
+import MedparWebsiteBG from "../../Assets/DivisionAssets/Medpar/MedparWebsiteBG.webp";
 
-import PerkabFrame from "../../Assets/DivisionAssets/Perkab/PerkapCuttedFrame.png";
-import PerkabigLogo from "../../Assets/DivisionAssets/Perkab/PerkapBigLogo.png";
-import PerkabWebsiteBG from "../../Assets/DivisionAssets/Perkab/PerkapWebsiteBG.png";
+import PerkabFrame from "../../Assets/DivisionAssets/Perkab/PerkapCuttedFrame.webp";
+import PerkabigLogo from "../../Assets/DivisionAssets/Perkab/PerkapBigLogo.webp";
+import PerkabWebsiteBG from "../../Assets/DivisionAssets/Perkab/PerkapWebsiteBG.webp";
 
-import PubliFrame from "../../Assets/DivisionAssets/Publi/PubliCuttedFrame.png";
-import PubliBigLogo from "../../Assets/DivisionAssets/Publi/PubliBigLogo.png";
-import PubliWebsiteBG from "../../Assets/DivisionAssets/Publi/PubliWebsiteBG.png";
+import PubliFrame from "../../Assets/DivisionAssets/Publi/PubliCuttedFrame.webp";
+import PubliBigLogo from "../../Assets/DivisionAssets/Publi/PubliBigLogo.webp";
+import PubliWebsiteBG from "../../Assets/DivisionAssets/Publi/PubliWebsiteBG.webp";
 
-import SponsorFrame from "../../Assets/DivisionAssets/Sponsor/SponsorCuttedFrame.png";
-import SponsorBigLogo from "../../Assets/DivisionAssets/Sponsor/SponsorBigLogo.png";
-import SponsorWebsiteBG from "../../Assets/DivisionAssets/Sponsor/SponsorWebsiteBG.png";
+import SponsorFrame from "../../Assets/DivisionAssets/Sponsor/SponsorCuttedFrame.webp";
+import SponsorBigLogo from "../../Assets/DivisionAssets/Sponsor/SponsorBigLogo.webp";
+import SponsorWebsiteBG from "../../Assets/DivisionAssets/Sponsor/SponsorWebsiteBG.webp";
 
-import TiketFrame from "../../Assets/DivisionAssets/Ticketing/TicketingCuttedFrame.png";
-import TiketBigLogo from "../../Assets/DivisionAssets/Ticketing/TicketingBigLogo.png";
-import TiketWebsiteBG from "../../Assets/DivisionAssets/Ticketing/TicketingWebsiteBG.png";
+import TiketFrame from "../../Assets/DivisionAssets/Ticketing/TicketingCuttedFrame.webp";
+import TiketBigLogo from "../../Assets/DivisionAssets/Ticketing/TicketingBigLogo.webp";
+import TiketWebsiteBG from "../../Assets/DivisionAssets/Ticketing/TicketingWebsiteBG.webp";
 
-import GenovaFrame from "../../Assets/DivisionAssets/Website/KeamananCuttedFrame.png";
-import GenovaBigLogo from "../../Assets/DivisionAssets/Website/WebsiteBigLogo.png";
-import GenovaWebsiteBG from "../../Assets/DivisionAssets/Website/GenovaWebsiteBG.png";
+import GenovaFrame from "../../Assets/DivisionAssets/Website/KeamananCuttedFrame.webp";
+import GenovaBigLogo from "../../Assets/DivisionAssets/Website/WebsiteBigLogo.webp";
+import GenovaWebsiteBG from "../../Assets/DivisionAssets/Website/GenovaWebsiteBG.webp";
 
 const divisions = [
     {
@@ -179,7 +179,7 @@ const divisions = [
         background: GenovaWebsiteBG,
         color: "#ed8936",
     },
-    
+
 ]
 
 export default divisions;

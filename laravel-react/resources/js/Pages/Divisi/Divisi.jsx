@@ -24,7 +24,6 @@ function Divisi() {
     const color = currentDivision.color;
 
     useEffect(() => {
-        // Set the CSS variable for the gradient color
         document.documentElement.style.setProperty("--h1-color", color);
     }, [color]);
 
