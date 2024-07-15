@@ -39,9 +39,9 @@ function UlympicMain() {
                     />
                     <div className="info">
                         <h1 style={{ fontFamily: "Akbaal, sans-serif" }}>
-                            𝐔𝐋𝐘𝐌𝐏𝐈𝐂
+                            Ulympic
                         </h1>
-                        <p>
+                        <p style={{ fontFamily: "SanFran-Regular, sans-serif" }}>
                             𝐔𝐋𝐘𝐌𝐏𝐈𝐂 adalah rangkaian perlombaan kedua sekaligus
                             penutup perlombaan pada rangkaian kegiatan UMN
                             Festival 2024. Akan mempertandingkan turnamen
@@ -346,8 +346,8 @@ function UlympicMain() {
                     <div className="PCMain">
                         <img src={PCMainUlympicPNG} alt="Main Ulympic" />
                         <div className="infoPC">
-                            <h1>𝐔𝐋𝐘𝐌𝐏𝐈𝐂</h1>
-                            <p>
+                            <h1 style={{ fontFamily: "Akbaal, sans-serif" }}>Ulympic</h1>
+                            <p style={{ fontFamily: "SanFran-Regular, sans-serif" }}>
                                 𝐔𝐋𝐘𝐌𝐏𝐈𝐂 adalah rangkaian perlombaan kedua
                                 sekaligus penutup perlombaan pada rangkaian
                                 kegiatan UMN Festival 2024. Akan

@@ -32,9 +32,9 @@ function UnifyMain() {
                     />
                     <div className="z-50 info">
                         <h1 style={{ fontFamily: "Akbaal, sans-serif" }}>
-                            𝐔𝐍𝐈𝐅𝐘
+                            Unify
                         </h1>
-                        <p>
+                        <p style={{ fontFamily: "SanFran-Regular, sans-serif" }}>
                             𝐔𝐍𝐈𝐅𝐘 merupakan kegiatan yang akan mempersatukan
                             #Legions untuk berkolaborasi serta menginspirasi
                             satu sama lain.
@@ -74,9 +74,9 @@ function UnifyMain() {
                     <img src={PCMainUnifyPNG} alt="Main Unify" />
                     <div className="infoPC">
                         <h1 style={{ fontFamily: "Akbaal, sans-serif" }}>
-                            𝐔𝐍𝐈𝐅𝐘
+                            Unify
                         </h1>
-                        <p>
+                        <p style={{ fontFamily: "SanFran-Regular, sans-serif" }}>
                             𝐔𝐍𝐈𝐅𝐘 merupakan kegiatan yang akan mempersatukan
                             #Legions untuk berkolaborasi serta menginspirasi
                             satu sama lain.
