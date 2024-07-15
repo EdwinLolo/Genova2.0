@@ -3,14 +3,14 @@
     /* width: 90%; */
     height: 10rem;
     /* margin: 0; */
-    background-image: url(../../Assets/Navbar/bg_1.png);
+    background-image: url(../../Assets/Navbar/bg_1.webp);
     background-size: 100% 10rem;
 }
 
 @media screen and (max-width: 600px) {
     .bodynavbar {
         height: 7rem;
-        background-image: url(../../Assets/Navbar/bg_hp.png);
+        background-image: url(../../Assets/Navbar/bg_hp.webp);
         background-size: 100% 7rem;
         background-repeat: no-repeat;
     }
@@ -18,14 +18,14 @@
 
 @media screen and (min-width: 601px) and (max-width: 768px) {
     .bodynavbar {
-        background-image: url(../../Assets/Navbar/bg_1.png);
+        background-image: url(../../Assets/Navbar/bg_1.webp);
     }
 }
 
 @media screen and (min-width: 769px) and (max-width: 1025px) {
     .bodynavbar {
         height: 8rem;
-        background-image: url(../../Assets/Navbar/bg_1.png);
+        background-image: url(../../Assets/Navbar/bg_1.webp);
         background-size: 100% 8rem;
         padding-top: 1rem;
     }
