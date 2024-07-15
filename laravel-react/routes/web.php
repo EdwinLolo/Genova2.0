@@ -36,7 +36,9 @@ Route::get('/rangkaian/ucare', function () {
 Route::get('/rangkaian/unveiling', function () {
     return Inertia::render('PageUnveiling');
 });
-
+Route::get('/rangkaian/unify', function () {
+    return Inertia::render('PageUnify');
+});
 Route::prefix('/admin')->middleware([AuthenticateAdmin::class])->group(function () {
     Route::get('/', [AdminController::class, 'index']);
     Route::get('/input', [AdminController::class, 'input']);
