@@ -36,7 +36,9 @@ Route::get('/rangkaian/ucare', function () {
 Route::get('/rangkaian/unveiling', function () {
     return Inertia::render('PageUnveiling');
 });
-
+Route::get('/rangkaian/unify', function () {
+    return Inertia::render('PageUnify');
+});
 Route::prefix('/admin')->middleware([AuthenticateAdmin::class])->group(function () {
     Route::get('/', [AdminController::class, 'index']);
     Route::get('/input', [AdminController::class, 'input']);
@@ -67,9 +69,12 @@ Route::prefix('/admin')->middleware([AuthenticateAdmin::class])->group(function 
 });
 
 Route::post('/team/input/data', [TeamController::class, 'regist']);
+Route::post('/unify', [UnifyController::class, 'register']);
 
-Route::get('/rangkaian/unify', function () {
-    return Inertia::render('PageUnify');
+Route::middleware(['web'])->group(function () {
+    Route::post('/unify', [UnifyController::class, 'register']);
+    Route::get('/unify/invoice', [UnifyController::class, 'getInvoice'])->name('unify.getInvoice');
+    Route::get('/unify/{id}', [UnifyController::class, 'invoice']);
 });
 
 Route::prefix('/rangkaian/ulympic')->group(function () {
@@ -84,4 +89,3 @@ Route::prefix('/rangkaian/ulympic')->group(function () {
 Route::get('/rangkaian/unify/buyticket', function () {
     return Inertia::render('Form_Unify/Form_ticketunify');
 });
-

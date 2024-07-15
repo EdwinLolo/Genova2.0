@@ -99,9 +99,11 @@ function UcareDashboard() {
                     <SidebarAdmin />
                 </div>
                 <div>
-                    <button className="m-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                        <a href="ucare/list">Ucare Participants</a>
-                    </button>
+                    <a href="ucare/list">
+                        <button className="m-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                            Ucare Participants
+                        </button>
+                    </a>
                     <button
                         className="m-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                         onClick={() => handleButton("internal")}
