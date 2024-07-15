@@ -66,11 +66,11 @@ class UnifyController extends Controller
 
     public function register(Request $request)
     {
+
         $hargaTiket = 1000;
         $request->request->add(['total_price' => $request->jumlahTiket * $hargaTiket + (0.02 * $request->jumlahTiket * $hargaTiket), 'status' => 'unpaid', 'isInternal' => 'true']);
         // Determine if the form type is "external" or "internal"
         $formType = $request->input('formType');
-
         // Set validation rules based on form type
         $rules = [
             'nama' => 'required|string|max:255',
@@ -109,11 +109,12 @@ class UnifyController extends Controller
         \Midtrans\Config::$isSanitized = true;
         // Set 3DS transaction for credit card to true
         \Midtrans\Config::$is3ds = true;
-
+        // dd($hargaTiket * $request->jumlahTiket + (0.02 * $request->jumlahTiket * $hargaTiket));
+        $fee = 0.02 * $request->jumlahTiket * $hargaTiket;
         $params = array(
             'transaction_details' => array(
                 'order_id' => $order->id,
-                'gross_amount' => $request->jumlahTiket * $hargaTiket + (0.02 * $request->jumlahTiket * $hargaTiket),
+                'gross_amount' => $request->total_price,
             ),
             'customer_details' => array(
                 "first_name" =>  $order->nama,
@@ -123,13 +124,13 @@ class UnifyController extends Controller
                 array(
                     'name' => 'Tiket Unify',
                     'id' => 'TU1',
-                    'price' => $hargaTiket * $request->jumlahTiket,
+                    'price' => $hargaTiket,
                     'quantity' => $request->jumlahTiket,
                 ),
                 array(
                     'name' => 'Fee',
                     'id' => 'F01',
-                    'price' => 0.02 * $request->jumlahTiket * $hargaTiket,
+                    'price' => $fee,
                     'quantity' => 1,
                 ),
 
