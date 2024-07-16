@@ -50,6 +50,17 @@ class UnifyController extends Controller
         return Inertia::render('Admin/UnifyAll', ['data' => $data, 'totalTiket' => $totalTiket]);
     }
 
+    public function showUnchecked()
+    {
+        $data = Unify::where('status', 'unchecked')->get();
+        $totalUnchecked = 0;
+
+        foreach ($data as $d) {
+            $totalUnchecked += $d->jumlahTiket;
+        }
+        return Inertia::render('Admin/UnifyAll', ['data' => $data, 'totalUnchecked' => $totalUnchecked]);
+    }
+
     public function details($id)
     {
         $data = Unify::where('id', $id)->first();

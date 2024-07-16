@@ -3,7 +3,7 @@ import NavbarAdmin from "../../Components/Navbar/NavbarAdmin";
 import SidebarAdmin from "../../Components/Admin/SidebarAdmin";
 import { Inertia } from "@inertiajs/inertia";
 
-function UnifyInternal({ data, totalTiket }) {
+function UnifyInternal({ data, totalTiket, totalUnchecked }) {
     const [searchQuery, setSearchQuery] = useState("");
     const [modalOpen, setModalOpen] = useState(false);
     const [currentImage, setCurrentImage] = useState("");
@@ -43,7 +43,11 @@ function UnifyInternal({ data, totalTiket }) {
                 <div className="rightSide p-5 flex-auto">
                     Unify Internal & External
                     <br />
-                    Total Tiket Checked: {totalTiket}
+                    {totalTiket ? (
+                        <p>Total Tiket Checked: {totalTiket}</p>
+                    ) : (
+                        <p>Total Tiket Unchecked: {totalUnchecked}</p>
+                    )}
                     <div className="p-4 rounded-t-lg bg-white dark:bg-gray-900">
                         <label htmlFor="table-search" className="sr-only">
                             Search

@@ -34,6 +34,20 @@ function UnifyInternalDetails({ data }) {
                                 <td className="font-bold">Jumlah Tiket:</td>
                                 <td className="pl-4">{data.jumlahTiket}</td>
                             </tr>
+                            <tr>
+                                <td className="font-bold">Bukti Transfer:</td>
+                                <img
+                                    src={`/storage/${data.buktiTf}`}
+                                    alt="Bukti Tf"
+                                    className="object-cover "
+                                />
+                            </tr>
+                            <tr>
+                                <td className="font-bold">Status:</td>
+                                <td className="pl-4 font-bold text-green-600">
+                                    {data.status}
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>

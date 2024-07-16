@@ -48,6 +48,7 @@ Route::prefix('/admin')->middleware([AuthenticateAdmin::class])->group(function 
         Route::get('/external', [UnifyController::class, 'external']);
         Route::get('/internal', [UnifyController::class, 'internal']);
         Route::get('/all', [UnifyController::class, 'all']);
+        Route::get('/unchecked', [UnifyController::class, 'showUnchecked']);
         Route::get('/detail/{id}', [UnifyController::class, 'details']);
         Route::get('/check/{id}', [UnifyController::class, 'checked']);
         Route::get('/uncheck/{id}', [UnifyController::class, 'unchecked']);
