@@ -9,4 +9,4 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-Route::post('admin/unify/midtrans-callback', [UnifyController::class, 'callback']);
+// Route::post('admin/unify/midtrans-callback', [UnifyController::class, 'callback']);

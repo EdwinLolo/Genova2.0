@@ -2,15 +2,16 @@ import React from "react";
 import "./Styleinvoice.css";
 
 function Invoice({ data }) {
-    const hargatiket = data.jumlahTiket * 1000;
-    const tax = hargatiket * 0.02;
+    const hargatiket = data.jumlahTiket * 60000;
 
     if (!data) {
         return <div>Loading...</div>;
     }
 
     const statusClass =
-        data.status === "paid" ? "status-paid" : "status-unpaid";
+        data.status === ("unchecked" || "checked")
+            ? "status-paid"
+            : "status-unpaid";
 
     return (
         <div class="invoice">
@@ -21,7 +22,7 @@ function Invoice({ data }) {
                 <div>No HP: {data.noHp}</div>
                 <div>Email: {data.email}</div>
                 <div className={statusClass} style={{ fontWeight: 600 }}>
-                    Status: {data.status}
+                    Status: Confirmed
                 </div>
             </div>
 
@@ -32,10 +33,7 @@ function Invoice({ data }) {
                     </td>
                     <td>Rp. {hargatiket}</td>
                 </tr>
-                <tr>
-                    <td>Fee</td>
-                    <td>Rp. {tax}</td>
-                </tr>
+
                 <tr class="total-row">
                     <td>Total</td>
                     <td>Rp. {data.total_price}</td>

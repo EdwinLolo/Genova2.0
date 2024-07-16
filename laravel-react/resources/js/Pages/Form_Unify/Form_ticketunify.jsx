@@ -12,10 +12,10 @@ function Form_ticketunify() {
         noHp: "",
         email: "",
         jumlahTiket: 0,
+        buktiTf: null,
     });
     const [errors, setErrors] = useState({});
     const [processing, setProcessing] = useState(false);
-    const [snapToken, setSnapToken] = useState(null);
 
     // + - tiket
     const handleDecrement = (field) => {
@@ -42,6 +42,7 @@ function Form_ticketunify() {
                 noHp: "",
                 email: "",
                 jumlahTiket: 0,
+                buktiTf: null,
             });
         } else if (x === "external") {
             setData({
@@ -49,6 +50,7 @@ function Form_ticketunify() {
                 noHp: "",
                 email: "",
                 jumlahTiket: 0,
+                buktiTf: null,
             });
         }
     };
@@ -89,45 +91,25 @@ function Form_ticketunify() {
                     "Content-Type": "multipart/form-data",
                 },
             });
-            const { snap_token: snapToken, order_id: orderId } = response.data; // Assuming response includes order_id
-            setSnapToken(snapToken);
 
             // Clear form data and selection after successful submission
-            toast.success("Form submitted successfully!");
+            toast.success("Thankyou for purchasing!");
             setSelectedForm(null);
             setData({
                 nama: "",
-
                 jurusan: "",
                 angkatan: "",
                 noHp: "",
                 email: "",
                 jumlahTiket: 0,
-            });
-
-            // Redirect to Snap Checkout page with success callback
-            window.snap.pay(snapToken, {
-                onSuccess: function (result) {
-                    window.location.href = `/unify/${orderId}`;
-                },
-                onPending: function (result) {
-                    console.log("Transaction is pending: ", result);
-                },
-                onError: function (result) {
-                    console.error("Transaction failed: ", result);
-                    toast.error("Transaction failed. Please try again later.");
-                },
-                onClose: function () {
-                    console.log(
-                        "Payment popup closed without finishing the payment"
-                    );
-                },
+                buktiTf: null,
             });
         } catch (error) {
             console.error("Error submitting form:", error);
             toast.error("Error submitting form. Please try again later.");
         } finally {
             setProcessing(false);
+            window.location.href = "/thankyou";
         }
     };
 
@@ -317,7 +299,26 @@ function Form_ticketunify() {
                                         </div>
                                     )}
                                 </div>
-
+                                <div className="mb-5">
+                                    <label
+                                        htmlFor="buktiTf"
+                                        className="block text-sm font-medium text-gray-700"
+                                    >
+                                        Bukti Transfer
+                                    </label>
+                                    <input
+                                        type="file"
+                                        name="buktiTf"
+                                        onChange={handleChange}
+                                        className="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                        required
+                                    />
+                                    {errors.buktiTf && (
+                                        <div className="mt-1 text-sm text-red-500">
+                                            {errors.buktiTf}
+                                        </div>
+                                    )}
+                                </div>
                                 <div className="flex justify-center">
                                     <button
                                         type="submit"

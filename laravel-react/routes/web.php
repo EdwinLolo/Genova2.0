@@ -49,6 +49,8 @@ Route::prefix('/admin')->middleware([AuthenticateAdmin::class])->group(function 
         Route::get('/internal', [UnifyController::class, 'internal']);
         Route::get('/all', [UnifyController::class, 'all']);
         Route::get('/detail/{id}', [UnifyController::class, 'details']);
+        Route::get('/check/{id}', [UnifyController::class, 'checked']);
+        Route::get('/uncheck/{id}', [UnifyController::class, 'unchecked']);
     });
     Route::prefix('/team')->group(function () {
         Route::get('/', [TeamController::class, 'index']);
@@ -70,11 +72,12 @@ Route::prefix('/admin')->middleware([AuthenticateAdmin::class])->group(function 
 
 Route::post('/team/input/data', [TeamController::class, 'regist']);
 Route::post('/unify', [UnifyController::class, 'register']);
+Route::get('/thankyou', [UnifyController::class, 'invoice']);
 
 Route::middleware(['web'])->group(function () {
     Route::post('/unify', [UnifyController::class, 'register']);
-    Route::get('/unify/invoice', [UnifyController::class, 'getInvoice'])->name('unify.getInvoice');
-    Route::get('/unify/{id}', [UnifyController::class, 'invoice']);
+    // Route::get('/unify/invoice', [UnifyController::class, 'getInvoice'])->name('unify.getInvoice');
+    // Route::get('/unify/{id}', [UnifyController::class, 'invoice']);
 });
 
 Route::prefix('/rangkaian/ulympic')->group(function () {

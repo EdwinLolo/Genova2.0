@@ -66,8 +66,6 @@ class TeamController extends Controller
     public function regist(Request $request)
     {
         // Validate incoming request data
-        // dd($request->all());
-
         $request->validate([
             'lombaId' => 'required|exists:lombas,id_lomba',
             'isInternal' => 'string',
@@ -103,10 +101,10 @@ class TeamController extends Controller
                 'buktiTF' => $buktiTFPath,
             ]);
 
-            
+
             for ($i = 0; $i < count($members); $i++) {
                 // Handle each member and their respective file ('ktm')
-                if(!isset($members[$i]['namaLengkap']) || !isset($members[$i]['nim']) || !isset($members[$i]['idLine'])) {
+                if (!isset($members[$i]['namaLengkap']) || !isset($members[$i]['nim']) || !isset($members[$i]['idLine'])) {
                     break;
                 }
                 $namaLengkap = $members[$i]['namaLengkap'];

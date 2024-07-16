@@ -18,9 +18,10 @@ return new class extends Migration
             $table->string("angkatan")->nullable();
             $table->string("noHp", 12);
             $table->string("email");
+            $table->string("buktiTf");
             $table->integer("jumlahTiket");
             $table->bigInteger("total_price");
-            $table->enum("status", ["unpaid", "paid"]);
+            $table->enum("status", ["unchecked", "checked"]);
             $table->enum("isInternal", ["false", "true"]);
             $table->timestamps();
         });

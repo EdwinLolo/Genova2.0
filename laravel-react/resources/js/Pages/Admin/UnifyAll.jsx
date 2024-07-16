@@ -5,18 +5,34 @@ import { Inertia } from "@inertiajs/inertia";
 
 function UnifyInternal({ data, totalTiket }) {
     const [searchQuery, setSearchQuery] = useState("");
-
+    const [modalOpen, setModalOpen] = useState(false);
+    const [currentImage, setCurrentImage] = useState("");
     const filteredData = data.filter(
         (item) =>
             item.nama.toLowerCase().includes(searchQuery.toLowerCase()) ||
             item.status.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            item.email.toLowerCase().includes(searchQuery.toLowerCase())
+            item.email.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            item.status.toLowerCase().includes(searchQuery.toLowerCase())
     );
 
     const handleInfo = (id) => {
         Inertia.visit(`/admin/unify/detail/${id}`);
     };
+    const handleChecked = (id) => {
+        Inertia.visit(`/admin/unify/check/${id}`);
+    };
+    const handleUnchecked = (id) => {
+        Inertia.visit(`/admin/unify/uncheck/${id}`);
+    };
+    const handleImageClick = (imageSrc) => {
+        setCurrentImage(imageSrc);
+        setModalOpen(true);
+    };
 
+    const closeModal = () => {
+        setModalOpen(false);
+        setCurrentImage("");
+    };
     return (
         <div className="bg-gray-300 m-0 w-full">
             <NavbarAdmin />
@@ -27,7 +43,7 @@ function UnifyInternal({ data, totalTiket }) {
                 <div className="rightSide p-5 flex-auto">
                     Unify Internal & External
                     <br />
-                    Total Tiket Paid: {totalTiket}
+                    Total Tiket Checked: {totalTiket}
                     <div className="p-4 rounded-t-lg bg-white dark:bg-gray-900">
                         <label htmlFor="table-search" className="sr-only">
                             Search
@@ -72,6 +88,9 @@ function UnifyInternal({ data, totalTiket }) {
                                     Jumlah
                                 </th>
                                 <th scope="col" className="px-6 py-3">
+                                    Bukti Transfer
+                                </th>
+                                <th scope="col" className="px-6 py-3">
                                     Status
                                 </th>
                                 <th scope="col" className="px-6 py-3">
@@ -99,6 +118,18 @@ function UnifyInternal({ data, totalTiket }) {
                                             {item.jumlahTiket}
                                         </td>
                                         <td className="px-6 py-4">
+                                            <img
+                                                src={`/storage/${item.buktiTf}`}
+                                                alt="Bukti Tf"
+                                                className="w-24 h-24 object-cover cursor-pointer"
+                                                onClick={() =>
+                                                    handleImageClick(
+                                                        `/storage/${item.buktiTf}`
+                                                    )
+                                                }
+                                            />
+                                        </td>
+                                        <td className="px-6 py-4">
                                             {item.status}
                                         </td>
                                         <td className="px-6 py-4">
@@ -110,6 +141,25 @@ function UnifyInternal({ data, totalTiket }) {
                                                 type="button"
                                             >
                                                 More
+                                            </button>
+
+                                            <button
+                                                onClick={() =>
+                                                    handleChecked(item.id)
+                                                }
+                                                className="text-green-600 font-bold hover:text-green-900 ml-5"
+                                                type="button"
+                                            >
+                                                Check
+                                            </button>
+                                            <button
+                                                onClick={() =>
+                                                    handleUnchecked(item.id)
+                                                }
+                                                className="text-red-600 font-bold hover:text-green-900 ml-5"
+                                                type="button"
+                                            >
+                                                Uncheck
                                             </button>
                                         </td>
                                     </tr>
@@ -127,7 +177,30 @@ function UnifyInternal({ data, totalTiket }) {
                         </tbody>
                     </table>
                 </div>
-            </div>
+            </div>{" "}
+            {modalOpen && (
+                <div
+                    className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+                    onClick={closeModal}
+                >
+                    <div
+                        className="bg-white p-4 rounded-lg max-w-3xl mx-auto"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        <img
+                            src={currentImage}
+                            alt="Bukti Tf"
+                            className="w-full h-auto object-contain"
+                        />
+                        <button
+                            onClick={closeModal}
+                            className="mt-4 px-4 py-2 bg-red-500 text-white rounded-lg"
+                        >
+                            Close
+                        </button>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }

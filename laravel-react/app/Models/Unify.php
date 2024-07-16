@@ -16,6 +16,7 @@ class Unify extends Model
         "jumlahTiket",
         "email",
         "total_price",
+        "buktiTf",
         "status",
         "isInternal",
     ];
