@@ -9,7 +9,7 @@ function Invoice({ data }) {
     }
 
     const statusClass =
-        data.status === ("unchecked" || "checked")
+        data.status === "unchecked" || data.status === "checked"
             ? "status-paid"
             : "status-unpaid";
 
