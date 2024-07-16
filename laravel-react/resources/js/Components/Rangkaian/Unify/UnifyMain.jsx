@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import UnifyPNG from "../../../Assets/Rangkaian/Unify/Unify_Asset.png";
-import LogoUnifyPNG from "../../../Assets/Rangkaian/Unify/Unify_Asset_Logo.png";
-import MainUnifyPNG from "../../../Assets/Rangkaian/Unify/Unify_Asset_Main.png";
-import PCLogoUnifyPNG from "../../../Assets/Rangkaian/Unify/Unify_Asset_Logo_PC.png";
-import PCMainUnifyPNG from "../../../Assets/Rangkaian/Unify/Unify_Asset_Main_PC.png";
+import UnifyPNG from "../../../Assets/Rangkaian/Unify/Unify_Asset.webp";
+import LogoUnifyPNG from "../../../Assets/Rangkaian/Unify/Unify_Asset_Logo.webp";
+import MainUnifyPNG from "../../../Assets/Rangkaian/Unify/Unify_Asset_Main.webp";
+import PCLogoUnifyPNG from "../../../Assets/Rangkaian/Unify/Unify_Asset_Logo_PC.webp";
+import PCMainUnifyPNG from "../../../Assets/Rangkaian/Unify/Unify_Asset_Main_PC.webp";
 import "../../Font.css";
 import "./UnifyMain.css";
 
@@ -34,7 +34,11 @@ function UnifyMain() {
                         <h1 style={{ fontFamily: "Akbaal, sans-serif" }}>
                             Unify
                         </h1>
-                        <p style={{ fontFamily: "SanFran-Regular, sans-serif" }}>
+                        <p
+                            style={{
+                                fontFamily: "SanFran-Regular, sans-serif",
+                            }}
+                        >
                             𝐔𝐍𝐈𝐅𝐘 merupakan kegiatan yang akan mempersatukan
                             #Legions untuk berkolaborasi serta menginspirasi
                             satu sama lain.
@@ -76,7 +80,11 @@ function UnifyMain() {
                         <h1 style={{ fontFamily: "Akbaal, sans-serif" }}>
                             Unify
                         </h1>
-                        <p style={{ fontFamily: "SanFran-Regular, sans-serif" }}>
+                        <p
+                            style={{
+                                fontFamily: "SanFran-Regular, sans-serif",
+                            }}
+                        >
                             𝐔𝐍𝐈𝐅𝐘 merupakan kegiatan yang akan mempersatukan
                             #Legions untuk berkolaborasi serta menginspirasi
                             satu sama lain.

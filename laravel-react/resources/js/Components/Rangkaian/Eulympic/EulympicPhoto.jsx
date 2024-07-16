@@ -1,17 +1,14 @@
 import React, { useState, useEffect } from "react";
-import EulympicPhotoBody from "../../../Assets/Rangkaian/Eulympic/E_ulimpic_Asset2_body.png";
-import LombaEulympic from "../../../Assets/Rangkaian/Eulympic/Eulimpic_Asset_3_PC.png";
-import Valorant from "../../../Assets/Rangkaian/Eulympic/valorant.webp";
-import MoleBaru from "../../../Assets/Rangkaian/Eulympic/molelogo.webp";
-import IU from "../../../Assets/Rangkaian/Eulympic/iu.webp";
-import Lomba1 from "../../../Assets/Rangkaian/Eulympic/Lomba1.jpg";
-import Lomba2 from "../../../Assets/Rangkaian/Eulympic/Lomba2.jpg";
-import Lomba3 from "../../../Assets/Rangkaian/Eulympic/Lomba3.jpg";
-import Lomba4 from "../../../Assets/Rangkaian/Eulympic/Lomba4.jpg";
-import Lomba5 from "../../../Assets/Rangkaian/Eulympic/Lomba5.jpg";
-import Lomba6 from "../../../Assets/Rangkaian/Eulympic/Lomba6.jpg";
-import Lomba7 from "../../../Assets/Rangkaian/Eulympic/Lomba7.jpg";
-import Lomba8 from "../../../Assets/Rangkaian/Eulympic/Lomba8.jpg";
+import EulympicPhotoBody from "../../../Assets/Rangkaian/Eulympic/E_ulimpic_Asset2_body.webp";
+import LombaEulympic from "../../../Assets/Rangkaian/Eulympic/Eulimpic_Asset_3_PC.webp";
+import Lomba1 from "../../../Assets/Rangkaian/Eulympic/Lomba1.webp";
+import Lomba2 from "../../../Assets/Rangkaian/Eulympic/Lomba2.webp";
+import Lomba3 from "../../../Assets/Rangkaian/Eulympic/Lomba3.webp";
+import Lomba4 from "../../../Assets/Rangkaian/Eulympic/Lomba4.webp";
+import Lomba5 from "../../../Assets/Rangkaian/Eulympic/Lomba5.webp";
+import Lomba6 from "../../../Assets/Rangkaian/Eulympic/Lomba6.webp";
+import Lomba7 from "../../../Assets/Rangkaian/Eulympic/Lomba7.webp";
+import Lomba8 from "../../../Assets/Rangkaian/Eulympic/Lomba8.webp";
 import vicmic from "../../../Assets/HomeAssets/Sponsor/Vicmic.webp";
 import lenovo from "../../../Assets/HomeAssets/Sponsor/lenovo.webp";
 
@@ -38,26 +35,26 @@ function EulympicPhoto() {
     //     minutes: "00",
     //     seconds: "00",
     // });
-    
+
     // const [countdownValorant, setCountdownValorant] = useState({
     //     days: "00",
     //     hours: "00",
     //     minutes: "00",
     //     seconds: "00",
     // });
-    
+
     // const [isFormMLAvailable, setIsFormMLAvailable] = useState(false);
     // const [isFormValAvailable, setIsFormValAvailable] = useState(false);
-    
+
     // useEffect(() => {
     //     const targetDateML = new Date(2024, 4, 3); // Emel sbatesnya sampe 1 mei 2024
     //     const targetDateValorant = new Date(2024, 3, 24); // Valorant sampe 24 April 2024
-    
+
     //     // ML Countdown
     //     const timerML = setInterval(() => {
     //         const currentTime = new Date();
     //         const diffML = targetDateML - currentTime;
-        
+
     //         if (diffML <= 0) {
     //             clearInterval(timerML);
     //             setCountdownML({
@@ -69,15 +66,15 @@ function EulympicPhoto() {
     //             setIsFormMLAvailable(true);
     //             return;
     //         }
-        
+
     //             updateCountdownML(diffML);
     //     }, 1000);
-    
+
     //     // Valorant Countdown
     //     const timerValorant = setInterval(() => {
     //         const currentTime = new Date();
     //         const diffValorant = targetDateValorant - currentTime;
-    
+
     //         if (diffValorant <= 0) {
     //             clearInterval(timerValorant);
     //             setCountdownValorant({
@@ -89,7 +86,7 @@ function EulympicPhoto() {
     //         setIsFormValAvailable(true);
     //         return;
     //         }
-    
+
     //         updateCountdownValorant(diffValorant);
     //     }, 1000);
     //     return () => {
@@ -102,7 +99,7 @@ function EulympicPhoto() {
     //     const hours = Math.floor((diffML / (1000 * 60 * 60)) % 24);
     //     const minutes = Math.floor((diffML / 1000 / 60) % 60);
     //     const seconds = Math.floor((diffML / 1000) % 60);
-    
+
     //     setCountdownML({
     //         days: days < 10 ? "0" + days : days.toString(),
     //         hours: hours < 10 ? "0" + hours : hours.toString(),
@@ -110,13 +107,13 @@ function EulympicPhoto() {
     //         seconds: seconds < 10 ? "0" + seconds : seconds.toString(),
     //     });
     // }
-    
+
     // function updateCountdownValorant(diffValorant) {
     //     const days = Math.floor(diffValorant / (1000 * 60 * 60 * 24));
     //     const hours = Math.floor((diffValorant / (1000 * 60 * 60)) % 24);
     //     const minutes = Math.floor((diffValorant / 1000 / 60) % 60);
     //     const seconds = Math.floor((diffValorant / 1000) % 60);
-    
+
     //     setCountdownValorant({
     //         days: days < 10 ? "0" + days : days.toString(),
     //         hours: hours < 10 ? "0" + hours : hours.toString(),
@@ -197,8 +194,12 @@ function EulympicPhoto() {
     } else {
         return (
             <div>
-                <img className="LombaPCEulympic" src={LombaEulympic} alt="Lomba Eulympic" />
-                <div className="container-esport flex relative">
+                <img
+                    className="LombaPCEulympic"
+                    src={LombaEulympic}
+                    alt="Lomba Eulympic"
+                />
+                <div className="relative flex container-esport">
                     {/* <div className="mobilelegend">
                         <div className="esport-img-wrapper-mole">
                             <img className="mole-image" src={MoleBaru} alt="Mole Logo" />
@@ -282,28 +283,52 @@ function EulympicPhoto() {
                             }}
                         >
                             <div className="listPC">
-                                <div className="itemPC" style={{ "--position": 1 }}>
+                                <div
+                                    className="itemPC"
+                                    style={{ "--position": 1 }}
+                                >
                                     <img src={Lomba1} alt="IU" />
                                 </div>
-                                <div className="itemPC" style={{ "--position": 2 }}>
+                                <div
+                                    className="itemPC"
+                                    style={{ "--position": 2 }}
+                                >
                                     <img src={Lomba2} alt="IU" />
                                 </div>
-                                <div className="itemPC" style={{ "--position": 3 }}>
+                                <div
+                                    className="itemPC"
+                                    style={{ "--position": 3 }}
+                                >
                                     <img src={Lomba3} alt="IU" />
                                 </div>
-                                <div className="itemPC" style={{ "--position": 4 }}>
+                                <div
+                                    className="itemPC"
+                                    style={{ "--position": 4 }}
+                                >
                                     <img src={Lomba4} alt="IU" />
                                 </div>
-                                <div className="itemPC" style={{ "--position": 5 }}>
+                                <div
+                                    className="itemPC"
+                                    style={{ "--position": 5 }}
+                                >
                                     <img src={Lomba5} alt="IU" />
                                 </div>
-                                <div className="itemPC" style={{ "--position": 6 }}>
+                                <div
+                                    className="itemPC"
+                                    style={{ "--position": 6 }}
+                                >
                                     <img src={Lomba6} alt="IU" />
                                 </div>
-                                <div className="itemPC" style={{ "--position": 7 }}>
+                                <div
+                                    className="itemPC"
+                                    style={{ "--position": 7 }}
+                                >
                                     <img src={Lomba7} alt="IU" />
                                 </div>
-                                <div className="itemPC" style={{ "--position": 8 }}>
+                                <div
+                                    className="itemPC"
+                                    style={{ "--position": 8 }}
+                                >
                                     <img src={Lomba8} alt="IU" />
                                 </div>
                             </div>

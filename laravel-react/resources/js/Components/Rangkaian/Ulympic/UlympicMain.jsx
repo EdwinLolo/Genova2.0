@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import LogoUlympicPNG from "../../../Assets/Rangkaian/Ulympic/Ulympic_Asset_Logo.png";
-import LogoCardUlympicPNG from "../../../Assets/Rangkaian/Ulympic/Ulympic_Asset_LogoCard.png";
-import MainUlympicPNG from "../../../Assets/Rangkaian/Ulympic/Ulympic_Asset_Main.png";
-import PCLogoUlympicPNG from "../../../Assets/Rangkaian/Ulympic/Ulympic_Asset_Logo_PC.png";
-import PCMainUlympicPNG from "../../../Assets/Rangkaian/Ulympic/Ulympic_Asset_Main_PC.png";
-import PCCardUlympicPNG from "../../../Assets/Rangkaian/Ulympic/Ulympic_Asset_Card_PC.png";
+import LogoUlympicPNG from "../../../Assets/Rangkaian/Ulympic/Ulympic_Asset_Logo.webp";
+import LogoCardUlympicPNG from "../../../Assets/Rangkaian/Ulympic/Ulympic_Asset_LogoCard.webp";
+import MainUlympicPNG from "../../../Assets/Rangkaian/Ulympic/Ulympic_Asset_Main.webp";
+import PCLogoUlympicPNG from "../../../Assets/Rangkaian/Ulympic/Ulympic_Asset_Logo_PC.webp";
+import PCMainUlympicPNG from "../../../Assets/Rangkaian/Ulympic/Ulympic_Asset_Main_PC.webp";
+import PCCardUlympicPNG from "../../../Assets/Rangkaian/Ulympic/Ulympic_Asset_Card_PC.webp";
 import "../../Font.css";
 import "./UlympicMain.css";
 
@@ -41,7 +41,11 @@ function UlympicMain() {
                         <h1 style={{ fontFamily: "Akbaal, sans-serif" }}>
                             Ulympic
                         </h1>
-                        <p style={{ fontFamily: "SanFran-Regular, sans-serif" }}>
+                        <p
+                            style={{
+                                fontFamily: "SanFran-Regular, sans-serif",
+                            }}
+                        >
                             𝐔𝐋𝐘𝐌𝐏𝐈𝐂 adalah rangkaian perlombaan kedua sekaligus
                             penutup perlombaan pada rangkaian kegiatan UMN
                             Festival 2024. Akan mempertandingkan turnamen
@@ -346,8 +350,14 @@ function UlympicMain() {
                     <div className="PCMain">
                         <img src={PCMainUlympicPNG} alt="Main Ulympic" />
                         <div className="infoPC">
-                            <h1 style={{ fontFamily: "Akbaal, sans-serif" }}>Ulympic</h1>
-                            <p style={{ fontFamily: "SanFran-Regular, sans-serif" }}>
+                            <h1 style={{ fontFamily: "Akbaal, sans-serif" }}>
+                                Ulympic
+                            </h1>
+                            <p
+                                style={{
+                                    fontFamily: "SanFran-Regular, sans-serif",
+                                }}
+                            >
                                 𝐔𝐋𝐘𝐌𝐏𝐈𝐂 adalah rangkaian perlombaan kedua
                                 sekaligus penutup perlombaan pada rangkaian
                                 kegiatan UMN Festival 2024. Akan
