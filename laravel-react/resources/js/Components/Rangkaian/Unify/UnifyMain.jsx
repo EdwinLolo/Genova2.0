@@ -55,15 +55,15 @@ function UnifyMain() {
                             we join forces to make a positive impact and spread
                             goodwill!"
                         </p>
-                        <a
+                        {/* <a
                             href="/rangkaian/unify/buyticket"
                             target="_blank"
                             className="z-[99]"
                         >
                             <button type="button" className="btn1 z-[99]">
-                                See More
+                                Buy Ticket
                             </button>
-                        </a>
+                        </a> */}
                     </div>
                 </div>
             </div>
@@ -101,15 +101,15 @@ function UnifyMain() {
                             we join forces to make a positive impact and spread
                             goodwill!"
                         </p>
-                        <a
+                        {/* <a
                             href="/rangkaian/unify/buyticket"
                             target="_blank"
                             className="z-50"
                         >
                             <button type="button" className="btn1">
-                                See More
+                                Buy Ticket
                             </button>
-                        </a>
+                        </a> */}
                     </div>
                 </div>
             </div>

@@ -121,12 +121,12 @@ function UlympicMain() {
                                             Ayo tunjukkan skill terbaikmu di
                                             Ulympic!
                                         </p>
-                                        <a
+                                        {/* <a
                                             href="/rangkaian/ulympic/basket"
                                             className="inside-page__btn inside-page__btn--city"
                                         >
                                             Registrasi
-                                        </a>
+                                        </a> */}
                                     </div>
                                 </div>
                             </div>
@@ -186,12 +186,12 @@ function UlympicMain() {
                                             terkuatmu! Ayo daftar dalam Ulympic
                                             sekarang!
                                         </p>
-                                        <a
+                                        {/* <a
                                             href="/rangkaian/ulympic/badminton"
                                             className="inside-page__btn inside-page__btn--ski"
                                         >
                                             Registrasi
-                                        </a>
+                                        </a> */}
                                     </div>
                                 </div>
                             </div>
@@ -263,12 +263,12 @@ function UlympicMain() {
                                             Daftarkan timmu dalam Ulympic dan
                                             tunjukkan skill kalian!
                                         </p>
-                                        <a
+                                        {/* <a
                                             href="/rangkaian/ulympic/futsal"
                                             className="inside-page__btn inside-page__btn--beach"
                                         >
                                             Registrasi
-                                        </a>
+                                        </a> */}
                                     </div>
                                 </div>
                             </div>
@@ -326,12 +326,12 @@ function UlympicMain() {
                                             Daftar dan spike bola menuju juara
                                             di Ulympic!
                                         </p>
-                                        <a
+                                        {/* <a
                                             href="/rangkaian/ulympic/voli"
                                             className="inside-page__btn inside-page__btn--camping"
                                         >
                                             Registrasi
-                                        </a>
+                                        </a> */}
                                     </div>
                                 </div>
                             </div>
@@ -440,12 +440,12 @@ function UlympicMain() {
                                     Sudah siap untuk dunk di lapangan? Ayo
                                     tunjukkan skill terbaikmu di Ulympic!
                                 </p>
-                                <a
+                                {/* <a
                                     href="/rangkaian/ulympic/basket"
                                     className="inside-page__btn inside-page__btn--city"
                                 >
                                     Registrasi
-                                </a>
+                                </a> */}
                             </div>
                         </div>
                     </div>
@@ -504,12 +504,12 @@ function UlympicMain() {
                                     Raih kemenangan dengan smash terkuatmu! Ayo
                                     daftar dalam Ulympic sekarang!
                                 </p>
-                                <a
+                                {/* <a
                                     href="/rangkaian/ulympic/badminton"
                                     className="inside-page__btn inside-page__btn--ski"
                                 >
                                     Registrasi
-                                </a>
+                                </a> */}
                             </div>
                         </div>
                     </div>
@@ -581,12 +581,12 @@ function UlympicMain() {
                                     Daftarkan timmu dalam Ulympic dan tunjukkan
                                     skill kalian!
                                 </p>
-                                <a
+                                {/* <a
                                     href="/rangkaian/ulympic/futsal"
                                     className="inside-page__btn inside-page__btn--beach"
                                 >
                                     Registrasi
-                                </a>
+                                </a> */}
                             </div>
                         </div>
                     </div>
@@ -644,12 +644,12 @@ function UlympicMain() {
                                     Daftar dan spike bola menuju juara di
                                     Ulympic!
                                 </p>
-                                <a
+                                {/* <a
                                     href="/rangkaian/ulympic/voli"
                                     className="inside-page__btn inside-page__btn--camping"
                                 >
                                     Registrasi
-                                </a>
+                                </a> */}
                             </div>
                         </div>
                     </div>
