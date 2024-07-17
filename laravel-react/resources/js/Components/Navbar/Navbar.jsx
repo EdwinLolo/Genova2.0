@@ -101,7 +101,7 @@ function Navbar() {
                                     MAP
                                 </a>
                             </li>
-                            <li className="text-xl text-center md:ml-3 lg:my-0 md:my-0 my-7">
+                            {/* <li className="text-xl text-center md:ml-3 lg:my-0 md:my-0 my-7">
                                 <a
                                     href="/rangkaian/ucare"
                                     className="px-5 py-3 text-center text-white duration-500 bg-gray-600 rounded cursor-pointer md:py-2 sm:px-6 lg:px-5 md:px-6 xl:ml-8 hover:bg-indigo-400 font-custom"
@@ -110,7 +110,7 @@ function Navbar() {
                                         Register
                                     </span>
                                 </a>
-                            </li>
+                            </li> */}
                         </ul>
                     </>
                 )}

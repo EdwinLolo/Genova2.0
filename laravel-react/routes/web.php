@@ -94,3 +94,9 @@ Route::prefix('/rangkaian/ulympic')->group(function () {
 Route::get('/rangkaian/unify/buyticket', function () {
     return Inertia::render('Form_Unify/Form_ticketunify');
 });
+
+Route::get('/rangkaian/ucare/volunteer', function () {
+    return Inertia::render('Form_Ucare/Formucare');
+});
+
+
