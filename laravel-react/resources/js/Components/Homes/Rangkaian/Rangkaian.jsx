@@ -65,40 +65,41 @@ function Rangkaian() {
         return (
             <div className="w-full h-full bg-gray-700">
                 {images.map((image, index) => (
-                    <div
-                        key={index}
-                        className="relative w-full h-[200px]"
-                        // onClick={() => navigate(`/rangkaian/${Tujuan[index]}`)}
-                    >
-                        <div className="flex items-center justify-center h-full hover:scale-110">
-                            <img
-                                src={image}
-                                className="object-cover  h-[200px] w-full block duration-300 transition-transform hover:scale-110"
-                                alt="BACKGROUND"
-                            />
-                        </div>
+                    <a key={index} href={`/rangkaian/${Tujuan[index]}`}>
                         <div
-                            className="absolute inset-0 flex items-center justify-center text-xl font-extrabold text-white transition-opacity duration-300 bg-black bg-opacity-50 opacity-100 hover:opacity-0"
-                            onMouseEnter={() => setIsHovered(false)}
-                            onMouseLeave={() => setIsHovered(true)}
-                            // href={`/rangkaian/${Tujuan[index]}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            key={index}
+                            className="relative w-full h-[200px]"
+                            // onClick={() => navigate(`/rangkaian/${Tujuan[index]}`)}
                         >
-                            <h1 className="px-10 text-4xl font-custom sm:text-5xl">
-                                {Titles[index]}
-                            </h1>
-                            {isHovered && (
-                                <div className="flex items-center justify-end w-full pr-10 mt-2 top-full">
-                                    <img
-                                        src={logos[index]}
-                                        className="w-20"
-                                        alt="LOGO"
-                                    />
-                                </div>
-                            )}
+                            <div className="flex items-center justify-center h-full hover:scale-110">
+                                <img
+                                    src={image}
+                                    className="object-cover  h-[200px] w-full block duration-300 transition-transform hover:scale-110"
+                                    alt="BACKGROUND"
+                                />
+                            </div>
+                            <div
+                                className="absolute inset-0 flex items-center justify-center text-xl font-extrabold text-white transition-opacity duration-300 bg-black bg-opacity-50 opacity-100 hover:opacity-0"
+                                onMouseEnter={() => setIsHovered(false)}
+                                onMouseLeave={() => setIsHovered(true)}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <h1 className="px-10 text-4xl font-custom sm:text-5xl">
+                                    {Titles[index]}
+                                </h1>
+                                {isHovered && (
+                                    <div className="flex items-center justify-end w-full pr-10 mt-2 top-full">
+                                        <img
+                                            src={logos[index]}
+                                            className="w-20"
+                                            alt="LOGO"
+                                        />
+                                    </div>
+                                )}
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 ))}
             </div>
         );
