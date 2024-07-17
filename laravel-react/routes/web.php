@@ -71,6 +71,7 @@ Route::prefix('/admin')->middleware([AuthenticateAdmin::class])->group(function 
     Route::post('/edit/{nim}', [AdminController::class, 'update']);
 });
 
+Route::post('/input/data', [AdminController::class, 'regist']);
 Route::post('/team/input/data', [TeamController::class, 'regist']);
 Route::post('/unify', [UnifyController::class, 'register']);
 Route::get('/thankyou', [UnifyController::class, 'invoice']);
