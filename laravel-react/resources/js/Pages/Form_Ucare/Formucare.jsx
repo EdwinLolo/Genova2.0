@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import Step1 from "./Ucarestep1";
 import Step2 from "./ucarestep2";
 import Step3 from "./ucarestep3";
+import axios from "axios";
 
 function Formucare() {
+    const [processing, setProcessing] = useState(false);
     const [currentStep, setCurrentStep] = useState(1);
     const [formData, setFormData] = useState({
         namaLengkap: "",
@@ -17,6 +19,7 @@ function Formucare() {
         angkatan: "",
         email: "",
         isInternal: "false",
+        asalKampus: "",
 
         perkenalandiri: "",
         alasanikut: "",
@@ -42,10 +45,43 @@ function Formucare() {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         console.log("Form submitted:", formData);
-        // Handle form submission here
+        try {
+            const response = await axios.post("/ucare", formData);
+            // Handle success response
+            console.log(response.data);
+            alert("Form submitted successfully!");
+            // Reset the form
+            setFormData({
+                namaLengkap: "",
+                umur: "",
+                tempatTinggal: "",
+                idLine: "",
+                instagram: "",
+                noTelp: "",
+                nim: "",
+                jurusan: "",
+                angkatan: "",
+                email: "",
+                isInternal: "false",
+                asalKampus: "",
+
+                perkenalandiri: "",
+                alasanikut: "",
+                kelebihankekurangan: "",
+                pandanganlansia: "",
+                kebutuhanlansia: "",
+                kesempatan: "",
+            });
+        } catch (error) {
+            // Handle error response
+            console.error(error);
+            alert("There was an error submitting the form.");
+        } finally {
+            setProcessing(false);
+        }
     };
 
     return (

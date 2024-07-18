@@ -6,7 +6,7 @@ function UcareDetails({ data }) {
         <div className="bg-gray-300 min-h-screen">
             <NavbarAdmin />
             <div className="flex flex-col md:flex-row">
-                <div className="p-10 w-full md:w-1/2">
+                <div className="p-10 w-1/2 md:w-full">
                     <table className="table-auto w-full">
                         <h1 className="font-bold text-center">
                             Ucare Participant Detail
@@ -55,6 +55,42 @@ function UcareDetails({ data }) {
                             <tr>
                                 <td className="font-bold">Internal:</td>
                                 <td className="pl-4">{data.isInternal}</td>
+                            </tr>
+                            <tr>
+                                <td className="font-bold">Perkenalan Diri:</td>
+                                <td className="pl-4">{data.perkenalandiri}</td>
+                            </tr>
+                            <tr>
+                                <td className="font-bold">Alasan ikut</td>
+                                <td className="pl-4">{data.alasanikut}</td>
+                            </tr>
+                            <tr>
+                                <td className="font-bold">
+                                    Kelebihan kekurangan diri
+                                </td>
+                                <td className="pl-4">
+                                    {data.kelebihankekurangan}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td className="font-bold">Pandangan Lansia</td>
+                                <td className="pl-4">{data.pandanganlansia}</td>
+                            </tr>
+                            <tr>
+                                <td className="font-bold">
+                                    Yang diketahui mengenai kebutuhan lansia
+                                </td>
+                                <td className="pl-4">{data.kebutuhanlansia}</td>
+                            </tr>
+                            <tr>
+                                <td className="font-bold">
+                                    Kesempatan yang dilakukan
+                                </td>
+                                <td className="pl-4">{data.kesempatan}</td>
+                            </tr>
+                            <tr>
+                                <td className="font-bold">Asal Kampus</td>
+                                <td className="pl-4">{data.asalKampus}</td>
                             </tr>
                         </tbody>
                     </table>

@@ -9,7 +9,7 @@ function ucarestep2({ formData, handleChange }) {
                         htmlFor="namaLengkap"
                         className="block text-sm font-medium text-gray-700"
                     >
-                        namaLengkap
+                        Nama Lengkap
                     </label>
                     <input
                         type="text"
@@ -41,7 +41,7 @@ function ucarestep2({ formData, handleChange }) {
                         htmlFor="tempatTinggal"
                         className="block text-sm font-medium text-gray-700"
                     >
-                        tempatTinggal
+                        Tempat Tinggal
                     </label>
                     <input
                         type="text"
@@ -57,7 +57,7 @@ function ucarestep2({ formData, handleChange }) {
                         htmlFor="idLine"
                         className="block text-sm font-medium text-gray-700"
                     >
-                        idLine
+                        ID Line
                     </label>
                     <input
                         type="text"
@@ -73,7 +73,7 @@ function ucarestep2({ formData, handleChange }) {
                         htmlFor="idLine"
                         className="block text-sm font-medium text-gray-700"
                     >
-                        instagram
+                        Instagram
                     </label>
                     <input
                         type="text"
@@ -89,7 +89,7 @@ function ucarestep2({ formData, handleChange }) {
                         htmlFor="idLine"
                         className="block text-sm font-medium text-gray-700"
                     >
-                        noTelp
+                        Nomor Telepon
                     </label>
                     <input
                         type="text"
@@ -105,12 +105,13 @@ function ucarestep2({ formData, handleChange }) {
                         htmlFor="idLine"
                         className="block text-sm font-medium text-gray-700"
                     >
-                        nim
+                        Asal Kampus
                     </label>
                     <input
                         type="text"
-                        name="nim"
-                        value={formData.nim}
+                        name="asalKampus"
+                        value={formData.asalKampus}
+                        placeholder="isi ‘-‘ jika berasal dari luar kampus"
                         onChange={handleChange}
                         className="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                         required
@@ -121,13 +122,31 @@ function ucarestep2({ formData, handleChange }) {
                         htmlFor="idLine"
                         className="block text-sm font-medium text-gray-700"
                     >
-                        jurusan
+                        NIM
+                    </label>
+                    <input
+                        type="text"
+                        name="nim"
+                        value={formData.nim}
+                        placeholder="isi ‘-‘ jika bukan mahasiswa"
+                        onChange={handleChange}
+                        className="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                        required
+                    />
+                </div>
+                <div className="mb-5">
+                    <label
+                        htmlFor="idLine"
+                        className="block text-sm font-medium text-gray-700"
+                    >
+                        Jurusan
                     </label>
                     <input
                         type="text"
                         name="jurusan"
                         value={formData.jurusan}
                         onChange={handleChange}
+                        placeholder="isi ‘-‘ jika bukan mahasiswa"
                         className="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                         required
                     />
@@ -137,13 +156,14 @@ function ucarestep2({ formData, handleChange }) {
                         htmlFor="idLine"
                         className="block text-sm font-medium text-gray-700"
                     >
-                        angkatan
+                        Angkatan
                     </label>
                     <input
                         type="text"
                         name="angkatan"
                         value={formData.angkatan}
                         onChange={handleChange}
+                        placeholder="isi ‘-‘ jika bukan mahasiswa"
                         className="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                         required
                     />
@@ -153,7 +173,7 @@ function ucarestep2({ formData, handleChange }) {
                         htmlFor="idLine"
                         className="block text-sm font-medium text-gray-700"
                     >
-                        email
+                        Email
                     </label>
                     <input
                         type="text"

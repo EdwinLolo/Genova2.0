@@ -17,7 +17,6 @@ function UcareDashboard() {
         email: "",
         isInternal: "false",
     });
-    const [errors, setErrors] = useState({});
     const [selectedForm, setSelectedForm] = useState(null);
     const [processing, setProcessing] = useState(false);
 
@@ -36,6 +35,14 @@ function UcareDashboard() {
                 angkatan: "",
                 email: "",
                 isInternal: "true",
+                asalKampus: "",
+
+                perkenalandiri: "",
+                alasanikut: "",
+                kelebihankekurangan: "",
+                pandanganlansia: "",
+                kebutuhanlansia: "",
+                kesempatan: "",
             });
         } else if (x === "external") {
             setData({
@@ -50,6 +57,14 @@ function UcareDashboard() {
                 angkatan: "",
                 email: "",
                 isInternal: "false",
+                asalKampus: "",
+
+                perkenalandiri: "",
+                alasanikut: "",
+                kelebihankekurangan: "",
+                pandanganlansia: "",
+                kebutuhanlansia: "",
+                kesempatan: "",
             });
         }
     };
@@ -81,6 +96,14 @@ function UcareDashboard() {
                 angkatan: "",
                 email: "",
                 isInternal: data.isInternal,
+                asalKampus: "",
+
+                perkenalandiri: "",
+                alasanikut: "",
+                kelebihankekurangan: "",
+                pandanganlansia: "",
+                kebutuhanlansia: "",
+                kesempatan: "",
             });
         } catch (error) {
             // Handle error response
@@ -104,7 +127,7 @@ function UcareDashboard() {
                             Ucare Participants
                         </button>
                     </a>
-                    <button
+                    {/* <button
                         className="m-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                         onClick={() => handleButton("internal")}
                     >
@@ -115,7 +138,7 @@ function UcareDashboard() {
                         onClick={() => handleButton("external")}
                     >
                         Form Input External
-                    </button>
+                    </button> */}
                 </div>
                 <div className="flex flex-auto">
                     {selectedForm && (

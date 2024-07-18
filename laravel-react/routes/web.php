@@ -77,6 +77,7 @@ Route::post('/unify', [UnifyController::class, 'register']);
 Route::get('/thankyou', [UnifyController::class, 'invoice']);
 
 Route::middleware(['web'])->group(function () {
+    Route::post('/ucare', [UcareController::class, 'register']);
     Route::post('/unify', [UnifyController::class, 'register']);
     // Route::get('/unify/invoice', [UnifyController::class, 'getInvoice'])->name('unify.getInvoice');
     // Route::get('/unify/{id}', [UnifyController::class, 'invoice']);
@@ -98,5 +99,3 @@ Route::get('/rangkaian/unify/buyticket', function () {
 Route::get('/rangkaian/ucare/volunteer', function () {
     return Inertia::render('Form_Ucare/Formucare');
 });
-
-

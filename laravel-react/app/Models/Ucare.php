@@ -20,5 +20,12 @@ class Ucare extends Model
         "angkatan",
         "email",
         "isInternal",
+        "perkenalandiri",
+        "alasanikut",
+        "kelebihankekurangan",
+        "pandanganlansia",
+        "kebutuhanlansia",
+        "kesempatan",
+        "asalKampus",
     ];
 }

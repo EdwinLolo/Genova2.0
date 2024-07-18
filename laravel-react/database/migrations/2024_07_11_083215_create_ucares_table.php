@@ -24,6 +24,13 @@ return new class extends Migration
             $table->string("angkatan")->nullable();
             $table->string("email")->nullable();
             $table->enum("isInternal", ["false", "true"]);
+            $table->text("perkenalandiri")->nullable();
+            $table->text("alasanikut")->nullable();
+            $table->text("kelebihankekurangan")->nullable();
+            $table->text("pandanganlansia")->nullable();
+            $table->text("kebutuhanlansia")->nullable();
+            $table->text("kesempatan")->nullable();
+            $table->string("asalKampus")->nullable();
             $table->timestamps();
         });
     }
