@@ -11,6 +11,8 @@ import Lomba7 from "../../../Assets/Rangkaian/Eulympic/Lomba7.webp";
 import Lomba8 from "../../../Assets/Rangkaian/Eulympic/Lomba8.webp";
 import vicmic from "../../../Assets/HomeAssets/Sponsor/Vicmic.webp";
 import lenovo from "../../../Assets/HomeAssets/Sponsor/lenovo.webp";
+import CiptaWarna from "../../../Assets/HomeAssets/Sponsor/CiptaWarna.webp";
+import TenjinLogo from "../../../Assets/HomeAssets/Sponsor/TenjinLogoPack.webp";
 
 // css
 import "../../Font.css";
@@ -187,6 +189,8 @@ function EulympicPhoto() {
                     <div className="logosponsor">
                         <img src={vicmic} alt="vicmic" />
                         <img src={lenovo} alt="lenovo" />
+                        <img src={CiptaWarna} alt="CiptaWarna" />
+                        <img src={TenjinLogo} alt="Tenjin" />
                     </div>
                 </div>
             </div>
@@ -340,6 +344,8 @@ function EulympicPhoto() {
                     <div className="logosponsor">
                         <img src={vicmic} alt="vicmic" />
                         <img src={lenovo} alt="lenovo" />
+                        <img src={CiptaWarna} alt="CiptaWarna" />
+                        <img src={TenjinLogo} alt="Tenjin" />
                     </div>
                 </div>
             </div>

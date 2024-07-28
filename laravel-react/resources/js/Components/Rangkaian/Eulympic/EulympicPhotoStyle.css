@@ -113,7 +113,7 @@
 }
 .esport-img-wrapper-mole:hover span,
 .esport-img-wrapper-valorant:hover span {
-    visibility: visible; 
+    visibility: visible;
     opacity: 1;
 }
 .esport-img-wrapper-valorant img,
@@ -123,8 +123,8 @@
     border-radius: 20px;
 }
 
-
-.valorant, .mobilelegend{
+.valorant,
+.mobilelegend {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -139,7 +139,7 @@
     margin-bottom: 1rem;
 }
 
-.container-time{
+.container-time {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -169,14 +169,15 @@
     color: rgb(60, 59, 96, 0.7);
 }
 
-.time small{
+.time small {
     color: rgb(60, 59, 96, 0.7);
 }
 
 .sponsor {
     position: absolute;
-    top: 94rem;
-    left: 40rem;
+    top: 92rem;
+    left: 37rem;
+    /* align-items: center; */
     /* margin-top: 100px; */
     text-align: center;
     padding: 20px;
@@ -214,10 +215,9 @@
 }
 
 .logosponsor img {
-    max-width: 150px; /* Lebar maksimum gambar */
+    max-width: 100px; /* Lebar maksimum gambar */
     margin: 10px; /* Jarak di sekitar gambar */
 }
-
 
 @media (min-width: 175px) {
     .CarouselPhoto {
@@ -247,8 +247,8 @@
     }
 
     .sponsorHP {
-        top: 27rem;
-        left: 3.5rem;
+        top: 24rem;
+        left: -0.6rem;
     }
 }
 
@@ -263,8 +263,8 @@
     }
 
     .sponsorHP {
-        top: 32rem;
-        left: 4.9rem;
+        top: 30rem;
+        left: -0.1rem;
     }
 }
 
@@ -279,8 +279,8 @@
     }
 
     .sponsorHP {
-        top: 33rem;
-        left: 6rem;
+        top: 31rem;
+        left: 1rem;
     }
 }
 
@@ -295,8 +295,8 @@
     }
 
     .sponsorHP {
-        top: 38rem;
-        left: 6.3rem;
+        top: 34rem;
+        left: 0.3rem;
     }
 }
 
@@ -329,12 +329,12 @@
         left: 0rem;
     }
 
-    .esport-img-wrapper-mole{
+    .esport-img-wrapper-mole {
         width: 20rem;
         height: 10rem;
     }
 
-    .esport-img-wrapper-valorant{
+    .esport-img-wrapper-valorant {
         width: 20rem;
         height: 10rem;
     }
@@ -455,7 +455,7 @@
 .btn1 {
     width: 200px;
     height: 50px;
-    padding: 1.1em 1.1  em;
+    padding: 1.1em 1.1 em;
     background: none;
     border: 2px solid #fff;
     font-size: 25px;
@@ -495,5 +495,3 @@
 .btn1:active {
     transform: scale(0.9);
 }
-
-
