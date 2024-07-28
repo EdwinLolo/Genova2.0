@@ -64,6 +64,14 @@ function UnifyMain() {
                                 Buy Ticket
                             </button>
                         </a> */}
+                        <a
+                            href="https://bit.ly/EarlyBirdUNIFY2024"
+                            target="_blank"
+                        >
+                            <button type="button" className="btn1 z-[99]">
+                                Get your Early Bird tickets here!
+                            </button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -110,6 +118,14 @@ function UnifyMain() {
                                 Buy Ticket
                             </button>
                         </a> */}
+                        <a
+                            href="https://bit.ly/EarlyBirdUNIFY2024"
+                            target="_blank"
+                        >
+                            <button type="button" className="btn1 z-[99]">
+                                Get your Early Bird tickets here!
+                            </button>
+                        </a>
                     </div>
                 </div>
             </div>
