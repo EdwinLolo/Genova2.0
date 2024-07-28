@@ -73,7 +73,7 @@ class TeamController extends Controller
             'buktiTf' => 'required|file|mimes:png,jpeg,jpg|max:2048',
             'members' => 'required|array',
             'members.*.namaLengkap' => 'string|max:255|nullable',
-            'members.*.nim' => 'string|max:11|min:11|nullable',
+            'members.*.nim' => 'string|max:11|nullable',
             'members.*.idLine' => 'nullable|string|max:50|nullable',
             'members.*.ktm' => 'file|mimes:jpg,jpeg,png|max:2048|nullable',
             'members.*.asalKampus' => 'string|max:255|nullable',
@@ -147,7 +147,7 @@ class TeamController extends Controller
             return back()->with('success', 'Team input data processed successfully');
         } catch (QueryException $e) {
             // Rollback transaction on error
-            dd($e);
+            // dd($e);
             DB::rollback();
             // Handle specific SQL errors (e.g., unique constraint violation)
             $errorCode = $e->errorInfo[1];

@@ -71,7 +71,7 @@ class AdminController extends Controller
     {
         $validated = $request->validate([
             'namaLengkap' => 'required|string|max:255',
-            'nim' => 'required|string|max:11|min:11',
+            'nim' => 'required|string|max:11',
             'idLine' => 'required|string|max:255',
             'idUser' => 'nullable|string|max:255',
             'ktm' => 'required|nullable|file|mimes:jpg,jpeg,png|max:2048',
@@ -156,7 +156,7 @@ class AdminController extends Controller
         // Validate the incoming request data
         $validatedData = $request->validate([
             'namaLengkap' => 'required|string',
-            'nim' => 'required|max:11|min:11|string|unique:mahasiswas,nim,' . $nim . ',nim',
+            'nim' => 'required|max:11|string|unique:mahasiswas,nim,' . $nim . ',nim',
             'idLine' => 'required|string',
             'idUser' => 'nullable|string',
             'ktm' => ['nullable', new StringOrImage],
