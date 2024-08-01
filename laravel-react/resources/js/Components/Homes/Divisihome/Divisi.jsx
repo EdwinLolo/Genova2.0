@@ -101,13 +101,15 @@ const App = () => {
                 <button onClick={prev}>Prev</button> */}
                 <div className="test" />
                 <div
-                    className="carousel"
+                    className="carousel z-[999]"
                     style={{ transform: `rotate(${carouselDeg}deg)` }}
                 >
                     {carousel.map((item, index) => (
                         // <div>
                         <div
-                            className={`item-carousel ${getCssClass(index)}`}
+                            className={`item-carousel ${getCssClass(
+                                index
+                            )} z-[999]`}
                             key={item.id}
                             id={item.id}
                             style={{ transform: `rotate(${itemDeg}deg)` }}

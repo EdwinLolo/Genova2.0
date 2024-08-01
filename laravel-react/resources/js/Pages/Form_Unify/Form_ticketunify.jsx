@@ -117,7 +117,7 @@ function Form_ticketunify() {
         <>
             <Navbar />
             <div className="flex items-center justify-center w-full min-h-screen bungkus bg-[#F0F8FF]">
-                <div className="flex flex-col items-center justify-center w-full max-w-3xl p-3 bg-white shadow-lg rounded-xl mt-[100px] md:mt-[150px]">
+                <div className="flex flex-col items-center justify-center w-full max-w-3xl p-3 bg-white shadow-lg rounded-xl mt-[100px] md:mt-[150px] mb-[30px]">
                     <h1 className="text-4xl font-bold text-center text-indigo-600">
                         Unify Ticket Purchase
                     </h1>
@@ -144,220 +144,303 @@ function Form_ticketunify() {
                         </button>
                     </div>
                     {selectedForm && (
-                        <div className="flex-col w-full mt-2 md:flex-row sm:flex">
-                            <form
-                                onSubmit={handleSubmit}
-                                className="w-full p-6 m-2 mx-auto bg-white border-2 rounded-lg shadow-md md:mx-0 sm:w-3/5 border-blue-50"
-                            >
-                                <div className="mb-5">
-                                    <label
-                                        htmlFor="nama"
-                                        className="block text-sm font-medium text-gray-700"
-                                    >
-                                        Nama Lengkap
-                                    </label>
-                                    <input
-                                        type="text"
-                                        name="nama"
-                                        value={data.nama}
-                                        onChange={handleChange}
-                                        className="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                                        required
-                                    />
-                                    {errors.nama && (
-                                        <div className="mt-1 text-sm text-red-500">
-                                            {errors.nama}
-                                        </div>
-                                    )}
-                                </div>
-                                {selectedForm === "internal" && (
-                                    <>
-                                        <div className="mb-5">
-                                            <label
-                                                htmlFor="jurusan"
-                                                className="block text-sm font-medium text-gray-700"
-                                            >
-                                                Jurusan
-                                            </label>
-                                            <input
-                                                type="text"
-                                                name="jurusan"
-                                                value={data.jurusan}
-                                                onChange={handleChange}
-                                                className="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                                                required
-                                            />
-                                            {errors.jurusan && (
-                                                <div className="mt-1 text-sm text-red-500">
-                                                    {errors.jurusan}
-                                                </div>
-                                            )}
-                                        </div>
-                                        <div className="mb-5">
-                                            <label
-                                                htmlFor="angkatan"
-                                                className="block text-sm font-medium text-gray-700"
-                                            >
-                                                Angkatan
-                                            </label>
-                                            <input
-                                                type="text"
-                                                name="angkatan"
-                                                value={data.angkatan}
-                                                onChange={handleChange}
-                                                className="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                                                required
-                                            />
-                                            {errors.angkatan && (
-                                                <div className="mt-1 text-sm text-red-500">
-                                                    {errors.angkatan}
-                                                </div>
-                                            )}
-                                        </div>
-                                    </>
-                                )}
-                                <div className="mb-5">
-                                    <label
-                                        htmlFor="noHp"
-                                        className="block text-sm font-medium text-gray-700"
-                                    >
-                                        No HP
-                                    </label>
-                                    <input
-                                        type="text"
-                                        name="noHp"
-                                        value={data.noHp}
-                                        onChange={handleChange}
-                                        className="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                                        required
-                                    />
-                                    {errors.noHp && (
-                                        <div className="mt-1 text-sm text-red-500">
-                                            {errors.noHp}
-                                        </div>
-                                    )}
-                                </div>
-                                <div className="mb-5">
-                                    <label
-                                        htmlFor="email"
-                                        className="block text-sm font-medium text-gray-700"
-                                    >
-                                        Email
-                                    </label>
-                                    <input
-                                        type="email"
-                                        name="email"
-                                        value={data.email}
-                                        onChange={handleChange}
-                                        className="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                                        required
-                                    />
-                                    {errors.email && (
-                                        <div className="mt-1 text-sm text-red-500">
-                                            {errors.email}
-                                        </div>
-                                    )}
-                                </div>
-                                <div className="mb-5">
-                                    <label
-                                        htmlFor="jumlahTiket"
-                                        className="block text-sm font-medium text-gray-700"
-                                    >
-                                        Jumlah Tiket
-                                    </label>
-                                    <div className="flex items-center mt-1">
-                                        <button
-                                            type="button"
-                                            className="px-3 py-1 text-white bg-red-600 rounded-l hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-yellow-500"
-                                            onClick={() =>
-                                                handleDecrement("jumlahTiket")
-                                            }
+                        <div>
+                            <div className="px-5 pt-3">
+                                <p>
+                                    Presale 1 : UNIFY 2024 ‼
+                                    <br /> <br />
+                                    Presale 1 UNIFY UMN Festival 2024 ‼
+                                    <br /> <br />
+                                    Halo Legions, UMN Festival 2024 adalah
+                                    festival tahunan terbesar di Universitas
+                                    Multimedia Nusantara, merayakan ulang tahun
+                                    UMN dengan berbagai acara menarik! Dari
+                                    UNVEILING hingga UNIFY, setiap rangkaian
+                                    penuh antusiasme dan semangat.
+                                    <br /> <br />
+                                    Dan yang sudah ditunggu-tunggu, UNIFY kali
+                                    ini menghadirkan bintang tamu spesial, Juicy
+                                    Luicy! 😍🎤 Siap bikin kalian baper dan sing
+                                    along bareng lagu-lagu hits mereka! Dan
+                                    kabar baiknya.... 🚨💥 PRESALE 1 TIKET SUDAH
+                                    BUKA SEKARANG! Harganya cuma 60k! 🤑🎉🎟
+                                    Jangan sampai ketinggalan momen seru bareng
+                                    teman, sahabat, keluarga, atau pasangan
+                                    kalian! Oiyaa, slot Presale 1 sangat
+                                    terbatas dan pasti cepat habis! Buruan ambil
+                                    tiketnya sebelum nyesel! 😱🔥
+                                    <br /> <br />
+                                    📅 : Sabtu, 30 November 2024
+                                    <br />
+                                    📍 : Lapangan Parkir Universitas Multimedia
+                                    Nusantara
+                                    <br />
+                                    <br />
+                                    Ticket Price💰 (Presale 1) Rp. 60,000 /
+                                    Ticket Blu Digital - 007523060589 / Grace
+                                    Aretha
+                                    <br /> <br />
+                                    Format Berita : PS 1 - Jumlah tiket &rarr;
+                                    Contoh : PS 1 - 10 <br /> <br />
+                                    tiket Terms and Conditions <br />
+                                    1. Pembelian tiket maksimal 10 tiket per 1
+                                    form. Form hanya dapat diisi MAX 1 KALI.
+                                    <br />
+                                    2. Dilarang melakukan manipulasi pembelian
+                                    tiket UNIFY!
+                                    <br />
+                                    3. Apabila membeli lebih dari 1 tiket, cukup
+                                    mencantumkan 1 SS bukti transfer saja!{" "}
+                                    <br />
+                                    4. Tiket yang sudah dibeli tidak dapat di
+                                    refund. <br />
+                                    5. Tiket yang sudah ditukarkan menjadi
+                                    tanggung jawab pembeli dan bukan tanggung
+                                    jawab panitia UMN Festival 2024!
+                                    <br />
+                                    6. Penonton/peserta WAJIB berusia diatas 12
+                                    tahun. <br />
+                                    7. Penonton/peserta yang berusia dibawah 17
+                                    tahun SANGAT DISARANKAN untuk didampingi
+                                    oleh orang DEWASA. <br /> 8. Jika membeli
+                                    lebih dari 1 tiket dalam form yang sama,
+                                    WAJIB mengambil tiker
+                                    <br />
+                                    <br />
+                                    Notes <br /> Harap masukkan data secara
+                                    lengkap dan TELITI (Kesalahan penulisan
+                                    bukan merupakan tanggung jawab pihak panitia
+                                    UMN Festival 2024) <br />
+                                    <br />
+                                    Contact Person: <br /> 👸🏻 Line: Grace -
+                                    gracearetha_17 <br />
+                                    🤴🏻 WhatsApp: Howard - 081802360509 <br />
+                                    <br />
+                                    For more info, follow us on instagram
+                                    @umnfestival <br /> Thankyou, #Legions{" "}
+                                    <br />
+                                    #UMNFestival2024
+                                    #ShowYourValorFightWithHonor #UNIFY2024
+                                </p>
+                            </div>
+                            <div className="flex-col w-full mt-2 md:flex-row sm:flex">
+                                <form
+                                    onSubmit={handleSubmit}
+                                    className="w-full p-6 m-2 mx-auto bg-white border-2 rounded-lg shadow-md md:mx-0 sm:w-3/5 border-blue-50"
+                                >
+                                    <div className="mb-5">
+                                        <label
+                                            htmlFor="nama"
+                                            className="block text-sm font-medium text-gray-700"
                                         >
-                                            -
-                                        </button>
+                                            Nama Lengkap
+                                        </label>
                                         <input
-                                            type="number"
-                                            name="jumlahTiket"
-                                            value={data.jumlahTiket}
+                                            type="text"
+                                            name="nama"
+                                            value={data.nama}
                                             onChange={handleChange}
-                                            className="block w-full px-2 py-2 text-center border-t border-b border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                            className="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                                             required
                                         />
-                                        <button
-                                            type="button"
-                                            className="px-3 py-1 text-white bg-green-600 rounded-r hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500"
-                                            onClick={() =>
-                                                handleIncrement("jumlahTiket")
-                                            }
+                                        {errors.nama && (
+                                            <div className="mt-1 text-sm text-red-500">
+                                                {errors.nama}
+                                            </div>
+                                        )}
+                                    </div>
+                                    {selectedForm === "internal" && (
+                                        <>
+                                            <div className="mb-5">
+                                                <label
+                                                    htmlFor="jurusan"
+                                                    className="block text-sm font-medium text-gray-700"
+                                                >
+                                                    Jurusan
+                                                </label>
+                                                <input
+                                                    type="text"
+                                                    name="jurusan"
+                                                    value={data.jurusan}
+                                                    onChange={handleChange}
+                                                    className="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                                    required
+                                                />
+                                                {errors.jurusan && (
+                                                    <div className="mt-1 text-sm text-red-500">
+                                                        {errors.jurusan}
+                                                    </div>
+                                                )}
+                                            </div>
+                                            <div className="mb-5">
+                                                <label
+                                                    htmlFor="angkatan"
+                                                    className="block text-sm font-medium text-gray-700"
+                                                >
+                                                    Angkatan
+                                                </label>
+                                                <input
+                                                    type="text"
+                                                    name="angkatan"
+                                                    value={data.angkatan}
+                                                    onChange={handleChange}
+                                                    className="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                                    required
+                                                />
+                                                {errors.angkatan && (
+                                                    <div className="mt-1 text-sm text-red-500">
+                                                        {errors.angkatan}
+                                                    </div>
+                                                )}
+                                            </div>
+                                        </>
+                                    )}
+                                    <div className="mb-5">
+                                        <label
+                                            htmlFor="noHp"
+                                            className="block text-sm font-medium text-gray-700"
                                         >
-                                            +
+                                            No HP
+                                        </label>
+                                        <input
+                                            type="text"
+                                            name="noHp"
+                                            value={data.noHp}
+                                            onChange={handleChange}
+                                            className="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                            required
+                                        />
+                                        {errors.noHp && (
+                                            <div className="mt-1 text-sm text-red-500">
+                                                {errors.noHp}
+                                            </div>
+                                        )}
+                                    </div>
+                                    <div className="mb-5">
+                                        <label
+                                            htmlFor="email"
+                                            className="block text-sm font-medium text-gray-700"
+                                        >
+                                            Email
+                                        </label>
+                                        <input
+                                            type="email"
+                                            name="email"
+                                            value={data.email}
+                                            onChange={handleChange}
+                                            className="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                            required
+                                        />
+                                        {errors.email && (
+                                            <div className="mt-1 text-sm text-red-500">
+                                                {errors.email}
+                                            </div>
+                                        )}
+                                    </div>
+                                    <div className="mb-5">
+                                        <label
+                                            htmlFor="jumlahTiket"
+                                            className="block text-sm font-medium text-gray-700"
+                                        >
+                                            Jumlah Tiket
+                                        </label>
+                                        <div className="flex items-center mt-1">
+                                            <button
+                                                type="button"
+                                                className="px-3 py-1 text-white bg-red-600 rounded-l hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                                                onClick={() =>
+                                                    handleDecrement(
+                                                        "jumlahTiket"
+                                                    )
+                                                }
+                                            >
+                                                -
+                                            </button>
+                                            <input
+                                                type="number"
+                                                name="jumlahTiket"
+                                                value={data.jumlahTiket}
+                                                onChange={handleChange}
+                                                className="block w-full px-2 py-2 text-center border-t border-b border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                                required
+                                            />
+                                            <button
+                                                type="button"
+                                                className="px-3 py-1 text-white bg-green-600 rounded-r hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500"
+                                                onClick={() =>
+                                                    handleIncrement(
+                                                        "jumlahTiket"
+                                                    )
+                                                }
+                                            >
+                                                +
+                                            </button>
+                                        </div>
+                                        {errors.jumlahTiket && (
+                                            <div className="mt-1 text-sm text-red-500">
+                                                {errors.jumlahTiket}
+                                            </div>
+                                        )}
+                                    </div>
+                                    <div className="mb-5">
+                                        <label
+                                            htmlFor="buktiTf"
+                                            className="block text-sm font-medium text-gray-700"
+                                        >
+                                            Bukti Transfer
+                                        </label>
+                                        <input
+                                            type="file"
+                                            name="buktiTf"
+                                            onChange={handleChange}
+                                            className="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                            required
+                                        />
+                                        {errors.buktiTf && (
+                                            <div className="mt-1 text-sm text-red-500">
+                                                {errors.buktiTf}
+                                            </div>
+                                        )}
+                                    </div>
+                                    <div className="flex justify-center">
+                                        <button
+                                            type="submit"
+                                            className="w-full mx-auto text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                                            disabled={processing}
+                                        >
+                                            {processing
+                                                ? "Submitting..."
+                                                : "Buy Ticket"}
                                         </button>
                                     </div>
-                                    {errors.jumlahTiket && (
-                                        <div className="mt-1 text-sm text-red-500">
-                                            {errors.jumlahTiket}
-                                        </div>
-                                    )}
-                                </div>
-                                <div className="mb-5">
-                                    <label
-                                        htmlFor="buktiTf"
-                                        className="block text-sm font-medium text-gray-700"
-                                    >
-                                        Bukti Transfer
-                                    </label>
-                                    <input
-                                        type="file"
-                                        name="buktiTf"
-                                        onChange={handleChange}
-                                        className="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                                        required
-                                    />
-                                    {errors.buktiTf && (
-                                        <div className="mt-1 text-sm text-red-500">
-                                            {errors.buktiTf}
-                                        </div>
-                                    )}
-                                </div>
-                                <div className="flex justify-center">
-                                    <button
-                                        type="submit"
-                                        className="w-full mx-auto text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-                                        disabled={processing}
-                                    >
-                                        {processing
-                                            ? "Submitting..."
-                                            : "Buy Ticket"}
-                                    </button>
-                                </div>
-                            </form>
-                            <div className="w-full px-0 pt-2 md:px-4 md:w-2/5 info">
-                                <div className="w-full p-4 bg-white border-2 rounded-lg shadow-md border-blue-50">
-                                    <h1 className="font-bold">
-                                        UNIFY UMN FESTIVAL 2024
-                                    </h1>
-                                    <p>
-                                        30 November 2024 14.00-22.00 Universitas
-                                        Multimedia Nusantara Jalan Scientia
-                                        Boulevard Gading, Curug Sangereng,
-                                        Serpong, Kabupaten
-                                        Tangerang, Banten 15810
-                                    </p>
-                                </div>
-                                <div className="w-full p-4 mt-5 bg-white border-2 rounded-lg shadow-md border-blue-50">
-                                    <h1 className="font-bold">
-                                        Ringkasan Pesanan
-                                    </h1>
-                                    <div className="flex items-center">
-                                        <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            enable-background="new 0 0 512 512"
-                                            viewBox="0 0 512 512"
-                                            id="ticket"
-                                            className="max-w-[30px] max-h-[30px] mr-3 flex align-middle"
-                                        >
-                                            <path
-                                                d="M505.081,196.611c3.82,0,6.919-3.097,6.919-6.919V123.56c0-18.536-15.081-33.615-33.617-33.615H33.613
+                                </form>
+                                <div className="w-full px-0 pt-2 md:px-4 md:w-2/5 info">
+                                    <div className="w-full p-4 bg-white border-2 rounded-lg shadow-md border-blue-50">
+                                        <h1 className="font-bold">
+                                            UNIFY UMN FESTIVAL 2024
+                                        </h1>
+                                        <p>
+                                            30 November 2024 14.00-22.00
+                                            Universitas Multimedia Nusantara
+                                            Jalan Scientia Boulevard Gading,
+                                            Curug Sangereng, Serpong, Kabupaten
+                                            Tangerang, Banten 15810
+                                        </p>
+                                    </div>
+                                    <div className="w-full p-4 mt-5 bg-white border-2 rounded-lg shadow-md border-blue-50">
+                                        <h1 className="font-bold">
+                                            Ringkasan Pesanan
+                                        </h1>
+                                        <div className="flex items-center">
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                enable-background="new 0 0 512 512"
+                                                viewBox="0 0 512 512"
+                                                id="ticket"
+                                                className="max-w-[30px] max-h-[30px] mr-3 flex align-middle"
+                                            >
+                                                <path
+                                                    d="M505.081,196.611c3.82,0,6.919-3.097,6.919-6.919V123.56c0-18.536-15.081-33.615-33.617-33.615H33.613
 	C15.077,89.945,0,105.024,0,123.56v66.133c0,3.822,3.099,6.919,6.919,6.919c32.748,0,59.387,26.642,59.387,59.387
 	s-26.64,59.387-59.387,59.387c-3.82,0-6.919,3.097-6.919,6.919v66.135c0,18.536,15.077,33.615,33.613,33.615h444.77
 	c18.536,0,33.617-15.079,33.617-33.615v-66.135c0-3.822-3.099-6.919-6.919-6.919c-32.748,0-59.387-26.642-59.387-59.387
@@ -377,26 +460,27 @@ function Form_ticketunify() {
 	c-3.82,0-6.919-3.097-6.919-6.919c0-3.822,3.099-6.919,6.919-6.919h122.234C375.874,277.62,378.973,280.717,378.973,284.539z
 	 M378.973,341.62c0,3.822-3.099,6.919-6.919,6.919H249.82c-3.82,0-6.919-3.097-6.919-6.919c0-3.822,3.099-6.919,6.919-6.919h122.234
 	C375.874,334.702,378.973,337.798,378.973,341.62z"
-                                            ></path>
-                                        </svg>
-                                        <div>
-                                            <h2 className="font-semibold">
-                                                Tiket Unify
-                                            </h2>
-                                            <p className="text-gray-500">
-                                                {data.jumlahTiket} tiket x
-                                                Rp.60.000
+                                                ></path>
+                                            </svg>
+                                            <div>
+                                                <h2 className="font-semibold">
+                                                    Tiket Unify
+                                                </h2>
+                                                <p className="text-gray-500">
+                                                    {data.jumlahTiket} tiket x
+                                                    Rp.60.000
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <hr />
+                                        <div className="flex justify-between">
+                                            <h2>Total</h2>
+                                            <p>
+                                                Rp.
+                                                {data.jumlahTiket * 60000}
                                             </p>
                                         </div>
-                                    </div>
-
-                                    <hr />
-                                    <div className="flex justify-between">
-                                        <h2>Total</h2>
-                                        <p>
-                                            Rp.
-                                            {data.jumlahTiket * 60000}
-                                        </p>
                                     </div>
                                 </div>
                             </div>

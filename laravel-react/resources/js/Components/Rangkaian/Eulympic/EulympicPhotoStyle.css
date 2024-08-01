@@ -257,8 +257,14 @@
         top: 13rem;
     }
 
+    .slider .list .item img {
+        width: 35rem;
+        height: 6rem;
+        border-radius: 10px;
+    }
+
     .slider {
-        --height: 10rem;
+        --height: 11rem;
         --width: 120px;
     }
 
@@ -306,8 +312,19 @@
     }
 
     .slider {
-        --height: 500px;
-        --width: 350px;
+        --height: 530px;
+        --width: 50rem;
+    }
+
+    .slider .list .item img {
+        width: 35rem;
+        height: 22rem;
+        border-radius: 10px;
+    }
+
+    .sponsorHP {
+        top: 72rem;
+        left: 7.3rem;
     }
 }
 
@@ -319,6 +336,11 @@
     .sliderPC {
         --height: 530px;
         --width: 50rem;
+    }
+
+    .sponsorHP {
+        top: 75rem;
+        left: 15.3rem;
     }
 }
 
