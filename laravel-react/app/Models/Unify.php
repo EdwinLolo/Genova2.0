@@ -18,6 +18,7 @@ class Unify extends Model
         "total_price",
         "buktiTf",
         "status",
+        "udahDiambil",
         "isInternal",
     ];
 }

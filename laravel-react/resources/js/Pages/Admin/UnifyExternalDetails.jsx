@@ -40,6 +40,18 @@ function UnifyExternalDetails({ data }) {
                                     {data.status}
                                 </td>
                             </tr>
+                            <tr>
+                                <td className="font-bold">Sudah Diambil:</td>
+                                <td className="pl-4 font-bold text-green-600">
+                                    {data.udahDiambil}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td className="font-bold">Tanggal Daftar:</td>
+                                <td className="pl-4 font-bold text-green-600">
+                                    {data.created_at}
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>

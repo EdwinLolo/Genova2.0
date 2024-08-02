@@ -166,6 +166,7 @@ class UnifyController extends Controller
         $request->request->add([
             'total_price' => $request->jumlahTiket * $hargaTiket,
             'status' => 'unchecked',
+            'udahDiambil' => 'unchecked',
             'isInternal' => 'true'
         ]);
 
@@ -236,6 +237,29 @@ class UnifyController extends Controller
 
         if ($order) {
             $order->update(['status' => 'unchecked']);
+            return back()->with('success', 'Order status updated to checked.');
+        } else {
+            return back()->with('error', 'Order not found.');
+        }
+    }
+
+    public function diambil($id)
+    {
+        $order = Unify::find($id);
+
+        if ($order) {
+            $order->update(['udahDiambil' => 'checked']);
+            return back()->with('success', 'Order status updated to checked.');
+        } else {
+            return back()->with('error', 'Order not found.');
+        }
+    }
+    public function belomDiambil($id)
+    {
+        $order = Unify::find($id);
+
+        if ($order) {
+            $order->update(['udahDiambil' => 'unchecked']);
             return back()->with('success', 'Order status updated to checked.');
         } else {
             return back()->with('error', 'Order not found.');

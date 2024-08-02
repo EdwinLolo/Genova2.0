@@ -26,6 +26,13 @@ function UnifyExternal({ data, totalTiket }) {
         Inertia.visit(`/admin/unify/uncheck/${id}`);
     };
 
+    const handleSudahDiambil = (id) => {
+        Inertia.visit(`/admin/unify/diambil/${id}`);
+    };
+    const handleBelomDiambil = (id) => {
+        Inertia.visit(`/admin/unify/belomdiambil/${id}`);
+    };
+
     const handleImageClick = (imageSrc) => {
         setCurrentImage(imageSrc);
         setModalOpen(true);
@@ -132,18 +139,23 @@ function UnifyExternal({ data, totalTiket }) {
                                             />
                                         </td>
                                         <td className="px-6 py-4">
+                                            <strong>Check: </strong>
                                             {item.status}
+                                            <br />
+                                            <strong>Diambil: </strong>
+                                            {item.udahDiambil}
                                         </td>
                                         <td className="px-6 py-4">
                                             <button
                                                 onClick={() =>
                                                     handleInfo(item.id)
                                                 }
-                                                className="text-green-600 font-bold hover:text-green-900"
+                                                className="text-green-600 font-bold hover:text-green-900 ml-5"
                                                 type="button"
                                             >
                                                 More
                                             </button>
+                                            <br />
 
                                             <button
                                                 onClick={() =>
@@ -162,6 +174,25 @@ function UnifyExternal({ data, totalTiket }) {
                                                 type="button"
                                             >
                                                 Uncheck
+                                            </button>
+                                            <br />
+                                            <button
+                                                onClick={() =>
+                                                    handleSudahDiambil(item.id)
+                                                }
+                                                className="text-green-600 font-bold hover:text-green-900 ml-5"
+                                                type="button"
+                                            >
+                                                Diambil
+                                            </button>
+                                            <button
+                                                onClick={() =>
+                                                    handleBelomDiambil(item.id)
+                                                }
+                                                className="text-red-600 font-bold hover:text-green-900 ml-5"
+                                                type="button"
+                                            >
+                                                Belom Diambil
                                             </button>
                                         </td>
                                     </tr>

@@ -22,6 +22,7 @@ return new class extends Migration
             $table->integer("jumlahTiket");
             $table->bigInteger("total_price");
             $table->enum("status", ["unchecked", "checked"]);
+            $table->enum("udahDiambil", ["unchecked", "checked"]);
             $table->enum("isInternal", ["false", "true"]);
             $table->timestamps();
         });
