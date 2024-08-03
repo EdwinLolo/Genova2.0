@@ -3,6 +3,8 @@ import Step1 from "./Ucarestep1";
 import Step2 from "./ucarestep2";
 import Step3 from "./ucarestep3";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Formucare() {
     const [processing, setProcessing] = useState(false);
@@ -50,6 +52,15 @@ function Formucare() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        // Check if all required fields are filled
+        for (let key in formData) {
+            if (formData[key] === "" || formData[key] === null) {
+                toast.error("Please fill all the input fields.");
+                return; // Stop the submission
+            }
+        }
+
         console.log("Form submitted:", formData);
 
         // Create a FormData object to handle file upload
@@ -80,7 +91,7 @@ function Formucare() {
             });
             // Handle success response
             console.log(response.data);
-            alert("Form submitted successfully!");
+            toast.success("Form submitted successfully!");
             // Reset the form
             setFormData({
                 namaLengkap: "",

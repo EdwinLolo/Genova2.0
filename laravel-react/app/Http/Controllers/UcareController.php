@@ -41,23 +41,14 @@ class UcareController extends Controller
         }
 
         if ($request->hasFile('docs')) {
-            // Get the uploaded file
             $file = $request->file('docs');
-
-            // Get the original file name
             $originalFileName = $file->getClientOriginalName();
-
-            // Define the path where the file will be stored
             $path = $file->storeAs('public/UcareDocs', $originalFileName);
-
-            // Add the file path to the validated data
             $validated['docs'] = str_replace('public/', '', $path);
         }
 
-        // Create a new Ucare record
         Ucare::create($validated);
 
-        // Return a success response
         return response()->json(['message' => 'Registration successful'], 201);
     }
     public function details($id)

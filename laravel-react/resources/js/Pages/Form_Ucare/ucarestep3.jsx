@@ -22,25 +22,28 @@ function ucarestep3({ formData, handleChange }) {
                 </p>
             </div>
             <div className="flex-col w-full p-3 mb-3 rounded-md shadow-md bg-blue-50">
-                <h2>Isi Essay Dibawah</h2>
-
-                {/* Download docx essay */}
-                {/* <strong>
-                    <a
-                        href="path/to/your/document.docx"
-                        className="text-blue text-center"
-                        download
-                    >
-                        Soal Essay
-                    </a>
-                </strong> */}
+                <h2>Kerjakan Essay Dibawah</h2>
+                <div className="flex justify-center">
+                    <strong>
+                        <a
+                            href="https://docs.google.com/document/d/1BjVRKywIYchnzO5TE6xnCd1H83hgxdeJ-AHX15ShfSk/edit?usp=sharing"
+                            className="text-sky-900 text-center"
+                            target="_blank"
+                        >
+                            Soal Essay
+                        </a>
+                    </strong>
+                </div>
 
                 <h2>
-                    <strong>Keterangan Pengumpulan</strong>
+                    <strong>Keterangan Pengumpulan Essay</strong>
                     <ol>
-                        <li>1. Isi soal essay dengan sesuai</li>
+                        <li>1. Kerjakan essay dengan sesuai</li>
                         <li>2. Kumpulkan dalam bentuk PDF</li>
-                        <li>3. Kumpulkan dengan format nama XXXXX</li>
+                        <li>
+                            3. Kumpulkan dengan format nama file
+                            "EssayVoluntrip_Nama Lengkap.pdf"
+                        </li>
                     </ol>
                 </h2>
                 <h2>Kumpul:</h2>
@@ -50,82 +53,6 @@ function ucarestep3({ formData, handleChange }) {
                     accept=".pdf,.docx,.doc"
                     onChange={handleChange}
                 />
-
-                {/* <h5>Essay yang dibuat wajib meliputi beberapa hal berikut:</h5>
-
-                <p>
-                    <span className="text-lg font-semibold">1. </span>
-                    Perkenalan diri
-                </p>
-
-                <textarea
-                    type="text"
-                    name="perkenalandiri"
-                    value={formData.perkenalandiri}
-                    onChange={handleChange}
-                    required
-                />
-
-                <p>
-                    <span className="text-lg font-semibold">2. </span>
-                    Alasan ikut volunteer UCARE yang datang ke tempat lansia
-                </p>
-                <textarea
-                    type="text"
-                    name="alasanikut"
-                    value={formData.alasanikut}
-                    onChange={handleChange}
-                    required
-                />
-
-                <p>
-                    <span className="text-lg font-semibold">3. </span>
-                    Kelebihan kekurangan diri
-                </p>
-                <textarea
-                    type="text"
-                    name="kelebihankekurangan"
-                    value={formData.kelebihankekurangan}
-                    onChange={handleChange}
-                    required
-                />
-
-                <p>
-                    <span className="text-lg font-semibold">4. </span>
-                    Pandangan kamu terhadap kehidupan lansia
-                </p>
-                <textarea
-                    type="text"
-                    name="pandanganlansia"
-                    value={formData.pandanganlansia}
-                    onChange={handleChange}
-                    required
-                />
-
-                <p>
-                    <span className="text-lg font-semibold">5. </span>
-                    Apa yang kamu ketahui mengenai kebutuhan lansia
-                </p>
-                <textarea
-                    type="text"
-                    name="kebutuhanlansia"
-                    value={formData.kebutuhanlansia}
-                    onChange={handleChange}
-                    required
-                />
-
-                <p>
-                    <span className="text-lg font-semibold">6. </span>
-                    Apa yang akan kamu berikan dan lakukan jika kamu
-                    berkesempatan untuk bertemu langsung dengan para lansia?
-                </p>
-                <textarea
-                    type="text"
-                    name="kesempatan"
-                    value={formData.kesempatan}
-                    onChange={handleChange}
-                    required
-                /> */}
             </div>
         </div>
     );
