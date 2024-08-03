@@ -8,11 +8,8 @@ use Inertia\Inertia;
 
 class UcareController extends Controller
 {
+
     public function index()
-    {
-        return Inertia::render('Admin/UcareDashboard');
-    }
-    public function list()
     {
         $data = Ucare::all();
         return Inertia::render('Admin/UcareList', ['data' => $data]);
@@ -33,12 +30,7 @@ class UcareController extends Controller
             'angkatan' => 'nullable|string|max:20',
             'email' => 'required|email|max:255',
             'isInternal' => 'string',
-            "perkenalandiri" => "string|required",
-            "alasanikut" => "string|required",
-            "kelebihankekurangan" => "string|required",
-            "pandanganlansia" => "string|required",
-            "kebutuhanlansia" => "string|required",
-            "kesempatan" => "string|required",
+            "docs" => 'file|nullable',
             "asalKampus" => "string|required",
         ]);
 
@@ -46,6 +38,20 @@ class UcareController extends Controller
             $validated['isInternal'] = 'false';
         } else {
             $validated['isInternal'] = 'true';
+        }
+
+        if ($request->hasFile('docs')) {
+            // Get the uploaded file
+            $file = $request->file('docs');
+
+            // Get the original file name
+            $originalFileName = $file->getClientOriginalName();
+
+            // Define the path where the file will be stored
+            $path = $file->storeAs('public/UcareDocs', $originalFileName);
+
+            // Add the file path to the validated data
+            $validated['docs'] = str_replace('public/', '', $path);
         }
 
         // Create a new Ucare record

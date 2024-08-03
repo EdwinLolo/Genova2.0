@@ -12,10 +12,17 @@ function Ucarestep1() {
                     className="rounded-md w-full h-[300px] object-fill"
                 />
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Tempora at inventore totam, eligendi magnam architecto
-                    asperiores porro quisquam dignissimos ipsam, enim fugit.
-                    Atque iste repudiandae a quas vel aut eum.
+                    U-CARE merupakan kegiatan yang akan mempersatukan Legions
+                    untuk berkolaborasi serta menginspirasi satu sama lain
+                    dengan saling melengkapi dan membangun rasa peduli terhadap
+                    sesama atau masyarakat sekitar.
+                    <br />
+                    Dalam kegiatan U-CARE tahun ini, UMN Festival akan
+                    mengadakan voluntrip atau volunteer trip. U-CARE akan
+                    memberikan kesempatan dan membuka pendaftaran volunteer,
+                    bagi para Legions yang ingin berpartisipasi dan berinteraksi
+                    langsung bersama para kakek dan nenek yang berada di rumah
+                    pemulihan.
                 </p>
                 <div className="mt-3">
                     <p>
@@ -45,8 +52,8 @@ function Ucarestep1() {
                     <p>&emsp;Eksternal: Rp 115.000</p>
                 </div>
             </div>
-            <a href="#" className="p-2 bg-blue-600 rounded-md">
-                <button className="text-white">Handbook</button>
+            <a href="#" className="p-2 bg-blue-600 rounded-md text-white">
+                Handbook
             </a>
         </div>
         // </div>

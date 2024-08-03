@@ -21,12 +21,7 @@ function Formucare() {
         isInternal: "false",
         asalKampus: "",
 
-        perkenalandiri: "",
-        alasanikut: "",
-        kelebihankekurangan: "",
-        pandanganlansia: "",
-        kebutuhanlansia: "",
-        kesempatan: "",
+        docs: null,
     });
 
     const handleNext = () => {
@@ -38,18 +33,51 @@ function Formucare() {
     };
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({
-            ...formData,
-            [name]: value,
-        });
+        const { name, type, value, files } = e.target;
+
+        if (type === "file") {
+            setFormData({
+                ...formData,
+                [name]: files.length ? files[0] : null,
+            });
+        } else {
+            setFormData({
+                ...formData,
+                [name]: value,
+            });
+        }
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log("Form submitted:", formData);
+
+        // Create a FormData object to handle file upload
+        const formDataToSend = new FormData();
+        formDataToSend.append("namaLengkap", formData.namaLengkap);
+        formDataToSend.append("umur", formData.umur);
+        formDataToSend.append("tempatTinggal", formData.tempatTinggal);
+        formDataToSend.append("idLine", formData.idLine);
+        formDataToSend.append("instagram", formData.instagram);
+        formDataToSend.append("noTelp", formData.noTelp);
+        formDataToSend.append("nim", formData.nim);
+        formDataToSend.append("jurusan", formData.jurusan);
+        formDataToSend.append("angkatan", formData.angkatan);
+        formDataToSend.append("email", formData.email);
+        formDataToSend.append("isInternal", formData.isInternal);
+        formDataToSend.append("asalKampus", formData.asalKampus);
+
+        // If a file was selected, append it to the FormData
+        if (formData.docs) {
+            formDataToSend.append("docs", formData.docs);
+        }
+
         try {
-            const response = await axios.post("/ucare", formData);
+            const response = await axios.post("/ucare", formDataToSend, {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                },
+            });
             // Handle success response
             console.log(response.data);
             alert("Form submitted successfully!");
@@ -67,13 +95,7 @@ function Formucare() {
                 email: "",
                 isInternal: "false",
                 asalKampus: "",
-
-                perkenalandiri: "",
-                alasanikut: "",
-                kelebihankekurangan: "",
-                pandanganlansia: "",
-                kebutuhanlansia: "",
-                kesempatan: "",
+                docs: null,
             });
         } catch (error) {
             // Handle error response

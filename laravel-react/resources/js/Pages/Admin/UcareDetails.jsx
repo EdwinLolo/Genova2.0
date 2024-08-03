@@ -57,36 +57,15 @@ function UcareDetails({ data }) {
                                 <td className="pl-4">{data.isInternal}</td>
                             </tr>
                             <tr>
-                                <td className="font-bold">Perkenalan Diri:</td>
-                                <td className="pl-4">{data.perkenalandiri}</td>
-                            </tr>
-                            <tr>
-                                <td className="font-bold">Alasan ikut</td>
-                                <td className="pl-4">{data.alasanikut}</td>
-                            </tr>
-                            <tr>
-                                <td className="font-bold">
-                                    Kelebihan kekurangan diri
-                                </td>
+                                <td className="font-bold">Document Essay</td>
                                 <td className="pl-4">
-                                    {data.kelebihankekurangan}
+                                    <a
+                                        className="text-blue-900 font-bold"
+                                        href={`/storage/${data.docs}`}
+                                    >
+                                        Download Essay
+                                    </a>
                                 </td>
-                            </tr>
-                            <tr>
-                                <td className="font-bold">Pandangan Lansia</td>
-                                <td className="pl-4">{data.pandanganlansia}</td>
-                            </tr>
-                            <tr>
-                                <td className="font-bold">
-                                    Yang diketahui mengenai kebutuhan lansia
-                                </td>
-                                <td className="pl-4">{data.kebutuhanlansia}</td>
-                            </tr>
-                            <tr>
-                                <td className="font-bold">
-                                    Kesempatan yang dilakukan
-                                </td>
-                                <td className="pl-4">{data.kesempatan}</td>
                             </tr>
                             <tr>
                                 <td className="font-bold">Asal Kampus</td>

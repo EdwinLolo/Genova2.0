@@ -65,7 +65,6 @@ Route::prefix('/admin')->middleware([AuthenticateAdmin::class])->group(function 
     });
 
     Route::get('/ucare', [UcareController::class, 'index']);
-    Route::get('/ucare/list', [UcareController::class, 'list']);
     Route::get('/ucare/detail/{id}', [UcareController::class, 'details']);
 
     Route::get('/{nim}', [AdminController::class, 'info']);

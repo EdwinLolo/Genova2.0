@@ -22,8 +22,36 @@ function ucarestep3({ formData, handleChange }) {
                 </p>
             </div>
             <div className="flex-col w-full p-3 mb-3 rounded-md shadow-md bg-blue-50">
-                <h2>Ketentuan Isi Essay</h2>
-                <h5>Essay yang dibuat wajib meliputi beberapa hal berikut:</h5>
+                <h2>Isi Essay Dibawah</h2>
+
+                {/* Download docx essay */}
+                {/* <strong>
+                    <a
+                        href="path/to/your/document.docx"
+                        className="text-blue text-center"
+                        download
+                    >
+                        Soal Essay
+                    </a>
+                </strong> */}
+
+                <h2>
+                    <strong>Keterangan Pengumpulan</strong>
+                    <ol>
+                        <li>1. Isi soal essay dengan sesuai</li>
+                        <li>2. Kumpulkan dalam bentuk PDF</li>
+                        <li>3. Kumpulkan dengan format nama XXXXX</li>
+                    </ol>
+                </h2>
+                <h2>Kumpul:</h2>
+                <input
+                    type="file"
+                    name="docs"
+                    accept=".pdf,.docx,.doc"
+                    onChange={handleChange}
+                />
+
+                {/* <h5>Essay yang dibuat wajib meliputi beberapa hal berikut:</h5>
 
                 <p>
                     <span className="text-lg font-semibold">1. </span>
@@ -97,7 +125,7 @@ function ucarestep3({ formData, handleChange }) {
                     value={formData.kesempatan}
                     onChange={handleChange}
                     required
-                />
+                /> */}
             </div>
         </div>
     );
