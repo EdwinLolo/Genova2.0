@@ -17,6 +17,8 @@ import TenjinLogo from "../../../Assets/HomeAssets/Sponsor/TenjinLogoPack.webp";
 // css
 import "../../Font.css";
 import "./EulympicPhotoStyle.css";
+import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
+import { RxDotFilled } from 'react-icons/rx';
 
 function EulympicPhoto() {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -31,321 +33,140 @@ function EulympicPhoto() {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-    // const [countdownML, setCountdownML] = useState({
-    //     days: "00",
-    //     hours: "00",
-    //     minutes: "00",
-    //     seconds: "00",
-    // });
-
-    // const [countdownValorant, setCountdownValorant] = useState({
-    //     days: "00",
-    //     hours: "00",
-    //     minutes: "00",
-    //     seconds: "00",
-    // });
-
-    // const [isFormMLAvailable, setIsFormMLAvailable] = useState(false);
-    // const [isFormValAvailable, setIsFormValAvailable] = useState(false);
-
-    // useEffect(() => {
-    //     const targetDateML = new Date(2024, 4, 3); // Emel sbatesnya sampe 1 mei 2024
-    //     const targetDateValorant = new Date(2024, 3, 24); // Valorant sampe 24 April 2024
-
-    //     // ML Countdown
-    //     const timerML = setInterval(() => {
-    //         const currentTime = new Date();
-    //         const diffML = targetDateML - currentTime;
-
-    //         if (diffML <= 0) {
-    //             clearInterval(timerML);
-    //             setCountdownML({
-    //                 days: "00",
-    //                 hours: "00",
-    //                 minutes: "00",
-    //                 seconds: "00",
-    //             });
-    //             setIsFormMLAvailable(true);
-    //             return;
-    //         }
-
-    //             updateCountdownML(diffML);
-    //     }, 1000);
-
-    //     // Valorant Countdown
-    //     const timerValorant = setInterval(() => {
-    //         const currentTime = new Date();
-    //         const diffValorant = targetDateValorant - currentTime;
-
-    //         if (diffValorant <= 0) {
-    //             clearInterval(timerValorant);
-    //             setCountdownValorant({
-    //                 days: "00",
-    //                 hours: "00",
-    //                 minutes: "00",
-    //                 seconds: "00",
-    //             });
-    //         setIsFormValAvailable(true);
-    //         return;
-    //         }
-
-    //         updateCountdownValorant(diffValorant);
-    //     }, 1000);
-    //     return () => {
-    //         clearInterval(timerML);
-    //         clearInterval(timerValorant);
-    //     };
-    // }, []);
-    // function updateCountdownML(diffML) {
-    //     const days = Math.floor(diffML / (1000 * 60 * 60 * 24));
-    //     const hours = Math.floor((diffML / (1000 * 60 * 60)) % 24);
-    //     const minutes = Math.floor((diffML / 1000 / 60) % 60);
-    //     const seconds = Math.floor((diffML / 1000) % 60);
-
-    //     setCountdownML({
-    //         days: days < 10 ? "0" + days : days.toString(),
-    //         hours: hours < 10 ? "0" + hours : hours.toString(),
-    //         minutes: minutes < 10 ? "0" + minutes : minutes.toString(),
-    //         seconds: seconds < 10 ? "0" + seconds : seconds.toString(),
-    //     });
-    // }
-
-    // function updateCountdownValorant(diffValorant) {
-    //     const days = Math.floor(diffValorant / (1000 * 60 * 60 * 24));
-    //     const hours = Math.floor((diffValorant / (1000 * 60 * 60)) % 24);
-    //     const minutes = Math.floor((diffValorant / 1000 / 60) % 60);
-    //     const seconds = Math.floor((diffValorant / 1000) % 60);
-
-    //     setCountdownValorant({
-    //         days: days < 10 ? "0" + days : days.toString(),
-    //         hours: hours < 10 ? "0" + hours : hours.toString(),
-    //         minutes: minutes < 10 ? "0" + minutes : minutes.toString(),
-    //         seconds: seconds < 10 ? "0" + seconds : seconds.toString(),
-    //     });
-    // }
+    const slides = [
+        { url: Lomba1 },
+        { url: Lomba2 },
+        { url: Lomba3 },
+        { url: Lomba4 },
+        { url: Lomba5 },
+        { url: Lomba6 },
+        { url: Lomba7 },
+        { url: Lomba8 },
+    ];
+    
+    const [currentIndex, setCurrentIndex] = useState(0);
+    
+    const prevSlide = () => {
+        const isFirstSlide = currentIndex === 0;
+        const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;
+        setCurrentIndex(newIndex);
+    };
+    
+    const nextSlide = () => {
+        const isLastSlide = currentIndex === slides.length - 1;
+        const newIndex = isLastSlide ? 0 : currentIndex + 1;
+        setCurrentIndex(newIndex);
+    };
+    
+    const goToSlide = (slideIndex) => {
+        setCurrentIndex(slideIndex);
+    };
+    
+    useEffect(() => {
+        const interval = setInterval(() => {
+            nextSlide();
+        }, 3000);
+    
+        return () => clearInterval(interval);
+    }, [currentIndex]);
 
     if (isWideScreen) {
         return (
             <div className="relative w-full text-center ">
                 <img
-                    className="w-full bgphoto"
+                    className="w-full bgphoto absolute inset-0 h-full object-cover"
                     src={EulympicPhotoBody}
                     alt="Logo Eulympic"
                 />
-                <div className="w-full CarouselPhoto">
+                <div className="kotakHP max-w-[1000px] h-[500px] w-full m-auto py-16 px-4 relative group z-30">
                     <div
-                        className="slider"
-                        reverse="true"
-                        style={{
-                            // "--width": "300px",
-                            // "--height": "500px",
-                            "--quantity": 4,
-                        }}
-                    >
-                        <div className="list">
-                            <div className="item" style={{ "--position": 1 }}>
-                                <img src={Lomba1} alt="IU" />
-                            </div>
-                            <div className="item" style={{ "--position": 2 }}>
-                                <img src={Lomba2} alt="IU" />
-                            </div>
-                            <div className="item" style={{ "--position": 3 }}>
-                                <img src={Lomba3} alt="IU" />
-                            </div>
-                            <div className="item" style={{ "--position": 4 }}>
-                                <img src={Lomba4} alt="IU" />
-                            </div>
-                        </div>
+                    style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
+                    className='w-full h-full rounded-2xl bg-center bg-cover duration-500'></div>
+                    {/* Left Arrow */}
+                    <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'>
+                        <BsChevronCompactLeft onClick={prevSlide} size={30} />
                     </div>
-                    <div
-                        className="slider"
-                        style={{
-                            // "--width": "300px",
-                            // "--height": "500px",
-                            "--quantity": 4,
-                        }}
-                    >
-                        <div className="list">
-                            <div className="item" style={{ "--position": 1 }}>
-                                <img src={Lomba5} alt="IU" />
-                            </div>
-                            <div className="item" style={{ "--position": 2 }}>
-                                <img src={Lomba6} alt="IU" />
-                            </div>
-                            <div className="item" style={{ "--position": 3 }}>
-                                <img src={Lomba7} alt="IU" />
-                            </div>
-                            <div className="item" style={{ "--position": 4 }}>
-                                <img src={Lomba8} alt="IU" />
-                            </div>
-                            {/* <div className="item" style={{ "--position": 10 }}>
-                                <img src={IU} alt="IU" />
-                            </div> */}
-                        </div>
+                    {/* Right Arrow */}
+                    <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'>
+                        <BsChevronCompactRight onClick={nextSlide} size={30} />
                     </div>
-                </div>
-                <div className="sponsorHP">
-                    <h1>Sponsored by:</h1>
-                    <div className="logosponsor">
-                        <img src={vicmic} alt="vicmic" />
-                        <img src={lenovo} alt="lenovo" />
-                        <img src={CiptaWarna} alt="CiptaWarna" />
-                        <img src={TenjinLogo} alt="Tenjin" />
+                    <div className='flex top-4 justify-center py-2'>
+                        {slides.map((slide, slideIndex) => (
+                        <div
+                            key={slideIndex}
+                            onClick={() => goToSlide(slideIndex)}
+                            className='text-2xl cursor-pointer'
+                        >
+                            <RxDotFilled />
+                        </div>
+                        ))}
+                    </div>
+
+                    <div className="flex justify-center py-4">
+                        <button className="btn1" disabled>
+                            <span className="btn-txt1">See More</span>
+                        </button>
+                    </div>
+
+                    <div className="sponsorHP mt-5">
+                        <h1>Sponsored by:</h1>
+                        <div className="logosponsorHP">
+                            <img src={vicmic} alt="vicmic" />
+                            <img src={lenovo} alt="lenovo" />
+                            <img src={CiptaWarna} alt="CiptaWarna" />
+                            <img src={TenjinLogo} alt="Tenjin" />
+                        </div>
                     </div>
                 </div>
             </div>
         );
     } else {
         return (
-            <div>
+            <div className="relative">
                 <img
-                    className="LombaPCEulympic"
+                    className="LombaPCEulympic absolute inset-0 object-cover"
                     src={LombaEulympic}
                     alt="Lomba Eulympic"
+                    style={{zIndex: 0 }}
                 />
-                <div className="relative flex container-esport">
-                    {/* <div className="mobilelegend">
-                        <div className="esport-img-wrapper-mole">
-                            <img className="mole-image" src={MoleBaru} alt="Mole Logo" />
-                            <span>Register Here!</span>
-                        </div>
-
-                        <div className="container-time">
-                            <div className="time">
-                                <h2>{countdownML.days}</h2>
-                                <small>Days</small>
-                            </div>
-
-                            <div className="time">
-                                <h2>{countdownML.hours}</h2>
-                                <small>Hours</small>
-                            </div>
-
-                            <div className="time">
-                                <h2>{countdownML.minutes}</h2>
-                                <small>Minutes</small>
-                            </div>
-
-                            <div className="time">
-                                <h2>{countdownML.seconds}</h2>
-                                <small>Seconds</small>
-                            </div>
-                        </div>
-
-                        <button
-                        className="btn1"
-                        disabled
-                        >
-                        <span className="btn-txt1">FULL</span>
-                        </button>
+                <div className="kotak max-w-[1100px] h-[650px] w-full m-auto py-16 px-4 relative group z-10">
+                    <div
+                    style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
+                    className='w-full h-full rounded-2xl bg-center bg-cover duration-500'></div>
+                    {/* Left Arrow */}
+                    <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'>
+                        <BsChevronCompactLeft onClick={prevSlide} size={30} />
                     </div>
-
-                    <div className="valorant">
-                        <div className="esport-img-wrapper-valorant">
-                            <img src={Valorant} alt="Valorant Logo" />
-                            <span>Register Here!</span>
-                        </div>
-
-                        <div className="container-time">
-                            <div className="time">
-                                <h2>{countdownValorant.days}</h2>
-                                <small>Days</small>
-                            </div>
-
-                            <div className="time">
-                                <h2>{countdownValorant.hours}</h2>
-                                <small>Hours</small>
-                            </div>
-
-                            <div className="time">
-                                <h2>{countdownValorant.minutes}</h2>
-                                <small>Minutes</small>
-                            </div>
-
-                            <div className="time">
-                                <h2>{countdownValorant.seconds}</h2>
-                                <small>Seconds</small>
-                            </div>
-                        </div>
-
-                        <button
-                        className="btn1"
-                        disabled
-                        >
-                        <span className="btn-txt1">FULL</span>
-                        </button>
-                    </div> */}
-
-                    <div className="w-full CarouselPhotoPC">
+                    {/* Right Arrow */}
+                    <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'>
+                        <BsChevronCompactRight onClick={nextSlide} size={30} />
+                    </div>
+                    <div className='flex top-4 justify-center py-2'>
+                        {slides.map((slide, slideIndex) => (
                         <div
-                            className="sliderPC"
-                            reverse="true"
-                            style={{
-                                // "--width": "300px",
-                                // "--height": "500px",
-                                "--quantity": 8,
-                            }}
+                            key={slideIndex}
+                            onClick={() => goToSlide(slideIndex)}
+                            className='text-2xl cursor-pointer'
                         >
-                            <div className="listPC">
-                                <div
-                                    className="itemPC"
-                                    style={{ "--position": 1 }}
-                                >
-                                    <img src={Lomba1} alt="IU" />
-                                </div>
-                                <div
-                                    className="itemPC"
-                                    style={{ "--position": 2 }}
-                                >
-                                    <img src={Lomba2} alt="IU" />
-                                </div>
-                                <div
-                                    className="itemPC"
-                                    style={{ "--position": 3 }}
-                                >
-                                    <img src={Lomba3} alt="IU" />
-                                </div>
-                                <div
-                                    className="itemPC"
-                                    style={{ "--position": 4 }}
-                                >
-                                    <img src={Lomba4} alt="IU" />
-                                </div>
-                                <div
-                                    className="itemPC"
-                                    style={{ "--position": 5 }}
-                                >
-                                    <img src={Lomba5} alt="IU" />
-                                </div>
-                                <div
-                                    className="itemPC"
-                                    style={{ "--position": 6 }}
-                                >
-                                    <img src={Lomba6} alt="IU" />
-                                </div>
-                                <div
-                                    className="itemPC"
-                                    style={{ "--position": 7 }}
-                                >
-                                    <img src={Lomba7} alt="IU" />
-                                </div>
-                                <div
-                                    className="itemPC"
-                                    style={{ "--position": 8 }}
-                                >
-                                    <img src={Lomba8} alt="IU" />
-                                </div>
-                            </div>
+                            <RxDotFilled />
                         </div>
+                        ))}
                     </div>
-                </div>
-                <div className="sponsor">
-                    <h1>Sponsored by:</h1>
-                    <div className="logosponsor">
-                        <img src={vicmic} alt="vicmic" />
-                        <img src={lenovo} alt="lenovo" />
-                        <img src={CiptaWarna} alt="CiptaWarna" />
-                        <img src={TenjinLogo} alt="Tenjin" />
+
+                    <div className="flex justify-center py-4">
+                        <button className="btn1" disabled>
+                            <span className="btn-txt1">See More</span>
+                        </button>
+                    </div>
+
+                    <div className="sponsor mt-5">
+                        <h1>Sponsored by:</h1>
+                        <div className="logosponsor">
+                            <img src={vicmic} alt="vicmic" />
+                            <img src={lenovo} alt="lenovo" />
+                            <img src={CiptaWarna} alt="CiptaWarna" />
+                            <img src={TenjinLogo} alt="Tenjin" />
+                        </div>
                     </div>
                 </div>
             </div>
