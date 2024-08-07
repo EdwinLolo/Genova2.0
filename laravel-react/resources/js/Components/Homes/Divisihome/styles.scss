@@ -16,7 +16,7 @@
 }
 
 .carousel {
-    position: absolute;
+    position: relative;
     width: 380px;
     height: 380px;
     border: 4px solid rgb(147, 86, 86);
@@ -187,6 +187,7 @@
     }
 
     .carousel {
+        position: absolute;
         width: 500px;
         height: 500px;
         border: 5px solid rgb(147, 86, 86);

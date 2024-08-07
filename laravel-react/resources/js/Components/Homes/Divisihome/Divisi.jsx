@@ -96,10 +96,10 @@ const App = () => {
 
     return (
         <div className="pembungkusrangkaianhome">
-            <div className="lg:mt-[100px] xl:mt-[200px] mt-36 App">
+            <div className="lg:mt-[100px] xl:mt-[200px] mt-36 App overflow-visible">
                 {/* <button onClick={next}>Next</button>
                 <button onClick={prev}>Prev</button> */}
-                <div className="test" />
+                {/* <div className="test" /> */}
                 <div
                     className="carousel z-[999]"
                     style={{ transform: `rotate(${carouselDeg}deg)` }}
