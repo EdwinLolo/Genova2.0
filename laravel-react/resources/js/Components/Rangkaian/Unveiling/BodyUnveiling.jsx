@@ -51,6 +51,16 @@ function BodyUnveiling() {
                             (Enthusiastic)!
                         </p>
                     </div>
+                    <div className="flex justify-center w-full align-middle">
+                        <a
+                            href="https://drive.google.com/drive/folders/1YPxjL2-g2hWcnWfGeBHxLPYoJJl6NQjx"
+                            target="_blank"
+                        >
+                            <button type="button" className="btn1 z-[99]">
+                                Get your Early Bird tickets here!
+                            </button>
+                        </a>
+                    </div>
                 </div>
             </div>
         );
@@ -85,6 +95,16 @@ function BodyUnveiling() {
                         (Curiosity) dan juga meningkatkan semangat para #Legions
                         untuk menyambut UMN Festival 2024 (Enthusiastic)!
                     </p>
+                    <div className="flex justify-center w-full align-middle">
+                        <a
+                            href="https://drive.google.com/drive/folders/1YPxjL2-g2hWcnWfGeBHxLPYoJJl6NQjx"
+                            target="_blank"
+                        >
+                            <button type="button" className="btn1 z-[99]">
+                                Get your Early Bird tickets here!
+                            </button>
+                        </a>
+                    </div>
                 </div>
             </div>
         );
