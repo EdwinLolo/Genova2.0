@@ -57,7 +57,7 @@ function BodyUnveiling() {
                             target="_blank"
                         >
                             <button type="button" className="btn1 z-[99]">
-                                Get your Early Bird tickets here!
+                                Get your Photo here!
                             </button>
                         </a>
                     </div>
@@ -101,7 +101,7 @@ function BodyUnveiling() {
                             target="_blank"
                         >
                             <button type="button" className="btn1 z-[99]">
-                                Get your Early Bird tickets here!
+                                Get your Photo here!
                             </button>
                         </a>
                     </div>

@@ -3,6 +3,7 @@ import React from "react";
 function ucarestep2({ formData, handleChange }) {
     return (
         <div className="flex flex-col items-center justify-center p-6 bg-white shadow-lg w-[310px] sm:w-[600px] rounded-xl">
+            <h1 className="mb-3 text-3xl font-bold">Data Diri</h1>
             <div className="flex-col w-full p-3 mb-3 rounded-md shadow-md bg-blue-50">
                 <div className="mb-5">
                     <label
@@ -111,7 +112,7 @@ function ucarestep2({ formData, handleChange }) {
                         type="text"
                         name="asalKampus"
                         value={formData.asalKampus}
-                        placeholder="isi ‘-‘ jika berasal dari luar kampus"
+                        placeholder="isi ‘-‘ jika sedang tidak berkuliah"
                         onChange={handleChange}
                         className="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                         required
@@ -128,7 +129,7 @@ function ucarestep2({ formData, handleChange }) {
                         type="text"
                         name="nim"
                         value={formData.nim}
-                        placeholder="isi ‘-‘ jika bukan mahasiswa"
+                        placeholder="isi ‘-‘ jika berasal dari luar UMN"
                         onChange={handleChange}
                         className="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                         required
@@ -146,7 +147,7 @@ function ucarestep2({ formData, handleChange }) {
                         name="jurusan"
                         value={formData.jurusan}
                         onChange={handleChange}
-                        placeholder="isi ‘-‘ jika bukan mahasiswa"
+                        placeholder="isi ‘-‘ jika berasal dari luar UMN"
                         className="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                         required
                     />
@@ -163,7 +164,7 @@ function ucarestep2({ formData, handleChange }) {
                         name="angkatan"
                         value={formData.angkatan}
                         onChange={handleChange}
-                        placeholder="isi ‘-‘ jika bukan mahasiswa"
+                        placeholder="isi ‘-‘ jika berasal dari luar UMN"
                         className="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                         required
                     />

@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Step1 from "./Ucarestep1";
 import Step2 from "./ucarestep2";
 import Step3 from "./ucarestep3";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Navbar from "../../Components/Navbar/Navbar";
+
+import "./FormucareStyle.css";
 
 function Formucare() {
     const [processing, setProcessing] = useState(false);
@@ -117,47 +120,74 @@ function Formucare() {
         }
     };
 
-    return (
-        <div className="flex items-center justify-center w-full min-h-screen bungkus bg-[#F0F8FF]">
-            <form onSubmit={handleSubmit}>
-                {currentStep === 1 && <Step1 />}
-                {currentStep === 2 && (
-                    <Step2 formData={formData} handleChange={handleChange} />
-                )}
-                {currentStep === 3 && (
-                    <Step3 formData={formData} handleChange={handleChange} />
-                )}
+    // untuk IMG background
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
-                <div className="flex justify-between w-full mt-2">
-                    {currentStep > 1 && (
-                        <button
-                            type="button"
-                            onClick={handlePrevious}
-                            className="px-4 py-2 text-white bg-blue-500 rounded-md"
-                        >
-                            Previous
-                        </button>
-                    )}
-                    <div className="flex-grow"></div>
-                    {currentStep < 3 && (
-                        <button
-                            type="button"
-                            onClick={handleNext}
-                            className="px-4 py-2 text-white bg-blue-500 rounded-md"
-                        >
-                            Next
-                        </button>
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 1024);
+        };
+
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+    return (
+        <div>
+            <Navbar />
+            <div
+                className={`flex items-center justify-center w-full min-h-screen ${
+                    isMobile
+                        ? "bungkusformucareMobile"
+                        : "bungkusformucareDekstop"
+                } bg-[#F0F8FF] pt-[150px] pb-9`}
+            >
+                <form onSubmit={handleSubmit}>
+                    {currentStep === 1 && <Step1 />}
+                    {currentStep === 2 && (
+                        <Step2
+                            formData={formData}
+                            handleChange={handleChange}
+                        />
                     )}
                     {currentStep === 3 && (
-                        <button
-                            type="submit"
-                            className="px-4 py-2 text-white bg-blue-500 rounded-md"
-                        >
-                            Submit
-                        </button>
+                        <Step3
+                            formData={formData}
+                            handleChange={handleChange}
+                        />
                     )}
-                </div>
-            </form>
+
+                    <div className="flex justify-between w-full mt-2">
+                        {currentStep > 1 && (
+                            <button
+                                type="button"
+                                onClick={handlePrevious}
+                                className="px-4 py-2 text-white bg-blue-500 rounded-md"
+                            >
+                                Previous
+                            </button>
+                        )}
+                        <div className="flex-grow"></div>
+                        {currentStep < 3 && (
+                            <button
+                                type="button"
+                                onClick={handleNext}
+                                className="px-4 py-2 text-white bg-blue-500 rounded-md"
+                            >
+                                Next
+                            </button>
+                        )}
+                        {currentStep === 3 && (
+                            <button
+                                type="submit"
+                                className="px-4 py-2 text-white bg-blue-500 rounded-md"
+                            >
+                                Submit
+                            </button>
+                        )}
+                    </div>
+                </form>
+            </div>
         </div>
     );
 }
