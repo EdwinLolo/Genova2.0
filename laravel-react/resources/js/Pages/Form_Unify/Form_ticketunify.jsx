@@ -11,6 +11,7 @@ function Form_ticketunify() {
         angkatan: "",
         noHp: "",
         email: "",
+        kodeRef: "",
         jumlahTiket: 0,
         buktiTf: null,
     });
@@ -41,6 +42,7 @@ function Form_ticketunify() {
                 angkatan: "",
                 noHp: "",
                 email: "",
+                kodeRef: "",
                 jumlahTiket: 0,
                 buktiTf: null,
             });
@@ -49,6 +51,7 @@ function Form_ticketunify() {
                 nama: "",
                 noHp: "",
                 email: "",
+                kodeRef: "",
                 jumlahTiket: 0,
                 buktiTf: null,
             });
@@ -101,15 +104,16 @@ function Form_ticketunify() {
                 angkatan: "",
                 noHp: "",
                 email: "",
+                kodeRef: "",
                 jumlahTiket: 0,
                 buktiTf: null,
             });
+            window.location.href = "/thankyou";
         } catch (error) {
             console.error("Error submitting form:", error);
             toast.error("Error submitting form. Please try again later.");
         } finally {
             setProcessing(false);
-            window.location.href = "/thankyou";
         }
     };
 
@@ -228,6 +232,26 @@ function Form_ticketunify() {
                                     onSubmit={handleSubmit}
                                     className="w-full p-6 m-2 mx-auto bg-white border-2 rounded-lg shadow-md md:mx-0 sm:w-3/5 border-blue-50"
                                 >
+                                    <div className="mb-5 hidden">
+                                        <label
+                                            htmlFor="kodeRef"
+                                            className="block text-sm font-medium text-gray-700"
+                                        >
+                                            Kode Referral
+                                        </label>
+                                        <input
+                                            type="text"
+                                            name="kodeRef"
+                                            value={data.kodeRef}
+                                            onChange={handleChange}
+                                            className="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                        />
+                                        {errors.kodeRef && (
+                                            <div className="mt-1 text-sm text-red-500">
+                                                {errors.kodeRef}
+                                            </div>
+                                        )}
+                                    </div>
                                     <div className="mb-5">
                                         <label
                                             htmlFor="nama"

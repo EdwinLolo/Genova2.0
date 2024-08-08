@@ -20,5 +20,6 @@ class Unify extends Model
         "status",
         "udahDiambil",
         "isInternal",
+        "kodeRef",
     ];
 }

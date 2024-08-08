@@ -162,6 +162,7 @@ class UnifyController extends Controller
 
     public function register(Request $request)
     {
+
         $hargaTiket = 60000;
         $request->request->add([
             'total_price' => $request->jumlahTiket * $hargaTiket,
@@ -182,6 +183,7 @@ class UnifyController extends Controller
             'status' => 'string',
             'total_price' => 'integer',
             'isInternal' => 'string',
+            'kodeRef' => 'string|nullable',
             'buktiTf' => 'required|file|mimes:png,jpeg,jpg|max:2048',
         ];
 

@@ -11,6 +11,10 @@ function UnifyExternalDetails({ data }) {
                         <h1 className="font-bold text-center">External</h1>
                         <tbody>
                             <tr>
+                                <td className="font-bold">Kode Referral:</td>
+                                <td className="pl-4">{data.kodeRef}</td>
+                            </tr>
+                            <tr>
                                 <td className="font-bold">Nama:</td>
                                 <td className="pl-4">{data.nama}</td>
                             </tr>

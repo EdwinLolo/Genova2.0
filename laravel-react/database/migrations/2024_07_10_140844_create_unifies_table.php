@@ -24,6 +24,7 @@ return new class extends Migration
             $table->enum("status", ["unchecked", "checked"]);
             $table->enum("udahDiambil", ["unchecked", "checked"]);
             $table->enum("isInternal", ["false", "true"]);
+            $table->string("kodeRef")->nullable();
             $table->timestamps();
         });
     }
