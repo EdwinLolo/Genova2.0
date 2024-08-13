@@ -21,7 +21,9 @@ function Invoice({ data }) {
                 <div>Nama: {data.nama}</div>
                 <div>No HP: {data.noHp}</div>
                 <div>Email: {data.email}</div>
-                <div>Kode Referral: {data.kodeRef} </div>
+                <div>
+                    Kode Referral: {data.kodeRef === null ? "-" : data.kodeRef}
+                </div>
                 <div className={statusClass} style={{ fontWeight: 600 }}>
                     Status: Confirmed
                 </div>

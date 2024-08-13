@@ -112,10 +112,26 @@ function Form_ticketunify() {
                 jumlahTiket: 0,
                 buktiTf: null,
             });
-            window.location.href = "/thankyou";
+
+            setTimeout(() => {
+                window.location.href = "/thankyou";
+            }, 1000);
         } catch (error) {
-            console.error("Error submitting form:", error);
-            toast.error("Error submitting form. Please try again later.");
+            console.error("Error submitting form:", error.response.data.errors);
+
+            if (
+                error.response &&
+                error.response.data &&
+                error.response.data.errors
+            ) {
+                Object.values(error.response.data.errors).forEach((err) => {
+                    err.forEach((e) => {
+                        toast.error(e);
+                    });
+                });
+            } else {
+                toast.error("Error submitting form. Please try again later.");
+            }
         } finally {
             setProcessing(false);
         }
@@ -260,6 +276,22 @@ function Form_ticketunify() {
                                 {selectedForm && (
                                     <div>
                                         <div className="flex-col w-full mt-2 ">
+                                            <div className="w-full px-0 pt-2 info">
+                                                <div className="w-full p-4 bg-white border-2 rounded-lg shadow-md border-blue-50">
+                                                    <h1 className="font-bold">
+                                                        UNIFY UMN FESTIVAL 2024
+                                                    </h1>
+                                                    <p>
+                                                        30 November 2024
+                                                        14.00-22.00 Universitas
+                                                        Multimedia Nusantara
+                                                        Jalan Scientia Boulevard
+                                                        Gading, Curug Sangereng,
+                                                        Serpong, Kabupaten
+                                                        Tangerang, Banten 15810
+                                                    </p>
+                                                </div>
+                                            </div>
                                             <form
                                                 onSubmit={handleSubmit}
                                                 className="w-full p-6 m-2 mx-auto bg-white border-2 rounded-lg shadow-md md:mx-0 border-blue-50"
@@ -277,6 +309,7 @@ function Form_ticketunify() {
                                                         value={data.kodeRef}
                                                         onChange={handleChange}
                                                         className="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                                        placeholder="'-' jika tidak ada"
                                                     />
                                                     {errors.kodeRef && (
                                                         <div className="mt-1 text-sm text-red-500">
@@ -406,6 +439,7 @@ function Form_ticketunify() {
                                                         </div>
                                                     )}
                                                 </div>
+
                                                 <div className="mb-5">
                                                     <label
                                                         htmlFor="jumlahTiket"
@@ -413,6 +447,7 @@ function Form_ticketunify() {
                                                     >
                                                         Jumlah Tiket
                                                     </label>
+
                                                     <div className="flex items-center mt-1">
                                                         <button
                                                             type="button"
@@ -455,6 +490,7 @@ function Form_ticketunify() {
                                                         </div>
                                                     )}
                                                 </div>
+
                                                 <div className="mb-5">
                                                     <label
                                                         htmlFor="buktiTf"
@@ -480,34 +516,7 @@ function Form_ticketunify() {
                                                         </div>
                                                     )}
                                                 </div>
-                                                <div className="flex justify-center">
-                                                    <button
-                                                        type="submit"
-                                                        className="w-full mx-auto text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-                                                        disabled={processing}
-                                                    >
-                                                        {processing
-                                                            ? "Submitting..."
-                                                            : "Buy Ticket"}
-                                                    </button>
-                                                </div>
-                                            </form>
-                                            <div className="w-full px-0 pt-2 info">
-                                                <div className="w-full p-4 bg-white border-2 rounded-lg shadow-md border-blue-50">
-                                                    <h1 className="font-bold">
-                                                        UNIFY UMN FESTIVAL 2024
-                                                    </h1>
-                                                    <p>
-                                                        30 November 2024
-                                                        14.00-22.00 Universitas
-                                                        Multimedia Nusantara
-                                                        Jalan Scientia Boulevard
-                                                        Gading, Curug Sangereng,
-                                                        Serpong, Kabupaten
-                                                        Tangerang, Banten 15810
-                                                    </p>
-                                                </div>
-                                                <div className="w-full p-4 mt-5 bg-white border-2 rounded-lg shadow-md border-blue-50">
+                                                <div className="w-full p-4 mt-5 mb-5 bg-white border-2 rounded-lg shadow-md border-blue-50">
                                                     <h1 className="font-bold">
                                                         Ringkasan Pesanan
                                                     </h1>
@@ -566,7 +575,18 @@ function Form_ticketunify() {
                                                         </p>
                                                     </div>
                                                 </div>
-                                            </div>
+                                                <div className="flex justify-center">
+                                                    <button
+                                                        type="submit"
+                                                        className="w-full mx-auto text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                                                        disabled={processing}
+                                                    >
+                                                        {processing
+                                                            ? "Submitting..."
+                                                            : "Buy Ticket"}
+                                                    </button>
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
                                 )}
