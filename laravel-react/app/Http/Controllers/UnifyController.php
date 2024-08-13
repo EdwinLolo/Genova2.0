@@ -185,7 +185,7 @@ class UnifyController extends Controller
             'total_price' => 'integer',
             'isInternal' => 'string',
             'kodeRef' => 'string|nullable|in:RMK24,TCK24,TCA24,NPK24,NPA24,PSK24,PSA24,LZK24,LZA24,CTK24,CTA24,LCK24,LCA24,VNK24,VNA24,AEK24,AEA24,GVK24,GVA24,MLK24,MLA24,TRK24,TRA24,VZK24,VZA24,FEK24,FEA24,-',
-            'buktiTf' => 'required|file|mimes:png,jpeg,jpg|max:2048',
+            'buktiTf' => 'required|file|mimes:png,jpeg,jpg',
         ];
 
         if ($formType === 'internal') {
