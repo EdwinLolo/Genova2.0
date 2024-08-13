@@ -154,10 +154,10 @@ function Form_ticketunify() {
                         selectedForm
                             ? `lg:w-4/6 ${
                                   selectedForm === "external"
-                                      ? "lg:h-[1620px] xl:h-[1420px]"
-                                      : "lg:h-[1820px] xl:h-[1550px]"
+                                      ? "lg:h-[1850px] xl:h-[1500px]"
+                                      : "lg:h-[2050px] xl:h-[1650px]"
                               }`
-                            : "lg:h-[530px] lg:w-9/12"
+                            : "lg:h-[800px] xl:h-[530px] lg:w-9/12"
                     } rounded-xl  sm:flex kiri bgkiri1 bgkiri2 p-7 lg:mb-4`}
                 >
                     <div className="flex flex-col justify-center w-full h-full align-middle lg:w-1/2 kiri1">
@@ -263,7 +263,7 @@ function Form_ticketunify() {
                                                 onSubmit={handleSubmit}
                                                 className="w-full p-6 m-2 mx-auto bg-white border-2 rounded-lg shadow-md md:mx-0 border-blue-50"
                                             >
-                                                <div className="hidden mb-5">
+                                                <div className="mb-5">
                                                     <label
                                                         htmlFor="kodeRef"
                                                         className="block text-sm font-medium text-gray-700"
@@ -459,7 +459,12 @@ function Form_ticketunify() {
                                                         htmlFor="buktiTf"
                                                         className="block text-sm font-medium text-gray-700"
                                                     >
-                                                        Bukti Transfer
+                                                        Bukti Transfer <br />
+                                                        <span>
+                                                            Blu/BCA Digital -
+                                                            007523060589 / Grace
+                                                            Aretha
+                                                        </span>
                                                     </label>
                                                     <input
                                                         type="file"

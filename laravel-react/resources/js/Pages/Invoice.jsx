@@ -2,7 +2,7 @@ import React from "react";
 import "./Styleinvoice.css";
 
 function Invoice({ data }) {
-    const hargatiket = data.jumlahTiket * 60000;
+    const hargatiket = data.jumlahTiket * 75000;
 
     if (!data) {
         return <div>Loading...</div>;
@@ -42,7 +42,7 @@ function Invoice({ data }) {
 
             <div class="footer">
                 <a href="/">UMN Festival</a>
-                <div>&copy; Genova UMN Festival 2024</div>
+                <div>&copy; UMN Festival 2024</div>
             </div>
         </div>
     );
