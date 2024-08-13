@@ -1,5 +1,6 @@
 import React from "react";
 import "./Styleinvoice.css";
+import Footer from "../Components/Footer/Footer";
 
 function Invoice({ data }) {
     const hargatiket = data.jumlahTiket * 75000;

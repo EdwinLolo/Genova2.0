@@ -100,3 +100,7 @@ Route::get('/rangkaian/unify/buyticket', function () {
 Route::get('/rangkaian/ucare/volunteer', function () {
     return Inertia::render('Form_Ucare/Formucare');
 });
+
+Route::get('bph/gres/2024', function () {
+    return Inertia::render('Gres');
+});

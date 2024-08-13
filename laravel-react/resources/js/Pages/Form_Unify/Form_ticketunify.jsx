@@ -6,6 +6,7 @@ import "./FormUnifyStyle.css";
 import "../../Components/Font.css";
 import LogoUnify from "../../Assets/Rangkaian/LogoMap/Unify_2.png";
 import PosterUnify from "../../Assets/Rangkaian/Unify/Poster.jpg";
+import Footers from "../../Components/Footer/Footer";
 
 function Form_ticketunify() {
     const [selectedForm, setSelectedForm] = useState(null);
@@ -171,10 +172,10 @@ function Form_ticketunify() {
                         selectedForm
                             ? `lg:w-4/6 ${
                                   selectedForm === "external"
-                                      ? "lg:h-[1850px] xl:h-[1500px]"
-                                      : "lg:h-[2050px] xl:h-[1650px]"
+                                      ? "lg:h-[2350px] xl:h-[1800px]"
+                                      : "lg:h-[2500px] xl:h-[2000px]"
                               }`
-                            : "lg:h-[800px] xl:h-[530px] lg:w-9/12"
+                            : "lg:h-[1400px] xl:h-[930px] lg:w-9/12"
                     } rounded-xl  sm:flex kiri bgkiri1 bgkiri2 p-7 lg:mb-4`}
                 >
                     <div className="flex flex-col justify-center w-full h-full align-middle lg:w-1/2 kiri1">
@@ -206,12 +207,12 @@ function Form_ticketunify() {
                         <div className="px-5 py-3 mb-4 rounded-md bg-slate-50">
                             <h1 className="font-bold">EVENT INFORMATION</h1>
                             <p>
-                                <span className="font-bold">UNIFY</span>{" "}
+                                {/* <span className="font-bold">UNIFY</span>{" "}
                                 merupakan kegiatan yang akan mempersatukan{" "}
                                 <span className="font-bold">Legions</span> untuk
                                 berkolaborasi serta menginspirasi satu sama
                                 lain.
-                                <br />
+                                <br /> <br />
                                 <span className="font-bold">UNIFY</span> adalah
                                 sebuah kegiatan Malam Puncak yang akan
                                 dilaksanakan dalam bentuk Konser sebagai bentuk
@@ -222,12 +223,49 @@ function Form_ticketunify() {
                                 </span>{" "}
                                 dan juga
                                 <span className="font-bold"> Ulympic</span>.
-                                <br /> <br />
+                                <br /> <br /> */}
                                 Konser Unify akan diadakan pada:
                                 <br />
                                 📅: Sabtu, 30 November 2024 <br />
                                 📍: Lapangan parkir Universitas Multimedia
                                 Nusantara
+                                <br /> <br />
+                                Ticket Price💰 Rp. 75,000 / Ticket
+                                <br />
+                                Format Berita : RG1 - Jumlah tiket &rarr; Contoh
+                                : RG1 - 10 tiket
+                                <br />
+                                <br />
+                                Terms and Conditions
+                                <br />
+                                1. Dilarang melakukan manipulasi pembelian tiket
+                                UNIFY!
+                                <br />
+                                2. Apabila membeli lebih dari 1 tiket, cukup
+                                mencantumkan 1 SS bukti transfer saja!
+                                <br />
+                                3. Tiket yang sudah dibeli tidak dapat di
+                                refund. <br />
+                                4. Tiket yang sudah ditukarkan menjadi tanggung
+                                jawab pembeli dan bukan tanggung jawab panitia
+                                UMN Festival 2024! <br />
+                                5. Penonton/peserta WAJIB berusia diatas 12
+                                tahun. <br />
+                                6. Penonton/peserta yang berusia dibawah 17
+                                tahun SANGAT DISARANKAN untuk didampingi oleh
+                                orang DEWASA. <br />
+                                7. Jika membeli lebih dari 1 tiket dalam form
+                                yang sama, WAJIB mengambil tiket bersamaan pada
+                                waktu pengambilan tiket berlangsung.
+                                <br />
+                                <br />
+                                Contact Person:
+                                <br />
+                                👸🏻 Line: Grace - gracearetha_17 <br />
+                                🤴🏻 WhatsApp: Howard - 081802360509
+                                <br /> <br />
+                                For more info, follow us on instagram
+                                @umnfestival Thankyou.
                             </p>
                         </div>
 
@@ -274,9 +312,9 @@ function Form_ticketunify() {
                                     </button>
                                 </div>
                                 {selectedForm && (
-                                    <div>
+                                    <div className="w-full">
                                         <div className="flex-col w-full mt-2 ">
-                                            <div className="w-full px-0 pt-2 info">
+                                            {/* <div className="w-full px-0 pt-2 info">
                                                 <div className="w-full p-4 bg-white border-2 rounded-lg shadow-md border-blue-50">
                                                     <h1 className="font-bold">
                                                         UNIFY UMN FESTIVAL 2024
@@ -291,7 +329,7 @@ function Form_ticketunify() {
                                                         Tangerang, Banten 15810
                                                     </p>
                                                 </div>
-                                            </div>
+                                            </div> */}
                                             <form
                                                 onSubmit={handleSubmit}
                                                 className="w-full p-6 m-2 mx-auto bg-white border-2 rounded-lg shadow-md md:mx-0 border-blue-50"
@@ -411,6 +449,7 @@ function Form_ticketunify() {
                                                         onChange={handleChange}
                                                         className="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                                                         required
+                                                        placeholder="Isi dengan nomor HP yang bisa dihubungi"
                                                     />
                                                     {errors.noHp && (
                                                         <div className="mt-1 text-sm text-red-500">
@@ -606,6 +645,7 @@ function Form_ticketunify() {
                     />
                 </div>
             </div>
+            <Footers />
         </div>
     );
 }

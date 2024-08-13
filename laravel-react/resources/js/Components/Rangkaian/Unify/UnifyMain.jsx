@@ -55,7 +55,7 @@ function UnifyMain() {
                             we join forces to make a positive impact and spread
                             goodwill!"
                         </p>
-                        {/* <a
+                        <a
                             href="/rangkaian/unify/buyticket"
                             target="_blank"
                             className="z-[99]"
@@ -63,7 +63,7 @@ function UnifyMain() {
                             <button type="button" className="btn1 z-[99]">
                                 Buy Ticket
                             </button>
-                        </a> */}
+                        </a>
                         {/* LINK BUAT PRESALE */}
                         {/* <a href="https://bit.ly/Presale1Unify" target="_blank">
                             <button type="button" className="btn1 z-[99]">
@@ -107,7 +107,7 @@ function UnifyMain() {
                             we join forces to make a positive impact and spread
                             goodwill!"
                         </p>
-                        {/* <a
+                        <a
                             href="/rangkaian/unify/buyticket"
                             target="_blank"
                             className="z-50"
@@ -115,7 +115,7 @@ function UnifyMain() {
                             <button type="button" className="btn1">
                                 Buy Ticket
                             </button>
-                        </a> */}
+                        </a>
                         {/* LINK BUAT PRESALE */}
                         {/* <a href="https://bit.ly/Presale1Unify" target="_blank">
                             <button type="button" className="btn1 z-[99]">
