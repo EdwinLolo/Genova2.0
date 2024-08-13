@@ -471,6 +471,7 @@ function Form_ticketunify() {
                                                         onChange={handleChange}
                                                         className="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                                                         required
+                                                        placeholder="Isi dengan E-Mail yang bisa dihubungi"
                                                     />
                                                     {errors.email && (
                                                         <div className="mt-1 text-sm text-red-500">

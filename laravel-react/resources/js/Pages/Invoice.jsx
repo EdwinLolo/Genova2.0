@@ -43,7 +43,12 @@ function Invoice({ data }) {
                     <td>Rp. {data.total_price}</td>
                 </tr>
             </table>
-
+            <div>
+                <p className="text-xs font-semibold text-center text-red-500">
+                    Silahkan lakukan Screenshot/Screen Capture halaman ini untuk
+                    mempermudah Anda ketika menukar tiket Anda nantinya.
+                </p>
+            </div>
             <div class="footer">
                 <a href="/">UMN Festival</a>
                 <div>&copy; UMN Festival 2024</div>
