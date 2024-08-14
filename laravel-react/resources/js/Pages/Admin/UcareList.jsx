@@ -82,7 +82,7 @@ function UcareList({ data }) {
                                         >
                                             <td
                                                 scope="row"
-                                                className="p-3 font-mono font-medium text-center whitespace-nowrap text-white border-2"
+                                                className="p-3 font-mono font-medium text-center whitespace-wrap text-white border-2"
                                             >
                                                 {item.namaLengkap}
                                             </td>

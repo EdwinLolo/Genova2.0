@@ -108,7 +108,7 @@ function UnifyList({ title, keterangan, data, totalTiket, totalUnchecked }) {
                                     >
                                         <td
                                             scope="row"
-                                            className="p-3 font-mono font-medium text-center whitespace-nowrap text-white border-2"
+                                            className="p-3 font-mono font-medium text-center whitespace-wrap text-white border-2"
                                         >
                                             {item.nama}
                                         </td>
