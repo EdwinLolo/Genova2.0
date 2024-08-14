@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import NavbarAdmin from "../../Components/Navbar/NavbarAdmin";
-import SidebarAdmin from "../../Components/Admin/SidebarAdmin";
+import NavbarAdmin from "../../Components/Admin/NavbarAdmin";
 import { Inertia } from "@inertiajs/inertia";
 
 function UcareList({ data }) {
@@ -20,106 +19,107 @@ function UcareList({ data }) {
     };
 
     return (
-        <div className="bg-gray-300 m-0 w-full">
+        <div
+            className="text-white font-sans min-h-screen flex flex-col"
+            style={{ backgroundColor: "rgb(33, 33, 33)" }}
+        >
             <NavbarAdmin />
             <div className="relative overflow-x-auto shadow-md p-0 flex flex-col md:flex-row">
-                <div className="leftSide">
-                    <SidebarAdmin />
-                </div>
                 <div className="rightSide p-5 flex-auto">
-                    Ucare Particapants
-                    <div className="p-4 rounded-t-lg bg-white dark:bg-gray-900">
-                        <label htmlFor="table-search" className="sr-only">
-                            Search
-                        </label>
-                        <div className="relative mt-1">
-                            <div className="absolute inset-y-0 rtl:inset-r-0 start-0 flex items-center ps-3 pointer-events-none">
-                                <svg
-                                    className="w-4 h-4 text-gray-500 dark:text-gray-400"
-                                    aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="none"
-                                    viewBox="0 0 20 20"
-                                >
-                                    <path
-                                        stroke="currentColor"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth="2"
-                                        d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-                                    />
-                                </svg>
-                            </div>
-                            <input
-                                type="text"
-                                id="table-search"
-                                className="block py-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="Search"
-                                onChange={(e) => setSearchQuery(e.target.value)}
-                            />
-                        </div>
+                    <h1 className="text-white font-black text-3xl text-right mb-2">
+                        Ucare Particapants
+                    </h1>
+                    <label htmlFor="table-search" className="sr-only">
+                        Search
+                    </label>
+                    <div className="flex w-full mt-1 mb-2">
+                        <input
+                            type="text"
+                            id="table-search"
+                            className="block py-2 text-sm text-white font-mono border-2 border-white bg-inherit px-4 w-full"
+                            placeholder="Search for a team"
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                        />
                     </div>
-                    <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                            <tr>
-                                <th scope="col" className="px-6 py-3">
-                                    Nama
-                                </th>
-                                <th scope="col" className="px-6 py-3">
-                                    Email
-                                </th>
-                                <th scope="col" className="px-6 py-3">
-                                    is Internal
-                                </th>
-                                <th scope="col" className="px-6 py-3">
-                                    Action
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {filteredData.length > 0 ? (
-                                filteredData.map((item, index) => (
-                                    <tr
-                                        key={index}
-                                        className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700"
+
+                    <div className="flex w-full">
+                        <table className="w-full text-sm text-left text-white rtl:text-right bg-inherit">
+                            <thead className="text-xs text-white uppercase bg-inherit">
+                                <tr>
+                                    <th
+                                        scope="col"
+                                        className="p-3 border-2 text-center"
                                     >
-                                        <th
-                                            scope="row"
-                                            className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                                        Nama
+                                    </th>
+                                    <th
+                                        scope="col"
+                                        className="p-3 border-2 text-center hidden md:table-cell"
+                                    >
+                                        Email
+                                    </th>
+                                    <th
+                                        scope="col"
+                                        className="p-3 border-2 text-center"
+                                    >
+                                        is Internal
+                                    </th>
+                                    <th
+                                        scope="col"
+                                        className="p-3 border-2 text-center"
+                                    >
+                                        Action
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {filteredData.length > 0 ? (
+                                    filteredData.map((item, index) => (
+                                        <tr
+                                            key={index}
+                                            className="border-2 bg-inherit"
                                         >
-                                            {item.namaLengkap}
-                                        </th>
-                                        <td className="px-6 py-4">
-                                            {item.email}
-                                        </td>
-                                        <td className="px-6 py-4">
-                                            {item.isInternal}
-                                        </td>
-                                        <td className="px-6 py-4">
-                                            <button
-                                                onClick={() =>
-                                                    handleInfo(item.id)
-                                                }
-                                                className="text-green-600 font-bold hover:text-green-900"
-                                                type="button"
+                                            <td
+                                                scope="row"
+                                                className="p-3 font-mono font-medium text-center whitespace-nowrap text-white border-2"
                                             >
-                                                More
-                                            </button>
+                                                {item.namaLengkap}
+                                            </td>
+                                            <td className="p-3 font-mono font-medium text-center border-2 hidden md:table-cell">
+                                                {item.email}
+                                            </td>
+                                            <td className="p-3 font-mono font-medium text-center border-2">
+                                                {item.isInternal}
+                                            </td>
+                                            <td>
+                                                <div className="flex flex-col gap-1 flex-wrap py-2 md:p-0 font-mono font-medium text-center items-center justify-center">
+                                                    <button
+                                                        onClick={() =>
+                                                            handleInfo(item.id)
+                                                        }
+                                                        className="text-green-600 font-bold hover:text-green-900"
+                                                        type="button"
+                                                    >
+                                                        More
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    ))
+                                ) : (
+                                    <tr>
+                                        <td
+                                            colSpan="4"
+                                            className="px-6 py-4 text-center text-white font-mono text-3xl"
+                                        >
+                                            No matching data found
                                         </td>
                                     </tr>
-                                ))
-                            ) : (
-                                <tr>
-                                    <td
-                                        colSpan="4"
-                                        className="px-6 py-4 text-center text-black"
-                                    >
-                                        No matching data found
-                                    </td>
-                                </tr>
-                            )}
-                        </tbody>
-                    </table>
+                                )}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

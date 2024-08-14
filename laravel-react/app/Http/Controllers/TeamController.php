@@ -16,27 +16,26 @@ use Inertia\Inertia;
 
 class TeamController extends Controller
 {
+
     public function index()
     {
-        $teams = Team::all();
-        $lombas = [];
+        $lomba = Lomba::all();
+        return Inertia::render('Admin/UlympicDashboard', ['lombas' => $lomba]);
+    }
+
+    public function list($id)
+    {
+        $teams = Team::where('id_lomba', $id)->get();
+        $lomba = Lomba::where('id_lomba', $id)->first();
+
         $line = [];
         $data = [];
 
         foreach ($teams as $team) {
-            // Fetch the related Lomba
-            $lomba = Lomba::where('id_lomba', $team->id_lomba)->first();
-            $lombaName = $lomba ? $lomba->namaLomba : null;
-
             // Fetch the related MengikutiTeam and Mahasiswa
             $mengikutiTeam = MengikutiTeam::where('id_team', $team->id_team)->first();
             $mahasiswa = $mengikutiTeam ? Mahasiswa::where('nim', $mengikutiTeam->nim)->first() : null;
             $idLine = $mahasiswa ? $mahasiswa->idLine : null;
-
-            // Store the related data
-            if ($lomba) {
-                $lombas[$team->id_team] = $lombaName;
-            }
 
             if ($mahasiswa) {
                 $line[$team->id_team] = $idLine;
@@ -45,21 +44,21 @@ class TeamController extends Controller
             // Create an associative array for each team
             $data[] = [
                 'team' => $team,
-                'namaLomba' => $lombaName,
                 'idLine' => $idLine
             ];
         }
 
-        return Inertia::render('Admin/Teams', [
-            'data' => $data
+        return Inertia::render('Admin/UlympicTeams', [
+            'data' => $data,
+            'lomba' => $lomba
         ]);
     }
 
 
 
-    public function input()
+    public function input($id)
     {
-        $lomba = Lomba::all();
+        $lomba = Lomba::where('id_lomba', $id)->get();
         return Inertia::render('Admin/FormInputTeam', ['lombas' => $lomba]);
     }
 

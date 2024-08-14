@@ -41,38 +41,37 @@ Route::get('/rangkaian/unify', function () {
 });
 Route::prefix('/admin')->middleware([AuthenticateAdmin::class])->group(function () {
     Route::get('/', [AdminController::class, 'index']);
-    Route::get('/input', [AdminController::class, 'input']);
-    Route::delete('/delete/{id}', [AdminController::class, 'delete']);
-    Route::prefix('/unify')->group(function () {
-        Route::get('/', [UnifyController::class, 'index']);
-        Route::get('/external', [UnifyController::class, 'external']);
-        Route::get('/internal', [UnifyController::class, 'internal']);
-        Route::get('/all', [UnifyController::class, 'all']);
-        Route::get('/unchecked', [UnifyController::class, 'showUnchecked']);
-        Route::get('/detail/{id}', [UnifyController::class, 'details']);
-        Route::get('/check/{id}', [UnifyController::class, 'checked']);
-        Route::get('/uncheck/{id}', [UnifyController::class, 'unchecked']);
-        Route::get('/diambil/{id}', [UnifyController::class, 'diambil']);
-        Route::get('/belomdiambil/{id}', [UnifyController::class, 'belomDiambil']);
-    });
-    Route::prefix('/team')->group(function () {
+
+    Route::prefix('/ulympic')->group(function () {
         Route::get('/', [TeamController::class, 'index']);
-        Route::get('/input', [TeamController::class, 'input']);
+        Route::get('/show/{id}', [TeamController::class, 'list']);
+        Route::get('/input/{id}', [TeamController::class, 'input']);
         Route::post('/delete/{id_team}', [TeamController::class, 'delete']);
         Route::get('/{id_team}', [TeamController::class, 'info']);
         Route::get('/edit/{id_team}', [TeamController::class, 'edit']);
         Route::post('/edit/{id_team}', [TeamController::class, 'update']);
     });
 
+    Route::prefix('/unify')->group(function () {
+        Route::get('/', [UnifyController::class, 'index']);
+        Route::get('/all', [UnifyController::class, 'all']);
+        Route::get('/external', [UnifyController::class, 'external']);
+        Route::get('/internal', [UnifyController::class, 'internal']);
+        Route::get('/unchecked', [UnifyController::class, 'showUnchecked']);
+        Route::get('/checked', [UnifyController::class, 'showChecked']);
+        Route::get('/belomdiambil', [UnifyController::class, 'showBelomDiambil']);
+        Route::get('/sudahdiambil', [UnifyController::class, 'showSudahDiambil']);
+        Route::get('/detail/{id}', [UnifyController::class, 'details']);
+        Route::get('/check/{id}', [UnifyController::class, 'checked']);
+        Route::get('/uncheck/{id}', [UnifyController::class, 'unchecked']);
+        Route::get('/diambil/{id}', [UnifyController::class, 'diambil']);
+        Route::get('/belomdiambil/{id}', [UnifyController::class, 'belomDiambil']);
+    });
+
     Route::get('/ucare', [UcareController::class, 'index']);
     Route::get('/ucare/detail/{id}', [UcareController::class, 'details']);
-
-    Route::get('/{nim}', [AdminController::class, 'info']);
-    Route::get('/edit/{nim}', [AdminController::class, 'edit']);
-    Route::post('/edit/{nim}', [AdminController::class, 'update']);
 });
 
-Route::post('/input/data', [AdminController::class, 'regist']);
 Route::post('/team/input/data', [TeamController::class, 'regist']);
 Route::post('/unify', [UnifyController::class, 'register']);
 Route::get('/thankyou', [UnifyController::class, 'invoice']);

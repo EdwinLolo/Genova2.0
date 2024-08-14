@@ -1,5 +1,5 @@
 import React from "react";
-import NavbarAdmin from "../../Components/Navbar/NavbarAdmin";
+import NavbarAdmin from "../../Components/Admin/NavbarAdmin";
 import { Inertia } from "@inertiajs/inertia";
 import { useForm } from "@inertiajs/inertia-react";
 import { toast } from "react-toastify";
@@ -63,7 +63,7 @@ function TeamEdit({ team, lomba, lombas, mahasiswas }) {
             formData.append("buktiTF", team.buktiTF);
         }
 
-        post(`/admin/team/edit/${team.id_team}`, {
+        post(`/admin/ulympic/edit/${team.id_team}`, {
             data: formData,
             onSuccess: () => {
                 toast.success("Data updated successfully", {
@@ -82,152 +82,128 @@ function TeamEdit({ team, lomba, lombas, mahasiswas }) {
     };
 
     return (
-        <div className="bg-gray-300 m-0 w-full">
+        <div
+            className="text-white font-sans min-h-screen flex flex-col"
+            style={{ backgroundColor: "rgb(33, 33, 33)" }}
+        >
             <NavbarAdmin />
-            <form onSubmit={handleSubmit}>
-                <div className="flex flex-row">
-                    <div className="p-10">
-                        <table className="table-auto">
-                            <tbody>
-                                <tr>
-                                    <td className="font-bold">Nama Team:</td>
-                                    <td className="pl-4">
-                                        <input
-                                            type="text"
-                                            name="namaTeam"
-                                            value={data.namaTeam}
-                                            onChange={handleChange}
+            <div className="flex flex-col m-3 mx-5 self-center md:w-5/6">
+                <span className="text-right font-mono text-3xl font-bold">
+                    Edit Form
+                </span>
+                <hr />
+                <form
+                    onSubmit={handleSubmit}
+                    className="flex flex-col gap-2 my-2"
+                >
+                    <div className="flex flex-col">
+                        <div className="flex flex-col">
+                            <span className="font-bold text-left">
+                                Nama Team:
+                            </span>
+                            <input
+                                className="bg-inherit border-2"
+                                type="text"
+                                name="namaTeam"
+                                value={data.namaTeam}
+                                onChange={handleChange}
+                            />
+                        </div>
+                        <div className="flex flex-col mt-1">
+                            <span className="font-mono text-sm ">
+                                Registered on: {team.tglDaftar}
+                            </span>
+                        </div>
+                        <div className="flex flex-col my-1">
+                            <span className="font-bold">Mengikuti Lomba:</span>
+                            <select
+                                className="bg-white text-black font-bold p-1"
+                                name="id_lomba"
+                                value={data.id_lomba}
+                                onChange={handleChange}
+                            >
+                                <option value={lomba.id_lomba}>
+                                    {lomba.namaLomba}
+                                </option>
+                                {lombas.map((data, index) => (
+                                    <option key={index} value={data.id_lomba}>
+                                        {data.namaLomba}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
+                        <div className="flex flex-col">
+                            <span className="font-bold text-left mt-3">
+                                Bukti TF:{" "}
+                            </span>
+                            <img
+                                src={`/storage/${team.buktiTF}`}
+                                alt="Bukti Transfer"
+                                className="w-64"
+                            />
+
+                            <span className="text-sm mt-3 font-bold font-sans">
+                                New Bukti TF:{" "}
+                            </span>
+                            <input
+                                type="file"
+                                name="buktiTF"
+                                onChange={handleChange}
+                            />
+                        </div>
+                    </div>
+                    <div className="flex justify-center">
+                        <button
+                            className="bg-white hover:bg-green-700 hover:text-white text-black font-bold py-2 px-4 font-mono"
+                            type="submit"
+                            disabled={processing}
+                        >
+                            Update Team
+                        </button>
+                    </div>
+                </form>
+                <div className="flex flex-col mx-3 ">
+                    <h1 className="text-right text-2xl font-bold font-mono">
+                        Anggota
+                    </h1>
+                    <hr />
+                    <table className="border-2 w-full text-left mt-3">
+                        <thead>
+                            <tr>
+                                <th className="text-center">Nama Anggota</th>
+                                <th className="text-center">NIM</th>
+                                <th className="text-center">ID Line</th>
+                                <th className="text-center">KTM</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {mahasiswas.map((member, index) => (
+                                <tr
+                                    key={index}
+                                    className="border-y-2 cursor-pointer hover:bg-gray-700"
+                                    onClick={() => openModal(member)}
+                                >
+                                    <td className="text-sm text-center font-sans font-medium">
+                                        <span>{member.namaLengkap}</span>
+                                    </td>
+                                    <td className="text-sm text-center font-sans font-medium">
+                                        <span>{member.nim}</span>
+                                    </td>
+                                    <td className="text-sm text-center font-sans font-medium">
+                                        <span>{member.idLine}</span>
+                                    </td>
+                                    <td>
+                                        <img
+                                            src={`/storage/${member.ktm}`}
+                                            alt="KTM"
+                                            className="h-16 w-16 object-cover"
                                         />
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td className="font-bold">
-                                        Tanggal Daftar:
-                                    </td>
-                                    <td className="pl-4">{team.tglDaftar}</td>
-                                </tr>
-                                <tr>
-                                    <td className="font-bold">
-                                        Mengikuti Lomba:
-                                    </td>
-                                    <td className="pl-4">
-                                        <select
-                                            name="id_lomba"
-                                            value={data.id_lomba}
-                                            onChange={handleChange}
-                                        >
-                                            <option value={lomba.id_lomba}>
-                                                {lomba.namaLomba}
-                                            </option>
-                                            {lombas.map((data, index) => (
-                                                <option
-                                                    key={index}
-                                                    value={data.id_lomba}
-                                                >
-                                                    {data.namaLomba}
-                                                </option>
-                                            ))}
-                                        </select>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div className="flex flex-auto justify-center m-10">
-                        <div className="flex flex-col">
-                            <table className="table-auto">
-                                <tbody>
-                                    <tr>
-                                        <td className="font-bold">
-                                            Bukti Transfer:
-                                        </td>
-                                        <td className="pl-4">
-                                            <img
-                                                src={`/storage/${team.buktiTF}`}
-                                                alt="Bukti Transfer"
-                                                className="h-64 w-64 object-cover"
-                                            />
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td className="font-bold">
-                                            New Bukti Transfer:
-                                        </td>
-                                        <td className="pl-4">
-                                            <input
-                                                type="file"
-                                                name="buktiTF"
-                                                onChange={handleChange}
-                                            />
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                            ))}
+                        </tbody>
+                    </table>
                 </div>
-                <div className="flex justify-center">
-                    <button
-                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                        type="submit"
-                        disabled={processing}
-                    >
-                        Update Team
-                    </button>
-                </div>
-            </form>
-            <h1 className="m-5 w-1/3 text-center font-bold">Anggota</h1>
-            <div className="flex">
-                <table className="table-auto">
-                    <thead>
-                        <tr>
-                            <th className="pl-4">Nama</th>
-                            <th className="pl-4">NIM</th>
-                            <th className="pl-4">ID Line</th>
-                            <th className="pl-4">KTM</th>
-                            <th className="pl-4">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {mahasiswas.map((member, index) => (
-                            <tr key={index}>
-                                <td className="pl-4">{member.namaLengkap}</td>
-                                <td className="pl-4">{member.nim}</td>
-                                <td className="pl-4">{member.idLine}</td>
-                                <td className="pl-4">
-                                    <img
-                                        src={`/storage/${member.ktm}`}
-                                        alt="KTM"
-                                        className="h-64 w-64 object-cover"
-                                    />
-                                </td>
-                                <td className="px-6 py-4">
-                                    <button
-                                        onClick={() => handleInfo(member.nim)}
-                                        className="text-green-600 font-bold hover:text-green-900"
-                                        type="button"
-                                    >
-                                        More
-                                    </button>
-                                    <button
-                                        onClick={() => handleEdit(member.nim)}
-                                        className="ml-4 text-blue-600 font-bold hover:text-blue-900"
-                                        type="button"
-                                    >
-                                        Edit
-                                    </button>
-                                    <button
-                                        onClick={() => handleDelete(member.nim)}
-                                        className="ml-4 text-red-600 font-bold hover:text-red-900"
-                                        type="button"
-                                    >
-                                        Delete
-                                    </button>
-                                </td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
             </div>
         </div>
     );

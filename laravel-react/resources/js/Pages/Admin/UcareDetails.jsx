@@ -1,75 +1,79 @@
 import React from "react";
-import NavbarAdmin from "../../Components/Navbar/NavbarAdmin";
+import NavbarAdmin from "../../Components/Admin/NavbarAdmin";
 
 function UcareDetails({ data }) {
     return (
-        <div className="bg-gray-300 min-h-screen">
+        <div
+            className="text-white font-sans min-h-screen flex flex-col"
+            style={{ backgroundColor: "rgb(33, 33, 33)" }}
+        >
             <NavbarAdmin />
-            <div className="flex flex-col md:flex-row">
-                <div className="p-10 w-1/2 md:w-full">
-                    <table className="table-auto w-full">
-                        <h1 className="font-bold text-center">
-                            Ucare Participant Detail
-                        </h1>
-                        <tbody>
-                            <tr>
-                                <td className="font-bold">Nama:</td>
-                                <td className="pl-4">{data.namaLengkap}</td>
+            <div className="flex flex-col w-5/6 self-center  mt-5 mx-3 ">
+                <div className="flex flex-col self-center w-full md:w-5/6">
+                    <h1 className="font-bold text-right text-2xl">
+                        {data.namaLengkap}
+                    </h1>
+                    <hr />
+                    <span className="text-md font-bold">
+                        Ucare Participant Detail
+                    </span>
+
+                    <table className="mt-2">
+                        <tbody className="mt-2">
+                            <tr className="border-2">
+                                <td className="font-bold">Umur</td>
+                                <td>{data.umur}</td>
                             </tr>
-                            <tr>
-                                <td className="font-bold">Umur:</td>
-                                <td className="pl-4">{data.umur}</td>
-                            </tr>
-                            <tr>
+                            <tr className="border-2">
                                 <td className="font-bold">Tempat Tinggal:</td>
-                                <td className="pl-4">{data.tempatTinggal}</td>
+                                <td>{data.tempatTinggal}</td>
                             </tr>
-                            <tr>
+                            <tr className="border-2">
                                 <td className="font-bold">ID Line:</td>
-                                <td className="pl-4">{data.idLine}</td>
+                                <td>{data.idLine}</td>
                             </tr>
-                            <tr>
+                            <tr className="border-2">
                                 <td className="font-bold">ID Instagram:</td>
-                                <td className="pl-4">{data.instagram}</td>
+                                <td>{data.instagram}</td>
                             </tr>
-                            <tr>
+                            <tr className="border-2">
                                 <td className="font-bold">No Telp:</td>
-                                <td className="pl-4">{data.noTelp}</td>
+                                <td>{data.noTelp}</td>
                             </tr>
-                            <tr>
+                            <tr className="border-2">
                                 <td className="font-bold">Nim:</td>
-                                <td className="pl-4">{data.nim}</td>
+                                <td>{data.nim}</td>
                             </tr>
-                            <tr>
+                            <tr className="border-2">
                                 <td className="font-bold">Jurusan:</td>
-                                <td className="pl-4">{data.jurusan}</td>
+                                <td>{data.jurusan}</td>
                             </tr>
-                            <tr>
+                            <tr className="border-2">
                                 <td className="font-bold">Angkatan:</td>
-                                <td className="pl-4">{data.angkatan}</td>
+                                <td>{data.angkatan}</td>
                             </tr>
-                            <tr>
+                            <tr className="border-2">
                                 <td className="font-bold">Email:</td>
-                                <td className="pl-4">{data.email}</td>
+                                <td>{data.email}</td>
                             </tr>
-                            <tr>
+                            <tr className="border-2">
                                 <td className="font-bold">Internal:</td>
-                                <td className="pl-4">{data.isInternal}</td>
+                                <td>{data.isInternal}</td>
                             </tr>
-                            <tr>
+                            <tr className="border-2">
                                 <td className="font-bold">Document Essay</td>
-                                <td className="pl-4">
+                                <td>
                                     <a
-                                        className="text-blue-900 font-bold"
+                                        className="text-sky-300 font-bold"
                                         href={`/storage/${data.docs}`}
                                     >
                                         Download Essay
                                     </a>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr className="border-2">
                                 <td className="font-bold">Asal Kampus</td>
-                                <td className="pl-4">{data.asalKampus}</td>
+                                <td>{data.asalKampus}</td>
                             </tr>
                         </tbody>
                     </table>

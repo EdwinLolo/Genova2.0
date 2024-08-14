@@ -18,36 +18,33 @@ class UnifyController extends Controller
     {
         $data = Unify::where('isInternal', 'false')->get();
         $totalTiket = 0;
-        $checkedData = Unify::where('isInternal', 'false')->where('status', 'checked')->get();
 
-        foreach ($checkedData as $d) {
+        foreach ($data as $d) {
             $totalTiket += $d->jumlahTiket;
         }
-        return Inertia::render('Admin/UnifyExternal', ['data' => $data, 'totalTiket' => $totalTiket]);
+        return Inertia::render('Admin/UnifyList', ['title' => 'List Tiket External', 'keterangan' => 'External', 'data' => $data, 'totalTiket' => $totalTiket]);
     }
 
     public function internal()
     {
         $data = Unify::where('isInternal', 'true')->get();
         $totalTiket = 0;
-        $checkedData = Unify::where('isInternal', 'true')->where('status', 'checked')->get();
 
-        foreach ($checkedData as $d) {
+        foreach ($data as $d) {
             $totalTiket += $d->jumlahTiket;
         }
-        return Inertia::render('Admin/UnifyInternal', ['data' => $data, 'totalTiket' => $totalTiket]);
+        return Inertia::render('Admin/UnifyList', ['title' => 'List Tiket Internal', 'keterangan' => 'Internal', 'data' => $data, 'totalTiket' => $totalTiket]);
     }
 
     public function all()
     {
         $data = Unify::all();
         $totalTiket = 0;
-        $checkedData = Unify::where('status', 'checked')->get();
 
-        foreach ($checkedData as $d) {
+        foreach ($data as $d) {
             $totalTiket += $d->jumlahTiket;
         }
-        return Inertia::render('Admin/UnifyAll', ['data' => $data, 'totalTiket' => $totalTiket]);
+        return Inertia::render('Admin/UnifyList', ['title' => 'List semua tiket', 'keterangan' => 'Semua', 'data' => $data, 'totalTiket' => $totalTiket]);
     }
 
     public function showUnchecked()
@@ -58,7 +55,39 @@ class UnifyController extends Controller
         foreach ($data as $d) {
             $totalUnchecked += $d->jumlahTiket;
         }
-        return Inertia::render('Admin/UnifyAll', ['data' => $data, 'totalUnchecked' => $totalUnchecked]);
+        return Inertia::render('Admin/UnifyList', ['title' => 'List yang belom dicek', 'keterangan' => 'belom dicek', 'data' => $data, 'totalTiket' => $totalUnchecked]);
+    }
+    public function showChecked()
+    {
+        $data = Unify::where('status', 'checked')->get();
+        $totalUnchecked = 0;
+
+        foreach ($data as $d) {
+            $totalUnchecked += $d->jumlahTiket;
+        }
+        return Inertia::render('Admin/UnifyList', ['title' => 'List yang sudah dicek', 'keterangan' => 'sudah dicek', 'data' => $data, 'totalTiket' => $totalUnchecked]);
+    }
+
+    public function showBelomDiambil()
+    {
+        $data = Unify::where('udahDiambil', 'unchecked')->get();
+        $totalUnchecked = 0;
+
+        foreach ($data as $d) {
+            $totalUnchecked += $d->jumlahTiket;
+        }
+        return Inertia::render('Admin/UnifyList', ['title' => 'List yang belom ambil', 'keterangan' => 'belom diambil', 'data' => $data, 'totalTiket' => $totalUnchecked]);
+    }
+
+    public function showSudahDiambil()
+    {
+        $data = Unify::where('udahDiambil', 'checked')->get();
+        $totalUnchecked = 0;
+
+        foreach ($data as $d) {
+            $totalUnchecked += $d->jumlahTiket;
+        }
+        return Inertia::render('Admin/UnifyList', ['title' => 'List yang sudah ambil', 'keterangan' => 'sudah diambil', 'data' => $data, 'totalTiket' => $totalUnchecked]);
     }
 
     public function details($id)
@@ -68,11 +97,7 @@ class UnifyController extends Controller
             abort(404, 'Data not found');
         }
 
-        if ($data->isInternal === 'true') {
-            return Inertia::render('Admin/UnifyInternalDetails', ['data' => $data]);
-        } else {
-            return Inertia::render('Admin/UnifyExternalDetails', ['data' => $data]);
-        }
+        return Inertia::render('Admin/UnifyDetails', ['data' => $data]);
     }
 
     // public function register(Request $request)
@@ -193,8 +218,12 @@ class UnifyController extends Controller
             $rules['angkatan'] = 'required|string|max:255';
         }
 
+
         // Validate the request
         $validatedData = $request->validate($rules);
+
+        // Kode ref is null set to -
+        if ($validatedData['kodeRef'] === null) $validatedData['kodeRef'] = '-';
 
         // Handle file upload
         if ($request->hasFile('buktiTf')) {
@@ -234,6 +263,7 @@ class UnifyController extends Controller
             return back()->with('error', 'Order not found.');
         }
     }
+
     public function unchecked($id)
     {
         $order = Unify::find($id);
