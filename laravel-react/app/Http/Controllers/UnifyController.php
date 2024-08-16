@@ -110,7 +110,7 @@ class UnifyController extends Controller
     //     // Set validation rules based on form type
     //     $rules = [
     //         'nama' => 'required|string|max:255',
-    //         'noHp' => 'required|string|max:12',
+    //         'noHp' => 'required|string|max:13',
     //         'email' => 'required|email|max:255',
     //         'jumlahTiket' => 'required|integer|min:1',
     //         'status' => 'string',
@@ -203,7 +203,7 @@ class UnifyController extends Controller
         // Set validation rules based on form type
         $rules = [
             'nama' => 'required|string|max:255',
-            'noHp' => 'required|string|max:12',
+            'noHp' => 'required|string|max:13',
             'email' => 'required|email|max:255',
             'jumlahTiket' => 'required|integer|min:1',
             'status' => 'string',
