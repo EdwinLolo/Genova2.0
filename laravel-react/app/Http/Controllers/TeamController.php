@@ -64,6 +64,7 @@ class TeamController extends Controller
 
     public function regist(Request $request)
     {
+        // dd($request);
         // Validate incoming request data
         $request->validate([
             'lombaId' => 'required|exists:lombas,id_lomba',
@@ -77,8 +78,6 @@ class TeamController extends Controller
             'members.*.ktm' => 'file|mimes:jpg,jpeg,png|max:2048|nullable',
             'members.*.asalKampus' => 'string|max:255|nullable',
         ]);
-
-
 
         try {
             // Start transaction
@@ -108,8 +107,8 @@ class TeamController extends Controller
                 }
                 $namaLengkap = $members[$i]['namaLengkap'];
                 $nim = $members[$i]['nim'];
-                $idLine = $members[$i]['idLine'];
-                $asalKampus = $members[$i]['asalKampus'];
+                $idLine = $members[$i]['idLine'] ?? '-';
+                $asalKampus = $members[$i]['asalKampus'] ?? '';
 
                 // If lomba is internal use UMN as default value
                 if ($isInternal === "true" || $asalKampus === "") {
@@ -117,8 +116,12 @@ class TeamController extends Controller
                 }
 
                 // Handle file upload ('ktm')
-                $file = $request->file('members')[$i]['ktm'];
-                $ktmPath = $file->store('ktm', 'public'); // Store the uploaded file
+                $file = $request->file('members')[$i]['ktm'] ?? null;
+                if ($file) {
+                    $ktmPath = $file->store('ktm', 'public');
+                } else {
+                    $ktmPath = '-';
+                }
 
                 // Example: Create new Member record in database
                 $mahasiswa = Mahasiswa::create([
@@ -129,6 +132,12 @@ class TeamController extends Controller
                     'asalKampus' => $asalKampus,
                     'ktm' => $ktmPath, // Save the path to the file in database
                 ]);
+
+                if ($lombaId == 3) { // Assuming 3 is the ID for Voli Putra
+                    $mahasiswa->nim = $mahasiswa->id;
+                    $mahasiswa->save();
+                }
+
 
                 // Create connection between Mahasiswa and Team
                 MengikutiTeam::create([
@@ -146,7 +155,6 @@ class TeamController extends Controller
             return back()->with('success', 'Team input data processed successfully');
         } catch (QueryException $e) {
             // Rollback transaction on error
-            // dd($e);
             DB::rollback();
             // Handle specific SQL errors (e.g., unique constraint violation)
             $errorCode = $e->errorInfo[1];
@@ -161,6 +169,7 @@ class TeamController extends Controller
         } catch (\Exception $e) {
             // Rollback transaction on general error
             DB::rollback();
+            dd($e);
 
             // Log the exception or handle it appropriately
             return back()->withErrors(['error' => 'Failed to process team input data.']);

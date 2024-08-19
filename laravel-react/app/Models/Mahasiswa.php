@@ -9,15 +9,21 @@ class Mahasiswa extends Model
 {
     use HasFactory;
 
+    protected $table = 'mahasiswas';
+
+    // The primary key is now 'id'
+    protected $primaryKey = 'id';
+
+    // Ensure the primary key is auto-incrementing
+    public $incrementing = true;
+
+    // Define the fillable fields
     protected $fillable = [
-        "nim",
-        "namaLengkap",
-        "idUser",
-        "idLine",
-        "ktm",
-        "asalKampus"
+        'nim',
+        'namaLengkap',
+        'idUser',
+        'idLine',
+        'ktm',
+        'asalKampus',
     ];
-    protected $primaryKey = 'nim';
-    public $incrementing = false;
-    protected $keyType = 'string';
 }
