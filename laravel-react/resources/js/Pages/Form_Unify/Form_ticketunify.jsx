@@ -5,7 +5,7 @@ import Navbar from "../../Components/Navbar/Navbar";
 import "./FormUnifyStyle.css";
 import "../../Components/Font.css";
 import LogoUnify from "../../Assets/Rangkaian/LogoMap/Unify_2.png";
-import PosterUnify from "../../Assets/Rangkaian/Unify/Poster.webp";
+import PosterUnify from "../../Assets/Rangkaian/Unify/PosterNoSKKM.webp";
 import Footers from "../../Components/Footer/Footer";
 
 function Form_ticketunify() {
