@@ -75,7 +75,7 @@ function Ucarestep1() {
                     Handbook Donation
                 </a>
                 <a
-                    href="https://drive.google.com/drive/folders/1lnwbEgj9JC-ZNUO4_hZiPutOS21rs4zF?usp=drive_link"
+                    href="https://drive.google.com/file/d/14al1Pik8NtnD90ac6OvvsE_Y3g6r4hAV/view?usp=sharing "
                     target="_blank"
                     style={{
                         fontFamily: "SanFran-Regular, sans-serif",

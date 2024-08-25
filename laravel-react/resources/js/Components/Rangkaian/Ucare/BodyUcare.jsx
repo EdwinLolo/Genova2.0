@@ -61,7 +61,7 @@ function BodyUcare() {
                                 className="z-[99]"
                             >
                                 <button type="button" className="btn1 z-[99]">
-                                    Buy Ticket
+                                    Join Volunteer
                                 </button>
                             </a>
                         </div>
@@ -104,7 +104,7 @@ function BodyUcare() {
                             className="z-[99]"
                         >
                             <button type="button" className="btn1 z-[99]">
-                                Buy Ticket
+                                Join Volunteer
                             </button>
                         </a>
                     </div>
