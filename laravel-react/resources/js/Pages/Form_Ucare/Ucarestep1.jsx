@@ -1,12 +1,23 @@
 import React from "react";
 
+import "../../Components/Font.css";
+
 function Ucarestep1() {
     return (
         // <div className="flex items-center justify-center w-full min-h-screen bungkus bg-[#F0F8FF]">
         <div className="flex flex-col items-center justify-center w-full max-w-3xl p-6 bg-white shadow-lg rounded-xl ">
-            <h1 className="my-3 text-3xl font-bold">About U-CARE</h1>
+            <h1
+                className="my-3 text-3xl font-bold"
+                style={{ fontFamily: "Akbaal, sans-serif" }}
+            >
+                About U-CARE
+            </h1>
             <div className="flex-col w-full p-3 mb-3 rounded-md shadow-md bg-blue-50">
-                <p>
+                <p
+                    style={{
+                        fontFamily: "SanFran-Regular, sans-serif",
+                    }}
+                >
                     U-CARE merupakan kegiatan yang akan mempersatukan Legions
                     untuk berkolaborasi serta menginspirasi satu sama lain
                     dengan saling melengkapi dan membangun rasa peduli terhadap
@@ -19,7 +30,12 @@ function Ucarestep1() {
                     langsung bersama para kakek dan nenek yang berada di rumah
                     pemulihan.
                 </p>
-                <div className="mt-3">
+                <div
+                    className="mt-3"
+                    style={{
+                        fontFamily: "SanFran-Regular, sans-serif",
+                    }}
+                >
                     <p>
                         <span className="text-lg font-semibold">
                             Tempat Acara:{" "}
@@ -49,14 +65,22 @@ function Ucarestep1() {
             </div>
             <div className="flex justify-center gap-8 align-middle">
                 <a
-                    href="#"
-                    className="p-2 text-center text-white bg-blue-600 rounded-md"
+                    href="https://drive.google.com/file/d/1J7ekibYo4-klQELb6YxoTy4iNF_gBcSF/view?usp=sharing "
+                    target="_blank"
+                    style={{
+                        fontFamily: "SanFran-Regular, sans-serif",
+                    }}
+                    className="p-2 text-center text-white bg-blue-600 rounded-md hover:bg-blue-100 hover:text-black focus:outline-none hover:ring focus:ring-red-500"
                 >
                     Handbook Donation
                 </a>
                 <a
-                    href="#"
-                    className="p-2 text-center text-white bg-blue-600 rounded-md"
+                    href="https://drive.google.com/drive/folders/1lnwbEgj9JC-ZNUO4_hZiPutOS21rs4zF?usp=drive_link"
+                    target="_blank"
+                    style={{
+                        fontFamily: "SanFran-Regular, sans-serif",
+                    }}
+                    className="p-2 text-center text-white bg-blue-600 rounded-md hover:bg-blue-100 hover:text-black focus:outline-none hover:ring focus:ring-red-500"
                 >
                     Handbook Voluntrip
                 </a>

@@ -2,9 +2,19 @@ import React from "react";
 
 function ucarestep3({ formData, handleChange }) {
     return (
-        <div className="flex flex-col items-center justify-center w-full p-6 bg-white shadow-lg w-3xl rounded-xl">
-            <h1 className="my-3 text-3xl font-bold">Syarat & Ketentuan</h1>
-            <div className="flex-col w-full p-3 mb-3 rounded-md shadow-md bg-blue-50">
+        <div className="flex flex-col items-center justify-center w-[310px] min-[330px]:w-full p-6 bg-white shadow-lg w-2xl rounded-xl">
+            <h1
+                className="my-3 text-3xl font-bold text-center"
+                style={{ fontFamily: "Akbaal, sans-serif" }}
+            >
+                Syarat & Ketentuan
+            </h1>
+            <div
+                className="flex-col w-full p-3 mb-3 rounded-md shadow-md bg-blue-50"
+                style={{
+                    fontFamily: "SanFran-Regular, sans-serif",
+                }}
+            >
                 <h3>Syarat dan Ketentuan Volunteer UCARE:</h3>
 
                 <p>
@@ -21,13 +31,18 @@ function ucarestep3({ formData, handleChange }) {
                     ramah
                 </p>
             </div>
-            <div className="flex-col w-full p-3 mb-3 rounded-md shadow-md bg-blue-50">
+            <div
+                className="flex-col w-full p-3 mb-3 rounded-md shadow-md bg-blue-50"
+                style={{
+                    fontFamily: "SanFran-Regular, sans-serif",
+                }}
+            >
                 <h2>Kerjakan Essay Dibawah</h2>
-                <div className="flex justify-center">
+                <div className="flex justify-center my-3">
                     <strong>
                         <a
                             href="https://docs.google.com/document/d/1BjVRKywIYchnzO5TE6xnCd1H83hgxdeJ-AHX15ShfSk/edit?usp=sharing"
-                            className="text-sky-900 text-center"
+                            className="p-2 text-center text-white bg-red-400 rounded-md hover:bg-blue-200"
                             target="_blank"
                         >
                             Soal Essay

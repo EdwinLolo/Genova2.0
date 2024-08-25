@@ -3,7 +3,12 @@ import React from "react";
 function ucarestep2({ formData, handleChange }) {
     return (
         <div className="flex flex-col items-center justify-center p-6 bg-white shadow-lg w-[310px] sm:w-[600px] rounded-xl">
-            <h1 className="mb-3 text-3xl font-bold">Data Diri</h1>
+            <h1
+                className="mb-3 text-3xl font-bold"
+                style={{ fontFamily: "Akbaal, sans-serif" }}
+            >
+                Data Diri
+            </h1>
             <div className="flex-col w-full p-3 mb-3 rounded-md shadow-md bg-blue-50">
                 <div className="mb-5">
                     <label
