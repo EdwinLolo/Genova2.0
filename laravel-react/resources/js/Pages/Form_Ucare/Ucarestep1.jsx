@@ -65,7 +65,7 @@ function Ucarestep1() {
             </div>
             <div className="flex justify-center gap-8 align-middle">
                 <a
-                    href="https://drive.google.com/file/d/1J7ekibYo4-klQELb6YxoTy4iNF_gBcSF/view?usp=sharing "
+                    href="https://drive.google.com/file/d/1dsJhwEGupBNEmr27M9-ZBmn321J4KNyR/view?usp=sharing "
                     target="_blank"
                     style={{
                         fontFamily: "SanFran-Regular, sans-serif",
@@ -75,7 +75,7 @@ function Ucarestep1() {
                     Handbook Donation
                 </a>
                 <a
-                    href="https://drive.google.com/file/d/14al1Pik8NtnD90ac6OvvsE_Y3g6r4hAV/view?usp=sharing "
+                    href="https://drive.google.com/file/d/1lXViu2ei529wSl7LtpgmVIpqwnoSOeK6/view?usp=sharing  "
                     target="_blank"
                     style={{
                         fontFamily: "SanFran-Regular, sans-serif",
