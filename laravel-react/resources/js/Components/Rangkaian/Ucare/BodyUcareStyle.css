@@ -11,14 +11,14 @@
 
 .info {
     position: absolute;
-    top: 57%; 
-    left: 50%; 
-    transform: translate(-50%, -50%); 
+    top: 57%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 100%;
-    max-width: 80%; 
+    max-width: 80%;
     color: rgb(60, 59, 96);
     text-align: justify;
-    padding: 0 3rem; 
+    padding: 0 3rem;
 }
 
 .Judul {
@@ -28,7 +28,7 @@
     margin-bottom: 3rem;
 }
 
-.Text{
+.Text {
     border-bottom: 1px solid rgb(60, 59, 96);
     padding-bottom: 1.5rem;
 }
@@ -47,20 +47,20 @@
 
 .infoPC {
     position: absolute;
-    top: 42%; 
-    left: 72%; 
-    transform: translate(-50%, -50%); 
+    top: 42%;
+    left: 72%;
+    transform: translate(-50%, -50%);
     width: 100%;
-    max-width: 45%; 
+    max-width: 45%;
     color: rgb(60, 59, 96);
     text-align: justify;
-    padding: 0 3rem; 
+    padding: 0 3rem;
     font-size: 1.6rem;
 }
 
 .JudulPC {
     text-align: center;
-    border-bottom: 1px solid rgb(60, 59, 96);;
+    border-bottom: 1px solid rgb(60, 59, 96);
     margin: 0 auto;
     margin-bottom: 4rem;
     font-size: 5.5rem;
@@ -72,7 +72,7 @@
         top: 66%;
         font-size: 14px;
         max-width: 85%;
-        padding: 0 1.5rem; 
+        padding: 0 1.5rem;
     }
     .Judul {
         font-size: 2.3rem;
@@ -85,7 +85,7 @@
     .info {
         top: 66%;
         font-size: 16px;
-        padding: 0 1.5rem; 
+        padding: 0 1.5rem;
     }
     .Judul {
         font-size: 2.5rem;
@@ -119,8 +119,8 @@
     .info {
         font-size: 33px;
         top: 63%;
-        max-width: 85%; 
-        padding: 0 4.3rem; 
+        max-width: 85%;
+        padding: 0 4.3rem;
     }
     .Judul {
         font-size: 5.7rem;
@@ -132,8 +132,8 @@
     .info {
         font-size: 40px;
         top: 65%;
-        max-width: 75%; 
-        padding: 0 4.3rem; 
+        max-width: 75%;
+        padding: 0 4.3rem;
     }
     .Judul {
         font-size: 6rem;
@@ -145,11 +145,57 @@
     .infoPC {
         font-size: 1rem;
         top: 45%;
-        max-width: 45%; 
+        max-width: 45%;
     }
     .JudulPC {
         font-size: 3rem;
         width: 15rem;
         margin-bottom: 2rem;
     }
+}
+
+/* button */
+.btn1 {
+    width: 200px;
+    height: 50px;
+    padding: 1.1em 1.1 em;
+    background: none;
+    border: 2px solid #fff;
+    font-size: 25px;
+    color: #131313;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+    border-radius: 30px;
+    background-color: #ecd448;
+    font-weight: bolder;
+    box-shadow: 0 2px 0 2px #000;
+    margin-top: 20px;
+}
+
+.btn1:before {
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 120%;
+    background-color: #ff6700;
+    top: 50%;
+    transform: skewX(30deg) translate(-150%, -50%);
+    transition: all 0.5s;
+}
+
+.btn1:hover {
+    background-color: #4cc9f0;
+    color: #fff;
+    box-shadow: 0 2px 0 2px #0d3b66;
+}
+
+.btn1:hover::before {
+    transform: skewX(30deg) translate(150%, -50%);
+    transition-delay: 0.1s;
+}
+
+.btn1:active {
+    transform: scale(0.9);
 }

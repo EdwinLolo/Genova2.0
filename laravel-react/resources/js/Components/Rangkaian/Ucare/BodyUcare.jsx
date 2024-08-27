@@ -54,6 +54,17 @@ function BodyUcare() {
                             we join forces to make a positive impact and spread
                             goodwill!"
                         </p>
+                        <div className="flex justify-center w-full">
+                            <a
+                                href="/rangkaian/ucare/volunteer"
+                                target="_blank"
+                                className="z-[99]"
+                            >
+                                <button type="button" className="btn1 z-[99]">
+                                    Join Volunteer
+                                </button>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -86,6 +97,17 @@ function BodyUcare() {
                         join forces to make a positive impact and spread
                         goodwill!"
                     </p>
+                    <div className="flex justify-center w-full">
+                        <a
+                            href="/rangkaian/ucare/volunteer"
+                            target="_blank"
+                            className="z-[99]"
+                        >
+                            <button type="button" className="btn1 z-[99]">
+                                Join Volunteer
+                            </button>
+                        </a>
+                    </div>
                 </div>
             </div>
         );

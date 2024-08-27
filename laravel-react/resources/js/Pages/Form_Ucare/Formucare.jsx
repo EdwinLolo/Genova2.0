@@ -157,12 +157,17 @@ function Formucare() {
                         />
                     )}
 
-                    <div className="flex justify-between w-full mt-2">
+                    <div
+                        className="flex justify-between w-full mt-2"
+                        style={{
+                            fontFamily: "SanFran-Regular, sans-serif",
+                        }}
+                    >
                         {currentStep > 1 && (
                             <button
                                 type="button"
                                 onClick={handlePrevious}
-                                className="px-4 py-2 text-white bg-blue-500 rounded-md"
+                                className="px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-100 hover:text-black focus:outline-none hover:ring focus:ring-red-500"
                             >
                                 Previous
                             </button>
@@ -172,7 +177,7 @@ function Formucare() {
                             <button
                                 type="button"
                                 onClick={handleNext}
-                                className="px-4 py-2 text-white bg-blue-500 rounded-md"
+                                className="px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-100 hover:text-black focus:outline-none hover:ring focus:ring-red-500"
                             >
                                 Next
                             </button>
@@ -180,7 +185,7 @@ function Formucare() {
                         {currentStep === 3 && (
                             <button
                                 type="submit"
-                                className="px-4 py-2 text-white bg-blue-500 rounded-md"
+                                className="px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-100 hover:text-black focus:outline-none hover:ring focus:ring-red-500"
                             >
                                 Submit
                             </button>
