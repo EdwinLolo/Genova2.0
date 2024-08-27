@@ -34,7 +34,7 @@ class UcareController extends Controller
             "asalKampus" => "string|required",
         ]);
 
-        if ($validated['asalKampus'] == "-" || $validated['nim'] == "-" || $validated['angkatan'] == "-" || $validated['jurusasn'] == "-") {
+        if ($validated['asalKampus'] == "-" || $validated['nim'] == "-" || $validated['angkatan'] == "-" || $validated['jurusan'] == "-") {
             $validated['isInternal'] = 'false';
         } else {
             $validated['isInternal'] = 'true';
