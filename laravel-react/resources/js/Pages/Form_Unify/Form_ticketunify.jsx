@@ -295,7 +295,7 @@ function Form_ticketunify() {
                                             fontFamily: "Akbaal, sans-serif",
                                         }}
                                     >
-                                        External
+                                        External UMN
                                     </button>
                                     <button
                                         className={`px-6 py-3 font-semibold border-2 rounded-lg ${
@@ -308,7 +308,7 @@ function Form_ticketunify() {
                                             fontFamily: "Akbaal, sans-serif",
                                         }}
                                     >
-                                        Internal
+                                        Internal UMN
                                     </button>
                                 </div>
                                 {selectedForm && (
