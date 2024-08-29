@@ -65,7 +65,7 @@ function Ucarestep1() {
             <div className="flex flex-col justify-center gap-3 align-middle">
                 <div className="flex gap-3">
                     <a
-                        href="https://docs.google.com/document/d/11EVObHPbc5atNeTAByBcTM3ei3_P_4ovlROYutQ9Hwk/edit"
+                        href="https://drive.google.com/file/d/1dsJhwEGupBNEmr27M9-ZBmn321J4KNyR/view?usp=sharing"
                         target="_blank"
                         style={{
                             fontFamily: "SanFran-Regular, sans-serif",
@@ -75,7 +75,7 @@ function Ucarestep1() {
                         Handbook Donation
                     </a>
                     <a
-                        href="https://drive.google.com/file/d/15r2YkCopXzXiFfS36CRqDTVX5iXxkXp9/view"
+                        href="https://docs.google.com/document/d/11EVObHPbc5atNeTAByBcTM3ei3_P_4ovlROYutQ9Hwk/edit"
                         target="_blank"
                         style={{
                             fontFamily: "SanFran-Regular, sans-serif",
@@ -88,7 +88,7 @@ function Ucarestep1() {
 
                 <div className="flex gap-3">
                     <a
-                        href="https://docs.google.com/document/d/184VyVlbpvmRmg1-tceU8XfdCFDU-RR3DNc_QvqMtx0o/edit"
+                        href="https://drive.google.com/file/d/1lXViu2ei529wSl7LtpgmVIpqwnoSOeK6/view?usp=sharing"
                         target="_blank"
                         style={{
                             fontFamily: "SanFran-Regular, sans-serif",
@@ -98,7 +98,7 @@ function Ucarestep1() {
                         Handbook Voluntrip
                     </a>
                     <a
-                        href="https://drive.google.com/file/d/1u6xQbOKzOV9X2OnsnnX3-0kDN11qCkmd"
+                        href="https://docs.google.com/document/d/184VyVlbpvmRmg1-tceU8XfdCFDU-RR3DNc_QvqMtx0o/edit"
                         target="_blank"
                         style={{
                             fontFamily: "SanFran-Regular, sans-serif",
