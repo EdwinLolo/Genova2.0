@@ -1,6 +1,6 @@
 .bungkusformunifyDekstop {
     background-image: url(../../Assets/Rangkaian/Unify/UnifyBGDekstop.webp);
-    background-size: 100vw auto;
+    background-size: 100vw 100vh;
     background-repeat: no-repeat;
     background-attachment: fixed;
     /* background-position: center; */
