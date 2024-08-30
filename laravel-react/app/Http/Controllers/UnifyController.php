@@ -6,6 +6,7 @@ use App\Models\Unify;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Session;
+use GuzzleHttp\Client;
 
 class UnifyController extends Controller
 {
@@ -185,72 +186,88 @@ class UnifyController extends Controller
     //     }
     // }
 
-    // public function register(Request $request)
-    // {
-    //     $hargaTiket = 75000;
+    public function register(Request $request)
+    {
+        // Validate the reCAPTCHA token
+        $recaptchaResponse = $request->input('recaptchaValue');
+
+        $client = new Client();
+        $response = $client->post('https://www.google.com/recaptcha/api/siteverify', [
+            'form_params' => [
+                'secret' => env('RECAPTCHA_SECRET_KEY'),
+                'response' => $recaptchaResponse,
+            ],
+        ]);
+
+        $responseBody = json_decode((string)$response->getBody());
+
+        if (!$responseBody->success) {
+            return response()->json(['error' => 'reCAPTCHA verification failed'], 422);
+        }
+
+        $hargaTiket = 75000;
+
+        $request->request->add([
+            'total_price' => $request->jumlahTiket * $hargaTiket,
+            'status' => 'unchecked',
+            'udahDiambil' => 'unchecked',
+            'isInternal' => 'true'
+        ]);
+
+        // Determine if the form type is "external" or "internal"
+        $formType = $request->input('formType');
+
+        // Set validation rules based on form type
+        $rules = [
+            'nama' => 'required|string|max:255',
+            'noHp' => 'required|string|max:13',
+            'email' => 'required|email|max:255',
+            'jumlahTiket' => 'required|integer|min:1',
+            'status' => 'string',
+            'total_price' => 'integer',
+            'isInternal' => 'string',
+            'kodeRef' => 'string|nullable|in:RMK24,TCK24,TCA24,NPK24,NPA24,PSK24,PSA24,LZK24,LZA24,CTK24,CTA24,LCK24,LCA24,VNK24,VNA24,AEK24,AEA24,GVK24,GVA24,MLK24,MLA24,TRK24,TRA24,VZK24,VZA24,FEK24,FEA24,-',
+            'buktiTf' => 'required|file|mimes:png,jpeg,jpg',
+        ];
+
+        if ($formType === 'internal') {
+            $rules['jurusan'] = 'required|string|max:255';
+            $rules['angkatan'] = 'required|string|max:255';
+        }
 
 
-    //     $request->request->add([
-    //         'total_price' => $request->jumlahTiket * $hargaTiket,
-    //         'status' => 'unchecked',
-    //         'udahDiambil' => 'unchecked',
-    //         'isInternal' => 'true'
-    //     ]);
+        // Validate the request
+        $validatedData = $request->validate($rules);
 
-    //     // Determine if the form type is "external" or "internal"
-    //     $formType = $request->input('formType');
+        // Kode ref is null set to -
+        if ($validatedData['kodeRef'] === null) $validatedData['kodeRef'] = '-';
 
-    //     // Set validation rules based on form type
-    //     $rules = [
-    //         'nama' => 'required|string|max:255',
-    //         'noHp' => 'required|string|max:13',
-    //         'email' => 'required|email|max:255',
-    //         'jumlahTiket' => 'required|integer|min:1',
-    //         'status' => 'string',
-    //         'total_price' => 'integer',
-    //         'isInternal' => 'string',
-    //         'kodeRef' => 'string|nullable|in:RMK24,TCK24,TCA24,NPK24,NPA24,PSK24,PSA24,LZK24,LZA24,CTK24,CTA24,LCK24,LCA24,VNK24,VNA24,AEK24,AEA24,GVK24,GVA24,MLK24,MLA24,TRK24,TRA24,VZK24,VZA24,FEK24,FEA24,-',
-    //         'buktiTf' => 'required|file|mimes:png,jpeg,jpg',
-    //     ];
+        // Handle file upload
+        if ($request->hasFile('buktiTf')) {
+            $file = $request->file('buktiTf');
+            $path = $file->store('unifyBuktiTf', 'public'); // Store file in 'storage/app/public/unifyBuktiTf'
+            $validatedData['buktiTf'] = $path;
+        }
 
-    //     if ($formType === 'internal') {
-    //         $rules['jurusan'] = 'required|string|max:255';
-    //         $rules['angkatan'] = 'required|string|max:255';
-    //     }
+        // Set isInternal flag based on form type
+        if ($formType === 'internal') {
+            $validatedData['isInternal'] = 'true';
+        } else if ($formType === 'external') {
+            $validatedData['isInternal'] = 'false';
+        } else {
+            return response()->json(['error' => 'Invalid form type'], 400);
+        }
 
+        // Store data in the appropriate model
+        $order = Unify::create($validatedData);
 
-    //     // Validate the request
-    //     $validatedData = $request->validate($rules);
-
-    //     // Kode ref is null set to -
-    //     if ($validatedData['kodeRef'] === null) $validatedData['kodeRef'] = '-';
-
-    //     // Handle file upload
-    //     if ($request->hasFile('buktiTf')) {
-    //         $file = $request->file('buktiTf');
-    //         $path = $file->store('unifyBuktiTf', 'public'); // Store file in 'storage/app/public/unifyBuktiTf'
-    //         $validatedData['buktiTf'] = $path;
-    //     }
-
-    //     // Set isInternal flag based on form type
-    //     if ($formType === 'internal') {
-    //         $validatedData['isInternal'] = 'true';
-    //     } else if ($formType === 'external') {
-    //         $validatedData['isInternal'] = 'false';
-    //     } else {
-    //         return response()->json(['error' => 'Invalid form type'], 400);
-    //     }
-
-    //     // Store data in the appropriate model
-    //     $order = Unify::create($validatedData);
-
-    //     if ($order) {
-    //         Session::put('orderId', $order->id);
-    //         return response()->json(['success' => true, 'order' => $order], 201);
-    //     } else {
-    //         return response()->json(['error' => 'Failed to create order'], 500);
-    //     }
-    // }
+        if ($order) {
+            Session::put('orderId', $order->id);
+            return response()->json(['success' => true, 'order' => $order], 201);
+        } else {
+            return response()->json(['error' => 'Failed to create order'], 500);
+        }
+    }
 
     public function checked($id)
     {

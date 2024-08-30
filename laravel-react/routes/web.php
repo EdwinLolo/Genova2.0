@@ -91,9 +91,9 @@ Route::prefix('/rangkaian/ulympic')->group(function () {
     Route::get('/futsal', [UlympicController::class, 'futsal']);
 });
 
-
 Route::get('/rangkaian/unify/buyticket', function () {
-    return Inertia::render('Form_Unify/Form_ticketunify');
+    $captcha = env('RECAPTCHA_SITE_KEY');
+    return Inertia::render('Form_Unify/Form_ticketunify', ['captcha' => $captcha]);
 });
 
 Route::get('/rangkaian/ucare/volunteer', function () {
