@@ -284,7 +284,7 @@ function Form_ticketunify() {
                                     Ticket Purchase
                                 </h1>
                                 <div className="flex flex-col gap-2 sm:gap-0 lg:gap-2 xl:gap-0 sm:flex-row lg:flex-col xl:flex-row items-center justify-between mt-3 text-[#0E4675]">
-                                    <button
+                                    {/* <button
                                         className={`px-6 py-3 sm:mr-2 lg:mr-0 xl:mr-2 font-semibold rounded-lg border-2 ${
                                             selectedForm === "external"
                                                 ? "bg-orange-100 border-red-500 text-black border-4"
@@ -309,7 +309,7 @@ function Form_ticketunify() {
                                         }}
                                     >
                                         Internal UMN
-                                    </button>
+                                    </button> */}
                                 </div>
                                 {selectedForm && (
                                     <div className="w-full">
