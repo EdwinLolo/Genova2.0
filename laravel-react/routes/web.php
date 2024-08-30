@@ -94,7 +94,7 @@ Route::prefix('/rangkaian/ulympic')->group(function () {
 Route::get('/rangkaian/unify/buyticket', function () {
     $captcha = env('RECAPTCHA_SITE_KEY');
     return Inertia::render('Form_Unify/Form_ticketunify', ['captcha' => $captcha]);
-});
+})->middleware('throttle:5,5');
 
 Route::get('/rangkaian/ucare/volunteer', function () {
     return Inertia::render('Form_Ucare/Formucare');
