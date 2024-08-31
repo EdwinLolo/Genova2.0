@@ -568,7 +568,7 @@ function Form_ticketunify({ captcha }) {
                                                         </div>
                                                     )}
                                                 </div>
-                                                <div className="mb-5">
+                                                <div className="mb-5 captcha_unify">
                                                     <ReCAPTCHA
                                                         sitekey={captcha}
                                                         onChange={
