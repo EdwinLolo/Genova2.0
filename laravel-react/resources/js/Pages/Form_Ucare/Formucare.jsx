@@ -179,7 +179,7 @@ function Formucare() {
                                 onClick={handleNext}
                                 className="px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-100 hover:text-black focus:outline-none hover:ring focus:ring-red-500"
                             >
-                                Next
+                                Daftar volunteer
                             </button>
                         )}
                         {currentStep === 3 && (

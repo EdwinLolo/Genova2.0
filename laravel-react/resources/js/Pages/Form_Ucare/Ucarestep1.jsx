@@ -62,38 +62,42 @@ function Ucarestep1() {
                     <p>&emsp;Eksternal: Rp 105.000</p>
                 </div>
             </div>
-            <div className="flex flex-col justify-center gap-3 align-middle">
-                <div className="flex gap-3">
+            <div className="flex flex-col justify-center w-full gap-3 align-middle sm:flex-row">
+                {/* <div className="flex flex-col w-full gap-3 md:flex-row"> */}
+                <div className="flex items-center justify-center text-center">
                     <a
-                        href="https://drive.google.com/file/d/1dsJhwEGupBNEmr27M9-ZBmn321J4KNyR/view?usp=sharing"
+                        href="https://linktr.ee/webufest"
                         target="_blank"
                         style={{
                             fontFamily: "SanFran-Regular, sans-serif",
                         }}
-                        className="w-[120px] min-[375px]:w-[150px] sm:w-[220px] lg:w-[300px] sm:text-lg p-2 flex justify-center items-center text-center text-white bg-blue-600 rounded-md hover:bg-blue-100 hover:text-black focus:outline-none hover:ring focus:ring-red-500"
+                        className="w-[250px] min-[400px]:w-[300px] sm:text-lg p-2 text-white bg-blue-600 rounded-md hover:bg-blue-100 hover:text-black focus:outline-none hover:ring focus:ring-red-500"
                     >
-                        Handbook Donation
-                    </a>
-                    <a
-                        href="https://docs.google.com/document/d/11EVObHPbc5atNeTAByBcTM3ei3_P_4ovlROYutQ9Hwk/edit"
-                        target="_blank"
-                        style={{
-                            fontFamily: "SanFran-Regular, sans-serif",
-                        }}
-                        className="w-[120px] min-[375px]:w-[150px] sm:w-[220px] lg:w-[300px] sm:text-lg p-2 flex justify-center items-center text-center text-white bg-blue-600 rounded-md hover:bg-blue-100 hover:text-black focus:outline-none hover:ring focus:ring-red-500"
-                    >
-                        Twibbon Donation
+                        Handbook Voluntrip & Donasi
                     </a>
                 </div>
+                <div className="flex items-center justify-center text-center">
+                    <a
+                        href="https://docs.google.com/forms/d/e/1FAIpQLScpHSnYrBJrOH2gHhv-Hjt2i7fqahrHypSyNug0o_GyG7C9xA/viewform"
+                        target="_blank"
+                        style={{
+                            fontFamily: "SanFran-Regular, sans-serif",
+                        }}
+                        className="w-[250px] min-[400px]:w-[300px] sm:text-lg p-2 text-white bg-blue-600 rounded-md hover:bg-blue-100 hover:text-black focus:outline-none hover:ring focus:ring-red-500"
+                    >
+                        Social Campaign dan Donasi
+                    </a>
+                </div>
+                {/* </div> */}
 
-                <div className="flex gap-3">
+                {/* <div className="flex gap-3">
                     <a
                         href="https://drive.google.com/file/d/1lXViu2ei529wSl7LtpgmVIpqwnoSOeK6/view?usp=sharing"
                         target="_blank"
                         style={{
                             fontFamily: "SanFran-Regular, sans-serif",
                         }}
-                        className="p-2 w-[120px] min-[375px]:w-[150px] sm:w-[220px] lg:w-[300px] sm:text-lg text-center text-white bg-blue-600 rounded-md hover:bg-blue-100 hover:text-black focus:outline-none hover:ring focus:ring-red-500"
+                        className="p-2 w-[120px] lg:w-[300px] sm:text-lg text-center text-white bg-blue-600 rounded-md hover:bg-blue-100 hover:text-black focus:outline-none hover:ring focus:ring-red-500"
                     >
                         Handbook Voluntrip
                     </a>
@@ -103,11 +107,11 @@ function Ucarestep1() {
                         style={{
                             fontFamily: "SanFran-Regular, sans-serif",
                         }}
-                        className="w-[120px] min-[375px]:w-[150px] sm:w-[220px] lg:w-[300px] sm:text-lg p-2 flex justify-center items-center text-center text-white bg-blue-600 rounded-md hover:bg-blue-100 hover:text-black focus:outline-none hover:ring focus:ring-red-500"
+                        className="w-[250px] min-[400px]:w-[300px] sm:text-lg p-2 flex justify-center items-center text-center text-white bg-blue-600 rounded-md hover:bg-blue-100 hover:text-black focus:outline-none hover:ring focus:ring-red-500"
                     >
                         Twibbon Voluntrip
                     </a>
-                </div>
+                </div> */}
             </div>
         </div>
         // </div>
