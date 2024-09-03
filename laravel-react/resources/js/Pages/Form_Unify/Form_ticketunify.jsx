@@ -184,10 +184,10 @@ function Form_ticketunify({ captcha }) {
                         selectedForm
                             ? `lg:w-4/6 ${
                                   selectedForm === "external"
-                                      ? "lg:h-[2350px] xl:h-[1800px]"
-                                      : "lg:h-[2500px] xl:h-[2000px]"
+                                      ? "lg:h-[2350px] xl:h-[2000px] min-[1400px]:h-[1800px]"
+                                      : "lg:h-[2500px] xl:h-[2300px] min-[1400px]:h-[2300px]"
                               }`
-                            : "lg:h-[1400px] xl:h-[930px] lg:w-9/12"
+                            : "lg:h-[1400px] xl:h-[1130px] min-[1400px]:h-[930px] lg:w-9/12"
                     } rounded-xl  sm:flex kiri bgkiri1 bgkiri2 p-7 lg:mb-4`}
                 >
                     <div className="flex flex-col justify-center w-full h-full align-middle lg:w-1/2 kiri1">
@@ -286,7 +286,7 @@ function Form_ticketunify({ captcha }) {
                                 className={`flex flex-col items-center justify-center ${
                                     selectedForm
                                         ? "w-full"
-                                        : "w-2/3 border-cyan-500"
+                                        : "w-2/3 lg:w-[75%] min-[1400px]:w-2/3 border-cyan-500"
                                 } max-w-3xl p-3 bg-slate-100 shadow-lg rounded-xl border-2 `}
                             >
                                 <h1
