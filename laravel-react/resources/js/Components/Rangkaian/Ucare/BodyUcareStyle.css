@@ -163,7 +163,7 @@
     border: 2px solid #fff;
     font-size: 25px;
     color: #131313;
-    cursor: pointer;
+    /* cursor: pointer; */
     position: relative;
     overflow: hidden;
     transition: all 0.3s;
@@ -186,7 +186,7 @@
 }
 
 .btn1:hover {
-    background-color: #4cc9f0;
+    background-color: #f0674c;
     color: #fff;
     box-shadow: 0 2px 0 2px #0d3b66;
 }

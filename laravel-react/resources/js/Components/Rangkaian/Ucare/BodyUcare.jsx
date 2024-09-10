@@ -60,8 +60,12 @@ function BodyUcare() {
                                 target="_blank"
                                 className="z-[99]"
                             >
-                                <button type="button" className="btn1 z-[99]">
-                                    Join Volunteer
+                                <button
+                                    type="button"
+                                    className="btn1 z-[99]"
+                                    disabled
+                                >
+                                    Closed
                                 </button>
                             </a>
                         </div>
@@ -103,8 +107,12 @@ function BodyUcare() {
                             target="_blank"
                             className="z-[99]"
                         >
-                            <button type="button" className="btn1 z-[99]">
-                                Join Volunteer
+                            <button
+                                type="button"
+                                className="btn1 z-[99]"
+                                disabled
+                            >
+                                Closed
                             </button>
                         </a>
                     </div>

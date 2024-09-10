@@ -96,9 +96,9 @@ Route::get('/rangkaian/unify/buyticket', function () {
     return Inertia::render('Form_Unify/Form_ticketunify', ['captcha' => $captcha]);
 })->middleware('throttle:5,5'); // This example limits the form to 5 submissions per 5 minute per IP address.
 
-Route::get('/rangkaian/ucare/volunteer', function () {
-    return Inertia::render('Form_Ucare/Formucare');
-});
+// Route::get('/rangkaian/ucare/volunteer', function () {
+//     return Inertia::render('Form_Ucare/Formucare');
+// });
 
 Route::get('bph/gres/2024', function () {
     return Inertia::render('Gres');
