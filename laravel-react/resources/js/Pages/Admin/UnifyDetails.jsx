@@ -6,24 +6,71 @@ function UnifyDetails({ data }) {
     console.log(data);
 
     const handleInfo = (id) => {
-        // Inertia.visit for client-side navigation
-        Inertia.visit(`/admin/unify/detail/${id}`);
+        window.open(`/admin/unify/detail/${id}`, "_blank");
     };
 
-    const handleChecked = (id) => {
-        Inertia.visit(`/admin/unify/check/${id}`);
+    const handleChecked = async (id) => {
+        try {
+            await Inertia.visit(`/admin/unify/check/${id}`, {
+                method: "post",
+                preserveState: true,
+                preserveScroll: true,
+            });
+            setOrderStatus((prevStatus) => ({
+                ...prevStatus,
+                [id]: { ...prevStatus[id], checked: true },
+            }));
+        } catch (error) {
+            console.error("Error updating status:", error);
+        }
     };
 
-    const handleUnchecked = (id) => {
-        Inertia.visit(`/admin/unify/uncheck/${id}`);
+    const handleUnchecked = async (id) => {
+        try {
+            await Inertia.visit(`/admin/unify/uncheck/${id}`, {
+                method: "post",
+                preserveState: true,
+                preserveScroll: true,
+            });
+            setOrderStatus((prevStatus) => ({
+                ...prevStatus,
+                [id]: { ...prevStatus[id], checked: false },
+            }));
+        } catch (error) {
+            console.error("Error updating status:", error);
+        }
     };
 
-    const handleSudahDiambil = (id) => {
-        Inertia.visit(`/admin/unify/diambil/${id}`);
+    const handleSudahDiambil = async (id) => {
+        try {
+            await Inertia.visit(`/admin/unify/diambil/${id}`, {
+                method: "post",
+                preserveState: true,
+                preserveScroll: true,
+            });
+            setOrderStatus((prevStatus) => ({
+                ...prevStatus,
+                [id]: { ...prevStatus[id], taken: true },
+            }));
+        } catch (error) {
+            console.error("Error updating status:", error);
+        }
     };
 
-    const handleBelomDiambil = (id) => {
-        Inertia.visit(`/admin/unify/belomdiambil/${id}`);
+    const handleBelomDiambil = async (id) => {
+        try {
+            await Inertia.visit(`/admin/unify/belomdiambil/${id}`, {
+                method: "post",
+                preserveState: true,
+                preserveScroll: true,
+            });
+            setOrderStatus((prevStatus) => ({
+                ...prevStatus,
+                [id]: { ...prevStatus[id], taken: false },
+            }));
+        } catch (error) {
+            console.error("Error updating status:", error);
+        }
     };
 
     return (

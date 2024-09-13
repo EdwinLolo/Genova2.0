@@ -275,9 +275,9 @@ class UnifyController extends Controller
 
         if ($order) {
             $order->update(['status' => 'checked']);
-            return back()->with('success', 'Order status updated to checked.');
+            return redirect()->back()->with('success', 'Order status updated to checked.');
         } else {
-            return back()->with('error', 'Order not found.');
+            return redirect()->back()->with('error', 'Order not found.');
         }
     }
 
@@ -287,9 +287,9 @@ class UnifyController extends Controller
 
         if ($order) {
             $order->update(['status' => 'unchecked']);
-            return back()->with('success', 'Order status updated to checked.');
+            return redirect()->back()->with('success', 'Order status updated to unchecked.');
         } else {
-            return back()->with('error', 'Order not found.');
+            return redirect()->back()->with('error', 'Order not found.');
         }
     }
 
@@ -299,22 +299,25 @@ class UnifyController extends Controller
 
         if ($order) {
             $order->update(['udahDiambil' => 'checked']);
-            return back()->with('success', 'Order status updated to checked.');
+            return redirect()->back()->with('success', 'Order status updated to taken.');
         } else {
-            return back()->with('error', 'Order not found.');
+            return redirect()->back()->with('error', 'Order not found.');
         }
     }
+
     public function belomDiambil($id)
     {
         $order = Unify::find($id);
 
         if ($order) {
             $order->update(['udahDiambil' => 'unchecked']);
-            return back()->with('success', 'Order status updated to checked.');
+            return redirect()->back()->with('success', 'Order status updated to not taken.');
         } else {
-            return back()->with('error', 'Order not found.');
+            return redirect()->back()->with('error', 'Order not found.');
         }
     }
+
+
 
     public function invoice()
     {

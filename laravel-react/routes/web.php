@@ -62,10 +62,10 @@ Route::prefix('/admin')->middleware([AuthenticateAdmin::class])->group(function 
         Route::get('/belomdiambil', [UnifyController::class, 'showBelomDiambil']);
         Route::get('/sudahdiambil', [UnifyController::class, 'showSudahDiambil']);
         Route::get('/detail/{id}', [UnifyController::class, 'details']);
-        Route::get('/check/{id}', [UnifyController::class, 'checked']);
-        Route::get('/uncheck/{id}', [UnifyController::class, 'unchecked']);
-        Route::get('/diambil/{id}', [UnifyController::class, 'diambil']);
-        Route::get('/belomdiambil/{id}', [UnifyController::class, 'belomDiambil']);
+        Route::post('/check/{id}', [UnifyController::class, 'checked']);
+        Route::post('/uncheck/{id}', [UnifyController::class, 'unchecked']);
+        Route::post('/diambil/{id}', [UnifyController::class, 'diambil']);
+        Route::post('/belomdiambil/{id}', [UnifyController::class, 'belomDiambil']);
     });
 
     Route::get('/ucare', [UcareController::class, 'index']);

@@ -6,6 +6,15 @@ function UnifyList({ title, keterangan, data, totalTiket, totalUnchecked }) {
     const [searchQuery, setSearchQuery] = useState("");
     const [modalOpen, setModalOpen] = useState(false);
     const [currentImage, setCurrentImage] = useState("");
+    const [orderStatus, setOrderStatus] = useState(
+        data.reduce((acc, item) => {
+            acc[item.id] = {
+                checked: item.status === "checked",
+                taken: item.udahDiambil === "checked",
+            };
+            return acc;
+        }, {})
+    );
 
     const filteredData = data.filter((item) => {
         return (
@@ -16,23 +25,71 @@ function UnifyList({ title, keterangan, data, totalTiket, totalUnchecked }) {
     });
 
     const handleInfo = (id) => {
-        Inertia.visit(`/admin/unify/detail/${id}`);
+        window.open(`/admin/unify/detail/${id}`, "_blank");
     };
 
-    const handleChecked = (id) => {
-        Inertia.visit(`/admin/unify/check/${id}`);
+    const handleChecked = async (id) => {
+        try {
+            await Inertia.visit(`/admin/unify/check/${id}`, {
+                method: "post",
+                preserveState: true,
+                preserveScroll: true,
+            });
+            setOrderStatus((prevStatus) => ({
+                ...prevStatus,
+                [id]: { ...prevStatus[id], checked: true },
+            }));
+        } catch (error) {
+            console.error("Error updating status:", error);
+        }
     };
 
-    const handleUnchecked = (id) => {
-        Inertia.visit(`/admin/unify/uncheck/${id}`);
+    const handleUnchecked = async (id) => {
+        try {
+            await Inertia.visit(`/admin/unify/uncheck/${id}`, {
+                method: "post",
+                preserveState: true,
+                preserveScroll: true,
+            });
+            setOrderStatus((prevStatus) => ({
+                ...prevStatus,
+                [id]: { ...prevStatus[id], checked: false },
+            }));
+        } catch (error) {
+            console.error("Error updating status:", error);
+        }
     };
 
-    const handleSudahDiambil = (id) => {
-        Inertia.visit(`/admin/unify/diambil/${id}`);
+    const handleSudahDiambil = async (id) => {
+        try {
+            await Inertia.visit(`/admin/unify/diambil/${id}`, {
+                method: "post",
+                preserveState: true,
+                preserveScroll: true,
+            });
+            setOrderStatus((prevStatus) => ({
+                ...prevStatus,
+                [id]: { ...prevStatus[id], taken: true },
+            }));
+        } catch (error) {
+            console.error("Error updating status:", error);
+        }
     };
 
-    const handleBelomDiambil = (id) => {
-        Inertia.visit(`/admin/unify/belomdiambil/${id}`);
+    const handleBelomDiambil = async (id) => {
+        try {
+            await Inertia.visit(`/admin/unify/belomdiambil/${id}`, {
+                method: "post",
+                preserveState: true,
+                preserveScroll: true,
+            });
+            setOrderStatus((prevStatus) => ({
+                ...prevStatus,
+                [id]: { ...prevStatus[id], taken: false },
+            }));
+        } catch (error) {
+            console.error("Error updating status:", error);
+        }
     };
 
     return (
@@ -78,7 +135,6 @@ function UnifyList({ title, keterangan, data, totalTiket, totalUnchecked }) {
                                 >
                                     Email
                                 </th>
-
                                 <th
                                     scope="col"
                                     className="p-3 border-2 text-center hidden md:table-cell"
@@ -115,7 +171,6 @@ function UnifyList({ title, keterangan, data, totalTiket, totalUnchecked }) {
                                         <td className="p-3 font-mono font-medium text-center border-2 hidden md:table-cell">
                                             {item.email}
                                         </td>
-
                                         <td className="p-3 border-2 hidden md:table-cell">
                                             <div className="flex items-center justify-center">
                                                 <img
@@ -137,16 +192,15 @@ function UnifyList({ title, keterangan, data, totalTiket, totalUnchecked }) {
                                                     -
                                                 </div>
                                             )}
-                                            {item.status === "unchecked" ? (
-                                                <div>belom check</div>
-                                            ) : (
+                                            {orderStatus[item.id]?.checked ? (
                                                 <div>sudah check</div>
-                                            )}
-                                            {item.udahDiambil ===
-                                            "unchecked" ? (
-                                                <div>belom ambil</div>
                                             ) : (
+                                                <div>belom check</div>
+                                            )}
+                                            {orderStatus[item.id]?.taken ? (
                                                 <div>sudah ambil</div>
+                                            ) : (
+                                                <div>belom ambil</div>
                                             )}
                                             <br />
                                         </td>
@@ -162,7 +216,8 @@ function UnifyList({ title, keterangan, data, totalTiket, totalUnchecked }) {
                                                     More
                                                 </button>
 
-                                                {item.status === "checked" ? (
+                                                {orderStatus[item.id]
+                                                    ?.checked ? (
                                                     <button
                                                         onClick={() =>
                                                             handleUnchecked(

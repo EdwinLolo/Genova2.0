@@ -180,7 +180,7 @@ function UnifyDashboard() {
                     </div>
                 )}
 
-                <span
+                {/* <span
                     className="text-2xl my-1 mt-3 md:text-3xl text-right font-extrabold cursor-pointer"
                     onClick={() => toggleSection("inputData")}
                 >
@@ -202,11 +202,11 @@ function UnifyDashboard() {
                             Input Internal
                         </button>
                     </div>
-                )}
+                )} */}
 
                 <div className="flex justify-center w-full">
                     {/* Integrate UnifyForm Component */}
-                    {selectedForm && (
+                    {/* {selectedForm && (
                         <UnifyForm
                             selectedForm={selectedForm}
                             data={data}
@@ -215,7 +215,7 @@ function UnifyDashboard() {
                             handleChange={handleChange}
                             handleSubmit={handleSubmit}
                         />
-                    )}
+                    )} */}
                 </div>
             </div>
         </div>
