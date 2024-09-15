@@ -103,3 +103,20 @@ Route::get('/rangkaian/unify/buyticket', function () {
 Route::get('bph/gres/2024', function () {
     return Inertia::render('Gres');
 });
+
+// Sementara Ulympic
+Route::get('/rangkaian/ulympic/badminton', function () {
+    return Inertia::render('Ulympic/Badminton');
+});
+
+Route::get('/rangkaian/ulympic/futsal', function () {
+    return Inertia::render('Ulympic/Futsal');
+});
+
+Route::get('/rangkaian/ulympic/basket', function () {
+    return Inertia::render('Ulympic/Basket');
+});
+
+Route::get('/rangkaian/ulympic/voli', function () {
+    return Inertia::render('Ulympic/Voli');
+});
