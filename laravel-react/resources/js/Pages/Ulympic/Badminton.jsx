@@ -3,6 +3,12 @@ import BgBadmin from "../../Assets/Ulympic/Badminton/bgBadminton.jpg";
 import boxPc from "../../Assets/Ulympic/Badminton/boxPCBadminton.png";
 import BgBadminMobile from "../../Assets/Ulympic/Badminton/bgBadmintonMobile.jpg";
 import boxMobile from "../../Assets/Ulympic/Badminton/boxMobileBadminton.png";
+import UlympicSlider from "../../Components/Rangkaian/Ulympic/Carousel/UlympicSlider";
+
+import Badminton1 from "../../Assets/Ulympic/Badminton/Badminton1.jpg";
+import Badminton2 from "../../Assets/Ulympic/Badminton/Badminton2.jpg";
+
+const imagesUlympicSlider = [Badminton1, Badminton2];
 
 function Badminton() {
     return (
@@ -26,7 +32,9 @@ function Badminton() {
                             BADMINTON
                         </h1>
 
-                        <div className="w-full h-32 md:h-64 bg-white rounded-lg mx-auto mb-4"></div>
+                        <div className=" w-96 h-32 md:h-64 bg-white rounded-lg mx-auto mb-4 badminton-slider">
+                            <UlympicSlider images={imagesUlympicSlider} interval={3000} />
+                        </div>
 
                         <div className="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
                             <button className="bg-white text-black px-4 py-2 rounded-lg w-1/2">
@@ -47,7 +55,9 @@ function Badminton() {
                             BADMINTON
                         </h1>
 
-                        <div className="w-full h-32 md:h-64 bg-white rounded-lg mx-auto mb-4"></div>
+                        <div className="w-full h-32 md:h-64 bg-white rounded-lg mx-auto mb-4">
+                            <UlympicSlider images={imagesUlympicSlider} interval={3000} />
+                        </div>
 
                         <div className="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
                             <button className="bg-white text-black px-4 py-2 rounded-lg">

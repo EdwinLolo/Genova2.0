@@ -3,7 +3,12 @@ import BgBasket from "../../Assets/Ulympic/Basket/bgBasket.png";
 import boxPc from "../../Assets/Ulympic/Basket/boxPCBasket.png";
 import BgBasketMobile from "../../Assets/Ulympic/Basket/bgBasketMobile.png";
 import boxMobile from "../../Assets/Ulympic/Basket/boxPCBasket.png";
+import UlympicSlider from "../../Components/Rangkaian/Ulympic/Carousel/UlympicSlider";
 
+import Basket1 from "../../Assets/Ulympic/Basket/Basket1.jpeg";
+import Basket2 from "../../Assets/Ulympic/Basket/Basket2.jpg";
+
+const imagesUlympicSlider = [Basket1, Basket2];
 function Basket() {
     return (
         <div className="relative min-h-screen">
@@ -26,7 +31,9 @@ function Basket() {
                             BASKET
                         </h1>
 
-                        <div className=" w-96 h-32 md:h-64 bg-white rounded-lg mx-auto mb-4"></div>
+                        <div className=" w-96 h-32 md:h-64 bg-white rounded-lg mx-auto mb-4 basket-slider">
+                            <UlympicSlider images={imagesUlympicSlider} interval={3000} />
+                        </div>
 
                         <div className="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
                             <button className="bg-white text-black px-4 py-2 rounded-lg w-full">

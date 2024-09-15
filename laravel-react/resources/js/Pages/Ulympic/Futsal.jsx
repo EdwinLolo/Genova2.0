@@ -3,7 +3,12 @@ import BgFutsal from "../../Assets/Ulympic/Futsal/bgFutsal.jpg";
 import boxPc from "../../Assets/Ulympic/Futsal/boxPCFutsal.png";
 import BgFutsalMobile from "../../Assets/Ulympic/Futsal/bgFutsalMobile.jpg";
 import boxMobile from "../../Assets/Ulympic/Futsal/boxMobileFutsal.png";
+import UlympicSlider from "../../Components/Rangkaian/Ulympic/Carousel/UlympicSlider";
 
+import Futsal1 from "../../Assets/Ulympic/Futsal/Futsal1.jpeg";
+import Futsal2 from "../../Assets/Ulympic/Futsal/Futsal2.png";
+
+const imagesUlympicSlider = [Futsal1, Futsal2];
 function Futsal() {
     return (
         <div className="relative min-h-screen">
@@ -26,7 +31,9 @@ function Futsal() {
                             FUTSAL
                         </h1>
 
-                        <div className=" w-96 h-32 md:h-64 bg-white rounded-lg mx-auto mb-4"></div>
+                        <div className=" w-96 h-32 md:h-64 bg-white rounded-lg mx-auto mb-4 futsal-slider">
+                            <UlympicSlider images={imagesUlympicSlider} interval={3000} />
+                        </div>
 
                         <div className="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
                             <button className="bg-white text-black px-4 py-2 rounded-lg w-full">
