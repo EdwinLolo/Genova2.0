@@ -20,74 +20,76 @@ import UlympicSlider from "../../Components/Rangkaian/Ulympic/Carousel/UlympicSl
 import Badminton1 from "../../Assets/Ulympic/Badminton/Badminton1.jpg";
 import Badminton2 from "../../Assets/Ulympic/Badminton/Badminton2.jpg";
 
+import InfoSection from "../../Components/Rangkaian/Ulympic/InfoSection";
+
 const imagesUlympicSlider = [Badminton1, Badminton2];
 
-const InfoSection = ({
-    title,
-    content,
-    icon: Icon,
-    id,
-    isOpen,
-    toggleOpen,
-}) => {
-    const [isMobile, setIsMobile] = useState(false);
+// const InfoSection = ({
+//     title,
+//     content,
+//     icon: Icon,
+//     id,
+//     isOpen,
+//     toggleOpen,
+// }) => {
+//     const [isMobile, setIsMobile] = useState(false);
 
-    useEffect(() => {
-        const checkMobile = () => {
-            setIsMobile(window.innerWidth < 768);
-        };
+//     useEffect(() => {
+//         const checkMobile = () => {
+//             setIsMobile(window.innerWidth < 768);
+//         };
 
-        checkMobile();
-        window.addEventListener("resize", checkMobile);
+//         checkMobile();
+//         window.addEventListener("resize", checkMobile);
 
-        return () => window.removeEventListener("resize", checkMobile);
-    }, []);
+//         return () => window.removeEventListener("resize", checkMobile);
+//     }, []);
 
-    return (
-        <div className="bg-white bg-opacity-90 rounded-lg overflow-hidden mb-4 shadow-lg transition-all duration-300 ease-in-out transform hover:scale-102">
-            <button
-                className="w-full p-4 md:p-5 text-left font-bold flex justify-between items-center text-base md:text-lg"
-                onClick={() => toggleOpen(id)}
-            >
-                <span className="flex items-center text-blue-600">
-                    <Icon className="mr-2 md:mr-3" size={24} />
-                    {title}
-                </span>
-                <span
-                    className={`transform transition-transform duration-300 ${
-                        isOpen ? "rotate-180" : ""
-                    }`}
-                >
-                    {isMobile ? (
-                        isOpen ? (
-                            <ChevronUp size={20} />
-                        ) : (
-                            <ChevronDown size={20} />
-                        )
-                    ) : (
-                        <ChevronDown size={20} />
-                    )}
-                </span>
-            </button>
-            <div
-                className={`transition-all duration-500 ease-in-out ${
-                    isOpen ? "max-h-[300px] opacity-100" : "max-h-0 opacity-0"
-                } overflow-y-auto`}
-            >
-                <div className="p-4 md:p-5 bg-gray-50">
-                    {content.split("\n").map((line, index) => (
-                        <p
-                            key={index}
-                            className="text-gray-700 leading-relaxed text-sm md:text-base mb-2"
-                        >
-                            {line}
-                        </p>
-                    ))}
-                </div>
-            </div>
-        </div>
-    );
-};
+//     return (
+//         <div className="bg-white bg-opacity-90 rounded-lg overflow-hidden mb-4 shadow-lg transition-all duration-300 ease-in-out transform hover:scale-102">
+//             <button
+//                 className="w-full p-4 md:p-5 text-left font-bold flex justify-between items-center text-base md:text-lg"
+//                 onClick={() => toggleOpen(id)}
+//             >
+//                 <span className="flex items-center text-blue-600">
+//                     <Icon className="mr-2 md:mr-3" size={24} />
+//                     {title}
+//                 </span>
+//                 <span
+//                     className={`transform transition-transform duration-300 ${
+//                         isOpen ? "rotate-180" : ""
+//                     }`}
+//                 >
+//                     {isMobile ? (
+//                         isOpen ? (
+//                             <ChevronUp size={20} />
+//                         ) : (
+//                             <ChevronDown size={20} />
+//                         )
+//                     ) : (
+//                         <ChevronDown size={20} />
+//                     )}
+//                 </span>
+//             </button>
+//             <div
+//                 className={`transition-all duration-500 ease-in-out ${
+//                     isOpen ? "max-h-[300px] opacity-100" : "max-h-0 opacity-0"
+//                 } overflow-y-auto`}
+//             >
+//                 <div className="p-4 md:p-5 bg-gray-50">
+//                     {content.split("\n").map((line, index) => (
+//                         <p
+//                             key={index}
+//                             className="text-gray-700 leading-relaxed text-sm md:text-base mb-2"
+//                         >
+//                             {line}
+//                         </p>
+//                     ))}
+//                 </div>
+//             </div>
+//         </div>
+//     );
+// };
 
 function Badminton() {
     const [openSection, setOpenSection] = useState(null);

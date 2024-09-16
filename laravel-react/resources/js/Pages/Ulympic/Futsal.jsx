@@ -3,7 +3,7 @@ import BgFutsal from "../../Assets/Ulympic/Futsal/bgFutsal.jpg";
 import boxPc from "../../Assets/Ulympic/Futsal/boxPCFutsal.png";
 import BgFutsalMobile from "../../Assets/Ulympic/Futsal/bgFutsalMobile.jpg";
 import boxMobile from "../../Assets/Ulympic/Futsal/boxMobileFutsal.png";
-import UlympicSlider from "../../Components/Rangkaian/Ulympic/Carousel/UlympicSlider";
+import UlympicSlider from "../../../Components/Rangkaian/Ulympic/Carousel/UlympicSlider";
 
 import Futsal1 from "../../Assets/Ulympic/Futsal/Futsal1.jpeg";
 import Futsal2 from "../../Assets/Ulympic/Futsal/Futsal2.png";
