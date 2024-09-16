@@ -8,6 +8,7 @@ use App\Models\MengikutiTeam;
 use App\Models\Team;
 use App\Rules\StringOrImage;
 use Exception;
+use GuzzleHttp\Client;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -64,18 +65,35 @@ class TeamController extends Controller
 
     public function regist(Request $request)
     {
+        // Validate the reCAPTCHA token
+        $recaptchaResponse = $request->input('recaptchaValue');
+
+        $client = new Client();
+        $response = $client->post('https://www.google.com/recaptcha/api/siteverify', [
+            'form_params' => [
+                'secret' => env('RECAPTCHA_SECRET_KEY'),
+                'response' => $recaptchaResponse,
+            ],
+        ]);
+
+        $responseBody = json_decode((string)$response->getBody());
+
+        if (!$responseBody->success) {
+            return response()->json(['error' => 'reCAPTCHA verification failed'], 422);
+        }
+
         // dd($request);
         // Validate incoming request data
         $request->validate([
             'lombaId' => 'required|exists:lombas,id_lomba',
             'isInternal' => 'string',
             'namaTeam' => 'required|string|max:255',
-            'buktiTf' => 'required|file|mimes:png,jpeg,jpg|max:2048',
+            'buktiTf' => 'required|file|mimes:png,jpeg,jpg',
             'members' => 'required|array',
             'members.*.namaLengkap' => 'string|max:255|nullable',
             'members.*.nim' => 'string|max:11|nullable',
             'members.*.idLine' => 'nullable|string|max:50|nullable',
-            'members.*.ktm' => 'file|mimes:jpg,jpeg,png|max:2048|nullable',
+            'members.*.ktm' => 'file|mimes:jpg,jpeg,png|nullable',
             'members.*.asalKampus' => 'string|max:255|nullable',
         ]);
 

@@ -16,7 +16,7 @@ function UlympicDashboard({ lombas }) {
         >
             <NavbarAdmin />
             <div className="flex flex-col p-10">
-                <span
+                {/* <span
                     className="text-2xl mb-1 md:text-3xl text-right font-extrabold cursor-pointer"
                     onClick={() => toggleSection("inputData")}
                 >
@@ -39,7 +39,7 @@ function UlympicDashboard({ lombas }) {
                             );
                         })}
                     </div>
-                )}
+                )} */}
                 <span
                     className="text-2xl mb-1 md:text-3xl text-right font-extrabold cursor-pointer mt-5"
                     onClick={() => toggleSection("showData")}

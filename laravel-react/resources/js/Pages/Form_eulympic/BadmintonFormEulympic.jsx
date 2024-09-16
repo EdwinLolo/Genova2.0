@@ -3,9 +3,12 @@ import { useForm } from "@inertiajs/inertia-react";
 import { toast } from "react-toastify";
 import Button from "../../Components/Rangkaian/Ulympic/Button/Button";
 import Navbar from "../../Components/Navbar/Navbar";
+import ReCAPTCHA from "react-google-recaptcha";
+import axios from "axios";
 
-function BadmintonFormEulympic({ lombas }) {
-    const { data, setData, post } = useForm({
+function BadmintonFormEulympic({ lombas, captcha }) {
+    const [recaptchaValue, setRecaptchaValue] = useState(null);
+    const { data, setData } = useForm({
         lombaId: null,
         namaTeam: "",
         buktiTf: null,
@@ -14,6 +17,11 @@ function BadmintonFormEulympic({ lombas }) {
 
     const [selectedLomba, setSelectedLomba] = useState(null);
     const [isInternal, setIsInternal] = useState(null);
+    const [processing, setProcessing] = useState(false);
+
+    const handleRecaptchaChange = (value) => {
+        setRecaptchaValue(value);
+    };
 
     const handleButton = (lomba) => {
         setSelectedLomba(lomba);
@@ -59,30 +67,62 @@ function BadmintonFormEulympic({ lombas }) {
 
     const handleFormSubmit = async (e) => {
         e.preventDefault();
+        setProcessing(true);
+
+        // Check reCAPTCHA
+        if (!recaptchaValue) {
+            alert("Please complete the CAPTCHA");
+            setProcessing(false);
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append("lombaId", data.lombaId);
+        formData.append("namaTeam", data.namaTeam);
+        formData.append("buktiTf", data.buktiTf);
+        formData.append("recaptchaValue", recaptchaValue);
+
+        // Append members to formData
+        data.members.forEach((member, index) => {
+            formData.append(
+                `members[${index}][namaLengkap]`,
+                member.namaLengkap
+            );
+            formData.append(`members[${index}][nim]`, member.nim);
+            formData.append(`members[${index}][idLine]`, member.idLine);
+            formData.append(`members[${index}][asalKampus]`, member.asalKampus);
+            if (member.ktm) {
+                formData.append(`members[${index}][ktm]`, member.ktm);
+            }
+        });
 
         try {
-            const response = await post("/team/input/data", {
-                data,
-                onSuccess: () => {
-                    toast.success("Form submitted successfully!");
-                    setSelectedLomba(null);
-                    setData({
-                        lombaId: null,
-                        isInternal: "",
-                        namaTeam: "",
-                        buktiTf: null,
-                        members: [],
-                    });
-                },
-                onError: (error) => {
-                    console.log(error);
-                    const error_message = "Error: " + error.message;
-                    toast.error(error_message);
+            const response = await axios.post("/team/input/data", formData, {
+                headers: {
+                    "Content-Type": "multipart/form-data",
                 },
             });
+            toast.success("Team input data processed successfully");
         } catch (error) {
             console.error("Error submitting form:", error);
-            toast.error("Error submitting form. Please try again later.");
+
+            if (
+                error.response &&
+                error.response.data &&
+                error.response.data.errors
+            ) {
+                Object.values(error.response.data.errors).forEach((err) => {
+                    err.forEach((e) => {
+                        toast.error(e);
+                    });
+                });
+            } else {
+                toast.error(
+                    "Error submitting form. Please refresh the page and try again later."
+                );
+            }
+        } finally {
+            setProcessing(false);
         }
     };
 
@@ -269,10 +309,23 @@ function BadmintonFormEulympic({ lombas }) {
                                     className="lg:text-lg"
                                 />
                             </div>
+                            <div className="mb-5 captcha_unify">
+                                <ReCAPTCHA
+                                    sitekey={captcha}
+                                    onChange={handleRecaptchaChange}
+                                />
+                            </div>
+                            <div className="mb-5 captcha_unify">
+                                <ReCAPTCHA
+                                    sitekey={captcha}
+                                    onChange={handleRecaptchaChange}
+                                />
+                            </div>
                             <div className="mt-4">
                                 <button
                                     type="submit"
                                     className="px-4 py-2 font-bold text-white bg-green-500 rounded hover:bg-green-700 lg:text-lg"
+                                    disabled={processing}
                                 >
                                     Submit
                                 </button>
