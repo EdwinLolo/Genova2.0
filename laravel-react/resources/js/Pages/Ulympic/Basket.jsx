@@ -32,7 +32,10 @@ function Basket() {
                         </h1>
 
                         <div className=" w-96 h-32 md:h-64 bg-white rounded-lg mx-auto mb-4 basket-slider">
-                            <UlympicSlider images={imagesUlympicSlider} interval={3000} />
+                            <UlympicSlider
+                                images={imagesUlympicSlider}
+                                interval={3000}
+                            />
                         </div>
 
                         <div className="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
