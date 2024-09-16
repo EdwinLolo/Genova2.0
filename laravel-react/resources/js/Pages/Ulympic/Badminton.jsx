@@ -7,6 +7,8 @@ import {
     Trophy,
     ChevronDown,
     ChevronUp,
+    BookUser,
+    NotebookTabs,
 } from "lucide-react";
 import BgBadmin from "../../Assets/Ulympic/Badminton/bgBadminton.jpg";
 import BgBadminMobile from "../../Assets/Ulympic/Badminton/bgBadmintonMobile.jpg";
@@ -66,14 +68,21 @@ function Badminton() {
                     </span>
                 </button>
                 <div
-                    className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                        isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-                    }`}
+                    className={`transition-all duration-500 ease-in-out ${
+                        isOpen
+                            ? "max-h-[300px] opacity-100"
+                            : "max-h-0 opacity-0"
+                    } overflow-y-auto`} // Batasi ketinggian dan tambahkan overflow scroll
                 >
                     <div className="p-4 md:p-5 bg-gray-50">
-                        <p className="text-gray-700 leading-relaxed text-sm md:text-base">
-                            {content}
-                        </p>
+                        {content.split("\n").map((line, index) => (
+                            <p
+                                key={index}
+                                className="text-gray-700 leading-relaxed text-sm md:text-base mb-2" // Menambah jarak antar paragraf
+                            >
+                                {line}
+                            </p>
+                        ))}
                     </div>
                 </div>
             </div>
@@ -128,22 +137,86 @@ function Badminton() {
                     <InfoSection
                         id="about"
                         icon={Info}
-                        title="Tentang Pertandingan"
-                        content="Turnamen badminton Ulympic menyajikan pertandingan ganda putra dan ganda putri yang seru. Para peserta akan bersaing dalam sistem gugur untuk memperebutkan gelar juara Ulympic 2024."
+                        title="Sistem Pertandingan"
+                        content={`1. Sistem Pertandingan yang digunakan dalam ULYMPIC adalah sistem grup/pool.
+                            2. Pertandingan dibagi menjadi 2 babak: Group Stage & Knock Out Stage.
+                            3. Sektor yang dipertandingkan: XD (Mixed Doubles), WD (Women's Doubles), MD (Men's Doubles).
+                            4. Setiap Prodi dapat mengirimkan maksimal 3 tim, dengan 1 tim minimal terdiri dari 3 perempuan dan 3 laki-laki.
+                            5. Peserta harus membawa perlengkapan sendiri, seperti raket, sepatu, dan baju.
+                            6. Semua pertandingan akan mengikuti peraturan resmi PBSI.
+                            7. Keputusan umpire & official bersifat mutlak dan tidak dapat diganggu gugat.
+                            8. Urutan pertandingan adalah: XD - WD - MD.
+                            9. Jika ada peserta putri bermain di dua sektor, urutan pertandingan menjadi: XD - MD - WD.
+                            10. Seluruh peserta harus hadir 20 menit sebelum pertandingan dimulai.
+                            11. 10 menit sebelum pertandingan, pemain sudah harus berada di lapangan.
+                            12. Setiap tim wajib menyerahkan daftar pemain sebelum memasuki lapangan.
+                            13. Daftar pemain akan diberikan oleh panitia saat daftar ulang.
+                            14. Setiap grup akan terdiri dari 3 tim, dengan total ada 4 grup (12 tim).
+                            15. Tim dari fakultas yang sama tidak diperbolehkan berada di grup yang sama.
+                            16. Pertandingan akan berlangsung hingga poin 21 x 2 (Interval di poin 11, maksimal di poin 30), dengan sistem rubber jika masing-masing tim memenangkan 1 set.
+                            17. Jika dalam satu grup semua tim menang 1 kali, selisih poin akan digunakan untuk menentukan juara grup.
+                            18. Setiap tim akan bertanding sebanyak 2 kali.
+                            19. Hanya juara grup yang akan melanjutkan ke knock-out stage.
+                            20. Batas maksimal penggantian shuttlecock per sektor pertandingan adalah 4 kali. Jika lebih dari itu, akan dikenakan biaya tambahan sebesar Rp 5.000 per orang.`}
                     />
 
                     <InfoSection
-                        id="rules"
-                        icon={Book}
-                        title="Aturan"
-                        content="1. Pertandingan menggunakan sistem 3 game dengan skor 21. 2. Peserta wajib hadir 30 menit sebelum jadwal pertandingan. 3. Setiap tim terdiri dari 2 pemain utama dan 1 pemain cadangan. 4. Peraturan lengkap akan diberikan saat technical meeting."
+                        id="viewerRules"
+                        icon={BookUser}
+                        title="Aturan Penonton/Supporter"
+                        content="1. Penonton dilarang memprovokasi peserta dan penonton lain.
+                                2. Dilarang membawa alat - alat yang membuat ribut atau mengganggu peserta.
+                                3. Tidak boleh membawa Rokok dan Vape ke tempat pertandingan.
+                                4. Tidak boleh membawa makanan dan minuman yang memakai bahan plastik sekali
+                                pakai.
+                                5. Penonton wajib mengikuti protokol kesehatan.
+                                6. Penonton yang melanggar aturan yang sudah ditetapkan akan diberi sanksi.
+                                7. Tidak boleh menyalakan flashlight saat pertandingan."
                     />
 
                     <InfoSection
-                        id="prizes"
+                        id="costume"
+                        icon={BookUser}
+                        title="Kostum"
+                        content="1. Peserta wajib menggunakan pakaian dan sepatu olahraga ketika sedang bertanding.
+                        2. Setiap fakultas memiliki minimal 1 kostum yang model atau memiliki warna yang
+                        sama.
+                        3. Setiap fakultas wajib menyablon nama dan fakultas di baju/kostum masing masing."
+                    />
+
+                    <InfoSection
+                        id="rulesBadminton"
+                        icon={NotebookTabs}
+                        title="Peraturan Badminton"
+                        content="1. Jika pemain melakukan pukulan sebanyak 2 kali di waktu yang sama maka akan dianggap pelanggaran dan poin untuk tim lawan.
+                        2. Jika pemain memukul shuttlecock ketika masih di dalam area lawan, maka akan
+                        dianggap pelanggaran dan poin untuk tim lawan.
+                        3. Jika shuttlecock menyentuh atribut pemain (celana, sepatu dan baju) dan anggota
+                        badan, maka akan dianggap pelanggaran dan poin diberikan ke tim lawan.
+                        4. Jika salah satu pemain melewati garis saat melakukan servis maka akan dianggap
+                        pelanggaran dan kesempatan servis akan diberikan kepada tim lawan.
+                        5. Jika salah satu pemain melakukan servis rendah (tidak mengenai garis maupun
+                        kotak receiver/penerima servis), maka poin diberikan ke tim lawan.
+                        6. Jika pemain memukul shuttlecock pada saat shuttlecock masih berada di area
+                        bermain lawan, maka hal ini akan dianggap pelanggaran dan poin diberikan untuk
+                        tim lawan.
+                        7. Pemain akan mendapatkan kartu kuning yang berfungsi sebagai peringatan, ketika
+                        melakukan kesalahan kecil seperti mengulur waktu permainan.
+                        8. Pemain akan mendapatkan kartu merah, ketika pemain melakukan pelanggaran
+                        yang lebih berat atau mengulang kesalahan yang sama, setelah dikeluarkannya
+                        kartu kuning. Ketika pemain mendapatkan kartu merah, kesempatan servis akan
+                        diberikan kepada tim lawan dan tim lawan juga mendapatkan poin."
+                    />
+
+                    <InfoSection
+                        id="pelanggaran"
                         icon={Trophy}
-                        title="Hadiah"
-                        content="Juara 1: Rp 3.000.000 + Medali Emas, Juara 2: Rp 2.000.000 + Medali Perak, Juara 3: Rp 1.000.000 + Medali Perunggu"
+                        title="Pelanggaran dan Sanksi"
+                        content="1. Jika supporter melakukan provokasi yang menimbulkan keributan akan diberikan
+                        teguran, dan jika sudah mendapat 2 teguran tim dari suporter tersebut akan di
+                        diskualifikasi.
+                        2. Jika peserta tidak bermain secara sportif wasit akan memberikan kartu sesuai
+                        peraturan."
                     />
                 </div>
 
