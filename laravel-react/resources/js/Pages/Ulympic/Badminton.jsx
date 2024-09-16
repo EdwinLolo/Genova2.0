@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
     CalendarDays,
     MapPin,
     Info,
     Book,
     Trophy,
+    ShieldAlert,
     ChevronDown,
     ChevronUp,
     BookUser,
@@ -21,17 +22,88 @@ import Badminton2 from "../../Assets/Ulympic/Badminton/Badminton2.jpg";
 
 const imagesUlympicSlider = [Badminton1, Badminton2];
 
+const InfoSection = ({
+    title,
+    content,
+    icon: Icon,
+    id,
+    isOpen,
+    toggleOpen,
+}) => {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+
+        checkMobile();
+        window.addEventListener("resize", checkMobile);
+
+        return () => window.removeEventListener("resize", checkMobile);
+    }, []);
+
+    return (
+        <div className="bg-white bg-opacity-90 rounded-lg overflow-hidden mb-4 shadow-lg transition-all duration-300 ease-in-out transform hover:scale-102">
+            <button
+                className="w-full p-4 md:p-5 text-left font-bold flex justify-between items-center text-base md:text-lg"
+                onClick={() => toggleOpen(id)}
+            >
+                <span className="flex items-center text-blue-600">
+                    <Icon className="mr-2 md:mr-3" size={24} />
+                    {title}
+                </span>
+                <span
+                    className={`transform transition-transform duration-300 ${
+                        isOpen ? "rotate-180" : ""
+                    }`}
+                >
+                    {isMobile ? (
+                        isOpen ? (
+                            <ChevronUp size={20} />
+                        ) : (
+                            <ChevronDown size={20} />
+                        )
+                    ) : (
+                        <ChevronDown size={20} />
+                    )}
+                </span>
+            </button>
+            <div
+                className={`transition-all duration-500 ease-in-out ${
+                    isOpen ? "max-h-[300px] opacity-100" : "max-h-0 opacity-0"
+                } overflow-y-auto`}
+            >
+                <div className="p-4 md:p-5 bg-gray-50">
+                    {content.split("\n").map((line, index) => (
+                        <p
+                            key={index}
+                            className="text-gray-700 leading-relaxed text-sm md:text-base mb-2"
+                        >
+                            {line}
+                        </p>
+                    ))}
+                </div>
+            </div>
+        </div>
+    );
+};
+
 function Badminton() {
     const [openSection, setOpenSection] = useState(null);
+
+    const toggleOpen = (id) => {
+        setOpenSection(openSection === id ? null : id);
+    };
 
     const eventInfo = {
         internal: "30 September - 11 Oktober 2024",
         external: "30 Oktober - 8 November 2024",
-        location: "Lapangan Basket UMN",
+        location: " Lapangan D23 UMN",
     };
 
     const EventInfoBox = ({ icon: Icon, text }) => (
-        <div className="flex items-center justify-center space-x-2 text-white">
+        <div className="flex items-center justify-center space-x-2 text-slate-800">
             <Icon size={20} />
             <span className="text-sm md:text-base">{text}</span>
         </div>
@@ -46,53 +118,10 @@ function Badminton() {
         </button>
     );
 
-    const InfoSection = ({ title, content, icon: Icon, id }) => {
-        const isOpen = openSection === id;
-
-        return (
-            <div className="bg-white bg-opacity-90 rounded-lg overflow-hidden mb-4 shadow-lg transition-all duration-300 ease-in-out transform hover:scale-102">
-                <button
-                    className="w-full p-4 md:p-5 text-left font-bold flex justify-between items-center text-base md:text-lg"
-                    onClick={() => setOpenSection(isOpen ? null : id)}
-                >
-                    <span className="flex items-center text-blue-600">
-                        <Icon className="mr-2 md:mr-3" size={24} />
-                        {title}
-                    </span>
-                    <span
-                        className={`transform transition-transform duration-300 ${
-                            isOpen ? "rotate-180" : ""
-                        }`}
-                    >
-                        <ChevronDown size={20} />
-                    </span>
-                </button>
-                <div
-                    className={`transition-all duration-500 ease-in-out ${
-                        isOpen
-                            ? "max-h-[300px] opacity-100"
-                            : "max-h-0 opacity-0"
-                    } overflow-y-auto`} // Batasi ketinggian dan tambahkan overflow scroll
-                >
-                    <div className="p-4 md:p-5 bg-gray-50">
-                        {content.split("\n").map((line, index) => (
-                            <p
-                                key={index}
-                                className="text-gray-700 leading-relaxed text-sm md:text-base mb-2" // Menambah jarak antar paragraf
-                            >
-                                {line}
-                            </p>
-                        ))}
-                    </div>
-                </div>
-            </div>
-        );
-    };
-
     const MainContent = ({ isMobile }) => (
         <div className={`text-center ${isMobile ? "p-4" : "w-3/4 p-6"}`}>
             <h1
-                className={`font-bold text-white mb-4 ${
+                className={`font-bold text-slate-800 mb-4 ${
                     isMobile ? "text-2xl" : "text-4xl md:text-5xl"
                 }`}
             >
@@ -158,6 +187,8 @@ function Badminton() {
                             18. Setiap tim akan bertanding sebanyak 2 kali.
                             19. Hanya juara grup yang akan melanjutkan ke knock-out stage.
                             20. Batas maksimal penggantian shuttlecock per sektor pertandingan adalah 4 kali. Jika lebih dari itu, akan dikenakan biaya tambahan sebesar Rp 5.000 per orang.`}
+                        isOpen={openSection === "about"}
+                        toggleOpen={toggleOpen}
                     />
 
                     <InfoSection
@@ -167,11 +198,12 @@ function Badminton() {
                         content="1. Penonton dilarang memprovokasi peserta dan penonton lain.
                                 2. Dilarang membawa alat - alat yang membuat ribut atau mengganggu peserta.
                                 3. Tidak boleh membawa Rokok dan Vape ke tempat pertandingan.
-                                4. Tidak boleh membawa makanan dan minuman yang memakai bahan plastik sekali
-                                pakai.
+                                4. Tidak boleh membawa makanan dan minuman yang memakai bahan plastik sekali pakai.
                                 5. Penonton wajib mengikuti protokol kesehatan.
                                 6. Penonton yang melanggar aturan yang sudah ditetapkan akan diberi sanksi.
                                 7. Tidak boleh menyalakan flashlight saat pertandingan."
+                        isOpen={openSection === "viewerRules"}
+                        toggleOpen={toggleOpen}
                     />
 
                     <InfoSection
@@ -179,9 +211,10 @@ function Badminton() {
                         icon={BookUser}
                         title="Kostum"
                         content="1. Peserta wajib menggunakan pakaian dan sepatu olahraga ketika sedang bertanding.
-                        2. Setiap fakultas memiliki minimal 1 kostum yang model atau memiliki warna yang
-                        sama.
+                        2. Setiap fakultas memiliki minimal 1 kostum yang model atau memiliki warna yang sama.
                         3. Setiap fakultas wajib menyablon nama dan fakultas di baju/kostum masing masing."
+                        isOpen={openSection === "costume"}
+                        toggleOpen={toggleOpen}
                     />
 
                     <InfoSection
@@ -189,34 +222,30 @@ function Badminton() {
                         icon={NotebookTabs}
                         title="Peraturan Badminton"
                         content="1. Jika pemain melakukan pukulan sebanyak 2 kali di waktu yang sama maka akan dianggap pelanggaran dan poin untuk tim lawan.
-                        2. Jika pemain memukul shuttlecock ketika masih di dalam area lawan, maka akan
-                        dianggap pelanggaran dan poin untuk tim lawan.
-                        3. Jika shuttlecock menyentuh atribut pemain (celana, sepatu dan baju) dan anggota
-                        badan, maka akan dianggap pelanggaran dan poin diberikan ke tim lawan.
-                        4. Jika salah satu pemain melewati garis saat melakukan servis maka akan dianggap
-                        pelanggaran dan kesempatan servis akan diberikan kepada tim lawan.
-                        5. Jika salah satu pemain melakukan servis rendah (tidak mengenai garis maupun
-                        kotak receiver/penerima servis), maka poin diberikan ke tim lawan.
-                        6. Jika pemain memukul shuttlecock pada saat shuttlecock masih berada di area
-                        bermain lawan, maka hal ini akan dianggap pelanggaran dan poin diberikan untuk
-                        tim lawan.
+                        2. Jika pemain memukul shuttlecock ketika masih di dalam area lawan, maka akan dianggap pelanggaran dan poin untuk tim lawan.
+                        3. Jika shuttlecock menyentuh atribut pemain (celana, sepatu dan baju) dan anggota badan, maka akan dianggap pelanggaran dan poin diberikan ke tim lawan.
+                        4. Jika salah satu pemain melewati garis saat melakukan servis maka akan dianggap pelanggaran dan kesempatan servis akan diberikan kepada tim lawan.
+                        5. Jika salah satu pemain melakukan servis rendah (tidak mengenai garis maupun kotak receiver/penerima servis), maka poin diberikan ke tim lawan.
+                        6. Jika pemain memukul shuttlecock pada saat shuttlecock masih berada di area bermain lawan, maka hal ini akan dianggap pelanggaran dan poin diberikan untuk tim lawan.
                         7. Pemain akan mendapatkan kartu kuning yang berfungsi sebagai peringatan, ketika
                         melakukan kesalahan kecil seperti mengulur waktu permainan.
                         8. Pemain akan mendapatkan kartu merah, ketika pemain melakukan pelanggaran
                         yang lebih berat atau mengulang kesalahan yang sama, setelah dikeluarkannya
                         kartu kuning. Ketika pemain mendapatkan kartu merah, kesempatan servis akan
                         diberikan kepada tim lawan dan tim lawan juga mendapatkan poin."
+                        isOpen={openSection === "rulesBadminton"}
+                        toggleOpen={toggleOpen}
                     />
 
                     <InfoSection
                         id="pelanggaran"
-                        icon={Trophy}
+                        icon={ShieldAlert}
                         title="Pelanggaran dan Sanksi"
                         content="1. Jika supporter melakukan provokasi yang menimbulkan keributan akan diberikan
-                        teguran, dan jika sudah mendapat 2 teguran tim dari suporter tersebut akan di
-                        diskualifikasi.
-                        2. Jika peserta tidak bermain secara sportif wasit akan memberikan kartu sesuai
-                        peraturan."
+                        teguran, dan jika sudah mendapat 2 teguran tim dari suporter tersebut akan di diskualifikasi.
+                        2. Jika peserta tidak bermain secara sportif wasit akan memberikan kartu sesuai peraturan."
+                        isOpen={openSection === "pelanggaran"}
+                        toggleOpen={toggleOpen}
                     />
                 </div>
 
