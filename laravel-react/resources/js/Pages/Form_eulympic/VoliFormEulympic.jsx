@@ -75,7 +75,7 @@ const exclamationMarkSvg = encodeURIComponent(`
                     </span>
                 </button>
                 <div
-                    className={`transition-all duration-300 ease-in-out overflow-hidden ${isOpen ? "max-h-[2000px]" : "max-h-0"} `}
+                    className={`transition-all duration-300 ease-in-out overflow-hidden ${isOpen ? "max-h-[6000px]" : "max-h-0"} `}
                 >
                     <div
                         className="p-4 md:p-5 bg-gray-50 text-gray-700 leading-relaxed text-sm md:text-base"
