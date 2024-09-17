@@ -11,6 +11,11 @@ import {
     Info,
     ChevronDown,
     ChevronUp,
+    BookUser,
+    Notebook,
+    NotebookTabs,
+    Shirt,
+    ShieldAlert,
 } from "lucide-react";
 
 import BgVoli from "../../Assets/Ulympic/Voli/bgVoli.png";
@@ -31,61 +36,56 @@ const exclamationMarkSvg = encodeURIComponent(`
     `);
     
     
-const InfoSection = ({
-    title,
-    content,
-    icon: Icon,
-    id,
-    isOpen,
-    toggleOpen,
-}) => {
-    const [hasClicked, setHasClicked] = useState(false);
-
-    const handleClick = () => {
-        setHasClicked(true);
-        toggleOpen(id);
-    };
-
-    return (
-        <div className="bg-white bg-opacity-90 rounded-lg overflow-hidden mb-4 shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-102">
-            <button
-                className="w-full p-4 md:p-5 text-left font-bold flex justify-between items-center text-base md:text-lg"
-                onClick={handleClick}
-            >
-                <span className="flex items-center text-blue-600">
-                    <Icon className="mr-2 md:mr-3" size={24} />
-                    {title}
-                    {!hasClicked && (
-                        <img
-                            src={`data:image/svg+xml;charset=UTF-8,${exclamationMarkSvg}`}
-                            alt="!"
-                            className="ml-2 w-5 h-5"
-                        />
-                    )}
-                </span>
-                <span
-                    className={`transform transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+    const InfoSection = ({
+        title,
+        content,
+        icon: Icon,
+        id,
+        isOpen,
+        toggleOpen,
+    }) => {
+        const [hasClicked, setHasClicked] = useState(false);
+    
+        const handleClick = () => {
+            setHasClicked(true);
+            toggleOpen(id);
+        };
+    
+        return (
+            <div className="bg-white bg-opacity-90 rounded-lg overflow-hidden mb-4 shadow-lg transition-all duration-300 ease-in-out transform hover:scale-102">
+                <button
+                    className="w-full p-4 md:p-5 text-left font-bold flex justify-between items-center text-base md:text-lg"
+                    onClick={handleClick}
                 >
-                    {isOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
-                </span>
-            </button>
-            <div
-                className={`transition-all duration-300 ease-in-out overflow-hidden ${isOpen ? "max-h-[500px]" : "max-h-0"}`} // Adjust max-height as needed
-            >
-                <div className="p-4 md:p-5 bg-gray-50">
-                    {content.split("\n").map((line, index) => (
-                        <p
-                            key={index}
-                            className="text-gray-700 leading-relaxed text-sm md:text-base mb-2"
-                        >
-                            {line}
-                        </p>
-                    ))}
+                    <span className="flex items-center text-blue-600">
+                        <Icon className="mr-2 md:mr-3" size={24} />
+                        {title}
+                        {!hasClicked && (
+                            <img
+                                src={`data:image/svg+xml;charset=UTF-8,${exclamationMarkSvg}`}
+                                alt="! "
+                                className="ml-2 w-5 h-5"
+                            />
+                        )}
+                    </span>
+                    <span
+                        className={`transform transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+                    >
+                        {isOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                    </span>
+                </button>
+                <div
+                    className={`transition-all duration-300 ease-in-out overflow-hidden ${isOpen ? "max-h-[2000px]" : "max-h-0"} `}
+                >
+                    <div
+                        className="p-4 md:p-5 bg-gray-50 text-gray-700 leading-relaxed text-sm md:text-base"
+                        dangerouslySetInnerHTML={{ __html: content }}
+                    />
                 </div>
             </div>
-        </div>
-    );
-};
+        );
+        
+    };
 
 const Button = ({ children, onClick }) => (
     <button
@@ -284,134 +284,75 @@ function VoliFormEulympic({ lombas, captcha }) {
                 />
                 <div className="relative z-10 min-h-screen flex flex-col items-center justify-start p-4 md:p-6 overflow-y-auto">
                     <div className="w-full max-w-5xl space-y-4 md:space-y-6 mb-6 md:mb-10">
-                        <InfoSection
-                            id="info"
-                            icon={Info}
-                            title="Tentang Lomba Voli UFEST 2024"
-                            content={`Tujuan dari pelaksanaan pertandingan voli adalah memacu peserta untuk mengasah kemampuan bermain voli dalam dunia pertandingan. Pertandingan ini sekaligus menjadi kesempatan bagi para pemain voli yang belum memiliki kesempatan untuk mengikuti pertandingan voli secara resmi.`}
-                            isOpen={openSection === "info"}
-                            toggleOpen={toggleOpen}
-                        />
-                        <InfoSection
-                            id="tujuan"
-                            icon={Info}
-                            title="Tujuan"
-                            content={`Pertandingan voli diselenggarakan secara eksternal sehingga peserta yang dapat berpartisipasi adalah dari dalam maupun luar UMN. Pertandingan voli putra merupakan antar Sekolah Menengah Atas (SMA), sedangkan pertandingan putri merupakan antar Universitas. Pertandingan voli putra menggunakan sistem gugur hingga final. Total tim yang akan bertanding adalah 8 tim. Pertandingan voli putri menggunakan sistem gugur hingga tersisa 3 tim, menggunakan sistem poin pada semifinal, dan menggunakan sistem gugur pada final. Total tim yang akan bertanding adalah 6 tim.
 
-                            Dalam satu tim, maksimal jumlah pemain adalah 10 orang dengan 6 orang yang bermain di lapangan dan 4 orang sebagai pemain cadangan. Untuk pertandingan group stage yang harus dilewati adalah two winning set sedangkan untuk pertandingan final serta perebutan juara 3 diberlangsungkan three winning set. Poin pada pertandingan dijumlahkan dengan sistem rally point yaitu maksimal 25 poin, sedangkan pada babak final maksimal 15 poin. Penambahan 2 poin dilakukan pada pertandingan jika kedua tim memperoleh poin 24 - 24. Tim pemenang merupakan tim yang pertama kali unggul dengan selisih 2 poin.`}
-                            isOpen={openSection === "tujuan"}
-                            toggleOpen={toggleOpen}
-                        />
-                        <InfoSection
-                            id="rule"
-                            icon={Info}
-                            title="Sistem & Peraturan"
-                            content={`1. Universitas atau sekolah hanya dapat mendaftarkan 1 perwakilan.
+<InfoSection
+    id="tujuan"
+    icon={Info}
+    title="Informasi Pertandingan"
+    content={`<p>1. Pertandingan voli diselenggarakan secara eksternal sehingga peserta yang dapat berpartisipasi adalah dari <strong>dalam maupun luar UMN</strong>.</p>
+              <p>2. Pertandingan voli putra merupakan antar <strong>Sekolah Menengah Atas (SMA)</strong>, sedangkan pertandingan putri merupakan antar <strong>Universitas</strong>.</p>
+              <p>3. Pertandingan voli putra menggunakan <strong>sistem gugur</strong> hingga final. Total tim yang akan bertanding adalah <strong>8 tim</strong>.</p>
+              <p>4. Pertandingan voli putri menggunakan <strong>sistem gugur</strong> hingga tersisa <strong>3 tim</strong>, menggunakan <strong>sistem poin</strong> pada semifinal, dan menggunakan <strong>sistem gugur</strong> pada final. Total tim yang akan bertanding adalah <strong>6 tim</strong>.</p>
+              <p>5. Dalam satu tim, maksimal jumlah pemain adalah <strong>10 orang</strong> dengan <strong>6 orang yang bermain di lapangan</strong> dan <strong>4 orang sebagai pemain cadangan</strong>.</p>
+              <p>6. Untuk pertandingan <strong>group stage</strong> yang harus dilewati adalah <strong>two winning set</strong> sedangkan untuk pertandingan final serta perebutan juara 3 diberlangsungkan <strong>three winning set</strong>.</p>
+              <p>7. Poin pada pertandingan dijumlahkan dengan sistem <strong>rally point</strong> yaitu maksimal <strong>25 poin</strong>, sedangkan pada babak final maksimal <strong>15 poin</strong>.</p>
+              <p>8. Penambahan <strong>2 poin</strong> dilakukan pada pertandingan jika kedua tim memperoleh poin <strong>24 - 24</strong>.</p>
+              <p>9. Tim pemenang merupakan tim yang pertama kali unggul dengan selisih <strong>2 poin</strong>.</p>`}
+    isOpen={openSection === "tujuan"}
+    toggleOpen={toggleOpen}
+/>
 
-2. Jumlah maksimal pemain dalam pertandingan bola voli dalam satu tim adalah 10
-orang. Pemain yang boleh bermain di lapangan hanya 6 orang dan 4 orang
-sebagai pemain cadangan.
-3. Jumlah pemain dalam satu regu adalah 6 orang. Hanya 3 pemain yang bisa
-melakukan blocking di dekat net. Sedangkan pemain lainnya bertugas memukul
-bola melewati net, dari belakang garis serang atau garis tiga meter (garis yang
-memisahkan garis depan dengan belakang lapangan).
-4. Adanya peran libero, yang tidak bisa melakukan serve, pergantian posisi, serta
-melakukan pukulan bola. Libero menggunakan seragam berwarna beda yang
-berdiri di bagian belakang lapangan. Libero bertugas untuk menjaga sistem
-pertahanan bagian belakang serta untuk memperpanjang sistem rally point (tidak
-wajib).
-5. Jika salah seorang atau lebih dari satu anggota tim sedang melakukan
-pertandingan untuk cabang olahraga lain, maka pertandingan tidak akan ditunda.
-6. Dalam pertandingan bola voli jumlah minimal pemain yang boleh bermain di
-lapangan dalam satu tim adalah 4 orang. Kurang dari itu, tim akan dianggap
-gugur dalam pertandingan. Jika ada pemain yang telat dan ingin melengkapi
-kekurangan pemain, hanya diperbolehkan berpartisipasi di set pertandingan
-berikutnya.
-7. Tiap tim atau regu memiliki kesempatan tiga kali untuk memukul bola. Pada awal
-pertandingan, salah seorang pemain wajib melakukan serve ke area lawan yang
-dilakukan oleh seorang server.
-8. Tim yang memenangkan rally berhak mendapat satu poin serta memiliki hak
-untuk melakukan servis. Saat rally telah selesai, pemainnya harus bertukar
-tempat dengan memutar searah jarum jam.
-9. Anggota badan yang diperbolehkan untuk digunakan dalam bola voli adalah
-seluruh anggota tubuh mulai dari kepala, tangan, badan, dan kaki. Namun, yang
-paling dominan adalah tangan.
-10.Pergantian pemain diperbolehkan selama pertandingan berlangsung dengan
-cara memberitahu kepada wasit utama. Setelah wasit menerima informasi
-tersebut, pemain baru dapat melakukan pergantian.
 
-11. Pertandingan group stage harus melewati 3 babak (best of three) atau two
-winning set dimana ketika pada babak pertama dan kedua telah dimenangkan
-oleh salah satu tim maka pertandingan babak ketiga tidak perlu dilaksanakan.
-12.Untuk pertandingan final (single elimination), pertandingan bola voli akan
-berlangsung selama 5 babak (best of five) atau three winning set, dimana tim
-yang memenangkan 3 babak terlebih dahulu adalah pemenangnya. Perebutan
-juara 3 akan menggunakan sistem two winning set.
-13.Pada pertandingan bola voli sistem perhitungan angka menggunakan rally point
-maksimal pada 25 point dan pada babak penentu kemenangan ( set 3 atau set
-5) akan menggunakan rally point dengan maksimal 15 point di mana pemilihan
-lapangan atau bola akan diundi kembali dengan koin bersama wasit.
-14.Jika saat pertandingan berlangsung kedua tim mendapatkan deuce/poin yang
-sama di akhir yaitu (24 – 24), maka pertandingan akan ditambah 2 poin. Tim
-yang pertama berhasil unggul dengan selisih 2 poin akan memenangkan
-pertandingan bola voli. Maksimal deuce pada setiap pertandingan yang
-dipersilahkan adalah (30 - 30) dengan akhir pertandingan yang dinyatakan
-DRAW.
-15.Tim akan mendapatkan 3 poin jika memenangkan pertandingan group stage, 1
-poin jika pertandingan dinyatakan draw, dan 0 poin jika mendapatkan
-kekalahan. Jika ada tim dengan poin yang sama, maka akan dilihat dari
-perhitungan set kemenangan.
-16.Setiap mengakhiri babak pertandingan, tim diwajibkan bertukar sisi lapangan.
-Apabila kedua tim telah mencapai babak ketiga, maka tim yang memperoleh nilai
-terendah dapat meminta kepada wasit untuk bertukar posisi lapangan. Hal ini
-hanya dilakukan jika poin telah mencapai angka 8.
-17.Setiap tim akan diwajibkan untuk melakukan timeout jika telah mencapai 16 poin
-dalam pertandingan. Di luar itu, setiap tim memiliki jatah timeout sebanyak 1 kali
-di setiap babak dengan cara mengajukan kepada wasit utama (maksimal waktu
-timeout 1 menit).
-18.Pertandingan diperkirakan akan berlangsung kurang lebih selama 45 menit, dan
-pertandingan final akan berlangsung kurang lebih selama 1 jam 15 menit.
+<InfoSection
+    id="rule"
+    icon={NotebookTabs}
+    title="Sistem & Peraturan"
+    content={`<p>1. Universitas atau sekolah hanya dapat mendaftarkan <strong>1 perwakilan</strong>.</p>
+              <p>2. Jumlah maksimal pemain dalam pertandingan bola voli dalam satu tim adalah <strong>10 orang</strong>. Pemain yang boleh bermain di lapangan hanya <strong>6 orang</strong> dan <strong>4 orang</strong> sebagai pemain cadangan.</p>
+              <p>3. Jumlah pemain dalam satu regu adalah <strong>6 orang</strong>. Hanya <strong>3 pemain</strong> yang bisa melakukan <strong>blocking</strong> di dekat net. Sedangkan pemain lainnya bertugas memukul bola melewati net, dari belakang garis serang atau garis tiga meter (garis yang memisahkan garis depan dengan belakang lapangan).</p>
+              <p>4. Adanya peran <strong>libero</strong>, yang tidak bisa melakukan serve, pergantian posisi, serta melakukan pukulan bola. Libero menggunakan seragam berwarna beda yang berdiri di bagian belakang lapangan. Libero bertugas untuk menjaga sistem pertahanan bagian belakang serta untuk memperpanjang sistem rally point (tidak wajib).</p>
+              <p>5. Jika salah seorang atau lebih dari satu anggota tim sedang melakukan pertandingan untuk cabang olahraga lain, maka pertandingan tidak akan ditunda.</p>
+              <p>6. Dalam pertandingan bola voli jumlah minimal pemain yang boleh bermain di lapangan dalam satu tim adalah <strong>4 orang</strong>. Kurang dari itu, tim akan dianggap <strong>gugur</strong> dalam pertandingan. Jika ada pemain yang telat dan ingin melengkapi kekurangan pemain, hanya diperbolehkan berpartisipasi di <strong>set pertandingan berikutnya</strong>.</p>
+              <p>7. Tiap tim atau regu memiliki kesempatan <strong>tiga kali</strong> untuk memukul bola. Pada awal pertandingan, salah seorang pemain wajib melakukan <strong>serve</strong> ke area lawan yang dilakukan oleh seorang server.</p>
+              <p>8. Tim yang memenangkan <strong>rally</strong> berhak mendapat <strong>satu poin</strong> serta memiliki hak untuk melakukan servis. Saat rally telah selesai, pemainnya harus bertukar tempat dengan memutar <strong>searah jarum jam</strong>.</p>
+              <p>9. Anggota badan yang diperbolehkan untuk digunakan dalam bola voli adalah seluruh anggota tubuh mulai dari kepala, tangan, badan, dan kaki. Namun, yang paling dominan adalah <strong>tangan</strong>.</p>
+              <p>10. <strong>Pergantian pemain</strong> diperbolehkan selama pertandingan berlangsung dengan cara memberitahu kepada wasit utama. Setelah wasit menerima informasi tersebut, pemain baru dapat melakukan pergantian.</p>
+              <p>11. Pertandingan <strong>group stage</strong> harus melewati <strong>3 babak (best of three)</strong> atau <strong>two winning set</strong> dimana ketika pada babak pertama dan kedua telah dimenangkan oleh salah satu tim maka pertandingan babak ketiga tidak perlu dilaksanakan.</p>
+              <p>12. Untuk pertandingan <strong>final (single elimination)</strong>, pertandingan bola voli akan berlangsung selama <strong>5 babak (best of five)</strong> atau <strong>three winning set</strong>, dimana tim yang memenangkan <strong>3 babak</strong> terlebih dahulu adalah pemenangnya. Perebutan juara 3 akan menggunakan sistem <strong>two winning set</strong>.</p>
+              <p>13. Pada pertandingan bola voli sistem perhitungan angka menggunakan <strong>rally point</strong> maksimal pada <strong>25 point</strong> dan pada babak penentu kemenangan (set 3 atau set 5) akan menggunakan <strong>rally point</strong> dengan maksimal <strong>15 point</strong> di mana pemilihan lapangan atau bola akan diundi kembali dengan koin bersama wasit.</p>
+              <p>14. Jika saat pertandingan berlangsung kedua tim mendapatkan deuce/poin yang sama di akhir yaitu (24 – 24), maka pertandingan akan ditambah <strong>2 poin</strong>. Tim yang pertama berhasil unggul dengan selisih <strong>2 poin</strong> akan memenangkan pertandingan bola voli. Maksimal deuce pada setiap pertandingan yang dipersilahkan adalah (30 - 30) dengan akhir pertandingan yang dinyatakan <strong>DRAW</strong>.</p>
+              <p>15. Tim akan mendapatkan <strong>3 poin</strong> jika memenangkan pertandingan group stage, <strong>1 poin</strong> jika pertandingan dinyatakan <strong>draw</strong>, dan <strong>0 poin</strong> jika mendapatkan kekalahan. Jika ada tim dengan poin yang sama, maka akan dilihat dari perhitungan <strong>set kemenangan</strong>.</p>
+              <p>16. Setiap mengakhiri babak pertandingan, tim diwajibkan bertukar sisi lapangan. Apabila kedua tim telah mencapai babak ketiga, maka tim yang memperoleh nilai terendah dapat meminta kepada wasit untuk bertukar posisi lapangan. Hal ini hanya dilakukan jika poin telah mencapai angka <strong>8</strong>.</p>
+              <p>17. Setiap tim akan diwajibkan untuk melakukan <strong>timeout</strong> jika telah mencapai <strong>16 poin</strong> dalam pertandingan. Di luar itu, setiap tim memiliki jatah timeout sebanyak <strong>1 kali</strong> di setiap babak dengan cara mengajukan kepada wasit utama (maksimal waktu timeout <strong>1 menit</strong>).</p>
+              <p>18. Pertandingan diperkirakan akan berlangsung kurang lebih selama <strong>45 menit</strong>, dan pertandingan final akan berlangsung kurang lebih selama <strong>1 jam 15 menit</strong>.</p>
+              <p>19. Jika terjadi <strong>hujan</strong> dengan potensi besar mengganggu jalannya pertandingan, pertandingan akan di reschedule ke hari lain yang telah disiapkan oleh panitia atau diundur sementara waktu (jika memungkinkan tetap dilaksanakan pada hari tersebut).</p>`}
+    isOpen={openSection === "rule"}
+    toggleOpen={toggleOpen}
+/>
 
-19.Jika terjadi hujan dengan potensi besar mengganggu jalannya pertandingan,
-pertandingan akan di reschedule ke hari lain yang telah disiapkan oleh panitia
-atau diundur sementara waktu (jika memungkinkan tetap dilaksanakan pada hari
-tersebut).`}
-                            isOpen={openSection === "rule"}
-                            toggleOpen={toggleOpen}
-                        />
-                        <InfoSection
-                            id="kostum"
-                            icon={Info}
-                            title="Peraturan Kostum"
-                            content={`1. Setiap tim WAJIB membuat jersey tim dengan minimal NOMOR PUNGGUNG
-                                        dan akan dipakai untuk dapat mengikuti pertandingan.
-                                        2. Pemain diperbolehkan menggunakan aksesoris seperti Arm Sleeve, Leg Sleeve,
-                                        Deker Knee, Deker Ankle, Celana Dalaman, Baju Dalaman, Headband, dan
-                                        Wristband.
-                                        3. Pemain dilarang menggunakan aksesoris seperti anting, kalung, gelang, jam
-                                        tangan, dsb selama mengikuti pertandingan.
-                                        4. Pemain diwajibkan menggunakan sepatu olahraga saat bermain.`}
-                            isOpen={openSection === "kostum"}
-                            toggleOpen={toggleOpen}
-                        />
-                        <InfoSection
-                            id="pelanggaran"
-                            icon={Info}
-                            title="Pelanggaran dan Sanksi"
-                            content={`1. Jika pemain dari suatu tim baik sengaja maupun tidak sengaja menyentuh tiang
-                            net dan net, mengulurkan tangan hingga melewati batas net sebelum lawan
-                            menyelesaikan serangan, menginjak garis tengah saat permainan berlangsung,
-                            dan mengganggu lawan dengan menarik baju atau anggota tubuh lainnya akan
-                            dikenakan penalti berupa pemberian poin kepada tim lawan.
-                            2. Jika pemain dari suatu tim mengeluarkan kata-kata tidak sopan, menghina,
-                            memfitnah pemain lain, petugas, atau bahkan penonton, dan melakukan
-                            tindakan menyerang berupa kekerasan secara fisik, maka tim pemain tersebut
-                            akan di DISKUALIFIKASI.
-                            3. Keputusan wasit dalam pertandingan bersifat mutlak dan tidak dapat diganggu
-                            gugat.`}
-                            isOpen={openSection === "pelanggaran"}
-                            toggleOpen={toggleOpen}
-                        />
+<InfoSection
+    id="kostum"
+    icon={Shirt}
+    title="Peraturan Kostum"
+    content={`<p>1. Setiap tim <strong>WAJIB</strong> membuat jersey tim dengan minimal <strong>NOMOR PUNGGUNG</strong> dan akan dipakai untuk dapat mengikuti pertandingan.</p>
+              <p>2. Pemain diperbolehkan menggunakan aksesoris seperti <strong>Arm Sleeve</strong>, <strong>Leg Sleeve</strong>, <strong>Deker Knee</strong>, <strong>Deker Ankle</strong>, <strong>Celana Dalaman</strong>, <strong>Baju Dalaman</strong>, <strong>Headband</strong>, dan <strong>Wristband</strong>.</p>
+              <p>3. Pemain dilarang menggunakan aksesoris seperti <strong>anting</strong>, <strong>kalung</strong>, <strong>gelang</strong>, <strong>jam tangan</strong>, dsb selama mengikuti pertandingan.</p>
+              <p>4. Pemain diwajibkan menggunakan <strong>sepatu olahraga</strong> saat bermain.</p>`}
+    isOpen={openSection === "kostum"}
+    toggleOpen={toggleOpen}
+/>
+
+<InfoSection
+    id="pelanggaran"
+    icon={ShieldAlert}
+    title="Pelanggaran dan Sanksi"
+    content={`<p>1. Jika pemain dari suatu tim baik sengaja maupun tidak sengaja menyentuh <strong>tiang net</strong> dan <strong>net</strong>, mengulurkan tangan hingga melewati batas net sebelum lawan menyelesaikan serangan, menginjak <strong>garis tengah</strong> saat permainan berlangsung, dan mengganggu lawan dengan menarik baju atau anggota tubuh lainnya akan dikenakan penalti berupa pemberian <strong>poin</strong> kepada tim lawan.</p>
+              <p>2. Jika pemain dari suatu tim mengeluarkan <strong>kata-kata tidak sopan</strong>, menghina, memfitnah pemain lain, petugas, atau bahkan penonton, dan melakukan tindakan menyerang berupa <strong>kekerasan secara fisik</strong>, maka tim pemain tersebut akan di <strong>DISKUALIFIKASI</strong>.</p>
+              <p>3. <strong>Keputusan wasit</strong> dalam pertandingan bersifat mutlak dan tidak dapat diganggu gugat.</p>`}
+    isOpen={openSection === "pelanggaran"}
+    toggleOpen={toggleOpen}
+/>
+
                     </div>
                     <div
                         className="hidden md:flex bg-no-repeat bg-cover bg-center w-full max-w-5xl aspect-video items-center justify-center p-6 md:p-8 mb-6 md:mb-10"

@@ -19,6 +19,8 @@ import {
     ChevronUp,
     BookUser,
     NotebookTabs,
+    List,
+    CheckCircle
 } from "lucide-react";
 
 import BgFutsal from "../../Assets/Ulympic/Futsal/bgFutsal.jpg";
@@ -79,16 +81,10 @@ const exclamationMarkSvg = encodeURIComponent(`
                 <div
                     className={`transition-all duration-300 ease-in-out overflow-hidden ${isOpen ? "max-h-screen" : "max-h-0"}`}
                 >
-                    <div className="p-4 md:p-5 bg-gray-50">
-                        {content.split("\n").map((line, index) => (
-                            <p
-                                key={index}
-                                className="text-gray-700 leading-relaxed text-sm md:text-base mb-2"
-                            >
-                                {line}
-                            </p>
-                        ))}
-                    </div>
+                    <div
+                        className="p-4 md:p-5 bg-gray-50 text-gray-700 leading-relaxed text-sm md:text-base"
+                        dangerouslySetInnerHTML={{ __html: content }}
+                    />
                 </div>
             </div>
         );
@@ -291,108 +287,115 @@ function FutsalFormEulympic({ lombas, captcha }) {
                 />
                 <div className="relative z-10 min-h-screen flex flex-col items-center justify-start p-4 md:p-6 overflow-y-auto">
                     <div className="w-full max-w-5xl space-y-4 md:space-y-6 mb-6 md:mb-10">
-                        <InfoSection
-                            id="aturan"
-                            icon={Info}
-                            title="Aturan Pertandingan"
-                            content={`• Peraturan Wajib
-- Pemain yang telah terdaftar di 1 tim tidak boleh mendaftarkan diri di tim lain
-- Pemain yang terdaftar harus berada di bench,apabila tidak berada di bench dengan alas an
-yang tidak jelas maka akan di diskualifikasi.
-- Bola yang akan digunakan adalah bola 62 - 64 cm (size 4). - Berat bola yaitu 400 - 440 gram.
-- 1 babak terdapat 1 time out boleh siapapun yang call time out diantara 2 tim tersebut.
-- Bagi pemain yang berperilaku buruk akan diberikan sanski kartu kuning/merah.
+                    <InfoSection
+    id="aturan"
+    icon={Info}
+    title="Aturan Pertandingan"
+    content={`<p><strong>Peraturan Wajib:</strong></p>
+    <ol>
+        <li><strong>Pemain</strong> yang telah terdaftar di 1 tim tidak boleh mendaftarkan diri di tim lain.</li>
+        <li><strong>Pemain</strong> yang terdaftar harus berada di <strong>bench</strong>; apabila tidak berada di bench dengan alasan yang tidak jelas maka akan di <strong>diskualifikasi</strong>.</li>
+        <li>Bola yang akan digunakan adalah <strong>bola 62 - 64 cm (size 4)</strong>. Berat bola yaitu <strong>400 - 440 gram</strong>.</li>
+        <li>1 babak terdapat 1 <strong>time out</strong> boleh siapapun yang call time out diantara 2 tim tersebut.</li>
+        <li>Bagi pemain yang berperilaku buruk akan diberikan <strong>sanksi kartu kuning/merah</strong>.</li>
+    </ol>
+    <p><strong>Durasi Pertandingan:</strong></p>
+    <ol>
+        <li><strong>35 Menit</strong></li>
+        <li>1 x <strong>15 Menit</strong> untuk tiap babak</li>
+        <li>Total waktu pertandingan adalah <strong>2x15 menit</strong> untuk 1 pertandingan</li>
+        <li><strong>Waktu Tambahan (Overtime)</strong> apabila pada akhir pertandingan skor sama: Langsung adu <strong>Pinalti</strong></li>
+    </ol>
+    <p><strong>Jumlah Pemain:</strong></p>
+    <ol>
+        <li><strong>10 pemain</strong></li>
+        <li>Minimal mendaftarkan <strong>8 pemain</strong> tiap tim</li>
+        <li>Setiap tim boleh memiliki maksimal <strong>1 pelatih dan 1 official</strong></li>
+        <li><strong>Official/Pelatih</strong> wajib menggunakan pakaian sesuai dengan peraturan kampus beserta <strong>KTM</strong></li>
+        <li><strong>Pemain/Official dan Pelatih</strong> harus memiliki nama yang sama sesuai yang terdaftar dan akan di <strong>check ulang</strong> pada saat pendaftaran ulang</li>
+    </ol>`}
+    isOpen={openSection === "aturan"}
+    toggleOpen={toggleOpen}
+/>
 
-• Durasi Pertandingan :
-- 35 Menit
--1 x 15 Menit untuk tiap babak
--Total waktu pertandingan adalah 2x15 menit untuk 1 pertandingan
--Waktu Tambahan (Overtime apabila pada akhir pertandingan skor nya sama) : Langsung adu
-Pinalti
-• Jumlah Pemain :
-- 10 pemain
-- Minimal mendaftarkan 8 pemain tiap tim
-- Setiap tim boleh memiliki maksimal 1 pelatih dan 1 official
+<InfoSection
+    id="kostum"
+    icon={Shirt}
+    title="Pakaian dan Perlengkapan"
+    content={`<p><strong>Terang:</strong></p>
+    <ol>
+        <li>Wajib memiliki warna yang <strong>terang</strong> (contoh: apabila semua memakai terang, tidak boleh ada yang memakai baju gelap)</li>
+    </ol>
+    <p><strong>Gelap:</strong></p>
+    <ol>
+        <li>Wajib memakai warna yang <strong>gelap</strong> (tidak boleh memakai baju berwarna terang)</li>
+    </ol>
+    <ol>
+        <li><strong>Pemain</strong> harus menggunakan <strong>jersey/kostum bernomor (0-99)</strong></li>
+        <li><strong>Pemain</strong> dilarang menggunakan <strong>kalung, gelang, jam tangan</strong> maupun aksesoris yang dapat mengganggu berjalannya pertandingan</li>
+        <li><strong>Pemain</strong> wajib menggunakan <strong>Sepatu futsal</strong> (bukan sepatu sepakbola)</li>
+        <li><strong>Pemain</strong> wajib menggunakan <strong>kaos kaki minimal di atas betis</strong></li>
+        <li><strong>Pemain</strong> wajib memiliki <strong>kuku pendek</strong></li>
+        <li><strong>Pemain</strong> tidak boleh menggunakan <strong>angka yang sama</strong> dengan rekan setimnya</li>
+        <li><strong>Pemain</strong> wajib menggunakan <strong>deker</strong></li>
+    </ol>`}
+    isOpen={openSection === "kostum"}
+    toggleOpen={toggleOpen}
+/>
 
--Official/Pelatih wajib menggunakna pakaian sesuai dengan peraturan kampus beserta KTM
--Pemain/Official dan Pelatih harus memiliki nama yang sama sesuai yang terdaftar dan akan di
-check ulang pada saat pendaftaran ulang`}
-                            isOpen={openSection === "aturan"}
-                            toggleOpen={toggleOpen}
-                        />
+<InfoSection
+    id="penilaian"
+    icon={CheckCircle}
+    title="Penilaian"
+    content={`<ol>
+        <li><strong>Sistem Skor:</strong> Setiap gol dihitung 1 poin</li>
+        <li><strong>Foul dan Penalti:</strong> Jika pemain melakukan pelanggaran di kotak penalti, akan diberikan foul dan tim lawan akan mendapatkan penalti.</li>
+        <li><strong>Peraturan Timeout:</strong> 60 Detik</li>
+        <li><strong>Protes dan Penanganannya:</strong> Protes lebih baik langsung dikomunikasikan kepada panitia terdekat.</li>
+    </ol>`}
+    isOpen={openSection === "penilaian"}
+    toggleOpen={toggleOpen}
+/>
 
-                        <InfoSection
-                            id="kostum"
-                            icon={Shirt}
-                            title="Pakaian dan Perlengkapan"
-                            content={`• Terang
-Wajib memiliki warna yang terang(contoh apabila semua memakai terang,tidak boleh ada
-yang memakai baju gelap )
-• Gelap
-Wajib memakai warna yang gelap(tidak boleh memakai baju berwarna terang)
--Pemain harus menggunakan jersey/kostum bernomor (0-99)
--Pemain dilarang menggunakan kalung,gelang,jam tangan maupun aksesoris yang dapat
-mengganggu berjalannya pertandingan
--Pemain wajib menggunakan Sepatu futsal (bukan sepatu sepakbola)
--Pemain wajib menggunakan kaos kaki minimal diatas betis
--Pemain wajib memiliki kuku pendek
--Pemain tidak boleh menggunakan angka yang sama dengan rekan setim nya
-- Pemain wajib menggunakan deker`}
-                            isOpen={openSection === "kostum"}
-                            toggleOpen={toggleOpen}
-                        />
+<InfoSection
+    id="jadwal"
+    icon={Shirt}
+    title="Jadwal Pertandingan"
+    content={`<p><strong>Pendaftaran Ulang:</strong></p>
+    <ol>
+        <li>Pendaftaran Ulang akan dilakukan <strong>20 menit</strong> sebelum match yang dijadwalkan (minimal <strong>5 orang sebelum pertandingan dimulai</strong>)</li>
+        <li>Setiap tim wajib melakukan pendaftaran ulang maksimal <strong>10 menit</strong> sebelum jadwal pertandingan</li>
+    </ol>
+    <p><strong>Detail Semifinal dan Final:</strong></p>
+    <ol>
+        <li>Waktu semi bersih (timeout waktu berhenti)</li>
+    </ol>
+    <p><strong>Pelanggaran dan Sanksi:</strong></p>
+    <ol>
+        <li><strong>Diskualifikasi</strong> apabila tim yang datang kurang dari jumlah minimal yaitu <strong>5 orang</strong>, dan jika telat <strong>10 menit lebih</strong> dari rundown yang sudah diberi maka akan didiskualifikasi juga</li>
+        <li><strong>Pemain</strong> yang membuat keributan akan dikenakan <strong>denda Rp.100.000,00</strong> dan wajib membayar; pemain tersebut akan didiskualifikasi dari Ulympic 2024</li>
+    </ol>`}
+    isOpen={openSection === "jadwal"}
+    toggleOpen={toggleOpen}
+/>
 
-                        <InfoSection
-                            id="penilaian"
-                            icon={Shirt}
-                            title="Penilaian"
-                            content={`• Sistem Skor:
--Setiap gol diitung 1 poin
+<InfoSection
+    id="hadiah"
+    icon={Trophy}
+    title="Hadiah dan Penghargaan"
+    content={`<ol>
+        <li><strong>Juara Pertama:</strong> Rp 1.500.000 (Internal)</li>
+        <li><strong>Juara Kedua:</strong> Rp 1.200.000 (Internal)</li>
+        <li><strong>Juara Ketiga:</strong> Rp 800.000 (Internal)</li>
+        <li><strong>Juara Pertama:</strong> Rp 2.500.000 (Eksternal)</li>
+        <li><strong>Juara Kedua:</strong> Rp 1.500.000 (Eksternal)</li>
+        <li><strong>Juara Ketiga:</strong> Rp 1.000.000 (Eksternal)</li>
+        <li><strong>Penghargaan Individu</strong></li>
+    </ol>`}
+    isOpen={openSection === "hadiah"}
+    toggleOpen={toggleOpen}
+/>
 
-• Foul dan Penalti :
--Jika pemain melakukan pelanggaran di kotak penalti, akan diberikan foul dan tim lawan akan
-mendapat pinalti.
-• Peraturan Timeout: 60 Detik
-
-• Protes dan Penanganannya:
-Protes lebih baik langsung dikomunikasikan kepada panitia terdekat`}
-                            isOpen={openSection === "penilaian"}
-                            toggleOpen={toggleOpen}
-                        />
-                        <InfoSection
-                            id="jadwal"
-                            icon={Shirt}
-                            title="Jadwal Pertandingan"
-                            content={`• Pendaftaran Ulang:
-- Pendaftaran Ulang akan dilakukan 20 menitsebelum match yang dijadwalkan (minimal 5
-orang sebelum pertandingan dimulai)
--Setiap tim wajib melakukan pendaftaran ulang maksimal 10 menitsebelum jadwal
-pertandingan
-• Detail Semifinal dan Final:
-Waktu semi bersih (timeout waktu
-berhenti)
-• Pelanggaran dan Sanksi:
--Diskualifikasi apabila tim yang datang kurang dari jumlah minimal yaitu 5 orang,,dan jika
-telat 10 menit lebih dari rundown yang sudah diberi maka akan didiskualifikasi juga
--Pemain yang membuat keributan akan dikenakan denda Rp.100.000,00 dan wajib
-membayar,pemain tersebut aka didiskualifikasi dari Ulympic 2024`}
-                            isOpen={openSection === "jadwal"}
-                            toggleOpen={toggleOpen}
-                        />
-                        <InfoSection
-                            id="hadiah"
-                            icon={Trophy}
-                            title="Hadiah dan Penghargaan"
-                            content={`• Juara Pertama: Rp 1.500.000 (Internal)
-• Juara Kedua: Rp 1.200.000 (Internal)
-• Juara Ketiga: Rp 800.000 (Internal)
-• Juara Pertama: Rp 2.500.000 (Eksternal)
-• Juara Kedua: Rp 1.500.000 (Eksternal)
-• Juara Ketiga: Rp 1.000.000 (Eksternal)
-• Penghargaan Individu`}
-                            isOpen={openSection === "hadiah"}
-                            toggleOpen={toggleOpen}
-                        />
                     </div>
 
                     <div

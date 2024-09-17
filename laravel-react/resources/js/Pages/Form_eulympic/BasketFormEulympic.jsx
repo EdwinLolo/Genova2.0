@@ -79,16 +79,10 @@ const exclamationMarkSvg = encodeURIComponent(`
                 <div
                     className={`transition-all duration-300 ease-in-out overflow-hidden ${isOpen ? "max-h-screen" : "max-h-0"}`}
                 >
-                    <div className="p-4 md:p-5 bg-gray-50">
-                        {content.split("\n").map((line, index) => (
-                            <p
-                                key={index}
-                                className="text-gray-700 leading-relaxed text-sm md:text-base mb-2"
-                            >
-                                {line}
-                            </p>
-                        ))}
-                    </div>
+                    <div
+                        className="p-4 md:p-5 bg-gray-50 text-gray-700 leading-relaxed text-sm md:text-base"
+                        dangerouslySetInnerHTML={{ __html: content }}
+                    />
                 </div>
             </div>
         );
@@ -291,107 +285,91 @@ function BasketFormEulympic({ lombas, captcha }) {
                 />
                 <div className="relative z-10 min-h-screen flex flex-col items-center justify-start p-4 md:p-6 overflow-y-auto">
                     <div className="w-full max-w-5xl space-y-4 md:space-y-6 mb-6 md:mb-10">
-                        <InfoSection
-                            id="about"
-                            icon={Info}
-                            title="Pendahuluan"
-                            content={`• Nama Acara :Ulympic Basket 2024
-                        • Deskripsi Singkat Acara : Ulympic Basket adalah pertandingan basket internal (antar fakultas) di UMN
-                        • Penyelenggara :UMN FESTIVAL
-                        • Tanggal dan Durasi :1 Oktober 2024- 10 Oktober 2024
-                        • Lokasi :Lapangan Basket UMN
-                        • Peserta : Mahasiswa Universitas Multimedia Nusantara ( Max Angkatan 2021)`}
-                            isOpen={openSection === "about"}
-                            toggleOpen={toggleOpen}
-                        />
+                    <InfoSection
+                        id="about"
+                        icon={Info}
+                        title="Pendahuluan"
+                        content={`<p><strong>Ulympic Basket 2024</strong> adalah pertandingan basket internal yang diselenggarakan oleh <strong>UMN FESTIVAL</strong> di Universitas Multimedia Nusantara. Acara ini akan berlangsung dari <strong>1 Oktober 2024 hingga 10 Oktober 2024</strong>, bertempat di <strong>Lapangan Basket UMN</strong>. Peserta yang dapat mengikuti adalah <strong>mahasiswa Universitas Multimedia Nusantara</strong>, khususnya dari angkatan 2021 ke atas.</p>`}
+                        isOpen={openSection === "about"}
+                        toggleOpen={toggleOpen}
+                    />
 
-                        <InfoSection
-                            id="rules"
-                            icon={BookUser}
-                            title="Peraturan Wajib"
-                            content="-Pemain yang telah terdaftar di 1 tim tidak boleh mendaftarkan diri di tim lain
-                        -Pemain yang terdaftar harus berada di bench,apabila tidak berada di bench dengan alasan yang tidak jelas maka akan di beri technical foul
-                        -Bola yang akan digunakan adalah bola 7 (seri BG4500)
-                        -Masing-masing tim memiliki kesempatan untuk mengambil timeout 4x selama 1 pertandingan
-                        -Bagi pemain yang berperilaku buruk akan diberikan technical foul
-                        -Tidak ada shotclock,apabila offense terlalu lama maka akan diberi warning oleh wasit)(OPSIONAL)
-                        -Apabila terjadi hujan maka pertandingan akan ditunda selama 60 menit, apabila masih hujan, pertandingan akan direschedule.
-                        -Dalam 1 tim boleh memiliki pemain dari prodi lain namun Fakultas yang sama
-                        Cth: Jurnalistik dan Strategi Komunikasi boleh bersatu di 1 tim yg sama yang mewakili Fakultas Ilmu Komunikasi"
-                            isOpen={openSection === "rules"}
-                            toggleOpen={toggleOpen}
-                        />
+                    <InfoSection
+                        id="rules"
+                        icon={BookUser}
+                        title="Peraturan Wajib"
+                        content={`<p>1. <strong>Pemain</strong> yang telah terdaftar di 1 tim tidak boleh mendaftarkan diri di tim lain.</p>
+                                <p>2. <strong>Pemain</strong> yang terdaftar harus berada di <strong>bench</strong>; jika tidak berada di bench dengan alasan yang tidak jelas maka akan diberi <strong>technical foul</strong>.</p>
+                                <p>3. Bola yang akan digunakan adalah <strong>bola 7 (seri BG4500)</strong>.</p>
+                                <p>4. Masing-masing tim memiliki kesempatan untuk mengambil <strong>timeout 4x</strong> selama 1 pertandingan.</p>
+                                <p>5. Bagi pemain yang berperilaku buruk akan diberikan <strong>technical foul</strong>.</p>
+                                <p>6. Tidak ada <strong>shotclock</strong>; apabila offense terlalu lama maka akan diberi warning oleh wasit (OPSIONAL).</p>
+                                <p>7. Apabila terjadi <strong>hujan</strong>, maka pertandingan akan ditunda selama 60 menit; apabila masih hujan, pertandingan akan direschedule.</p>
+                                <p>8. Dalam 1 tim boleh memiliki pemain dari <strong>prodi lain</strong> namun Fakultas yang sama. Contoh: Jurnalistik dan Strategi Komunikasi boleh bersatu di 1 tim yang mewakili Fakultas Ilmu Komunikasi.</p>`}
+                        isOpen={openSection === "rules"}
+                        toggleOpen={toggleOpen}
+                    />
 
-                        <InfoSection
-                            id="durasi"
-                            icon={Clock}
-                            title="Durasi Pertandingan"
-                            content="-40 Menit
--1 x 10 Menit untuk tiap Quarter dan waktu berjalan kotor
--Halftime Break 5 Menit
--Each Quarter Break 2 Menit
--Total waktu pertandingan adalah 4x10 menit untuk 1 pertandingan
--Waktu Tambahan (Overtime apabila pada akhir pertandingan skor nya sama) : 5 Menit"
-                            isOpen={openSection === "durasi"}
-                            toggleOpen={toggleOpen}
-                        />
+                    <InfoSection
+                        id="durasi"
+                        icon={Clock}
+                        title="Durasi Pertandingan"
+                        content={`<p>1. <strong>40 Menit</strong></p>
+                                <p>2. 1 x <strong>10 Menit</strong> untuk tiap Quarter dan waktu berjalan kotor</p>
+                                <p>3. <strong>Halftime Break</strong> 5 Menit</p>
+                                <p>4. <strong>Each Quarter Break</strong> 2 Menit</p>
+                                <p>5. Total waktu pertandingan adalah <strong>4x10 menit</strong> untuk 1 pertandingan</p>
+                                <p>6. <strong>Waktu Tambahan (Overtime)</strong> apabila pada akhir pertandingan skor sama: 5 Menit</p>`}
+                        isOpen={openSection === "durasi"}
+                        toggleOpen={toggleOpen}
+                    />
 
-                        <InfoSection
-                            id="costume"
-                            icon={Shirt}
-                            title="Kostum Pertandingan"
-                            content="• Terang
-- Wajib memiliki warna yang terang (contoh apabila semua memakai terang,tidak boleh ada
-yang memakai baju gelap )
-• Gelap
-Wajib memakai warna yang gelap(tidak boleh memakai baju berwarna terang)
--Pemain harus menggunakan jersey/kostum bernomor (0-99)
--Pemain dilarang menggunakan kalung,gelang,jam tangan maupun aksesoris yang dapat
-mengganggu berjalannya pertandingan
--Pemain wajib menggunakan Sepatu
--Pemain wajib menggunakan kaos kaki minimal diatas mata kaki
--Pemain wajib memiliki kuku pendek
--Pemain tidak boleh menggunakan angka yang sama dengan rekan setim nya
--Perwakilan pemain harus dari fakultas yang sama, dan jurusan-jurusan dalam fakultas boleh
-digabung. (contoh: jurusan stboleh digabung)"
-                            isOpen={openSection === "costume"}
-                            toggleOpen={toggleOpen}
-                        />
+                    <InfoSection
+                        id="costume"
+                        icon={Shirt}
+                        title="Kostum Pertandingan"
+                        content={`<p>1. <strong>Terang:</strong> Wajib memiliki warna yang <strong>terang</strong> (contoh: apabila semua memakai terang, tidak boleh ada yang memakai baju gelap)</p>
+                                <p>2. <strong>Gelap:</strong> Wajib memakai warna yang <strong>gelap</strong> (tidak boleh memakai baju berwarna terang)</p>
+                                <p>3. <strong>Pemain</strong> harus menggunakan <strong>jersey/kostum bernomor (0-99)</strong></p>
+                                <p>4. <strong>Pemain</strong> dilarang menggunakan <strong>kalung, gelang, jam tangan</strong> maupun aksesoris yang dapat mengganggu berjalannya pertandingan</p>
+                                <p>5. <strong>Pemain</strong> wajib menggunakan <strong>sepatu</strong></p>
+                                <p>6. <strong>Pemain</strong> wajib menggunakan <strong>kaos kaki</strong> minimal di atas mata kaki</p>
+                                <p>7. <strong>Pemain</strong> wajib memiliki <strong>kuku pendek</strong></p>
+                                <p>8. <strong>Pemain</strong> tidak boleh menggunakan <strong>angka yang sama</strong> dengan rekan setimnya</p>
+                                <p>9. Perwakilan pemain harus dari <strong>fakultas yang sama</strong>, dan jurusan-jurusan dalam fakultas boleh digabung (contoh: jurusan st boleh digabung)</p>`}
+                        isOpen={openSection === "costume"}
+                        toggleOpen={toggleOpen}
+                    />
 
-                        <InfoSection
-                            id="jumlahPemain"
-                            icon={UsersRound}
-                            title="Jumlah Pemain"
-                            content="-12 pemain
--Minimal mendaftarkan 7 pemain tiap tim
--Setiap tim boleh memiliki maksimal 1 pelatih dan 1 official
--Official/Pelatih wajib menggunakna pakaian sesuai dengan peraturan kampus beserta KTM -
-Pemain/Official dan Pelatih harus memiliki nama yang sama sesuai yang terdaftar dan akan di
-check ulang pada saat pendaftaran ulang"
-                            isOpen={openSection === "jumlahPemain"}
-                            toggleOpen={toggleOpen}
-                        />
+                    <InfoSection
+                        id="jumlahPemain"
+                        icon={UsersRound}
+                        title="Jumlah Pemain"
+                        content={`<p>1. <strong>12 pemain</strong></p>
+                                <p>2. Minimal mendaftarkan <strong>7 pemain</strong> tiap tim</p>
+                                <p>3. Setiap tim boleh memiliki maksimal <strong>1 pelatih</strong> dan <strong>1 official</strong></p>
+                                <p>4. Official/Pelatih wajib menggunakan pakaian sesuai dengan peraturan kampus beserta <strong>KTM</strong></p>
+                                <p>5. <strong>Pemain/Official dan Pelatih</strong> harus memiliki nama yang sama sesuai yang terdaftar dan akan dicek ulang pada saat pendaftaran ulang</p>`}
+                        isOpen={openSection === "jumlahPemain"}
+                        toggleOpen={toggleOpen}
+                    />
 
-                        <InfoSection
-                            id="jadwal"
-                            icon={ShieldAlert}
-                            title="Jadwal Pertandingan"
-                            content="• Pendaftaran Ulang:
-        - Pendaftaran Ulang akan dilakukan 30 menit sebelum match yang dijadwalkan (minimal 5
-orang sebelum pertandingan dimulai)
-        -Setiap tim wajib melakukan pendaftaran ulang maksimal 10 menit sebelum jadwal
-pertandingan
-• Detail Semifinal dan Final:
-- Waktu semi bersih(timeout waktu berhenti)
-- 2 Menit terakhir bersih untuk quarter 4
-• Pelanggaran dan Sanksi:
--Diskualifikasi apabila tim yang datang kurang dari jumlah minimal yaitu 5 orang, dan jika
-telat 10 menit lebih dari rundown yang sudah diberi maka akan didiskualifikasi juga -
-Pemain yang membuat keributan akan dikenakan denda Rp.100.000,00 dan wajib
-membayar,pemain tersebut aka didiskualifikasi dari Ulympic 2024"
-                            isOpen={openSection === "jadwal"}
-                            toggleOpen={toggleOpen}
-                        />
+                    <InfoSection
+                        id="jadwal"
+                        icon={ShieldAlert}
+                        title="Jadwal Pertandingan"
+                        content={`<p>1. <strong>Pendaftaran Ulang:</strong></p>
+                                <p>- Pendaftaran Ulang akan dilakukan <strong>30 menit sebelum match</strong> yang dijadwalkan (minimal <strong>5 orang sebelum pertandingan dimulai</strong>)</p>
+                                <p>- Setiap tim wajib melakukan pendaftaran ulang maksimal <strong>10 menit sebelum jadwal pertandingan</strong></p>
+                                <p>2. <strong>Detail Semifinal dan Final:</strong></p>
+                                <p>- Waktu semi bersih (timeout waktu berhenti)</p>
+                                <p>- <strong>2 Menit terakhir bersih</strong> untuk quarter 4</p>
+                                <p>3. <strong>Pelanggaran dan Sanksi:</strong></p>
+                                <p>- <strong>Diskualifikasi</strong> apabila tim yang datang kurang dari jumlah minimal yaitu <strong>5 orang</strong>, dan jika telat <strong>10 menit lebih</strong> dari rundown yang sudah diberi maka akan didiskualifikasi juga</p>
+                                <p>- <strong>Pemain</strong> yang membuat keributan akan dikenakan <strong>denda Rp.100.000,00</strong> dan wajib membayar; pemain tersebut akan didiskualifikasi dari Ulympic 2024</p>`}
+                        isOpen={openSection === "jadwal"}
+                        toggleOpen={toggleOpen}
+                    />
                     </div>
 
                     <div
