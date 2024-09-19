@@ -647,13 +647,13 @@ function UlympicMain() {
                                     Daftar dan spike bola menuju juara di
                                     Ulympic!
                                 </p>
-                                {/* <a
+                                <a
                                     href="/rangkaian/ulympic/voli"
                                     className="inside-page__btn inside-page__btn--camping"
                                     target="_blank"
                                 >
                                     Registrasi
-                                </a> */}
+                                </a>
                             </div>
                         </div>
                     </div>
