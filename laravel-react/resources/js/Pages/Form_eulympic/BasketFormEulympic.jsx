@@ -37,60 +37,68 @@ const exclamationMarkSvg = encodeURIComponent(`
         </g>
     </svg>
     `);
-    
-    const InfoSection = ({
-        title,
-        content,
-        icon: Icon,
-        id,
-        isOpen,
-        toggleOpen,
-    }) => {
-        const [hasClicked, setHasClicked] = useState(false);
-    
-        const handleClick = () => {
-            setHasClicked(true);
-            toggleOpen(id);
-        };
-    
-        return (
-            <div className="bg-white bg-opacity-90 rounded-lg overflow-hidden mb-4 shadow-lg transition-all duration-300 ease-in-out transform hover:scale-102">
-                <button
-                    className="w-full p-4 md:p-5 text-left font-bold flex justify-between items-center text-base md:text-lg"
-                    onClick={handleClick}
-                >
-                    <span className="flex items-center text-blue-600">
-                        <Icon className="mr-2 md:mr-3" size={24} />
-                        {title}
-                        {!hasClicked && (
-                            <img
-                                src={`data:image/svg+xml;charset=UTF-8,${exclamationMarkSvg}`}
-                                alt="!"
-                                className="ml-2 w-5 h-5"
-                            />
-                        )}
-                    </span>
-                    <span
-                        className={`transform transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
-                    >
-                        {isOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
-                    </span>
-                </button>
-                <div
-                    className={`transition-all duration-300 ease-in-out overflow-hidden ${isOpen ? "max-h-screen" : "max-h-0"}`}
-                >
-                    <div
-                        className="p-4 md:p-5 bg-gray-50 text-gray-700 leading-relaxed text-sm md:text-base"
-                        dangerouslySetInnerHTML={{ __html: content }}
-                    />
-                </div>
-            </div>
-        );
+
+const InfoSection = ({
+    title,
+    content,
+    icon: Icon,
+    id,
+    isOpen,
+    toggleOpen,
+}) => {
+    const [hasClicked, setHasClicked] = useState(false);
+
+    const handleClick = () => {
+        setHasClicked(true);
+        toggleOpen(id);
     };
+
+    return (
+        <div className="mb-4 overflow-hidden transition-all duration-300 ease-in-out transform bg-white rounded-lg shadow-lg bg-opacity-90 hover:scale-102">
+            <button
+                className="flex items-center justify-between w-full p-4 text-base font-bold text-left md:p-5 md:text-lg"
+                onClick={handleClick}
+            >
+                <span className="flex items-center text-blue-600">
+                    <Icon className="mr-2 md:mr-3" size={24} />
+                    {title}
+                    {!hasClicked && (
+                        <img
+                            src={`data:image/svg+xml;charset=UTF-8,${exclamationMarkSvg}`}
+                            alt="!"
+                            className="w-5 h-5 ml-2"
+                        />
+                    )}
+                </span>
+                <span
+                    className={`transform transition-transform duration-300 ${
+                        isOpen ? "rotate-180" : ""
+                    }`}
+                >
+                    {isOpen ? (
+                        <ChevronUp size={20} />
+                    ) : (
+                        <ChevronDown size={20} />
+                    )}
+                </span>
+            </button>
+            <div
+                className={`transition-all duration-300 ease-in-out overflow-hidden ${
+                    isOpen ? "max-h-screen" : "max-h-0"
+                }`}
+            >
+                <div
+                    className="p-4 text-sm leading-relaxed text-gray-700 md:p-5 bg-gray-50 md:text-base"
+                    dangerouslySetInnerHTML={{ __html: content }}
+                />
+            </div>
+        </div>
+    );
+};
 
 const Button = ({ children, onClick }) => (
     <button
-        className="bg-white text-black px-4 py-2 md:px-6 md:py-3 rounded-lg w-full md:w-auto hover:bg-gray-200 font-semibold shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-200 text-sm md:text-base"
+        className="w-full px-4 py-2 text-sm font-semibold text-black transition-all duration-200 transform bg-white rounded-lg shadow-md md:px-6 md:py-3 md:w-auto hover:bg-gray-200 hover:shadow-lg hover:-translate-y-1 md:text-base"
         onClick={onClick}
     >
         {children}
@@ -245,7 +253,7 @@ function BasketFormEulympic({ lombas, captcha }) {
                 BASKETBALL
             </h1>
 
-            <div className="mb-4 md:mb-6 space-y-2 md:space-y-3">
+            <div className="mb-4 space-y-2 md:mb-6 md:space-y-3">
                 <EventInfoBox
                     icon={CalendarDays}
                     text={`Internal: ${eventInfo.internal}`}
@@ -276,29 +284,29 @@ function BasketFormEulympic({ lombas, captcha }) {
             <Navbar />
             <div className="relative min-h-screen pt-40">
                 <div
-                    className="fixed inset-0 bg-no-repeat bg-cover bg-center hidden md:block"
+                    className="fixed inset-0 hidden bg-center bg-no-repeat bg-cover md:block"
                     style={{ backgroundImage: `url(${BgBasket})` }}
                 />
                 <div
-                    className="fixed inset-0 bg-no-repeat bg-cover bg-center md:hidden"
+                    className="fixed inset-0 bg-center bg-no-repeat bg-cover md:hidden"
                     style={{ backgroundImage: `url(${BgBasketMobile})` }}
                 />
-                <div className="relative z-10 min-h-screen flex flex-col items-center justify-start p-4 md:p-6 overflow-y-auto">
-                    <div className="w-full max-w-5xl space-y-4 md:space-y-6 mb-6 md:mb-10">
-                    <InfoSection
-                        id="about"
-                        icon={Info}
-                        title="Pendahuluan"
-                        content={`<p><strong>Ulympic Basket 2024</strong> adalah pertandingan basket internal yang diselenggarakan oleh <strong>UMN FESTIVAL</strong> di Universitas Multimedia Nusantara. Acara ini akan berlangsung dari <strong>1 Oktober 2024 hingga 10 Oktober 2024</strong>, bertempat di <strong>Lapangan Basket UMN</strong>. Peserta yang dapat mengikuti adalah <strong>mahasiswa Universitas Multimedia Nusantara</strong>, khususnya dari angkatan 2021 ke atas.</p>`}
-                        isOpen={openSection === "about"}
-                        toggleOpen={toggleOpen}
-                    />
+                <div className="relative z-10 flex flex-col items-center justify-start min-h-screen p-4 overflow-y-auto md:p-6">
+                    <div className="w-full max-w-5xl mb-6 space-y-4 md:space-y-6 md:mb-10">
+                        <InfoSection
+                            id="about"
+                            icon={Info}
+                            title="Pendahuluan"
+                            content={`<p><strong>Ulympic Basket 2024</strong> adalah pertandingan basket internal yang diselenggarakan oleh <strong>UMN FESTIVAL</strong> di Universitas Multimedia Nusantara. Acara ini akan berlangsung dari <strong>1 Oktober 2024 hingga 10 Oktober 2024</strong>, bertempat di <strong>Lapangan Basket UMN</strong>. Peserta yang dapat mengikuti adalah <strong>mahasiswa Universitas Multimedia Nusantara</strong>, khususnya dari angkatan 2021 ke atas.</p>`}
+                            isOpen={openSection === "about"}
+                            toggleOpen={toggleOpen}
+                        />
 
-                    <InfoSection
-                        id="rules"
-                        icon={BookUser}
-                        title="Peraturan Wajib"
-                        content={`<p>1. <strong>Pemain</strong> yang telah terdaftar di 1 tim tidak boleh mendaftarkan diri di tim lain.</p>
+                        <InfoSection
+                            id="rules"
+                            icon={BookUser}
+                            title="Peraturan Wajib"
+                            content={`<p>1. <strong>Pemain</strong> yang telah terdaftar di 1 tim tidak boleh mendaftarkan diri di tim lain.</p>
                                 <p>2. <strong>Pemain</strong> yang terdaftar harus berada di <strong>bench</strong>; jika tidak berada di bench dengan alasan yang tidak jelas maka akan diberi <strong>technical foul</strong>.</p>
                                 <p>3. Bola yang akan digunakan adalah <strong>bola 7 (seri BG4500)</strong>.</p>
                                 <p>4. Masing-masing tim memiliki kesempatan untuk mengambil <strong>timeout 4x</strong> selama 1 pertandingan.</p>
@@ -306,29 +314,29 @@ function BasketFormEulympic({ lombas, captcha }) {
                                 <p>6. Tidak ada <strong>shotclock</strong>; apabila offense terlalu lama maka akan diberi warning oleh wasit (OPSIONAL).</p>
                                 <p>7. Apabila terjadi <strong>hujan</strong>, maka pertandingan akan ditunda selama 60 menit; apabila masih hujan, pertandingan akan direschedule.</p>
                                 <p>8. Dalam 1 tim boleh memiliki pemain dari <strong>prodi lain</strong> namun Fakultas yang sama. Contoh: Jurnalistik dan Strategi Komunikasi boleh bersatu di 1 tim yang mewakili Fakultas Ilmu Komunikasi.</p>`}
-                        isOpen={openSection === "rules"}
-                        toggleOpen={toggleOpen}
-                    />
+                            isOpen={openSection === "rules"}
+                            toggleOpen={toggleOpen}
+                        />
 
-                    <InfoSection
-                        id="durasi"
-                        icon={Clock}
-                        title="Durasi Pertandingan"
-                        content={`<p>1. <strong>40 Menit</strong></p>
+                        <InfoSection
+                            id="durasi"
+                            icon={Clock}
+                            title="Durasi Pertandingan"
+                            content={`<p>1. <strong>40 Menit</strong></p>
                                 <p>2. 1 x <strong>10 Menit</strong> untuk tiap Quarter dan waktu berjalan kotor</p>
                                 <p>3. <strong>Halftime Break</strong> 5 Menit</p>
                                 <p>4. <strong>Each Quarter Break</strong> 2 Menit</p>
                                 <p>5. Total waktu pertandingan adalah <strong>4x10 menit</strong> untuk 1 pertandingan</p>
                                 <p>6. <strong>Waktu Tambahan (Overtime)</strong> apabila pada akhir pertandingan skor sama: 5 Menit</p>`}
-                        isOpen={openSection === "durasi"}
-                        toggleOpen={toggleOpen}
-                    />
+                            isOpen={openSection === "durasi"}
+                            toggleOpen={toggleOpen}
+                        />
 
-                    <InfoSection
-                        id="costume"
-                        icon={Shirt}
-                        title="Kostum Pertandingan"
-                        content={`<p>1. <strong>Terang:</strong> Wajib memiliki warna yang <strong>terang</strong> (contoh: apabila semua memakai terang, tidak boleh ada yang memakai baju gelap)</p>
+                        <InfoSection
+                            id="costume"
+                            icon={Shirt}
+                            title="Kostum Pertandingan"
+                            content={`<p>1. <strong>Terang:</strong> Wajib memiliki warna yang <strong>terang</strong> (contoh: apabila semua memakai terang, tidak boleh ada yang memakai baju gelap)</p>
                                 <p>2. <strong>Gelap:</strong> Wajib memakai warna yang <strong>gelap</strong> (tidak boleh memakai baju berwarna terang)</p>
                                 <p>3. <strong>Pemain</strong> harus menggunakan <strong>jersey/kostum bernomor (0-99)</strong></p>
                                 <p>4. <strong>Pemain</strong> dilarang menggunakan <strong>kalung, gelang, jam tangan</strong> maupun aksesoris yang dapat mengganggu berjalannya pertandingan</p>
@@ -337,28 +345,28 @@ function BasketFormEulympic({ lombas, captcha }) {
                                 <p>7. <strong>Pemain</strong> wajib memiliki <strong>kuku pendek</strong></p>
                                 <p>8. <strong>Pemain</strong> tidak boleh menggunakan <strong>angka yang sama</strong> dengan rekan setimnya</p>
                                 <p>9. Perwakilan pemain harus dari <strong>fakultas yang sama</strong>, dan jurusan-jurusan dalam fakultas boleh digabung (contoh: jurusan st boleh digabung)</p>`}
-                        isOpen={openSection === "costume"}
-                        toggleOpen={toggleOpen}
-                    />
+                            isOpen={openSection === "costume"}
+                            toggleOpen={toggleOpen}
+                        />
 
-                    <InfoSection
-                        id="jumlahPemain"
-                        icon={UsersRound}
-                        title="Jumlah Pemain"
-                        content={`<p>1. <strong>12 pemain</strong></p>
+                        <InfoSection
+                            id="jumlahPemain"
+                            icon={UsersRound}
+                            title="Jumlah Pemain"
+                            content={`<p>1. <strong>12 pemain</strong></p>
                                 <p>2. Minimal mendaftarkan <strong>7 pemain</strong> tiap tim</p>
                                 <p>3. Setiap tim boleh memiliki maksimal <strong>1 pelatih</strong> dan <strong>1 official</strong></p>
                                 <p>4. Official/Pelatih wajib menggunakan pakaian sesuai dengan peraturan kampus beserta <strong>KTM</strong></p>
                                 <p>5. <strong>Pemain/Official dan Pelatih</strong> harus memiliki nama yang sama sesuai yang terdaftar dan akan dicek ulang pada saat pendaftaran ulang</p>`}
-                        isOpen={openSection === "jumlahPemain"}
-                        toggleOpen={toggleOpen}
-                    />
+                            isOpen={openSection === "jumlahPemain"}
+                            toggleOpen={toggleOpen}
+                        />
 
-                    <InfoSection
-                        id="jadwal"
-                        icon={ShieldAlert}
-                        title="Jadwal Pertandingan"
-                        content={`<p>1. <strong>Pendaftaran Ulang:</strong></p>
+                        <InfoSection
+                            id="jadwal"
+                            icon={ShieldAlert}
+                            title="Jadwal Pertandingan"
+                            content={`<p>1. <strong>Pendaftaran Ulang:</strong></p>
                                 <p>- Pendaftaran Ulang akan dilakukan <strong>30 menit sebelum match</strong> yang dijadwalkan (minimal <strong>5 orang sebelum pertandingan dimulai</strong>)</p>
                                 <p>- Setiap tim wajib melakukan pendaftaran ulang maksimal <strong>10 menit sebelum jadwal pertandingan</strong></p>
                                 <p>2. <strong>Detail Semifinal dan Final:</strong></p>
@@ -367,13 +375,13 @@ function BasketFormEulympic({ lombas, captcha }) {
                                 <p>3. <strong>Pelanggaran dan Sanksi:</strong></p>
                                 <p>- <strong>Diskualifikasi</strong> apabila tim yang datang kurang dari jumlah minimal yaitu <strong>5 orang</strong>, dan jika telat <strong>10 menit lebih</strong> dari rundown yang sudah diberi maka akan didiskualifikasi juga</p>
                                 <p>- <strong>Pemain</strong> yang membuat keributan akan dikenakan <strong>denda Rp.100.000,00</strong> dan wajib membayar; pemain tersebut akan didiskualifikasi dari Ulympic 2024</p>`}
-                        isOpen={openSection === "jadwal"}
-                        toggleOpen={toggleOpen}
-                    />
+                            isOpen={openSection === "jadwal"}
+                            toggleOpen={toggleOpen}
+                        />
                     </div>
 
                     <div
-                        className="hidden md:flex bg-no-repeat bg-cover bg-center w-full max-w-5xl aspect-video items-center justify-center p-6 md:p-8 mb-6 md:mb-10 "
+                        className="items-center justify-center hidden w-full max-w-5xl p-6 mb-6 bg-center bg-no-repeat bg-cover md:flex aspect-video md:p-8 md:mb-10 "
                         style={{ backgroundImage: `url(${boxPc})` }}
                     >
                         <MainContent isMobile={false} />
@@ -386,7 +394,7 @@ function BasketFormEulympic({ lombas, captcha }) {
                     </div>
 
                     {selectedLomba && (
-                        <div className="w-full max-w-4xl p-8 bg-white rounded-lg shadow-lg mt-6">
+                        <div className="w-full max-w-4xl p-8 mt-6 bg-white rounded-lg shadow-lg">
                             <div className="mb-4 text-2xl font-bold text-center text-gray-700">
                                 {selectedLomba.namaLomba}
                             </div>
@@ -537,7 +545,15 @@ function BasketFormEulympic({ lombas, captcha }) {
                                         htmlFor="buktiTf"
                                         className="block text-sm font-medium text-gray-700"
                                     >
-                                        Bukti Transfer:
+                                        Bukti Transfer: <br />
+                                        Blu BCA/BCA Digital 005951295203 a.n
+                                        Petris Glaudya Liuwanda. <br />
+                                        <span className="text-red-500">
+                                            Nominal: Rp.
+                                            {isInternal === "true"
+                                                ? "500.000"
+                                                : "1.000.000"}
+                                        </span>
                                     </label>
                                     <input
                                         type="file"

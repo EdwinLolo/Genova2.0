@@ -50,9 +50,9 @@ const InfoSection = ({
     };
 
     return (
-        <div className="bg-white bg-opacity-90 rounded-lg overflow-hidden mb-4 shadow-lg transition-all duration-300 ease-in-out transform hover:scale-102">
+        <div className="mb-4 overflow-hidden transition-all duration-300 ease-in-out transform bg-white rounded-lg shadow-lg bg-opacity-90 hover:scale-102">
             <button
-                className="w-full p-4 md:p-5 text-left font-bold flex justify-between items-center text-base md:text-lg"
+                className="flex items-center justify-between w-full p-4 text-base font-bold text-left md:p-5 md:text-lg"
                 onClick={handleClick}
             >
                 <span className="flex items-center text-blue-600">
@@ -62,21 +62,29 @@ const InfoSection = ({
                         <img
                             src={`data:image/svg+xml;charset=UTF-8,${exclamationMarkSvg}`}
                             alt="!"
-                            className="ml-2 w-5 h-5"
+                            className="w-5 h-5 ml-2"
                         />
                     )}
                 </span>
                 <span
-                    className={`transform transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+                    className={`transform transition-transform duration-300 ${
+                        isOpen ? "rotate-180" : ""
+                    }`}
                 >
-                    {isOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                    {isOpen ? (
+                        <ChevronUp size={20} />
+                    ) : (
+                        <ChevronDown size={20} />
+                    )}
                 </span>
             </button>
             <div
-                className={`transition-all duration-300 ease-in-out overflow-hidden ${isOpen ? "max-h-[6000px]" : "max-h-0"}`}
+                className={`transition-all duration-300 ease-in-out overflow-hidden ${
+                    isOpen ? "max-h-[6000px]" : "max-h-0"
+                }`}
             >
                 <div
-                    className="p-4 md:p-5 bg-gray-50 text-gray-700 leading-relaxed text-sm md:text-base"
+                    className="p-4 text-sm leading-relaxed text-gray-700 md:p-5 bg-gray-50 md:text-base"
                     dangerouslySetInnerHTML={{ __html: content }}
                 />
             </div>
@@ -86,7 +94,7 @@ const InfoSection = ({
 
 const Button = ({ children, onClick }) => (
     <button
-        className="bg-white text-black px-4 py-2 md:px-6 md:py-3 rounded-lg w-full md:w-auto hover:bg-gray-200 font-semibold shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-200 text-sm md:text-base"
+        className="w-full px-4 py-2 text-sm font-semibold text-black transition-all duration-200 transform bg-white rounded-lg shadow-md md:px-6 md:py-3 md:w-auto hover:bg-gray-200 hover:shadow-lg hover:-translate-y-1 md:text-base"
         onClick={onClick}
     >
         {children}
@@ -218,7 +226,6 @@ function BadmintonFormEulympic({ lombas, captcha }) {
 
     const eventInfo = {
         internal: "30 September - 11 Oktober 2024",
-        external: "30 Oktober - 8 November 2024",
         location: " Lapangan D23 UMN",
     };
 
@@ -239,14 +246,10 @@ function BadmintonFormEulympic({ lombas, captcha }) {
                 BADMINTON
             </h1>
 
-            <div className="mb-4 md:mb-6 space-y-2 md:space-y-3">
+            <div className="mb-4 space-y-2 md:mb-6 md:space-y-3">
                 <EventInfoBox
                     icon={CalendarDays}
                     text={`Internal: ${eventInfo.internal}`}
-                />
-                <EventInfoBox
-                    icon={CalendarDays}
-                    text={`External: ${eventInfo.external}`}
                 />
                 <EventInfoBox icon={MapPin} text={eventInfo.location} />
             </div>
@@ -270,20 +273,20 @@ function BadmintonFormEulympic({ lombas, captcha }) {
             <Navbar />
             <div className="relative min-h-screen pt-40">
                 <div
-                    className="fixed inset-0 bg-no-repeat bg-cover bg-center hidden md:block"
+                    className="fixed inset-0 hidden bg-center bg-no-repeat bg-cover md:block"
                     style={{ backgroundImage: `url(${BgBadmin})` }}
                 />
                 <div
-                    className="fixed inset-0 bg-no-repeat bg-cover bg-center md:hidden"
+                    className="fixed inset-0 bg-center bg-no-repeat bg-cover md:hidden"
                     style={{ backgroundImage: `url(${BgBadminMobile})` }}
                 />
-                <div className="relative z-10 min-h-screen flex flex-col items-center justify-start p-4 md:p-6 overflow-y-auto">
-                    <div className="w-full max-w-5xl space-y-4 md:space-y-6 mb-6 md:mb-10">
-                    <InfoSection
-                        id="about"
-                        icon={Info}
-                        title="Sistem Pertandingan"
-                        content={`
+                <div className="relative z-10 flex flex-col items-center justify-start min-h-screen p-4 overflow-y-auto md:p-6">
+                    <div className="w-full max-w-5xl mb-6 space-y-4 md:space-y-6 md:mb-10">
+                        <InfoSection
+                            id="about"
+                            icon={Info}
+                            title="Sistem Pertandingan"
+                            content={`
                             <p>1. <strong>Sistem Pertandingan</strong> yang digunakan dalam ULYMPIC adalah sistem grup/pool.</p>
                             <p>2. Pertandingan dibagi menjadi 2 babak: <strong>Group Stage</strong> & <strong>Knock Out Stage</strong>.</p>
                             <p>3. Sektor yang dipertandingkan: <strong>XD (Mixed Doubles)</strong>, <strong>WD (Women's Doubles)</strong>, <strong>MD (Men's Doubles)</strong>.</p>
@@ -305,40 +308,40 @@ function BadmintonFormEulympic({ lombas, captcha }) {
                             <p>19. Hanya <strong>juara grup</strong> yang akan melanjutkan ke <strong>knock-out stage</strong>.</p>
                             <p>20. Batas maksimal penggantian shuttlecock per sektor pertandingan adalah <strong>4 kali</strong>. Jika lebih dari itu, akan dikenakan biaya tambahan sebesar <strong>Rp 5.000</strong> per orang.</p>
                         `}
-                        isOpen={openSection === "about"}
-                        toggleOpen={toggleOpen}
-                    />
-                    <InfoSection
-                        id="viewerRules"
-                        icon={BookUser}
-                        title="Aturan Penonton/Supporter"
-                        content={`<p>1. <strong>Penonton</strong> dilarang memprovokasi peserta dan penonton lain.</p>
+                            isOpen={openSection === "about"}
+                            toggleOpen={toggleOpen}
+                        />
+                        <InfoSection
+                            id="viewerRules"
+                            icon={BookUser}
+                            title="Aturan Penonton/Supporter"
+                            content={`<p>1. <strong>Penonton</strong> dilarang memprovokasi peserta dan penonton lain.</p>
                                 <p>2. Dilarang membawa <strong>alat-alat</strong> yang membuat ribut atau mengganggu peserta.</p>
                                 <p>3. Tidak boleh membawa <strong>Rokok</strong> dan <strong>Vape</strong> ke tempat pertandingan.</p>
                                 <p>4. Tidak boleh membawa <strong>makanan</strong> dan <strong>minuman</strong> yang memakai bahan plastik sekali pakai.</p>
                                 <p>5. <strong>Penonton</strong> wajib mengikuti <strong>protokol kesehatan</strong>.</p>
                                 <p>6. Penonton yang melanggar aturan yang sudah ditetapkan akan diberi <strong>sanksi</strong>.</p>
                                 <p>7. Tidak boleh menyalakan <strong>flashlight</strong> saat pertandingan.</p>`}
-                        isOpen={openSection === "viewerRules"}
-                        toggleOpen={toggleOpen}
-                    />
+                            isOpen={openSection === "viewerRules"}
+                            toggleOpen={toggleOpen}
+                        />
 
-                    <InfoSection
-                        id="costume"
-                        icon={Shirt}
-                        title="Kostum"
-                        content={`<p>1. <strong>Peserta</strong> wajib menggunakan <strong>pakaian</strong> dan <strong>sepatu olahraga</strong> ketika sedang bertanding.</p>
+                        <InfoSection
+                            id="costume"
+                            icon={Shirt}
+                            title="Kostum"
+                            content={`<p>1. <strong>Peserta</strong> wajib menggunakan <strong>pakaian</strong> dan <strong>sepatu olahraga</strong> ketika sedang bertanding.</p>
                                 <p>2. Setiap fakultas memiliki minimal <strong>1 kostum</strong> yang model atau memiliki <strong>warna yang sama</strong>.</p>
                                 <p>3. Setiap fakultas wajib menyablon <strong>nama</strong> dan <strong>fakultas</strong> di baju/kostum masing-masing.</p>`}
-                        isOpen={openSection === "costume"}
-                        toggleOpen={toggleOpen}
-                    />
+                            isOpen={openSection === "costume"}
+                            toggleOpen={toggleOpen}
+                        />
 
-                    <InfoSection
-                        id="rulesBadminton"
-                        icon={NotebookTabs}
-                        title="Peraturan Badminton"
-                        content={`<p>1. Jika pemain melakukan <strong>pukulan</strong> sebanyak 2 kali di waktu yang sama maka akan dianggap <strong>pelanggaran</strong> dan poin untuk tim lawan.</p>
+                        <InfoSection
+                            id="rulesBadminton"
+                            icon={NotebookTabs}
+                            title="Peraturan Badminton"
+                            content={`<p>1. Jika pemain melakukan <strong>pukulan</strong> sebanyak 2 kali di waktu yang sama maka akan dianggap <strong>pelanggaran</strong> dan poin untuk tim lawan.</p>
                                 <p>2. Jika pemain memukul <strong>shuttlecock</strong> ketika masih di dalam area lawan, maka akan dianggap <strong>pelanggaran</strong> dan poin untuk tim lawan.</p>
                                 <p>3. Jika <strong>shuttlecock</strong> menyentuh atribut pemain (celana, sepatu, dan baju) dan anggota badan, maka akan dianggap <strong>pelanggaran</strong> dan poin diberikan ke tim lawan.</p>
                                 <p>4. Jika salah satu pemain melewati <strong>garis</strong> saat melakukan servis maka akan dianggap <strong>pelanggaran</strong> dan kesempatan servis akan diberikan kepada tim lawan.</p>
@@ -346,25 +349,23 @@ function BadmintonFormEulympic({ lombas, captcha }) {
                                 <p>6. Jika pemain memukul <strong>shuttlecock</strong> pada saat shuttlecock masih berada di area bermain lawan, maka hal ini akan dianggap <strong>pelanggaran</strong> dan poin diberikan untuk tim lawan.</p>
                                 <p>7. Pemain akan mendapatkan <strong>kartu kuning</strong> yang berfungsi sebagai peringatan, ketika melakukan kesalahan kecil seperti mengulur waktu permainan.</p>
                                 <p>8. Pemain akan mendapatkan <strong>kartu merah</strong>, ketika pemain melakukan pelanggaran yang lebih berat atau mengulang kesalahan yang sama, setelah dikeluarkannya kartu kuning. Ketika pemain mendapatkan kartu merah, kesempatan servis akan diberikan kepada tim lawan dan tim lawan juga mendapatkan poin.</p>`}
-                        isOpen={openSection === "rulesBadminton"}
-                        toggleOpen={toggleOpen}
-                    />
+                            isOpen={openSection === "rulesBadminton"}
+                            toggleOpen={toggleOpen}
+                        />
 
-                    <InfoSection
-                        id="pelanggaran"
-                        icon={ShieldAlert}
-                        title="Pelanggaran dan Sanksi"
-                        content={`<p>1. Jika supporter melakukan <strong>provokasi</strong> yang menimbulkan keributan akan diberikan <strong>teguran</strong>, dan jika sudah mendapat 2 teguran tim dari suporter tersebut akan didiskualifikasi.</p>
+                        <InfoSection
+                            id="pelanggaran"
+                            icon={ShieldAlert}
+                            title="Pelanggaran dan Sanksi"
+                            content={`<p>1. Jika supporter melakukan <strong>provokasi</strong> yang menimbulkan keributan akan diberikan <strong>teguran</strong>, dan jika sudah mendapat 2 teguran tim dari suporter tersebut akan didiskualifikasi.</p>
                                 <p>2. Jika peserta tidak bermain secara <strong>sportif</strong>, wasit akan memberikan <strong>kartu</strong> sesuai peraturan.</p>`}
-                        isOpen={openSection === "pelanggaran"}
-                        toggleOpen={toggleOpen}
-                    />
-
-
+                            isOpen={openSection === "pelanggaran"}
+                            toggleOpen={toggleOpen}
+                        />
                     </div>
 
                     <div
-                        className="hidden md:flex bg-no-repeat bg-cover bg-center w-full max-w-5xl aspect-video items-center justify-center p-6 md:p-8 mb-6 md:mb-10 "
+                        className="items-center justify-center hidden w-full max-w-5xl p-6 mb-6 bg-center bg-no-repeat bg-cover md:flex aspect-video md:p-8 md:mb-10 "
                         style={{ backgroundImage: `url(${boxPc})` }}
                     >
                         <MainContent isMobile={false} />
@@ -377,7 +378,7 @@ function BadmintonFormEulympic({ lombas, captcha }) {
                     </div>
 
                     {selectedLomba && (
-                        <div className="w-full max-w-4xl p-8 bg-white rounded-lg shadow-lg mt-6">
+                        <div className="w-full max-w-4xl p-8 mt-6 bg-white rounded-lg shadow-lg">
                             <div className="mb-4 text-2xl font-bold text-center text-gray-700">
                                 {selectedLomba.namaLomba}
                             </div>
@@ -528,7 +529,12 @@ function BadmintonFormEulympic({ lombas, captcha }) {
                                         htmlFor="buktiTf"
                                         className="block text-sm font-medium text-gray-700"
                                     >
-                                        Bukti Transfer:
+                                        Bukti Transfer: <br />
+                                        Blu BCA/BCA Digital 005951295203 a.n
+                                        Petris Glaudya Liuwanda. <br />
+                                        <span className="text-red-500">
+                                            Nominal: Rp. 300.000
+                                        </span>
                                     </label>
                                     <input
                                         type="file"

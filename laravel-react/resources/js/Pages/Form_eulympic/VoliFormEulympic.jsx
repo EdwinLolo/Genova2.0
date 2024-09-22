@@ -34,62 +34,68 @@ const exclamationMarkSvg = encodeURIComponent(`
         </g>
     </svg>
     `);
-    
-    
-    const InfoSection = ({
-        title,
-        content,
-        icon: Icon,
-        id,
-        isOpen,
-        toggleOpen,
-    }) => {
-        const [hasClicked, setHasClicked] = useState(false);
-    
-        const handleClick = () => {
-            setHasClicked(true);
-            toggleOpen(id);
-        };
-    
-        return (
-            <div className="bg-white bg-opacity-90 rounded-lg overflow-hidden mb-4 shadow-lg transition-all duration-300 ease-in-out transform hover:scale-102">
-                <button
-                    className="w-full p-4 md:p-5 text-left font-bold flex justify-between items-center text-base md:text-lg"
-                    onClick={handleClick}
-                >
-                    <span className="flex items-center text-blue-600">
-                        <Icon className="mr-2 md:mr-3" size={24} />
-                        {title}
-                        {!hasClicked && (
-                            <img
-                                src={`data:image/svg+xml;charset=UTF-8,${exclamationMarkSvg}`}
-                                alt="! "
-                                className="ml-2 w-5 h-5"
-                            />
-                        )}
-                    </span>
-                    <span
-                        className={`transform transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
-                    >
-                        {isOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
-                    </span>
-                </button>
-                <div
-                    className={`transition-all duration-300 ease-in-out overflow-hidden ${isOpen ? "max-h-[6000px]" : "max-h-0"} `}
-                >
-                    <div
-                        className="p-4 md:p-5 bg-gray-50 text-gray-700 leading-relaxed text-sm md:text-base"
-                        dangerouslySetInnerHTML={{ __html: content }}
-                    />
-                </div>
-            </div>
-        );
-        
+
+const InfoSection = ({
+    title,
+    content,
+    icon: Icon,
+    id,
+    isOpen,
+    toggleOpen,
+}) => {
+    const [hasClicked, setHasClicked] = useState(false);
+
+    const handleClick = () => {
+        setHasClicked(true);
+        toggleOpen(id);
     };
+
+    return (
+        <div className="mb-4 overflow-hidden transition-all duration-300 ease-in-out transform bg-white rounded-lg shadow-lg bg-opacity-90 hover:scale-102">
+            <button
+                className="flex items-center justify-between w-full p-4 text-base font-bold text-left md:p-5 md:text-lg"
+                onClick={handleClick}
+            >
+                <span className="flex items-center text-blue-600">
+                    <Icon className="mr-2 md:mr-3" size={24} />
+                    {title}
+                    {!hasClicked && (
+                        <img
+                            src={`data:image/svg+xml;charset=UTF-8,${exclamationMarkSvg}`}
+                            alt="! "
+                            className="w-5 h-5 ml-2"
+                        />
+                    )}
+                </span>
+                <span
+                    className={`transform transition-transform duration-300 ${
+                        isOpen ? "rotate-180" : ""
+                    }`}
+                >
+                    {isOpen ? (
+                        <ChevronUp size={20} />
+                    ) : (
+                        <ChevronDown size={20} />
+                    )}
+                </span>
+            </button>
+            <div
+                className={`transition-all duration-300 ease-in-out overflow-hidden ${
+                    isOpen ? "max-h-[6000px]" : "max-h-0"
+                } `}
+            >
+                <div
+                    className="p-4 text-sm leading-relaxed text-gray-700 md:p-5 bg-gray-50 md:text-base"
+                    dangerouslySetInnerHTML={{ __html: content }}
+                />
+            </div>
+        </div>
+    );
+};
 
 const Button = ({ children, onClick }) => (
     <button
-        className="bg-white text-black px-4 py-2 md:px-6 md:py-3 rounded-lg w-full md:w-auto hover:bg-gray-200 font-semibold shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-200 text-sm md:text-base"
+        className="w-full px-4 py-2 text-sm font-semibold text-black transition-all duration-200 transform bg-white rounded-lg shadow-md md:px-6 md:py-3 md:w-auto hover:bg-gray-200 hover:shadow-lg hover:-translate-y-1 md:text-base"
         onClick={onClick}
     >
         {children}
@@ -222,7 +228,7 @@ function VoliFormEulympic({ lombas, captcha }) {
     };
 
     const eventInfo = {
-        internal: "30 September - 11 Oktober 2024",
+        // internal: "30 September - 11 Oktober 2024",
         external: "30 Oktober - 8 November 2024",
         location: "Lapangan Voli UMN",
     };
@@ -244,11 +250,7 @@ function VoliFormEulympic({ lombas, captcha }) {
                 VOLLEYBALL
             </h1>
 
-            <div className="mb-4 md:mb-6 space-y-2 md:space-y-3">
-                <EventInfoBox
-                    icon={CalendarDays}
-                    text={`Internal: ${eventInfo.internal}`}
-                />
+            <div className="mb-4 space-y-2 md:mb-6 md:space-y-3">
                 <EventInfoBox
                     icon={CalendarDays}
                     text={`External: ${eventInfo.external}`}
@@ -275,21 +277,20 @@ function VoliFormEulympic({ lombas, captcha }) {
             <Navbar />
             <div className="relative min-h-screen pt-40">
                 <div
-                    className="fixed inset-0 bg-no-repeat bg-cover bg-center hidden md:block"
+                    className="fixed inset-0 hidden bg-center bg-no-repeat bg-cover md:block"
                     style={{ backgroundImage: `url(${BgVoli})` }}
                 />
                 <div
-                    className="fixed inset-0 bg-no-repeat bg-cover bg-center md:hidden"
+                    className="fixed inset-0 bg-center bg-no-repeat bg-cover md:hidden"
                     style={{ backgroundImage: `url(${BgVoliMobile})` }}
                 />
-                <div className="relative z-10 min-h-screen flex flex-col items-center justify-start p-4 md:p-6 overflow-y-auto">
-                    <div className="w-full max-w-5xl space-y-4 md:space-y-6 mb-6 md:mb-10">
-
-<InfoSection
-    id="tujuan"
-    icon={Info}
-    title="Informasi Pertandingan"
-    content={`<p>1. Pertandingan voli diselenggarakan secara eksternal sehingga peserta yang dapat berpartisipasi adalah dari <strong>dalam maupun luar UMN</strong>.</p>
+                <div className="relative z-10 flex flex-col items-center justify-start min-h-screen p-4 overflow-y-auto md:p-6">
+                    <div className="w-full max-w-5xl mb-6 space-y-4 md:space-y-6 md:mb-10">
+                        <InfoSection
+                            id="tujuan"
+                            icon={Info}
+                            title="Informasi Pertandingan"
+                            content={`<p>1. Pertandingan voli diselenggarakan secara eksternal sehingga peserta yang dapat berpartisipasi adalah dari <strong>dalam maupun luar UMN</strong>.</p>
               <p>2. Pertandingan voli putra merupakan antar <strong>Sekolah Menengah Atas (SMA)</strong>, sedangkan pertandingan putri merupakan antar <strong>Universitas</strong>.</p>
               <p>3. Pertandingan voli putra menggunakan <strong>sistem gugur</strong> hingga final. Total tim yang akan bertanding adalah <strong>8 tim</strong>.</p>
               <p>4. Pertandingan voli putri menggunakan <strong>sistem gugur</strong> hingga tersisa <strong>3 tim</strong>, menggunakan <strong>sistem poin</strong> pada semifinal, dan menggunakan <strong>sistem gugur</strong> pada final. Total tim yang akan bertanding adalah <strong>6 tim</strong>.</p>
@@ -298,16 +299,15 @@ function VoliFormEulympic({ lombas, captcha }) {
               <p>7. Poin pada pertandingan dijumlahkan dengan sistem <strong>rally point</strong> yaitu maksimal <strong>25 poin</strong>, sedangkan pada babak final maksimal <strong>15 poin</strong>.</p>
               <p>8. Penambahan <strong>2 poin</strong> dilakukan pada pertandingan jika kedua tim memperoleh poin <strong>24 - 24</strong>.</p>
               <p>9. Tim pemenang merupakan tim yang pertama kali unggul dengan selisih <strong>2 poin</strong>.</p>`}
-    isOpen={openSection === "tujuan"}
-    toggleOpen={toggleOpen}
-/>
+                            isOpen={openSection === "tujuan"}
+                            toggleOpen={toggleOpen}
+                        />
 
-
-<InfoSection
-    id="rule"
-    icon={NotebookTabs}
-    title="Sistem & Peraturan"
-    content={`<p>1. Universitas atau sekolah hanya dapat mendaftarkan <strong>1 perwakilan</strong>.</p>
+                        <InfoSection
+                            id="rule"
+                            icon={NotebookTabs}
+                            title="Sistem & Peraturan"
+                            content={`<p>1. Universitas atau sekolah hanya dapat mendaftarkan <strong>1 perwakilan</strong>.</p>
               <p>2. Jumlah maksimal pemain dalam pertandingan bola voli dalam satu tim adalah <strong>10 orang</strong>. Pemain yang boleh bermain di lapangan hanya <strong>6 orang</strong> dan <strong>4 orang</strong> sebagai pemain cadangan.</p>
               <p>3. Jumlah pemain dalam satu regu adalah <strong>6 orang</strong>. Hanya <strong>3 pemain</strong> yang bisa melakukan <strong>blocking</strong> di dekat net. Sedangkan pemain lainnya bertugas memukul bola melewati net, dari belakang garis serang atau garis tiga meter (garis yang memisahkan garis depan dengan belakang lapangan).</p>
               <p>4. Adanya peran <strong>libero</strong>, yang tidak bisa melakukan serve, pergantian posisi, serta melakukan pukulan bola. Libero menggunakan seragam berwarna beda yang berdiri di bagian belakang lapangan. Libero bertugas untuk menjaga sistem pertahanan bagian belakang serta untuk memperpanjang sistem rally point (tidak wajib).</p>
@@ -326,36 +326,35 @@ function VoliFormEulympic({ lombas, captcha }) {
               <p>17. Setiap tim akan diwajibkan untuk melakukan <strong>timeout</strong> jika telah mencapai <strong>16 poin</strong> dalam pertandingan. Di luar itu, setiap tim memiliki jatah timeout sebanyak <strong>1 kali</strong> di setiap babak dengan cara mengajukan kepada wasit utama (maksimal waktu timeout <strong>1 menit</strong>).</p>
               <p>18. Pertandingan diperkirakan akan berlangsung kurang lebih selama <strong>45 menit</strong>, dan pertandingan final akan berlangsung kurang lebih selama <strong>1 jam 15 menit</strong>.</p>
               <p>19. Jika terjadi <strong>hujan</strong> dengan potensi besar mengganggu jalannya pertandingan, pertandingan akan di reschedule ke hari lain yang telah disiapkan oleh panitia atau diundur sementara waktu (jika memungkinkan tetap dilaksanakan pada hari tersebut).</p>`}
-    isOpen={openSection === "rule"}
-    toggleOpen={toggleOpen}
-/>
+                            isOpen={openSection === "rule"}
+                            toggleOpen={toggleOpen}
+                        />
 
-<InfoSection
-    id="kostum"
-    icon={Shirt}
-    title="Peraturan Kostum"
-    content={`<p>1. Setiap tim <strong>WAJIB</strong> membuat jersey tim dengan minimal <strong>NOMOR PUNGGUNG</strong> dan akan dipakai untuk dapat mengikuti pertandingan.</p>
+                        <InfoSection
+                            id="kostum"
+                            icon={Shirt}
+                            title="Peraturan Kostum"
+                            content={`<p>1. Setiap tim <strong>WAJIB</strong> membuat jersey tim dengan minimal <strong>NOMOR PUNGGUNG</strong> dan akan dipakai untuk dapat mengikuti pertandingan.</p>
               <p>2. Pemain diperbolehkan menggunakan aksesoris seperti <strong>Arm Sleeve</strong>, <strong>Leg Sleeve</strong>, <strong>Deker Knee</strong>, <strong>Deker Ankle</strong>, <strong>Celana Dalaman</strong>, <strong>Baju Dalaman</strong>, <strong>Headband</strong>, dan <strong>Wristband</strong>.</p>
               <p>3. Pemain dilarang menggunakan aksesoris seperti <strong>anting</strong>, <strong>kalung</strong>, <strong>gelang</strong>, <strong>jam tangan</strong>, dsb selama mengikuti pertandingan.</p>
               <p>4. Pemain diwajibkan menggunakan <strong>sepatu olahraga</strong> saat bermain.</p>`}
-    isOpen={openSection === "kostum"}
-    toggleOpen={toggleOpen}
-/>
+                            isOpen={openSection === "kostum"}
+                            toggleOpen={toggleOpen}
+                        />
 
-<InfoSection
-    id="pelanggaran"
-    icon={ShieldAlert}
-    title="Pelanggaran dan Sanksi"
-    content={`<p>1. Jika pemain dari suatu tim baik sengaja maupun tidak sengaja menyentuh <strong>tiang net</strong> dan <strong>net</strong>, mengulurkan tangan hingga melewati batas net sebelum lawan menyelesaikan serangan, menginjak <strong>garis tengah</strong> saat permainan berlangsung, dan mengganggu lawan dengan menarik baju atau anggota tubuh lainnya akan dikenakan penalti berupa pemberian <strong>poin</strong> kepada tim lawan.</p>
+                        <InfoSection
+                            id="pelanggaran"
+                            icon={ShieldAlert}
+                            title="Pelanggaran dan Sanksi"
+                            content={`<p>1. Jika pemain dari suatu tim baik sengaja maupun tidak sengaja menyentuh <strong>tiang net</strong> dan <strong>net</strong>, mengulurkan tangan hingga melewati batas net sebelum lawan menyelesaikan serangan, menginjak <strong>garis tengah</strong> saat permainan berlangsung, dan mengganggu lawan dengan menarik baju atau anggota tubuh lainnya akan dikenakan penalti berupa pemberian <strong>poin</strong> kepada tim lawan.</p>
               <p>2. Jika pemain dari suatu tim mengeluarkan <strong>kata-kata tidak sopan</strong>, menghina, memfitnah pemain lain, petugas, atau bahkan penonton, dan melakukan tindakan menyerang berupa <strong>kekerasan secara fisik</strong>, maka tim pemain tersebut akan di <strong>DISKUALIFIKASI</strong>.</p>
               <p>3. <strong>Keputusan wasit</strong> dalam pertandingan bersifat mutlak dan tidak dapat diganggu gugat.</p>`}
-    isOpen={openSection === "pelanggaran"}
-    toggleOpen={toggleOpen}
-/>
-
+                            isOpen={openSection === "pelanggaran"}
+                            toggleOpen={toggleOpen}
+                        />
                     </div>
                     <div
-                        className="hidden md:flex bg-no-repeat bg-cover bg-center w-full max-w-5xl aspect-video items-center justify-center p-6 md:p-8 mb-6 md:mb-10"
+                        className="items-center justify-center hidden w-full max-w-5xl p-6 mb-6 bg-center bg-no-repeat bg-cover md:flex aspect-video md:p-8 md:mb-10"
                         style={{ backgroundImage: `url(${boxPc})` }}
                     >
                         <MainContent isMobile={false} />
@@ -368,7 +367,7 @@ function VoliFormEulympic({ lombas, captcha }) {
                     </div>
 
                     {selectedLomba && (
-                        <div className="w-full max-w-4xl p-8 bg-white rounded-lg shadow-lg mt-6">
+                        <div className="w-full max-w-4xl p-8 mt-6 bg-white rounded-lg shadow-lg">
                             <div className="mb-4 text-2xl font-bold text-center text-gray-700">
                                 {selectedLomba.namaLomba}
                             </div>
@@ -526,7 +525,12 @@ function VoliFormEulympic({ lombas, captcha }) {
                                         htmlFor="buktiTf"
                                         className="block text-sm font-medium text-gray-700"
                                     >
-                                        Bukti Transfer:
+                                        Bukti Transfer: <br />
+                                        Blu BCA/BCA Digital 005951295203 a.n
+                                        Petris Glaudya Liuwanda. <br />
+                                        <span className="text-red-500">
+                                            Nominal: Rp. 500.000
+                                        </span>
                                     </label>
                                     <input
                                         type="file"

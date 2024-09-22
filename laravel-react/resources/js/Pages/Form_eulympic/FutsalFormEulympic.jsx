@@ -20,7 +20,7 @@ import {
     BookUser,
     NotebookTabs,
     List,
-    CheckCircle
+    CheckCircle,
 } from "lucide-react";
 
 import BgFutsal from "../../Assets/Ulympic/Futsal/bgFutsal.jpg";
@@ -39,60 +39,68 @@ const exclamationMarkSvg = encodeURIComponent(`
         </g>
     </svg>
     `);
-    
-    const InfoSection = ({
-        title,
-        content,
-        icon: Icon,
-        id,
-        isOpen,
-        toggleOpen,
-    }) => {
-        const [hasClicked, setHasClicked] = useState(false);
-    
-        const handleClick = () => {
-            setHasClicked(true);
-            toggleOpen(id);
-        };
-    
-        return (
-            <div className="bg-white bg-opacity-90 rounded-lg overflow-hidden mb-4 shadow-lg transition-all duration-300 ease-in-out transform hover:scale-102">
-                <button
-                    className="w-full p-4 md:p-5 text-left font-bold flex justify-between items-center text-base md:text-lg"
-                    onClick={handleClick}
-                >
-                    <span className="flex items-center text-blue-600">
-                        <Icon className="mr-2 md:mr-3" size={24} />
-                        {title}
-                        {!hasClicked && (
-                            <img
-                                src={`data:image/svg+xml;charset=UTF-8,${exclamationMarkSvg}`}
-                                alt="!"
-                                className="ml-2 w-5 h-5"
-                            />
-                        )}
-                    </span>
-                    <span
-                        className={`transform transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
-                    >
-                        {isOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
-                    </span>
-                </button>
-                <div
-                    className={`transition-all duration-300 ease-in-out overflow-hidden ${isOpen ? "max-h-screen" : "max-h-0"}`}
-                >
-                    <div
-                        className="p-4 md:p-5 bg-gray-50 text-gray-700 leading-relaxed text-sm md:text-base"
-                        dangerouslySetInnerHTML={{ __html: content }}
-                    />
-                </div>
-            </div>
-        );
+
+const InfoSection = ({
+    title,
+    content,
+    icon: Icon,
+    id,
+    isOpen,
+    toggleOpen,
+}) => {
+    const [hasClicked, setHasClicked] = useState(false);
+
+    const handleClick = () => {
+        setHasClicked(true);
+        toggleOpen(id);
     };
+
+    return (
+        <div className="mb-4 overflow-hidden transition-all duration-300 ease-in-out transform bg-white rounded-lg shadow-lg bg-opacity-90 hover:scale-102">
+            <button
+                className="flex items-center justify-between w-full p-4 text-base font-bold text-left md:p-5 md:text-lg"
+                onClick={handleClick}
+            >
+                <span className="flex items-center text-blue-600">
+                    <Icon className="mr-2 md:mr-3" size={24} />
+                    {title}
+                    {!hasClicked && (
+                        <img
+                            src={`data:image/svg+xml;charset=UTF-8,${exclamationMarkSvg}`}
+                            alt="!"
+                            className="w-5 h-5 ml-2"
+                        />
+                    )}
+                </span>
+                <span
+                    className={`transform transition-transform duration-300 ${
+                        isOpen ? "rotate-180" : ""
+                    }`}
+                >
+                    {isOpen ? (
+                        <ChevronUp size={20} />
+                    ) : (
+                        <ChevronDown size={20} />
+                    )}
+                </span>
+            </button>
+            <div
+                className={`transition-all duration-300 ease-in-out overflow-hidden ${
+                    isOpen ? "max-h-screen" : "max-h-0"
+                }`}
+            >
+                <div
+                    className="p-4 text-sm leading-relaxed text-gray-700 md:p-5 bg-gray-50 md:text-base"
+                    dangerouslySetInnerHTML={{ __html: content }}
+                />
+            </div>
+        </div>
+    );
+};
 
 const Button = ({ children, onClick }) => (
     <button
-        className="bg-white text-black px-4 py-2 md:px-6 md:py-3 rounded-lg w-full md:w-auto hover:bg-gray-200 font-semibold shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-200 text-sm md:text-base"
+        className="w-full px-4 py-2 text-sm font-semibold text-black transition-all duration-200 transform bg-white rounded-lg shadow-md md:px-6 md:py-3 md:w-auto hover:bg-gray-200 hover:shadow-lg hover:-translate-y-1 md:text-base"
         onClick={onClick}
     >
         {children}
@@ -247,7 +255,7 @@ function FutsalFormEulympic({ lombas, captcha }) {
                 FUTSAL
             </h1>
 
-            <div className="mb-4 md:mb-6 space-y-2 md:space-y-3">
+            <div className="mb-4 space-y-2 md:mb-6 md:space-y-3">
                 <EventInfoBox
                     icon={CalendarDays}
                     text={`Internal: ${eventInfo.internal}`}
@@ -278,20 +286,20 @@ function FutsalFormEulympic({ lombas, captcha }) {
             <Navbar />
             <div className="relative min-h-screen pt-40">
                 <div
-                    className="fixed inset-0 bg-no-repeat bg-cover bg-center hidden md:block"
+                    className="fixed inset-0 hidden bg-center bg-no-repeat bg-cover md:block"
                     style={{ backgroundImage: `url(${BgFutsal})` }}
                 />
                 <div
-                    className="fixed inset-0 bg-no-repeat bg-cover bg-center md:hidden"
+                    className="fixed inset-0 bg-center bg-no-repeat bg-cover md:hidden"
                     style={{ backgroundImage: `url(${BgFutsalMobile})` }}
                 />
-                <div className="relative z-10 min-h-screen flex flex-col items-center justify-start p-4 md:p-6 overflow-y-auto">
-                    <div className="w-full max-w-5xl space-y-4 md:space-y-6 mb-6 md:mb-10">
-                    <InfoSection
-    id="aturan"
-    icon={Info}
-    title="Aturan Pertandingan"
-    content={`<p><strong>Peraturan Wajib:</strong></p>
+                <div className="relative z-10 flex flex-col items-center justify-start min-h-screen p-4 overflow-y-auto md:p-6">
+                    <div className="w-full max-w-5xl mb-6 space-y-4 md:space-y-6 md:mb-10">
+                        <InfoSection
+                            id="aturan"
+                            icon={Info}
+                            title="Aturan Pertandingan"
+                            content={`<p><strong>Peraturan Wajib:</strong></p>
     <ol>
         <li><strong>Pemain</strong> yang telah terdaftar di 1 tim tidak boleh mendaftarkan diri di tim lain.</li>
         <li><strong>Pemain</strong> yang terdaftar harus berada di <strong>bench</strong>; apabila tidak berada di bench dengan alasan yang tidak jelas maka akan di <strong>diskualifikasi</strong>.</li>
@@ -314,15 +322,15 @@ function FutsalFormEulympic({ lombas, captcha }) {
         <li><strong>Official/Pelatih</strong> wajib menggunakan pakaian sesuai dengan peraturan kampus beserta <strong>KTM</strong></li>
         <li><strong>Pemain/Official dan Pelatih</strong> harus memiliki nama yang sama sesuai yang terdaftar dan akan di <strong>check ulang</strong> pada saat pendaftaran ulang</li>
     </ol>`}
-    isOpen={openSection === "aturan"}
-    toggleOpen={toggleOpen}
-/>
+                            isOpen={openSection === "aturan"}
+                            toggleOpen={toggleOpen}
+                        />
 
-<InfoSection
-    id="kostum"
-    icon={Shirt}
-    title="Pakaian dan Perlengkapan"
-    content={`<p><strong>Terang:</strong></p>
+                        <InfoSection
+                            id="kostum"
+                            icon={Shirt}
+                            title="Pakaian dan Perlengkapan"
+                            content={`<p><strong>Terang:</strong></p>
     <ol>
         <li>Wajib memiliki warna yang <strong>terang</strong> (contoh: apabila semua memakai terang, tidak boleh ada yang memakai baju gelap)</li>
     </ol>
@@ -339,29 +347,29 @@ function FutsalFormEulympic({ lombas, captcha }) {
         <li><strong>Pemain</strong> tidak boleh menggunakan <strong>angka yang sama</strong> dengan rekan setimnya</li>
         <li><strong>Pemain</strong> wajib menggunakan <strong>deker</strong></li>
     </ol>`}
-    isOpen={openSection === "kostum"}
-    toggleOpen={toggleOpen}
-/>
+                            isOpen={openSection === "kostum"}
+                            toggleOpen={toggleOpen}
+                        />
 
-<InfoSection
-    id="penilaian"
-    icon={CheckCircle}
-    title="Penilaian"
-    content={`<ol>
+                        <InfoSection
+                            id="penilaian"
+                            icon={CheckCircle}
+                            title="Penilaian"
+                            content={`<ol>
         <li><strong>Sistem Skor:</strong> Setiap gol dihitung 1 poin</li>
         <li><strong>Foul dan Penalti:</strong> Jika pemain melakukan pelanggaran di kotak penalti, akan diberikan foul dan tim lawan akan mendapatkan penalti.</li>
         <li><strong>Peraturan Timeout:</strong> 60 Detik</li>
         <li><strong>Protes dan Penanganannya:</strong> Protes lebih baik langsung dikomunikasikan kepada panitia terdekat.</li>
     </ol>`}
-    isOpen={openSection === "penilaian"}
-    toggleOpen={toggleOpen}
-/>
+                            isOpen={openSection === "penilaian"}
+                            toggleOpen={toggleOpen}
+                        />
 
-<InfoSection
-    id="jadwal"
-    icon={Shirt}
-    title="Jadwal Pertandingan"
-    content={`<p><strong>Pendaftaran Ulang:</strong></p>
+                        <InfoSection
+                            id="jadwal"
+                            icon={Shirt}
+                            title="Jadwal Pertandingan"
+                            content={`<p><strong>Pendaftaran Ulang:</strong></p>
     <ol>
         <li>Pendaftaran Ulang akan dilakukan <strong>20 menit</strong> sebelum match yang dijadwalkan (minimal <strong>5 orang sebelum pertandingan dimulai</strong>)</li>
         <li>Setiap tim wajib melakukan pendaftaran ulang maksimal <strong>10 menit</strong> sebelum jadwal pertandingan</li>
@@ -375,15 +383,15 @@ function FutsalFormEulympic({ lombas, captcha }) {
         <li><strong>Diskualifikasi</strong> apabila tim yang datang kurang dari jumlah minimal yaitu <strong>5 orang</strong>, dan jika telat <strong>10 menit lebih</strong> dari rundown yang sudah diberi maka akan didiskualifikasi juga</li>
         <li><strong>Pemain</strong> yang membuat keributan akan dikenakan <strong>denda Rp.100.000,00</strong> dan wajib membayar; pemain tersebut akan didiskualifikasi dari Ulympic 2024</li>
     </ol>`}
-    isOpen={openSection === "jadwal"}
-    toggleOpen={toggleOpen}
-/>
+                            isOpen={openSection === "jadwal"}
+                            toggleOpen={toggleOpen}
+                        />
 
-<InfoSection
-    id="hadiah"
-    icon={Trophy}
-    title="Hadiah dan Penghargaan"
-    content={`<ol>
+                        <InfoSection
+                            id="hadiah"
+                            icon={Trophy}
+                            title="Hadiah dan Penghargaan"
+                            content={`<ol>
         <li><strong>Juara Pertama:</strong> Rp 1.500.000 (Internal)</li>
         <li><strong>Juara Kedua:</strong> Rp 1.200.000 (Internal)</li>
         <li><strong>Juara Ketiga:</strong> Rp 800.000 (Internal)</li>
@@ -392,14 +400,13 @@ function FutsalFormEulympic({ lombas, captcha }) {
         <li><strong>Juara Ketiga:</strong> Rp 1.000.000 (Eksternal)</li>
         <li><strong>Penghargaan Individu</strong></li>
     </ol>`}
-    isOpen={openSection === "hadiah"}
-    toggleOpen={toggleOpen}
-/>
-
+                            isOpen={openSection === "hadiah"}
+                            toggleOpen={toggleOpen}
+                        />
                     </div>
 
                     <div
-                        className="hidden md:flex bg-no-repeat bg-cover bg-center w-full max-w-5xl aspect-video items-center justify-center p-6 md:p-8 mb-6 md:mb-10"
+                        className="items-center justify-center hidden w-full max-w-5xl p-6 mb-6 bg-center bg-no-repeat bg-cover md:flex aspect-video md:p-8 md:mb-10"
                         style={{ backgroundImage: `url(${boxPc})` }}
                     >
                         <MainContent isMobile={false} />
@@ -412,7 +419,7 @@ function FutsalFormEulympic({ lombas, captcha }) {
                     </div>
 
                     {selectedLomba && (
-                        <div className="w-full max-w-4xl p-8 bg-white rounded-lg shadow-lg mt-6">
+                        <div className="w-full max-w-4xl p-8 mt-6 bg-white rounded-lg shadow-lg">
                             <div className="mb-4 text-2xl font-bold text-center text-gray-700">
                                 {selectedLomba.namaLomba}
                             </div>
@@ -563,7 +570,15 @@ function FutsalFormEulympic({ lombas, captcha }) {
                                         htmlFor="buktiTf"
                                         className="block text-sm font-medium text-gray-700"
                                     >
-                                        Bukti Transfer:
+                                        Bukti Transfer: <br />
+                                        Blu BCA/BCA Digital 005951295203 a.n
+                                        Petris Glaudya Liuwanda. <br />
+                                        <span className="text-red-500">
+                                            Nominal: Rp.
+                                            {isInternal === "true"
+                                                ? "550.000"
+                                                : "700.000"}
+                                        </span>
                                     </label>
                                     <input
                                         type="file"
