@@ -124,7 +124,12 @@ class TeamController extends Controller
                     break;
                 }
                 $namaLengkap = $members[$i]['namaLengkap'];
-                $nim = $members[$i]['nim'];
+                if ($members[$i]['nim'] == null) {
+                    $nim = '-';
+                } else {
+                    $nim = $members[$i]['nim'];
+                }
+
                 $idLine = $members[$i]['idLine'] ?? '-';
                 $asalKampus = $members[$i]['asalKampus'] ?? '';
 
