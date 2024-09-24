@@ -100,6 +100,7 @@ class TeamController extends Controller
         try {
             // Start transaction
             DB::beginTransaction();
+            // dd($request->all());
 
             // Process the form data
             $lombaId = $request->input('lombaId');
@@ -119,32 +120,39 @@ class TeamController extends Controller
 
 
             for ($i = 0; $i < count($members); $i++) {
-                // Handle each member and their respective file ('ktm')
-                if (!isset($members[$i]['namaLengkap']) || !isset($members[$i]['nim']) || !isset($members[$i]['idLine'])) {
-                    break;
-                }
-                $namaLengkap = $members[$i]['namaLengkap'];
-                if ($members[$i]['nim'] == null) {
-                    $nim = '-';
-                } else {
-                    $nim = $members[$i]['nim'];
+                if (!isset($members[$i]['namaLengkap'])  || !isset($members[$i]['idLine'])) {
+                    continue;
                 }
 
+                // Set member details with null checks
+                $namaLengkap = $members[$i]['namaLengkap'] ?? null;
+                $nim = $members[$i]['nim'] ?? '-'; // Default to '-' if nim is not set
                 $idLine = $members[$i]['idLine'] ?? '-';
                 $asalKampus = $members[$i]['asalKampus'] ?? '';
 
-                // If lomba is internal use UMN as default value
-                if ($isInternal === "true" || $asalKampus === "") {
+                // Check for complete data for each member
+                if (empty($namaLengkap) || empty($idLine)) {
+                    continue; // Skip saving this member if required fields are empty
+                }
+
+                // If lomba is internal or asalKampus is empty, set asalKampus to "UMN"
+                if ($isInternal === "true" || empty($asalKampus)) {
                     $asalKampus = "UMN";
                 }
 
-                // Handle file upload ('ktm')
+                // Handle file upload (ktm)
+                $ktmPath = '-'; // Default value
                 $file = $request->file('members')[$i]['ktm'] ?? null;
                 if ($file) {
                     $ktmPath = $file->store('ktm', 'public');
-                } else {
+                }
+
+                // Special condition for lombaId == 3 (Voli Putra)
+                if ($lombaId == 3) {
+                    $nim = '-';
                     $ktmPath = '-';
                 }
+
 
                 // Example: Create new Member record in database
                 $mahasiswa = Mahasiswa::create([
@@ -156,14 +164,17 @@ class TeamController extends Controller
                     'ktm' => $ktmPath, // Save the path to the file in database
                 ]);
 
-                if ($lombaId == 3) { // Assuming 3 is the ID for Voli Putra
+
+                // If the competition is Voli Putra (lombaId == 3), set nim to the mahasiswa's id
+                if ($lombaId == 3) {
                     $mahasiswa->nim = $mahasiswa->id;
                     $mahasiswa->save();
                 }
 
+                // dd($mahasiswa->nim . " " . $team->id_team . " " . $buktiTFPath);
 
                 // Create connection between Mahasiswa and Team
-                MengikutiTeam::create([
+                $mengikuteam = MengikutiTeam::create([
                     'nim' => $mahasiswa->nim,
                     'id_team' => $team->id_team,
                     'tglDaftar' => now(),
@@ -179,6 +190,8 @@ class TeamController extends Controller
         } catch (QueryException $e) {
             // Rollback transaction on error
             DB::rollback();
+
+            // dd($e);
             // Handle specific SQL errors (e.g., unique constraint violation)
             $errorCode = $e->errorInfo[1];
             $errorMessage = $e->errorInfo[2];
@@ -192,7 +205,7 @@ class TeamController extends Controller
         } catch (\Exception $e) {
             // Rollback transaction on general error
             DB::rollback();
-            dd($e);
+            // dd($e);
 
             // Log the exception or handle it appropriately
             return back()->withErrors(['error' => 'Failed to process team input data.']);
