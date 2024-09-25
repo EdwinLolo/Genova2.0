@@ -165,8 +165,8 @@ class TeamController extends Controller
                 ]);
 
 
-                // If the competition is Voli Putra (lombaId == 3), set nim to the mahasiswa's id
-                if ($lombaId == 3) {
+                // If the competition is Voli Putra (lombaId == 3) || $lombaId == 4, set nim to the mahasiswa's id
+                if ($lombaId == 3 || $lombaId == 4) {
                     $mahasiswa->nim = $mahasiswa->id;
                     $mahasiswa->save();
                 }
