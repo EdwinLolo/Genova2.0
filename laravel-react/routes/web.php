@@ -85,10 +85,10 @@ Route::middleware(['web'])->group(function () {
 
 Route::prefix('/rangkaian/ulympic')->group(function () {
     Route::get('/', [UlympicController::class, 'index']);
-    Route::get('/badminton', [UlympicController::class, 'badminton']);
+    // Route::get('/badminton', [UlympicController::class, 'badminton']);
     Route::get('/basket', [UlympicController::class, 'basket']);
     Route::get('/voli', [UlympicController::class, 'voli']);
-    Route::get('/futsal', [UlympicController::class, 'futsal']);
+    // Route::get('/futsal', [UlympicController::class, 'futsal']);
 });
 
 Route::get('/rangkaian/unify/buyticket', function () {
