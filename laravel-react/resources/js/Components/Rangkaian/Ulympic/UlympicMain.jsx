@@ -155,7 +155,7 @@ function UlympicMain() {
 
                                             <div className="card-front__bt">
                                                 <p className="card-front__text-view card-front__text-view--ski">
-                                                    Daftar!
+                                                    Closed
                                                 </p>
                                             </div>
                                         </div>
@@ -186,12 +186,12 @@ function UlympicMain() {
                                             terkuatmu! Ayo daftar dalam Ulympic
                                             sekarang!
                                         </p>
-                                        <a
+                                        {/* <a
                                             href="/rangkaian/ulympic/badminton"
                                             className="inside-page__btn inside-page__btn--ski"
                                         >
                                             Registrasi
-                                        </a>
+                                        </a> */}
                                     </div>
                                 </div>
                             </div>
@@ -234,7 +234,7 @@ function UlympicMain() {
 
                                             <div className="card-front__bt">
                                                 <p className="card-front__text-view card-front__text-view--beach">
-                                                    Daftar!
+                                                    Closed
                                                 </p>
                                             </div>
                                         </div>
@@ -263,12 +263,12 @@ function UlympicMain() {
                                             Daftarkan timmu dalam Ulympic dan
                                             tunjukkan skill kalian!
                                         </p>
-                                        <a
+                                        {/* <a
                                             href="/rangkaian/ulympic/futsal"
                                             className="inside-page__btn inside-page__btn--beach"
                                         >
                                             Registrasi
-                                        </a>
+                                        </a> */}
                                     </div>
                                 </div>
                             </div>
@@ -475,7 +475,7 @@ function UlympicMain() {
 
                                     <div className="card-front__bt">
                                         <p className="card-front__text-view card-front__text-view--ski">
-                                            Daftar!
+                                            Closed
                                         </p>
                                     </div>
                                 </div>
@@ -505,13 +505,13 @@ function UlympicMain() {
                                     Raih kemenangan dengan smash terkuatmu! Ayo
                                     daftar dalam Ulympic sekarang!
                                 </p>
-                                <a
+                                {/* <a
                                     href="/rangkaian/ulympic/badminton"
                                     className="inside-page__btn inside-page__btn--ski"
                                     target="_blank"
                                 >
                                     Registrasi
-                                </a>
+                                </a> */}
                             </div>
                         </div>
                     </div>
@@ -554,7 +554,7 @@ function UlympicMain() {
 
                                     <div className="card-front__bt">
                                         <p className="card-front__text-view card-front__text-view--beach">
-                                            Daftar!
+                                            Closed
                                         </p>
                                     </div>
                                 </div>
@@ -583,13 +583,13 @@ function UlympicMain() {
                                     Daftarkan timmu dalam Ulympic dan tunjukkan
                                     skill kalian!
                                 </p>
-                                <a
+                                {/* <a
                                     href="/rangkaian/ulympic/futsal"
                                     className="inside-page__btn inside-page__btn--beach"
                                     target="_blank"
                                 >
                                     Registrasi
-                                </a>
+                                </a> */}
                             </div>
                         </div>
                     </div>
