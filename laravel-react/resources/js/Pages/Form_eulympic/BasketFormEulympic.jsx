@@ -554,6 +554,9 @@ function BasketFormEulympic({ lombas, captcha }) {
                                                 ? "500.000"
                                                 : "850.000"}
                                         </span>
+                                        <br />
+                                        Berita transfer: Nama tim_cabor yang
+                                        diikuti
                                     </label>
                                     <input
                                         type="file"

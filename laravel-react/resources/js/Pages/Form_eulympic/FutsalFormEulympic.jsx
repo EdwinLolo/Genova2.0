@@ -583,6 +583,9 @@ function FutsalFormEulympic({ lombas, captcha }) {
                                                 ? "550.000"
                                                 : "700.000"}
                                         </span>
+                                        <br />
+                                        Berita transfer: <br />
+                                        Nama tim_cabor yang diikuti
                                     </label>
                                     <input
                                         type="file"

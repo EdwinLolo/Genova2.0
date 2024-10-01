@@ -51,9 +51,9 @@ const InfoSection = ({
     };
 
     return (
-        <div className="bg-white bg-opacity-90 rounded-lg overflow-hidden mb-4 shadow-lg transition-all duration-300 ease-in-out transform hover:scale-102">
+        <div className="mb-4 overflow-hidden transition-all duration-300 ease-in-out transform bg-white rounded-lg shadow-lg bg-opacity-90 hover:scale-102">
             <button
-                className="w-full p-4 md:p-5 text-left font-bold flex justify-between items-center text-base md:text-lg"
+                className="flex items-center justify-between w-full p-4 text-base font-bold text-left md:p-5 md:text-lg"
                 onClick={handleClick}
             >
                 <span className="flex items-center text-blue-600">
@@ -63,7 +63,7 @@ const InfoSection = ({
                         <img
                             src={`data:image/svg+xml;charset=UTF-8,${exclamationMarkSvg}`}
                             alt="! "
-                            className="ml-2 w-5 h-5"
+                            className="w-5 h-5 ml-2"
                         />
                     )}
                 </span>
@@ -85,7 +85,7 @@ const InfoSection = ({
                 } `}
             >
                 <div
-                    className="p-4 md:p-5 bg-gray-50 text-gray-700 leading-relaxed text-sm md:text-base"
+                    className="p-4 text-sm leading-relaxed text-gray-700 md:p-5 bg-gray-50 md:text-base"
                     dangerouslySetInnerHTML={{ __html: content }}
                 />
             </div>
@@ -95,7 +95,7 @@ const InfoSection = ({
 
 const Button = ({ children, onClick }) => (
     <button
-        className="bg-white text-black px-4 py-2 md:px-6 md:py-3 rounded-lg w-full md:w-auto hover:bg-gray-200 font-semibold shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-200 text-sm md:text-base"
+        className="w-full px-4 py-2 text-sm font-semibold text-black transition-all duration-200 transform bg-white rounded-lg shadow-md md:px-6 md:py-3 md:w-auto hover:bg-gray-200 hover:shadow-lg hover:-translate-y-1 md:text-base"
         onClick={onClick}
     >
         {children}
@@ -250,7 +250,7 @@ function VoliFormEulympic({ lombas, captcha }) {
                 VOLLEYBALL
             </h1>
 
-            <div className="mb-4 md:mb-6 space-y-2 md:space-y-3">
+            <div className="mb-4 space-y-2 md:mb-6 md:space-y-3">
                 <EventInfoBox
                     icon={CalendarDays}
                     text={`Internal: ${eventInfo.internal}`}
@@ -281,15 +281,15 @@ function VoliFormEulympic({ lombas, captcha }) {
             <Navbar />
             <div className="relative min-h-screen pt-40">
                 <div
-                    className="fixed inset-0 bg-no-repeat bg-cover bg-center hidden md:block"
+                    className="fixed inset-0 hidden bg-center bg-no-repeat bg-cover md:block"
                     style={{ backgroundImage: `url(${BgVoli})` }}
                 />
                 <div
-                    className="fixed inset-0 bg-no-repeat bg-cover bg-center md:hidden"
+                    className="fixed inset-0 bg-center bg-no-repeat bg-cover md:hidden"
                     style={{ backgroundImage: `url(${BgVoliMobile})` }}
                 />
-                <div className="relative z-10 min-h-screen flex flex-col items-center justify-start p-4 md:p-6 overflow-y-auto">
-                    <div className="w-full max-w-5xl space-y-4 md:space-y-6 mb-6 md:mb-10">
+                <div className="relative z-10 flex flex-col items-center justify-start min-h-screen p-4 overflow-y-auto md:p-6">
+                    <div className="w-full max-w-5xl mb-6 space-y-4 md:space-y-6 md:mb-10">
                         <InfoSection
                             id="tujuan"
                             icon={Info}
@@ -358,7 +358,7 @@ function VoliFormEulympic({ lombas, captcha }) {
                         />
                     </div>
                     <div
-                        className="hidden md:flex bg-no-repeat bg-cover bg-center w-full max-w-5xl aspect-video items-center justify-center p-6 md:p-8 mb-6 md:mb-10"
+                        className="items-center justify-center hidden w-full max-w-5xl p-6 mb-6 bg-center bg-no-repeat bg-cover md:flex aspect-video md:p-8 md:mb-10"
                         style={{ backgroundImage: `url(${boxPc})` }}
                     >
                         <MainContent isMobile={false} />
@@ -371,7 +371,7 @@ function VoliFormEulympic({ lombas, captcha }) {
                     </div>
 
                     {selectedLomba && (
-                        <div className="w-full max-w-4xl p-8 bg-white rounded-lg shadow-lg mt-6">
+                        <div className="w-full max-w-4xl p-8 mt-6 bg-white rounded-lg shadow-lg">
                             <div className="mb-4 text-2xl font-bold text-center text-gray-700">
                                 {selectedLomba.namaLomba}
                             </div>
@@ -533,7 +533,14 @@ function VoliFormEulympic({ lombas, captcha }) {
                                         htmlFor="buktiTf"
                                         className="block text-sm font-medium text-gray-700"
                                     >
-                                        Bukti Transfer:
+                                        Bukti Transfer: <br />
+                                        Blu BCA/BCA Digital 005951295203 a.n
+                                        Petris Glaudya Liuwanda. <br />
+                                        <span className="text-red-500">
+                                            Nominal: Rp. 500.000 <br />
+                                        </span>
+                                        Berita transfer: <br />
+                                        Nama tim_cabor yang diikuti
                                     </label>
                                     <input
                                         type="file"
