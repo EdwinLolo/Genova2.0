@@ -552,7 +552,7 @@ function BasketFormEulympic({ lombas, captcha }) {
                                             Nominal: Rp.
                                             {isInternal === "true"
                                                 ? "500.000"
-                                                : "1.000.000"}
+                                                : "850.000"}
                                         </span>
                                     </label>
                                     <input
