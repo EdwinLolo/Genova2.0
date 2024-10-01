@@ -272,11 +272,15 @@ function FutsalFormEulympic({ lombas, captcha }) {
                     isMobile ? "space-y-3" : "flex justify-center space-x-4"
                 }`}
             >
-                {lombas.map((lomba, index) => (
-                    <Button key={index} onClick={() => handleButton(lomba)}>
-                        {lomba.namaLomba}
-                    </Button>
-                ))}
+                {lombas.map((lomba, index) =>
+                    lomba.namaLomba === "Futsal Internal" ? (
+                        <></>
+                    ) : (
+                        <Button key={index} onClick={() => handleButton(lomba)}>
+                            {lomba.namaLomba}
+                        </Button>
+                    )
+                )}
             </div>
         </div>
     );
@@ -455,7 +459,7 @@ function FutsalFormEulympic({ lombas, captcha }) {
                                                                 e.target.value
                                                             )
                                                         }
-                                                        required={index < 8}
+                                                        required={index < 2}
                                                         className="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                                                     />
                                                 </div>
@@ -474,7 +478,7 @@ function FutsalFormEulympic({ lombas, captcha }) {
                                                                 e.target.value
                                                             )
                                                         }
-                                                        required={index < 8}
+                                                        required={index < 2}
                                                         className="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                                                     />
                                                 </div>
@@ -493,7 +497,7 @@ function FutsalFormEulympic({ lombas, captcha }) {
                                                                 e.target.value
                                                             )
                                                         }
-                                                        required={index < 8}
+                                                        required={index < 2}
                                                         className="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                                                     />
                                                 </div>
@@ -512,7 +516,7 @@ function FutsalFormEulympic({ lombas, captcha }) {
                                                                     .files[0]
                                                             )
                                                         }
-                                                        required={index < 8}
+                                                        required={index < 2}
                                                         className="sm:text-sm"
                                                     />
                                                 </div>
