@@ -320,8 +320,8 @@ function FutsalFormEulympic({ lombas, captcha }) {
     </ol>
     <p><strong>Jumlah Pemain:</strong></p>
     <ol>
-        <li><strong>10 pemain</strong></li>
-        <li>Minimal mendaftarkan <strong>8 pemain</strong> tiap tim</li>
+        <li><strong>10 pemain, 1 pelatih dan 1 official</strong></li>
+        <li>Minimal mendaftarkan <strong>10 pemain</strong> tiap tim</li>
         <li>Setiap tim boleh memiliki maksimal <strong>1 pelatih dan 1 official</strong></li>
         <li><strong>Official/Pelatih</strong> wajib menggunakan pakaian sesuai dengan peraturan kampus beserta <strong>KTM</strong></li>
         <li><strong>Pemain/Official dan Pelatih</strong> harus memiliki nama yang sama sesuai yang terdaftar dan akan di <strong>check ulang</strong> pada saat pendaftaran ulang</li>
@@ -459,7 +459,7 @@ function FutsalFormEulympic({ lombas, captcha }) {
                                                                 e.target.value
                                                             )
                                                         }
-                                                        required={index < 8}
+                                                        required={index < 10}
                                                         className="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                                                     />
                                                 </div>
@@ -478,7 +478,7 @@ function FutsalFormEulympic({ lombas, captcha }) {
                                                                 e.target.value
                                                             )
                                                         }
-                                                        required={index < 8}
+                                                        required={index < 10}
                                                         className="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                                                     />
                                                 </div>
@@ -497,7 +497,7 @@ function FutsalFormEulympic({ lombas, captcha }) {
                                                                 e.target.value
                                                             )
                                                         }
-                                                        required={index < 8}
+                                                        required={index < 10}
                                                         className="block w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                                                     />
                                                 </div>
@@ -516,7 +516,7 @@ function FutsalFormEulympic({ lombas, captcha }) {
                                                                     .files[0]
                                                             )
                                                         }
-                                                        required={index < 8}
+                                                        required={index < 10}
                                                         className="sm:text-sm"
                                                     />
                                                 </div>
