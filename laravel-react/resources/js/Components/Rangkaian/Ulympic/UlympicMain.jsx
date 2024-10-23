@@ -233,8 +233,8 @@ function UlympicMain() {
                                             </div>
 
                                             <div className="card-front__bt">
-                                                <p className="card-front__text-view card-front__text-view--beach">
-                                                    Daftar!
+                                                <p className="card-front__text-view card-front__text-view--ski">
+                                                    Closed
                                                 </p>
                                             </div>
                                         </div>
@@ -263,12 +263,6 @@ function UlympicMain() {
                                             Daftarkan timmu dalam Ulympic dan
                                             tunjukkan skill kalian!
                                         </p>
-                                        <a
-                                            href="/rangkaian/ulympic/futsal"
-                                            className="inside-page__btn inside-page__btn--beach"
-                                        >
-                                            Registrasi
-                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -553,8 +547,8 @@ function UlympicMain() {
                                     </div>
 
                                     <div className="card-front__bt">
-                                        <p className="card-front__text-view card-front__text-view--beach">
-                                            Daftar!
+                                        <p className="card-front__text-view card-front__text-view--ski">
+                                            Closed
                                         </p>
                                     </div>
                                 </div>
@@ -583,13 +577,6 @@ function UlympicMain() {
                                     Daftarkan timmu dalam Ulympic dan tunjukkan
                                     skill kalian!
                                 </p>
-                                <a
-                                    href="/rangkaian/ulympic/futsal"
-                                    className="inside-page__btn inside-page__btn--beach"
-                                    target="_blank"
-                                >
-                                    Registrasi
-                                </a>
                             </div>
                         </div>
                     </div>
