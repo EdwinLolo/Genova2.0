@@ -267,11 +267,15 @@ function VoliFormEulympic({ lombas, captcha }) {
                     isMobile ? "space-y-3" : "flex justify-center space-x-4"
                 }`}
             >
-                {lombas.map((lomba, index) => (
-                    <Button key={index} onClick={() => handleButton(lomba)}>
-                        {lomba.namaLomba}
-                    </Button>
-                ))}
+                {lombas.map((lomba, index) =>
+                    lomba.namaLomba === "Voli Putra" ? (
+                        <></>
+                    ) : (
+                        <Button key={index} onClick={() => handleButton(lomba)}>
+                            {lomba.namaLomba}
+                        </Button>
+                    )
+                )}
             </div>
         </div>
     );
