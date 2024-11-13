@@ -91,7 +91,7 @@ function UlympicMain() {
 
                                             <div className="card-front__bt">
                                                 <p className="card-front__text-view card-front__text-view--city">
-                                                    Daftar!
+                                                    Closed
                                                 </p>
                                             </div>
                                         </div>
@@ -121,12 +121,12 @@ function UlympicMain() {
                                             Ayo tunjukkan skill terbaikmu di
                                             Ulympic!
                                         </p>
-                                        <a
+                                        {/* <a
                                             href="/rangkaian/ulympic/basket"
                                             className="inside-page__btn inside-page__btn--city"
                                         >
                                             Registrasi
-                                        </a>
+                                        </a> */}
                                     </div>
                                 </div>
                             </div>
@@ -291,7 +291,7 @@ function UlympicMain() {
 
                                             <div className="card-front__bt">
                                                 <p className="card-front__text-view card-front__text-view--camping">
-                                                    Daftar!
+                                                    Closed
                                                 </p>
                                             </div>
                                         </div>
@@ -320,12 +320,12 @@ function UlympicMain() {
                                             Daftar dan spike bola menuju juara
                                             di Ulympic!
                                         </p>
-                                        <a
+                                        {/* <a
                                             href="/rangkaian/ulympic/voli"
                                             className="inside-page__btn inside-page__btn--camping"
                                         >
                                             Registrasi
-                                        </a>
+                                        </a> */}
                                     </div>
                                 </div>
                             </div>
@@ -405,7 +405,7 @@ function UlympicMain() {
 
                                     <div className="card-front__bt">
                                         <p className="card-front__text-view card-front__text-view--city">
-                                            Daftar!
+                                            Closed
                                         </p>
                                     </div>
                                 </div>
@@ -434,13 +434,13 @@ function UlympicMain() {
                                     Sudah siap untuk dunk di lapangan? Ayo
                                     tunjukkan skill terbaikmu di Ulympic!
                                 </p>
-                                <a
+                                {/* <a
                                     href="/rangkaian/ulympic/basket"
                                     className="inside-page__btn inside-page__btn--city"
                                     target="_blank"
                                 >
                                     Registrasi
-                                </a>
+                                </a> */}
                             </div>
                         </div>
                     </div>
@@ -605,7 +605,7 @@ function UlympicMain() {
 
                                     <div className="card-front__bt">
                                         <p className="card-front__text-view card-front__text-view--camping">
-                                            Daftar!
+                                            Closed
                                         </p>
                                     </div>
                                 </div>
@@ -634,13 +634,13 @@ function UlympicMain() {
                                     Daftar dan spike bola menuju juara di
                                     Ulympic!
                                 </p>
-                                <a
+                                {/* <a
                                     href="/rangkaian/ulympic/voli"
                                     className="inside-page__btn inside-page__btn--camping"
                                     target="_blank"
                                 >
                                     Registrasi
-                                </a>
+                                </a> */}
                             </div>
                         </div>
                     </div>

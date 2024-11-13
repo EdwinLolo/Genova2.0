@@ -72,7 +72,7 @@ Route::prefix('/admin')->middleware([AuthenticateAdmin::class])->group(function 
     Route::get('/ucare/detail/{id}', [UcareController::class, 'details']);
 });
 
-Route::post('/team/input/data', [TeamController::class, 'regist']);
+// Route::post('/team/input/data', [TeamController::class, 'regist']);
 Route::post('/unify', [UnifyController::class, 'register']);
 Route::get('/thankyou', [UnifyController::class, 'invoice']);
 
@@ -86,8 +86,8 @@ Route::middleware(['web'])->group(function () {
 Route::prefix('/rangkaian/ulympic')->group(function () {
     Route::get('/', [UlympicController::class, 'index']);
     // Route::get('/badminton', [UlympicController::class, 'badminton']);
-    Route::get('/basket', [UlympicController::class, 'basket']);
-    Route::get('/voli', [UlympicController::class, 'voli']);
+    // Route::get('/basket', [UlympicController::class, 'basket']);
+    // Route::get('/voli', [UlympicController::class, 'voli']);
     // Route::get('/futsal', [UlympicController::class, 'futsal']);
 });
 
